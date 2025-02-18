@@ -1,0 +1,62 @@
+<div class="modal-content">
+   <div class="modal-header">
+      <h2 class="modal-header-title">Haben Sie eine Frage?</h2>
+   </div>
+   <div class="logo">
+      <a href="/">
+         <img class="lazyload" data-src="/images/stencil/491x116/logo_green_1610551752__35233.original.png" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}" width="100">
+      </a>
+   </div>
+   <div class="modal-body">
+      <div id="contact_results"></div>
+      <div class="form-inner">
+         <div class="title-wrapper">
+             <h4 class="title">Senden Sie Ihre Frage direkt an den ofinto Experten</h4>
+             <div class="description">Wir antworten Ihnen innerhalb von 24 Stunden.</div>
+             <div class="questions">Bitte füllen Sie den folgenden Fragebogen aus:</div>
+         </div>
+         
+         <form class="form" id="contact_form">
+            <fieldset class="form-fieldset">
+               <div class="form-field">
+                  <label class="form-label">Name, Vorname</label>
+                  <input required="true" type="text" class="form-input" name="customer_name" value="{{customer.name}}">
+               </div>
+               <div class="form-field">
+                  <label class="form-label">E-Mail-Adresse</label>
+                  <input required="true" type="text" class="form-input" name="customer_email" value="{{customer.email}}">
+               </div>
+               <div class="form-field">
+                  <label class="form-label">Telefon-Nummer</label>
+                  <input required="true" type="text" class="form-input" name="customer_phone" value="{{customer.phone}}">
+               </div>
+               <div class="form-field form-field-1 form-field-radio">
+                  <label class="form-label">Thema:</label>
+                  <input class="form-radio" id="pricing-radio" type="radio" name="type_package" checked value="Pricing">
+                  <label class="form-label" for="pricing-radio">Preise</label>
+                  <input class="form-radio" id="answers-radio" type="radio" name="type_package" value="Answers">
+                  <label class="form-label" for="answers-radio">Produkt</label>
+                  <input class="form-radio" id="both-radio" type="radio" name="type_package" value="Pricing & Answers">
+                  <label class="form-label" for="both-radio">Anderes</label>
+               </div>
+               <div class="form-field">
+                  <label class="form-label" for="comment-area">Wie können wir Ihnen helfen?</label>
+                  <textarea name="message" cols="30" rows="6" class="form-input" id="comment-area" required="true"></textarea>
+               </div>
+               <div class="form-field">
+                  <label class="form-label label-last">Wie sollen wir Sie kontaktieren?</label>
+                  <input class="form-radio" id="phone-radio" type="radio" name="type_contact" checked value="Phone">
+                  <label class="form-label" for="phone-radio">Telefon</label>
+                  <input class="form-radio" id="email-radio" type="radio" name="type_contact" value="Email">
+                  <label class="form-label" for="email-radio">E-Mail</label>
+                  <input class="form-radio" id="both-radio-2" type="radio" name="type_contact" value="Phone & Email">
+                  <label class="form-label" for="both-radio-2">Beides</label>
+               </div>
+               <div class="form-actions">
+                 <button type="button" class="button button--primary button--large" id="ask-an-expert-button">Anfrage absenden</button>
+               </div>
+            </fieldset>
+         </form>
+      </div>
+   </div>
+</div>

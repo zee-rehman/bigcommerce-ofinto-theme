@@ -1,0 +1,34 @@
+<div class="form-field {{toLowerCase this.display_name}}" data-product-attribute="swatch">
+    <label class="form-label form-label--alternate form-label--inlineSmall">
+        {{this.display_name}}:
+        <span data-option-value></span>
+    </label>
+
+    {{#each this.values}}
+        <input class="form-radio" data-filter="-f-{{this.label}}" type="radio" name="attribute[{{../id}}]" value="{{id}}" id="attribute_swatch_{{../id}}_{{id}}" {{#if selected}}checked data-default{{/if}} {{#if ../required}}required{{/if}}>
+        <label class="form-option form-option-swatch{{#if pattern}} has-pattern{{/if}}{{#if data.[2]}} three-colors{{/if}}{{#if data.[1]}} two-colors{{/if}}" for="attribute_swatch_{{../id}}_{{id}}" data-product-attribute-value="{{id}}">
+            {{#if image}}
+                <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage image "swatch_option_size"}}');" data-img-src="{{getImage image 'core-swatch'}}"></span>
+            {{/if}}
+            {{#if data.[2]}}
+                <span class='form-option-variant form-option-variant--color {{this.label}} three-colors' data-color="#{{data.[0]}}" title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
+                <span class='form-option-variant form-option-variant--color {{this.label}} three-colors' data-color-1="#{{data.[1]}}" title="{{this.label}}" style="background-color: #{{data.[1]}}"></span>
+                <span class='form-option-variant form-option-variant--color {{this.label}} three-colors' data-color-2="#{{data.[2]}}" title="{{this.label}}" style="background-color: #{{data.[2]}}"></span>
+            {{else}}
+                {{#if data.[1]}}
+                    <span class='form-option-variant form-option-variant--color {{this.label}} two-colors' data-color="#{{data.[0]}}" title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
+                    <span class='form-option-variant form-option-variant--color {{this.label}} two-colors' data-color-1="#{{data.[1]}}" title="{{this.label}}" style="background-color: #{{data.[1]}}"></span>
+                {{else}}
+                    {{#if data.[0]}}
+                        <span class='form-option-variant form-option-variant--color {{this.label}} one-color' data-color="#{{data.[0]}}" title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+            {{#if pattern}}
+                <span class="form-option-expanded">
+                    <span class="form-option-image" style="background-image: url('{{getImage image 'core-swatch'}}');"></span>
+                </span>
+            {{/if}}
+        </label>
+    {{/each}}
+</div>

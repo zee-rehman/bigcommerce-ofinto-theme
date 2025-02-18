@@ -1,0 +1,15 @@
+node_modules/
+.stencil
+config.stencil.json
+secrets.stencil.json
+switch-stencil-secrets.sh
+assets/css-artifacts
+assets/js/bundle.js
+assets/dist
+vendor/bundle
+.bundle
+*.js.map
+*.zip
+.idea/
+__azurite_*.json
+**/.DS_Store

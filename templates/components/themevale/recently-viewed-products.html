@@ -1,0 +1,47 @@
+{{#if theme_settings.enable_recently_viewed_products }}
+<script type="text/javascript">
+    window.RecentlyViewedProducts({{jsContext}});
+</script>
+<section class="recently-viewed-products-sidebar">
+    <div class="lst-seen-widget">
+        <div class="collapse-icon">
+            <svg class="icon"><use xlink:href="#icon-double-arrow-right"></use></svg>
+        </div>
+        {{#if theme_settings.recently_viewed_products_cart }}
+        <div class="top">
+            <div role="link" class="cart-icon with-products" data-cart-preview>
+                <svg class="icon"><use xlink:href="#icon-cart" /></svg>
+                <span class="cartCount cart-badge countPill cart-quantity"></span>
+            </div>
+        </div>
+        {{/if}}
+        <div class="in-content">
+            {{#if theme_settings.recently_viewed_products_title '!=' ''}}
+                <h3 class="title text-center">{{theme_settings.recently_viewed_products_title}}</h3>
+            {{/if}}
+            <div class="products-grid" id="recently-viewed-products-list">
+                <div class="no-products text-center" style="flex-direction: column;display:none;">
+                    <svg class="icon"><use xlink:href="#icon-nopicture"/></svg>
+                     <span class="text">Es gibt leider keine Produkte.</span>
+                </div>
+            </div>
+            <div id="recently-viewed-products-list-tmp" style="display: none !important;"></div>
+        </div>
+        {{#if theme_settings.enable_back_to_top }}
+            <div class="backtoTop bottom">
+                <span class="icon">&uarr;</span>
+                <span class="text">Hoch</span>
+            </div>
+        {{/if}}
+    </div>
+    
+    <div class="wrap-icons">
+        <div class="expand"><svg class="icon"><use xlink:href="#icon-expand"/></svg></div>
+        {{#if theme_settings.enable_back_to_top }}
+            <div class="backtoTop">
+                <span class="icon">&uarr;</span>
+            </div>
+        {{/if}}
+    </div>
+</section>
+{{/if}}

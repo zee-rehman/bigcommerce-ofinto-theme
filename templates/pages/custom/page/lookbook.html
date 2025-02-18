@@ -1,0 +1,43 @@
+{{#partial "page"}}
+<main class="page themevale_lookbook {{#if theme_settings.hide_page_heading '==' true}} no-heading{{/if}}">
+    <div class="container container-small">
+        {{#unless theme_settings.hide_page_heading }}
+            <div class="themevale-heading">
+                <h1 class="page-heading">{{ page.title }}</h1>
+             </div>
+        {{/unless}}
+       
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+        <div class="page-content">
+            <div class="lookbook">
+                {{#replace '%%Syndicate%%' page.content}}
+                    {{> components/page/rss_feed}}
+                {{else}}
+                    {{{page.content}}}
+                {{/replace}}
+
+                <div class="lookbook-popup"></div>
+                <div class="lookbook-share text-right"> 
+                    {{> components/common/share}}
+                </div>
+                {{#if theme_settings.lookbook-btn-text '!=' ''}}
+                    <div class="lookbook-bottom">
+                        <a href="{{theme_settings.lookbook-btn-link}}" class="button button--primary btn-lookbook">{{theme_settings.lookbook-btn-text}}</a>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</main>
+{{/partial}}
+
+{{> layout/base}}

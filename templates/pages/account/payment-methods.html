@@ -1,0 +1,20 @@
+{{#partial "page"}}
+<main class="page account-payment-method account">
+    <div class="container container-small">
+    	<div class="themevale-heading">
+        	<h1 class="page-heading">{{lang 'account.payment_methods.heading' }}</h1>
+        </div>
+	    {{> components/account/navigation account_page='payment_methods'}}
+
+        <div class="page-content">
+            <div class="account">
+		        <div class="account-body">
+		            {{> components/account/payment-methods-list }}
+		        </div>
+		    </div>
+		    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+		</div>
+	</div>
+</main>
+{{/partial}}
+{{> layout/base}}

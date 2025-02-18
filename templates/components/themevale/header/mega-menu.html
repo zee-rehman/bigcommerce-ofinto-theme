@@ -1,0 +1,209 @@
+<script>
+var themevaleMenu = new window.themevaleMenu();
+
+function megaMenu() {
+    if($(window).width() > 1024) {
+        $(".navPages-list > li").mouseover(function() {
+            var numberItem = $(this).index() + 1;
+            if (!$(this).hasClass('hasMegamenu')) {
+                megaMenuItem(numberItem);
+            }
+        });
+    } else {
+        $(".navPages-list > li > .navPages-action").on('click', function() {
+            var numberItem = $(this).parent().index() + 1;
+
+            if (!$(this).parent().hasClass('hasMegamenu')) {
+                megaMenuItem(numberItem);
+
+                if ($(this).parent().find('.colLeftArea .colLeft').length) {
+                    var colLeft = $(this).parent().find('.colLeftArea .colLeft').html();
+                    $(this).parent().find('.cateArea >.navPage-subMenu-list >.navPage-subMenu-title').after(colLeft);
+                    $(this).parent().find('.colLeftArea').remove();
+                    
+                }
+            }
+        });
+    }
+};
+
+function megaMenuItem(numberItem) {
+    /* Megamenu Item Settings */
+    var mega_menu_1_style1_item_number = parseInt({{theme_settings.mega_menu_1_style1_item_number}});
+    var mega_menu_2_style1_item_number = parseInt({{theme_settings.mega_menu_2_style1_item_number}});
+    var mega_menu_1_style2_item_number  = parseInt({{theme_settings.mega_menu_1_style2_item_number}});
+    var mega_menu_2_style2_item_number = parseInt({{theme_settings.mega_menu_2_style2_item_number}});
+
+    if (mega_menu_1_style1_item_number == numberItem) {
+        // Megamenu 1 - Style #1
+        themevaleMenu.menuItem(mega_menu_1_style1_item_number).themevaleMegaMenu({
+            disabled: {{theme_settings.disable-mega-menu-1-style1}},
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '100%',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '{{theme_settings.mega-menu-style1-imageAreaWidth}}',    // width of images area
+            cateAreaWidth: '{{theme_settings.mega-menu-style1-cateAreaWidth}}',     // width of categories area
+            cateColumns: {{theme_settings.mega-menu-style1-cateColumns}},           // columns of categories area - max 5 columns
+            productId: '{{theme_settings.mega-menu-1-style1-products-id}}',
+            brandCol: false,
+            showColLeft: false,
+            // contents for Left column (HTML supported)
+            images: '<div class="imgList">\
+                        <div class="imgItem imgLeft{{#if theme_settings.mega-menu-1-style1-image '!=' ''}} has-imgRight{{/if}}">\
+                            <div class="featured-product">\
+                                <h2 class="imgHeading">{{theme_settings.mega-menu-1-style1-img-heading}}</h2>\
+                                <div class="featuredProductCarousel">\
+                                </div>\
+                            </div>\
+                        </div>\
+                        <div class="imgItem imgRight{{#if theme_settings.mega-menu-1-style1-image '!=' ''}} show{{/if}}">\
+                            <div class="menu-img-container">\
+                               <a href="#"><img class="card-image lazyload" src="" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega-menu-1-style1-image}}"/></a>\
+                            </div>\
+                       </div>\
+                   </div>'
+        });
+    } else if (mega_menu_2_style1_item_number == numberItem) {
+        // Megamenu 2 - Style #1
+        themevaleMenu.menuItem(mega_menu_2_style1_item_number).themevaleMegaMenu({
+            disabled: {{theme_settings.disable-mega-menu-2-style1}},
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '100%',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '{{theme_settings.mega-menu-style1-imageAreaWidth}}',    // width of images area
+            cateAreaWidth: '{{theme_settings.mega-menu-style1-cateAreaWidth}}',     // width of categories area
+            cateColumns: {{theme_settings.mega-menu-style1-cateColumns}},           // columns of categories area - max 5 columns
+            productId: '{{theme_settings.mega-menu-2-style1-products-id}}',
+            brandCol: false,
+            showColLeft: false,
+            // contents for Left column (HTML supported)
+            images: '<div class="imgList">\
+                        <div class="imgItem imgLeft{{#if theme_settings.mega-menu-2-style1-image '!=' ''}} has-imgRight{{/if}}">\
+                            <div class="featured-product">\
+                                <h2 class="imgHeading">{{theme_settings.mega-menu-2-style1-img-heading}}</h2>\
+                                <div class="featuredProductCarousel">\
+                                </div>\
+                            </div>\
+                        </div>\
+                        <div class="imgItem imgRight{{#if theme_settings.mega-menu-2-style1-image '!=' ''}} show{{/if}}">\
+                            <div class="menu-img-container">\
+                               <a href="#"><img class="card-image lazyload" src="" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega-menu-2-style1-image}}"/></a>\
+                            </div>\
+                       </div>\
+                   </div>'
+        });
+    } else if (mega_menu_1_style2_item_number == numberItem) {
+        // Megamenu 1 - Style #2
+        themevaleMenu.menuItem(mega_menu_1_style2_item_number).themevaleMegaMenu({
+            disabled: {{theme_settings.disable-mega-menu-1-style2}},
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '100%',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '{{theme_settings.mega-menu-style2-imageAreaWidth}}',    // width of images area
+            cateAreaWidth: '{{theme_settings.mega-menu-style2-cateAreaWidth}}',     // width of categories area
+            cateColumns: {{theme_settings.mega-menu-style2-cateColumns}},           // columns of categories area - max 5 columns
+            brandCol: {{theme_settings.enable-mega-menu-style2-brand-col}},
+            productId: '{{theme_settings.mega-menu-1-style2-products-id}}',
+            showColLeft: {{theme_settings.enable-mega-menu-style2-col-left}},
+            // contents for Left column (HTML supported)
+            colLeft:    '<ul class="colLeft">\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-1}}">{{theme_settings.mega-menu-style2-col-left-text-1}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-2}}">{{theme_settings.mega-menu-style2-col-left-text-2}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-3}}">{{theme_settings.mega-menu-style2-col-left-text-3}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-4}}">{{theme_settings.mega-menu-style2-col-left-text-4}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-5}}">{{theme_settings.mega-menu-style2-col-left-text-5}}</a></li>\
+                        </ul>',
+
+            // contents for images column (HTML supported)
+            images: '<div class="imgList">\
+                        <div class="imgItem imgLeft{{#if theme_settings.mega-menu-1-style2-image '!=' ''}} has-imgRight{{/if}}">\
+                            <div class="featured-product">\
+                                <h2 class="imgHeading">{{theme_settings.mega-menu-1-style2-img-heading}}</h2>\
+                                <div class="featuredProductCarousel">\
+                                </div>\
+                            </div>\
+                        </div>\
+                        <div class="imgItem imgRight{{#if theme_settings.mega-menu-1-style2-image '!=' ''}} show{{/if}}">\
+                            <div class="menu-img-container">\
+                               <a href="#"><img class="card-image lazyload" src="" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega-menu-1-style2-image}}"/></a>\
+                            </div>\
+                       </div>\
+                   </div>'
+        });
+    } else if (mega_menu_2_style2_item_number == numberItem) {
+        // Megamenu 2 - Style #2
+        themevaleMenu.menuItem(mega_menu_2_style2_item_number).themevaleMegaMenu({
+            disabled: {{theme_settings.disable-mega-menu-2-style2}},
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '100%',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '{{theme_settings.mega-menu-style2-imageAreaWidth}}',    // width of images area
+            cateAreaWidth: '{{theme_settings.mega-menu-style2-cateAreaWidth}}',     // width of categories area
+            cateColumns: {{theme_settings.mega-menu-style2-cateColumns}},           // columns of categories area - max 5 columns
+            brandCol: {{theme_settings.enable-mega-menu-style2-brand-col}},
+            productId: '{{theme_settings.mega-menu-2-style2-products-id}}',
+            showColLeft: {{theme_settings.enable-mega-menu-style2-col-left}},
+            // contents for Left column (HTML supported)
+            colLeft:    '<ul class="colLeft">\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-1}}">{{theme_settings.mega-menu-style2-col-left-text-1}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-2}}">{{theme_settings.mega-menu-style2-col-left-text-2}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-3}}">{{theme_settings.mega-menu-style2-col-left-text-3}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-4}}">{{theme_settings.mega-menu-style2-col-left-text-4}}</a></li>\
+                            <li class="navPage-megamenu"><a href="{{theme_settings.mega-menu-style2-col-left-link-5}}">{{theme_settings.mega-menu-style2-col-left-text-5}}</a></li>\
+                        </ul>',
+
+            // contents for images column (HTML supported)
+            images: '<div class="imgList">\
+                        <div class="imgItem imgLeft{{#if theme_settings.mega-menu-2-style2-image '!=' ''}} has-imgRight{{/if}}">\
+                            <div class="featured-product">\
+                                <h2 class="imgHeading">{{theme_settings.mega-menu-2-style2-img-heading}}</h2>\
+                                <div class="featuredProductCarousel">\
+                                </div>\
+                            </div>\
+                        </div>\
+                        <div class="imgItem imgRight{{#if theme_settings.mega-menu-2-style2-image '!=' ''}} show{{/if}}">\
+                            <div class="menu-img-container">\
+                               <a href="#"><img class="card-image lazyload" src="" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega-menu-2-style2-image}}"/></a>\
+                            </div>\
+                       </div>\
+                   </div>'
+        });
+    } else {
+        return;
+    }
+}
+
+function megaMenuLabel() {
+    /* Megamenu Settings */
+    var megamenu_newlabel = parseInt({{theme_settings.megamenu_newlabel}});
+    var megamenu_hotlabel = parseInt({{theme_settings.megamenu_hotlabel}});
+    var megamenu_salelabel = parseInt({{theme_settings.megamenu_salelabel}});
+
+    if ({{theme_settings.megamenu_newlabel}}) {
+        themevaleMenu.menuItem(megamenu_newlabel).themevaleMegaMenu({
+            label: 'new',                   // Type of Menu Lablel: sale, hot, new
+            disabled: true,
+        });
+    }
+    
+    if ({{theme_settings.megamenu_hotlabel}}) {
+        themevaleMenu.menuItem(megamenu_hotlabel).themevaleMegaMenu({
+            label: 'hot',                   // Type of Menu Lablel: sale, hot, new
+            disabled: true,
+        });
+    }
+
+    if ({{theme_settings.megamenu_salelabel}}) {
+        themevaleMenu.menuItem(megamenu_salelabel).themevaleMegaMenu({
+            label: 'sale',                   // Type of Menu Lablel: sale, hot, new
+            disabled: true,
+        });
+    }
+}
+
+megaMenuLabel();
+var megaMenu = megaMenu();
+
+window.onload = megaMenu;
+
+</script>

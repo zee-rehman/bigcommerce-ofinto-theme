@@ -1,0 +1,37 @@
+---
+blog:
+    posts:
+        limit: {{theme_settings.blog_posts_per_page}}
+        pages: {{theme_settings.blog_posts_pages}}
+        summary: {{theme_settings.blog_posts_summary}}
+products:
+    featured:
+        limit: {{theme_settings.sidebar_products_count}}
+    new:
+        limit: {{theme_settings.sidebar_products_count}}
+---
+{{#partial "page"}}
+<div class="page blog{{#if theme_settings.hide_blog_page_heading '==' true}} no-heading{{/if}}">
+    <div class="container">
+        {{#unless theme_settings.hide_blog_page_heading }}
+            <div class="themevale-heading">
+                <h1 class="page-heading">{{ blog.name }}</h1>
+            </div>
+        {{/unless}}
+        
+        <main class="page-content" id="blog-listing-container">
+            {{#each blog.posts}}
+                {{> components/blog/post post=this settings=../settings theme_settings=../theme_settings}}
+            {{/each}}
+            <div class="pagination-wrapper">
+                {{> components/common/paginator pagination.blog}}
+            </div>
+        </main>
+
+
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>     
+</div>
+
+{{/partial}}
+{{> layout/base}}

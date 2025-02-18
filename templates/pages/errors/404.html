@@ -1,0 +1,20 @@
+{{#partial "page"}}
+
+<main class="page">
+	<div class="container container-small">
+		<div class="themevale-heading">
+	        <h1 class="page-heading">{{lang 'page_not_found.page_heading'}}</h1>
+	    </div>
+	    <section class="page-content page-content--centered">
+	        <p class="u-textAlignCenter">
+	            {{lang 'page_not_found.message'}}
+	        </p>
+
+	        {{> components/common/search-box}}
+	    </section>
+	    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</main>
+
+{{/partial}}
+{{> layout/base}}

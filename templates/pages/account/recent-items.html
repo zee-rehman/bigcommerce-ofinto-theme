@@ -1,0 +1,25 @@
+{{#partial "page"}}
+<main class="page account-recent-items account{{#if theme_settings.themevale_homepage_layout_1}} homepage-layout-1{{else}} homepage-layout-2{{/if}}">
+    <div class="container container-small">
+    	<div class="themevale-heading">
+        	<h1 class="page-heading">{{lang 'account.recent_items.heading' }}</h1>
+        </div>
+        {{> components/account/navigation account_page='recent_items'}}
+        
+        <div class="page-content">
+			<div class="account">
+			    {{#unless customer.recently_viewed_products.items}}
+			        {{> components/common/alert-info (lang 'account.recent_items.no_items')}}
+			    {{/unless}}
+
+			    <form action="{{urls.compare}}" method="post">
+			        {{> components/products/grid products=customer.recently_viewed_products.items show_compare=customer.recently_viewed_products.show_compare}}
+			    </form>
+
+			</div>
+			{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+		</div>
+	</div>
+</main>
+{{/partial}}
+{{> layout/base}}

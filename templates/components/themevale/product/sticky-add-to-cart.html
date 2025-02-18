@@ -1,0 +1,127 @@
+<div id="sticky_addtocart" class="productView-details-options">
+	<div class="productView-details-options-wrapper">
+		<div class="container container-large">
+			<div class="item product-info">
+				<div class="product-wrapper">
+					<div class="product-image" data-image-gallery-main>
+						<img class="lazyload" data-src="{{getImage product.main_image 'productthumb_size' (cdn ../theme_settings.default_image_product)}}" data-main-image>
+					</div>
+					<div class="product-content">
+						<h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+						<div class="productView-price">
+							{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+								{{> components/products/price-product price=product.price schema_org=schema}}
+							{{else}}
+								{{> components/common/login-for-pricing}}
+							{{/or}}
+						</div>             
+					</div>
+				</div>
+			</div>
+			<div class="item count-down">
+				{{#each product.custom_fields}}
+					{{#if name '===' 'count-down'}}
+						<div class="productCountDown">
+							{{#if ../../theme_settings.countDownText '!=' ''}}
+								<span class="CountDownText">{{../../../theme_settings.countDownText}}</span>
+							{{/if}}
+							<div class="countDowntimer2 product-count-down" data-count-down2="{{{value}}}"></div>
+						</div>
+					{{/if}}
+				{{/each}}
+			</div>
+			<div class="item item-right">
+				
+					<form class="form form-popup product-main" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add-2>
+						<input type="hidden" name="action" value="add">
+						<input type="hidden" name="product_id" value="{{product.id}}"/>
+						{{#each product.customizations}}
+							{{{dynamicComponent 'components/products/customizations'}}}
+						{{/each}}
+						<div id="add-to-cart-wrapper" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+						{{#if theme_settings.show_product_quantity_box}}
+							<div class="form-field form-field--increments increments-product">
+								<label class="form-label form-label--alternate"
+									   for="qty[]">{{lang 'products.quantity'}}</label>
+									<div class="form-increment" data-quantity-change>
+										<button class="button button--icon" data-action="dec">
+											<span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+										</button>
+										<input class="form-input form-input--incrementTotal"
+										   id="qty[]"
+										   name="qty[]"
+										   type="tel"
+										   value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+										   data-quantity-min="{{product.min_purchase_quantity}}"
+										   data-quantity-max="{{product.max_purchase_quantity}}"
+										   min="1"
+										   pattern="[0-9]*"
+										   aria-live="polite">
+										<button class="button button--icon" data-action="inc">
+											<span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+										</button>
+									</div>
+							</div>
+						{{/if}}
+						{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+							<div class="form-action">
+								<div class="form-action-wrapper">
+									<input id="form-action-addToCart2" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary button--large themevale" type="button" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+								</div>
+	
+								{{#if product.options}}
+									<a href="javascript:void(0)" class="button button--primary button--large choose_options_add">
+										<span>{{lang 'products.choose_options'}}</span>
+									</a>
+								{{/if}}
+							</div>
+							 {{{snippet 'product_addtocart'}}}
+	
+						{{/or}}
+					</div>
+						{{#if product.options}}
+							<div class="pop-up-option">
+								<div class="container container-large">
+									<div class="data-product-name">
+										<h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+										<div class="productView-price">
+											{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+												{{> components/products/price price=product.price schema_org=schema}}
+											{{else}}
+												{{> components/common/login-for-pricing}}
+											{{/or}}
+										</div>
+									</div>
+									<div class="data-product-option" data-product-option-change-4>
+										{{assignVar 'to_hide' ' '}}
+										{{#each product.custom_fields}}
+											{{#if name '===' 'hide_option'}}
+												{{assignVar 'to_hide' value}}
+											{{/if}}
+										{{/each}}
+										{{#each product.options}}
+											{{#if display_name '===' (getVar 'to_hide')}}
+												<div style="display:none;visibility:hidden;">{{{dynamicComponent 'components/themevale/options-2'}}}</div>
+											{{else}}
+												{{{dynamicComponent 'components/themevale/options-2'}}}
+											{{/if}}
+										{{/each}}
+										<a href="javascript:void(0)" class="close">✕</a>
+									</div>
+									<div class="alertBox productAttributes-message" style="display:none">
+										{{inject 'ProductVariantSoldOutMessage' (lang 'products.product_variant_sold_out')}}
+										<div class="alertBox-column alertBox-icon">
+											<icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+										</div>
+										<p class="alertBox-column alertBox-message"></p>
+									</div>
+								</div>
+							</div>
+						{{/if}}
+					</form>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>

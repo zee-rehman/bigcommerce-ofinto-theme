@@ -1,0 +1,25 @@
+{{#partial "page"}}
+<main class="page gift-certificate-redeem gift-certificate account">
+    <div class="container container-small">
+    	<div class="themevale-heading">
+        	<h1 class="page-heading">{{lang 'gift_certificate.heading' }}</h1>
+        </div>
+		{{> components/gift-certificate/navigation gift_page='redeem'}}
+
+        <div class="page-content">
+			<div class="account">
+			    <h3>{{lang 'gift_certificate.redeem.heading'}}</h3>
+			    <p class="intro">{{lang 'gift_certificate.redeem.intro' store_name=settings.store_name }}</p>
+			    <ol>
+			        <li>{{lang 'gift_certificate.redeem.item1' }}</li>
+			        <li>{{lang 'gift_certificate.redeem.item2' }}</li>
+			        <li>{{{lang 'gift_certificate.redeem.item3' cart_url=urls.cart }}}</li>
+			        <li>{{lang 'gift_certificate.redeem.item4' }}</li>
+			    </ol>
+			</div>
+			{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+		</div>
+	</div>
+</main>
+{{/partial}}
+{{> layout/base}}

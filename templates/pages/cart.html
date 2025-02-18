@@ -1,0 +1,74 @@
+---
+cart: true
+---
+{{#partial "page"}}
+<div class="page">
+    <div class="container">
+        <div class="themevale-heading">
+            {{> components/cart/page-title}}
+        </div>
+        {{#if theme_settings.enbale_cart_notification}}
+            {{> components/themevale/cart-notification}}
+        {{/if}}
+        <main class="page-content" data-cart>
+            <div data-cart-status {{#if theme_settings.themevale_CalculateFreeShipping '==' true}}class="CalculateFreeShipping"{{/if}}>
+                {{> components/cart/status-messages}}
+            </div>
+
+            {{#if cart.items.length}}
+                <div class="loadingOverlay"></div>
+                <div class="cart-content">
+                    <div class="left-col">
+                        <div data-cart-content>
+                            {{> components/cart/content}}
+                        </div>
+                    </div>
+                    <div class="right-col">
+                        <div data-cart-totals>
+                            {{> components/cart/totals}}
+                        </div>
+
+                        {{#if cart.show_primary_checkout_button}}
+                            <div class="cart-actions">
+                                <a class="button button--checkout" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                                {{#if cart.show_multiple_address_shipping}}
+                                    <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
+                                        {{lang 'cart.preview.checkout_multiple'}}
+                                    </a>
+                                {{/if}}
+                            </div>
+                        {{else}}
+                            <div class="cart-actions">
+                                <a class="button button--primary btn-continue" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
+                            </div>
+                        {{/if}}
+
+                        {{#if cart.additional_checkout_buttons}}
+                            <div class="cart-additionalCheckoutButtons">
+                                {{#each cart.additional_checkout_buttons}}
+                                    {{{this}}}
+                                {{/each}}
+                            </div>
+                        {{/if}}
+
+                        {{#if theme_settings.cart_secure_text '!=' ''}}
+                            {{> components/themevale/cart-secure}}
+                        {{/if}}
+                        {{#if theme_settings.show_seal_logos_cart}}
+                            {{> components/themevale/seal-logos-cart}}
+                        {{/if}}
+                    </div>
+                </div>          
+            {{else}}
+                <h3 class="empty_cart">{{lang 'cart.checkout.empty_cart'}}</h3>
+                <div class="cart-actions">
+                    <a class="button button--primary btn-continue" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
+                </div>
+            {{/if}}
+
+        </main>
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

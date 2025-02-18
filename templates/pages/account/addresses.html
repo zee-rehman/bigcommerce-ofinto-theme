@@ -1,0 +1,26 @@
+{{#partial "page"}}
+<main class="page account-address account">
+    <div class="container container-small">
+        <div class="themevale-heading">
+            <h1 class="page-heading">{{lang 'account.addresses.heading' }}</h1>
+        </div>
+        {{> components/account/navigation account_page='addresses'}}
+        
+        <div class="page-content">
+            <div class="account">
+                <div class="account-body">
+                    {{#if customer.error}}
+                        {{>components/common/alert-error customer.error}}
+                    {{/if}}
+                    {{#if customer.success}}
+                        {{>components/common/alert-success customer.success}}
+                    {{/if}}
+                    {{> components/account/address-list }}
+                </div>
+            </div>
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+    </div>
+</main>
+{{/partial}}
+{{> layout/base}}

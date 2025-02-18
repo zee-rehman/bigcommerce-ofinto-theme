@@ -1,0 +1,13 @@
+<div class="productCarousel">
+	<div>
+		<div>
+			{{#each products}}
+			<div class="productCarousel-slide">
+				<div class="product">
+			        {{> components/products/card-sidebar settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist productsnew=../productsnew event="list" position=(add @index 1)}}
+			    </div>
+		    </div>
+			{{/each}}
+		</div>
+	</div>
+</div>

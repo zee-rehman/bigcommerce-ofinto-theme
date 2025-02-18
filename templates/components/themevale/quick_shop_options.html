@@ -1,0 +1,56 @@
+<div class="quickShopWrap">
+    <div class="productView">
+      <div class="productView-options">
+          <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                data-cart-item-add>
+              <input type="hidden" name="action" value="add">
+              <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+              <div class="quickShopInner">
+                <div data-product-option-change2 style="display:none;">
+                    {{#each product.options}}
+                        {{{dynamicComponent 'components/products/options'}}}
+                    {{/each}}
+                </div>
+
+                {{#if product.can_purchase}}
+                    {{#if theme_settings.show_product_quantity_box}}
+                      <div class="form-field form-field--increments increments-quickShop">
+                          <label class="form-label form-label--alternate"
+                                 for="qty[]">{{lang 'products.quantity'}}</label>
+                              <div class="form-increment" data-quantity-change>
+                                  <button class="button button--icon" data-action="dec" data-quantity-update data-item-id="{{product.id}}">
+                                      <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                                  </button>
+                                  <input class="form-input form-input--incrementTotal qty-{{product.id}} data-product-qty"
+                                     id="qty[]"
+                                     name="qty[]"
+                                     type="tel"
+                                     value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                                     data-quantity-min="{{product.min_purchase_quantity}}"
+                                     data-quantity-max="{{product.max_purchase_quantity}}"
+                                     data-quantity-min-error="{{lang 'products.quantity_min' quantity=product.min_purchase_quantity}}"
+                                     data-quantity-min-error1="{{lang 'products.quantity_min' quantity=1}}"
+                                     data-quantity-max-error="{{lang 'products.quantity_max' quantity=product.max_purchase_quantity}}"
+                                     min="1"
+                                     pattern="[0-9]*"
+                                     aria-live="polite">
+                                  <button class="button button--icon" data-action="inc" data-quantity-update data-item-id="{{product.id}}">
+                                      <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                                  </button>
+                              </div>
+                      </div>
+                  {{/if}}
+                {{/if}}
+              </div>
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                  <div class="form-action addToCart">
+                      <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+                          value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+                  </div>
+              {{/or}}
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

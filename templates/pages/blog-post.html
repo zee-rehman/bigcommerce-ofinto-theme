@@ -1,0 +1,14 @@
+{{#partial "page"}}
+<div class="page blog-post">
+
+    <main class="page-content" id="blog-listing-container">
+		{{> components/blog/post post=blog.post show_tags=true settings=../settings theme_settings=../theme_settings}}
+	</main>
+			
+	<div class="container"> 
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,30 @@
+{{#partial "page"}}
+<main class="page account-add-wishlist account">
+    <div class="container container-small">
+        {{#if settings.show_wishlist}}
+            <div class="themevale-heading">
+                <h1 class="page-heading">
+                    {{#if forms.wishlist.id}}
+                        {{lang 'account.wishlists.edit'}}
+                    {{else}}
+                        {{#if forms.wishlist.action}}
+                            {{lang 'account.wishlists.new'}}
+                        {{else}}
+                            {{lang 'account.wishlists.heading'}}
+                        {{/if}}
+                    {{/if}}
+                </h1>
+            </div>
+            {{> components/account/navigation account_page='wishlists'}}
+
+            <div class="page-content">
+                <div class="account">    
+                    {{> components/account/add-wishlist}}
+                </div>
+                {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+            </div>
+        {{/if}}
+    </div>
+</main>  
+{{/partial}}
+{{> layout/base}}

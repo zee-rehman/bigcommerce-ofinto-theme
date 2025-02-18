@@ -1,0 +1,46 @@
+{{#each shipments}}
+    <dl class="definitionList">
+        <dt class="definitionList-key">{{lang 'account.orders.details.shipments.date'}}:</dt>
+        <dd class="definitionList-value">{{date_shipped}}</dd>
+        <dt class="definitionList-key">{{lang 'account.orders.details.shipments.method'}}:</dt>
+        <dd class="definitionList-value">
+            {{#if shipping_provider '===' 'Other' }}
+                {{#or (if shipping_method '===' 'DPD Comfort') (if shipping_method '===' 'DPD')}}
+                DPD
+                {{else}}
+                Express Paketservice
+                {{/or}}
+            {{else}}
+                {{shipping_provider}}
+            {{/if}}
+        </dd>
+        <dt class="definitionList-key">{{lang 'account.orders.details.shipments.link'}}:</dt>
+        <dd class="definitionList-value">
+            {{#if shipping_track.number}}
+                {{#or (if shipping_method '===' 'DPD Comfort') (if shipping_method '===' 'DPD')}}
+                <a href="https://www.dpdgroup.com/ch/mydpd/my-parcels/track?&parcelNumber={{shipping_track.number}}" target="_blank">
+                {{else}}
+                <a href="https://www.aftership.com/track/{{shipping_track.number}}" target="_blank">
+                {{/or}}
+            {{/if}}
+
+            {{#if show_shipping_method}}
+                {{shipping_track.number}} &mdash; {{#if shipping_method}}
+                    {{#if shipping_method '===' 'Free Shipping' }}
+                        Kostenlose Lieferung
+                    {{else if shipping_method '===' 'None'}}
+                        Express Versand
+                    {{else}}
+                        {{shipping_method}}
+                    {{/if}}
+                {{/if}}
+            {{else}}
+                {{shipping_track.number}}
+            {{/if}}
+
+            {{#if shipping_track.number}}
+                </a>
+            {{/if}}
+        </dd>
+    </dl>
+{{/each}}

@@ -1,0 +1,64 @@
+<section class="toggle productReviews" id="product-reviews" data-product-reviews>
+<!-- Judge.me Reviews -->
+    <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{product.title}}'
+        data-id='{{product.id}}'></div>
+    <!-- Judge.me Reviews End -->
+<!--     <h4 class="toggle-title">
+        {{lang 'products.reviews.header' total=reviews.total}}
+        {{#if theme_settings.show_product_reviews_tab '!==' true}}
+            <a class="toggleLink is-open" data-collapsible href="#productReviews-content">
+                <span class="toggleLink-text toggleLink-text--on">
+                    {{lang 'products.reviews.hide'}}
+                </span>
+                <span class="toggleLink-text toggleLink-text--off">
+                    {{lang 'products.reviews.show'}}
+                </span>
+            </a>
+        {{/if}}
+    </h4>
+    <div class="toggle-content is-open" id="productReviews-content" aria-hidden="false">
+        {{#if reviews.total}}
+        <ul class="productReviews-list" id="productReviews-list">
+            {{#each reviews.list}}
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <div class="productReview-title-group">
+                            <h5 itemprop="name" class="productReview-title">{{ title }}</h5>
+                            <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                                {{> components/products/ratings rating=rating}}
+                                <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
+                            </span>
+                        </div>
+                        {{#if name}}
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author">
+                                {{lang 'products.reviews.post_on_by' date=date name=name }}
+                            </p>
+                        {{else}}
+                            <p class="productReview-author">
+                                {{lang 'products.reviews.post_on_by' date=date name=(lang 'products.reviews.anonymous_poster')}}
+                            </p>
+                        {{/if}}
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body">{{{ sanitize text }}}</p>
+                </article>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="btn-group">
+            {{> components/common/paginator pagination.reviews}}
+            <div class="btn-createReview">
+                <a class="button button--small" href="#" data-reveal-id="modal-review-form">{{lang 'products.reviews.write_a_review'}}</a>
+            </div>
+        </div>
+        {{else}}
+            <div class="alert alert-warning">
+                Dieses Produkt wurde noch nicht bewertet. Sei der erste, der eine Bewertung abgibt!
+            </div>
+            <div class="btn-createReview">
+                <a class="button button--small" href="#" data-reveal-id="modal-review-form">{{lang 'products.reviews.write_a_review'}}</a>
+            </div>
+        {{/if}}
+    </div>
+ --></section>

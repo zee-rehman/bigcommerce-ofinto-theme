@@ -1,0 +1,170 @@
+<div>
+	<div class="product" data-product-id="{{product.id}}">
+		<article class="card {{#if alternate}}card--alternate{{/if}}" data-product-id="{{product.id}}">
+		    <figure class="card-figure">
+		        <div class="card-figcaption-top" data-product-id="{{product.id}}">
+		            {{#if settings.show_wishlist}}
+		                <a href="/wishlist.php?action=add&product_id={{product.id}}" class="wishlist icon">
+		                    <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+		                    <span class="text">{{lang 'account.wishlists.add_item'}}</span>
+		                </a>
+		            {{/if}}
+
+		            {{#unless product.hide_product_quick_view}}
+		                {{#if theme_settings.show_product_quick_view}}
+		                    {{#if true}}
+		                        <a class="quickview icon" data-event-type="product-click" data-product-id="{{product.id}}">
+		                            <svg class="icon"><use xlink:href="#icon-quickview"></use></svg>
+		                            <span class="text">{{lang 'products.quick_view'}}</span>
+		                        </a>
+		                    {{else}}
+		                        <a class="quickview icon" data-product-id="{{product.id}}">
+		                            <svg class="icon"><use xlink:href="#icon-quickview"></use></svg>
+		                            <span class="text">{{lang 'products.quick_view'}}</span>
+		                        </a>
+		                    {{/if}}
+		                {{/if}}
+		            {{/unless}}
+		        </div>
+		        {{#each product.custom_fields}}
+		            {{#if name '===' 'count-down'}}
+		                <div class="countDowntimer product-count-down" data-count-down="{{{value}}}"></div>
+		            {{/if}}
+		        {{/each}}
+		        
+		        {{#if theme_settings.show_new_badges}}
+		            {{#each products.new}}
+		                {{#if this.id '==' ../product.id}}
+		                    <div class="product-badge new-badge">
+		                        <span class="text">{{lang 'themevale.new'}}</span>
+		                    </div>
+		                {{/if}}
+		            {{/each}}
+		        {{/if}}
+		        {{#if theme_settings.show_sale_badges}}
+		            {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+                        <div class="product-badge sale-badge">
+                            {{#if product.price.non_sale_price_with_tax}}
+                                <span class="text">-{{round (subtract 100 (multiply (divide product.price.with_tax.value product.price.non_sale_price_with_tax.value) 100)) 0}}%</span>
+                            {{/if}}
+                            {{#if product.price.non_sale_price_without_tax}}
+                                <span class="text">-{{round (subtract 100 (multiply (divide product.price.without_tax.value product.price.non_sale_price_without_tax.value) 100)) 0}}%</span>
+                            {{/if}}
+                        </div>
+                    {{/or}}
+		        {{/if}}
+		        {{#if theme_settings.show_soldout_badges}}
+                    {{#and (if product.can_purchase '==' false) (if product.pre_order '!=' true)}}
+		                <div class="product-badge soldout-badge">
+		                    <span class="text">{{lang 'themevale.sold_out'}}</span>
+		                </div>
+					{{/and}}
+		        {{/if}}
+
+		        {{#if theme_settings.show_custom_badges}}
+		            {{#each product.custom_fields}}
+		                {{#if name '===' 'custom-label'}}
+		                    <div class="custom-badge product-badge">
+		                        <span class="text">{{{value}}}</span>
+		                    </div>
+		                {{/if}}
+		            {{/each}}
+		        {{/if}}
+
+		        <a href="{{product.url}}" {{#if true}} data-event-type="product-click" {{/if}}>
+		            <div class="card-img-container{{#if product.images.length '>=' 2}} card-img-hover{{/if}}">
+		                {{> components/common/responsive-img
+		                    image=product.main_image
+		                    class="card-image"
+		                    fallback_size=theme_settings.productgallery_size
+		                    lazyload=theme_settings.lazyload_mode
+		                    default_image=theme_settings.default_image_product
+		                }}
+		                {{#if product.images.length '>=' 2}}
+		                    {{#each product.images}}
+		                        {{#if @index '==' 1}}
+		                            <span class="product-additional">
+		                                {{> components/common/responsive-img
+		                                    image=this
+		                                    class="card-image replace-2x img-responsive"
+		                                    fallback_size=theme_settings.productgallery_size
+		                                    lazyload=theme_settings.lazyload_mode
+		                                    default_image=theme_settings.default_image_product
+		                                }}
+		                            </span>
+		                        {{/if}}
+		                    {{/each}}
+		                {{/if}}
+		            </div>
+		        </a>
+		        <figcaption class="card-figcaption">
+		            <div class="card-figcaption-body">
+		                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+		                    {{#if product.out_of_stock_message }}
+		                        <a href="{{product.url}}" data-event-type="product-click" disabled class="button--small card-figcaption-button" data-product-id="{{product.id}}">{{product.out_of_stock_message}}</a>
+		                    {{else}}
+		                        {{#if product.options}}
+		                        	{{#if theme_settings.themevale_quick_shop}}
+		                            	<a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button btn-quickShop" data-product-id="{{product.id}}"><span>{{lang 'products.quick_shop'}}</span></a>
+		                        	{{else}}
+		                            	<a href="{{product.url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{product.id}}">{{lang 'products.goto_product'}}</a>
+		                            {{/if}}	
+		                        {{else}}
+		                        	{{#if product.pre_order}}
+				                        <a href="{{product.url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+		                            {{else}}
+		                                {{#if product.can_purchase }}
+		                                    <a href="{{product.cart_url}}?action=add&product_id={{product.id}}" class="button button--small card-figcaption-button themevale_btnATC" data-product-id="{{product.id}}">{{lang 'products.add_to_cart'}}</a>
+		                                {{/if}}
+				                    {{/if}}
+		                        {{/if}}
+		                    {{/if}}
+		                {{/or}}
+
+		            </div>
+		        </figcaption>
+		        {{#if theme_settings.themevale_quick_shop}}    
+		            <div class="quickShopPopup">
+		                <div class="themevale_close">
+		                    <a href="javascript:void(0)" class="icon-close">&times;</a>
+		                </div>
+		            </div>
+		        {{/if}}
+		    </figure>
+		    <div class="card-body">
+		        {{#if theme_settings.show_brand_product_gallery}}
+		            {{#if product.brand.name}}
+		                <p class="card-brand" data-test-info-type="brandName">{{product.brand.name}}</p>
+		            {{/if}}
+		        {{/if}}
+		        <h4 class="card-title">
+		            <a {{#if theme_settings.card_title_type '==' 'clamp'}}class="clamp"{{/if}}{{#if theme_settings.card_title_type '==' 'clamp'}}style="-webkit-box-orient: vertical; -webkit-line-clamp: {{theme_settings.card_title_line}};"{{/if}} href="{{product.url}}" {{#if true}} data-event-type="product-click" {{/if}}>{{product.title}}</a>
+		        </h4>
+				<!-- Judge.me Reviews -->
+				<div class='jdgm-widget jdgm-preview-badge' data-id='{{product.id}}'></div>
+				<!-- Judge.me Reviews End -->
+		        {{#if product.show_rating}}
+					<p class="card-rating" data-test-info-type="productRating"></p>             
+	                    <span class="rating--small">
+	                        {{> components/products/ratings rating=product.rating}}
+	                    </span>
+	                </p>
+	            {{/if}}
+		        <div class="card-price" data-test-info-type="price">
+		            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+		                {{> components/products/price price=product.price customer=customer}}
+		            {{else}}
+		                {{> components/common/login-for-pricing}}
+		            {{/or}}
+		        </div>
+		        
+		        {{> components/products/bulk-discount-rates}}
+		        {{#if theme_settings.themevale_color_variant}}
+		            <div class="card-option card-option-{{product.id}} card_optionImage product-option-{{product.id}} {{#if theme_settings.themevale_quick_shop '==' false}} no-quickShop{{/if}}">
+		            	<div class="form-field" data-product-attribute="swatch"></div>
+		            </div>
+		        {{/if}}
+		    </div>
+		</article>
+	</div>
+</div>

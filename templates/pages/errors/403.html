@@ -1,0 +1,21 @@
+{{#partial "page"}}
+
+<main class="page">
+	<div class="container container-small">
+		<div class="themevale-heading">
+	        <h1 class="page-heading">{{lang 'forbidden.page_heading'}}</h1>
+	    </div>
+	    <section class="page-content page-content--centered">
+	        <p class="u-textAlignCenter">
+	            {{lang 'forbidden.if_you_were_signed_in'}}
+	            <a href="{{urls.auth.login}}">{{lang 'forbidden.sign_in'}}</a>
+	            {{lang 'forbidden.to_continue'}}
+	        </p>
+	        {{> components/common/search-box}}
+	    </section>
+	    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</main>
+
+{{/partial}}
+{{> layout/base}}

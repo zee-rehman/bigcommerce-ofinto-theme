@@ -1,0 +1,26 @@
+{{#partial "page"}}
+<main class="page account-return-saved account">
+    <div class="container container-small">
+        <div class="themevale-heading">
+            <h1 class="page-heading">{{lang 'account.returns.heading'}}</h1>
+        </div>
+        {{> components/account/navigation account_page='returns'}}
+
+        <div class="page-content">
+            <div class="account">
+                <div class="account-row">
+                    <p>
+                        {{lang 'account.returns.successful'}}
+                    </p>
+                    {{#if return.instructions}}
+                        <h3>{{lang 'account.returns.instructions'}}</h3>
+                        <p>{{{return.instructions}}}</p>
+                    {{/if}}
+                </div>
+            </div>
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+    </div>
+</main>
+{{/partial}}
+{{> layout/base}}

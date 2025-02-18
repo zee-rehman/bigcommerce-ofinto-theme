@@ -1,0 +1,31 @@
+{{#partial "page"}}
+
+<main class="page themevale_about">
+    {{#if page.sub_pages}}
+        <div class="container container-large">      
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        </div>
+    {{/if}}
+
+    <div class="page-content">
+        <div class="about">
+            {{#replace '%%Syndicate%%' page.content}}
+                {{> components/page/rss_feed}}
+            {{else}}
+                {{{page.content}}}
+            {{/replace}}
+        </div>
+    </div>
+    <div class="container container-large"> 
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</main>
+{{/partial}}
+
+{{> layout/base}}

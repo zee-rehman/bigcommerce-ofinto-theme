@@ -1,0 +1,39 @@
+<div class="CompanyAddress">
+    <ul>
+        <li>ofinto ag</li>
+        <li>Bischofszellerstrasse 53</li>
+        <li>9200 Gossau SG</li>
+    </ul>
+    <div class="AdditionalInfo" style="margin-top: -5px">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="pr-1">E-Mail:</td>
+                    <td>info@ofinto.ch</td>
+                </tr>
+                <tr>
+                    <td class="pr-1">Web:</td>
+                    <td>ofinto.ch</td>
+                </tr>
+                {{#if (occurrences (toLowerCase order.payment_method) 'rechnung') '==' 0 }}
+                <tr>
+                    <td class="pr-1">IBAN:</td>
+                    <td>CH70 0078 1624 7883 7200 0</td>
+                </tr>
+                {{/if}}
+                <tr>
+                    <td class="pr-1">MWST:</td>
+                    <td>CHE-390.791.268 MWST</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{#if (occurrences (toLowerCase order.payment_method) 'rechnung') '>' 0 }}
+  <div style="margin-top: 150px; border-left: 2px solid #53625a; padding:20px 15px;">
+    <span>
+      <b>{{{ lang 'invoice.pdf_info' }}}</b>
+    </span>
+  </div>
+{{/if}}

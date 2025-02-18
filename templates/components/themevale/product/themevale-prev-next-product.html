@@ -1,0 +1,18 @@
+{{#if theme_settings.themevale_prev_next_product}}
+    <div class="productView-nextProducts" data-product-id="{{product.id}}">
+        <div class="next-prev-icons">
+            <a class="prev-icon disable" href="#" data-target="#prev-product-modal">
+                <span class="icon prev"></span>
+                <span class="text">Prev</span>
+            </a>
+            <a class="next-icon disable" href="#" data-next-prev-icon="" data-target="#next-product-modal">
+                <span class="text">Next</span>
+                <span class="icon next"></span>
+            </a>
+        </div>
+        <div class="next-prev-modal">
+            <div id="prev-product-modal" class="next-prev-content"></div>
+            <div id="next-product-modal" class="next-prev-content"></div>
+        </div>
+    </div>
+{{/if}}

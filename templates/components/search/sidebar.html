@@ -1,0 +1,16 @@
+<a class="close-sidebar" href="javascript:void(0)" title="close">{{lang 'common.sidebar_shop_by'}} <span class="icon-close">&times;</span></a>
+<nav>
+	{{> components/themevale/sidebar/side-all-categories}}
+    
+    {{#if product_results.faceted_search_enabled}}
+        {{> components/faceted-search/index product_results}}
+    {{/if}}
+
+    {{#if theme_settings.show_sidebar_image}}
+        {{> components/themevale/sidebar/side-custom-image}}
+    {{/if}}
+
+    {{#if theme_settings.show_sidebar_custom_block}}
+        {{> components/themevale/sidebar/side-custom-content}}
+    {{/if}}
+</nav>

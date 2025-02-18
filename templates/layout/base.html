@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <script>
+            {{!-- Change document class from no-js to js so we can detect this in css --}}
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        <!-- use shop specific file -->
+        {{> shop_specific/head-scripts }}
+
+        <script>window.consentManagerTranslations = `{{{langJson 'consent_manager'}}}`;</script>
+
+        <!--  Load Lazysizes script ASAP so images will appear  -->
+        <script>
+            {{!-- Only load visible elements until the onload event fires, after which preload nearby elements. --}}
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+        </script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js'}}"></script>
+        {{ getFontsCollection }}
+        {{{stylesheet '/assets/css/theme.css'}}}
+
+        {{{head.scripts}}}
+
+        {{~inject 'themeSettings' theme_settings}}
+        {{~inject 'genericError' (lang 'common.generic_error')}}
+        {{~inject 'maintenanceMode' settings.maintenance}}
+        {{~inject 'urls' urls}}
+        {{~inject 'secureBaseUrl' settings.secure_base_url}}
+        {{~inject 'cartId' cart_id}}
+        {{~inject 'template' template}}
+        {{~inject 'token' settings.storefront_api.token}}
+
+        <!-- Canonical Link -->
+        <link rel="alternate" hreflang="de-CH" href="https://ofinto.ch">
+        <link rel="alternate" hreflang="de-DE" href="https://ofinto.de">
+        <link rel="alternate" hreflang="de-AT" href="https://ofinto.at">
+        <link rel="alternate" hreflang="fr-FR" href="https://ofinto.fr">
+        <link rel="alternate" hreflang="fr" href="https://fr.ofinto.fr">
+        <link rel="alternate" hreflang="de" href="https://ofinto.ch">
+        <link rel="alternate" hreflang="en-CH" href="https://en.ofinto.ch">
+        <link rel="alternate" hreflang="en" href="https://en.ofinto.ch">
+        <link rel="alternate" hreflang="fr-CH" href="https://fr.ofinto.ch">
+        <link rel="alternate" hreflang="x-default" href="https://ofinto.ch">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Google Fonts -->
+    </head>
+
+    <body class="page-type-{{page_type}}{{#if theme_settings.themevale_header_layout '==' 'header-layout-1'}} header-layout-1{{else}} header-layout-2{{/if}}  {{#if customer}}wl-login{{/if}}">
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        <div class="themevale_Mobile themevale_MobileMenu side_popup" id="menu-mobile">
+            <div class="themevale_close">
+                <a href="javascript:void(0)" class="close">&times;</a>
+            </div>
+            <div class="navPages-container" id="menuMobile" data-menu>
+            </div>
+        </div>
+        
+        <div class="themevale_Mobile themevale_MobileAccount" id="account-mobile">
+            <a href="javascript:void(0)" class="themevale_close2">&times;</a>
+            <div id="accountMobile" class="account-dropdown">
+                {{#if page_type '!==' 'login'}}
+                    {{> components/themevale/login-form}}
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="themevale_Mobile themevale_MobileCart" id="cart-mobile">
+            <a href="javascript:void(0)" class="themevale_close2">&times;</a>
+            <div class="dropdown-cart themevale-sideCart" id="cart-preview-dropdown">
+            </div>
+        </div>
+
+        <div class="themevale_Mobile themevale_MobileSearch side_popup" id="search-mobile">
+            <div class="themevale_close">
+                <a href="javascript:void(0)" class="close">&times;</a>
+            </div>
+            <div class="dropdown-search" id="searchMobile">
+            </div>
+        </div>
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+
+        <div class="themevale_background"></div>
+        <div class="themevale_popup"></div>
+        
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+        <script>
+            {{!-- Exported in app.js --}}
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+        {{#if theme_settings.themevale_stickyHeader}}
+            <script>
+                window.themevaleSticky();
+            </script>
+        {{/if}}
+
+        <!-- MegaMenu -->
+        {{#if theme_settings.themevale_megamenu}}
+            {{> components/themevale/header/mega-menu }}
+        {{/if}}
+
+        {{> components/themevale/newsletter}}
+        
+        {{{footer.scripts}}}
+        {{> components/themevale/recently-viewed-products }}
+        {{> components/themevale/before-you-leave }}        
+    </body>
+</html>

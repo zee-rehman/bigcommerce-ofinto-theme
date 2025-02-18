@@ -1,0 +1,23 @@
+Verwendung der shop-specific Files
+==================================
+
+Allgemein:
+ - Verwendung ist jeweils mit Kommentar davor gekennzeichnet: <!-- use shop specific file -->
+
+
+Files und Verwendung
+--------------------
+head-scripts.html:
+ - /templates/layout/base.html
+
+details_shipping.html:
+ - /templates/pages/account/orders/details.html
+
+invoice_company_address.html:
+ - /templates/pages/account/orders/invoice.html
+
+currency-selector.html:
+ - /templates/components/common/currency-selector.html
+ 
+navigation-menu.html:
+ - /templates/components/common/navigation-menu.html

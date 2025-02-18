@@ -1,0 +1,8 @@
+<div id="sideNew" class="sidebarBlock sidebarBorder">
+	<h5 class="sidebarBlock-heading"><span>{{lang 'products.new'}}</span></h5>
+	{{#if true}}
+		{{> components/themevale/sidebar/slider-products products=products}}
+	{{else}}
+		{{> components/themevale/sidebar/slider-products products=products list="New Products"}}
+	{{/if}}
+</div>

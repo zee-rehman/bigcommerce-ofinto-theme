@@ -1,0 +1,66 @@
+---
+brands:
+    limit: {{theme_settings.brandpage_brands_per_page}}
+---
+
+{{#partial "page"}}
+
+<div class="page">
+    <div class="container">
+        <div class="themevale-heading">
+            <h1 class="page-heading">{{lang 'brand.label'}}</h1>
+        </div>
+        {{{region name="brands_below_header"}}}
+
+        <main class="page-content">
+            {{#if theme_settings.themevale_brandlayout '===' 'aztable'}}
+                <ul id="azBrandsTable" class="azBrands-table"></ul>
+                <div id="azBrands" class="azBrands"></div>
+                <ul class="brandList hide dataBrands" data-brands-list data-brands-list-next="{{pagination.brands.next}}" data-azbrands="azBrands">
+                    {{#each brands}}
+                        <li class="brand" data-brand-code="{{dashcase name}}">
+                            <article class="brand-name">
+                                <h4 class="title card-title">
+                                    <a href="{{url}}"><span>{{name}}</span></a>
+                                </h4>
+                            </article>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{else}}
+            <ul class="brandGrid dataBrands">
+                {{#each brands}}
+                    <li class="brand">
+                        <article class="card {{#if alternate}}card--alternate{{/if}}">
+                            <figure class="card-figure">
+                                <a href="{{url}}">
+                                    <div class="card-img-container">
+                                        {{> components/common/responsive-img
+                                            image=image
+                                            class="card-image"
+                                            fallback_size=../theme_settings.brand_size
+                                            lazyload=../theme_settings.lazyload_mode
+                                            default_image=../theme_settings.default_image_brand
+                                        }}
+                                    </div>
+                                </a>
+                            </figure>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="{{url}}"><span>{{name}}</span></a>
+                                </h4>
+                            </div>
+                        </article>
+                    </li>
+                {{/each}}
+            </ul>
+            {{> components/common/paginator pagination.brands}}
+            {{/if}}
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+
+        {{{region name="brands_below_content"}}}
+    </main>
+</div>
+{{/partial}}
+{{> layout/base}}

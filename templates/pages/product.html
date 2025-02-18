@@ -1,0 +1,71 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    top_sellers:
+         limit: {{theme_settings.sidebar_products_count}}
+    featured:
+        limit: {{theme_settings.sidebar_products_count}}
+
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject "product_currentstock" product.stock_level}}
+{{#partial "page"}}
+    
+<div class="page productLayout{{#if theme_settings.themevale_product_layout '==' 'product-layout-1'}} product-layout-1{{else}} product-layout-2{{/if}}">
+    <div class="container">
+        <main id="product-listing-container" itemscope itemtype="http://schema.org/Product">
+            {{> components/products/product-view schema=true }}
+            {{{region name="product_below_content"}}}
+            <!-- Judge.me Reviews -->
+            <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{product.title}}'
+                data-id='{{product.id}}'></div>
+            <!-- Judge.me Reviews End -->
+        </main>
+    </div>
+
+{{#if product.related_products}}
+        <div class="relatedProduct module-wrapper">
+            <div class="container container-large"> 
+                <h2 class="page-heading"><span class="text">{{lang 'products.related_products'}}</span></h2>        
+                <div id="related-product">
+                    {{#if true}}
+                        {{> components/products/carousel-2 products=product.related_products productsnew=products.new columns=4 list="Related Products" block_id="halo-product-block-1"}}
+                    {{else}}
+                        {{> components/products/carousel-2 products=product.related_products productsnew=products.new columns=4 block_id="halo-product-block-1"}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if product.similar_by_views}}
+        <div class="similarProduct module-wrapper">
+            <div class="container container-large"> 
+                <h2 class="page-heading"><span class="text">{{lang 'products.similar_by_views'}}</span></h2>                
+                <div id="similar-product">
+                    {{#if true}}
+                        {{> components/products/carousel-2 products=product.similar_by_views productsnew=products.new columns=4 list="Customers Also Viewed" block_id="halo-product-block-2"}}
+                    {{else}}
+                        {{> components/products/carousel-2 products=product.similar_by_views productsnew=products.new columns=4 block_id="halo-product-block-2"}}
+                    {{/if}}     
+                </div>
+            </div>
+        </div> 
+    {{/if}}
+
+    <div class="container">     
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

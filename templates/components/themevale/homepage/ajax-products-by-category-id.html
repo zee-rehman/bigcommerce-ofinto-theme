@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  var arrNew = [0{{#each productsnew}},{{id}}{{/each}}];
+</script>
+<span class="newText">{{lang 'themevale.new'}}</span>
+{{#each categories}}
+    {{#if id '==' ../category_id}}
+        <div class="productsByCategoryId" data-themevale-products-by-category="{{url}}">
+            {{> components/themevale/product-loading theme_settings=../../theme_settings}}
+        </div>
+    {{else}}
+        {{#each children}}
+            {{#if id '==' ../../../category_id}}
+                <div class="productsByCategoryId" data-themevale-products-by-category="{{url}}">
+                    {{> components/themevale/product-loading theme_settings=../../../../theme_settings}}
+                </div>
+                
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../../../category_id}}
+                        <div class="productsByCategoryId" data-themevale-products-by-category="{{url}}">
+                            {{> components/themevale/product-loading theme_settings=../../../../../../theme_settings}}
+                        </div>
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

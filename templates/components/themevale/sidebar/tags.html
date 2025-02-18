@@ -1,0 +1,20 @@
+<div class="sidebarBlock sidebarBorder" id="blog-tags">
+	<h5 class="sidebarBlock-heading"><span>{{lang 'blog.tags'}}</span></h5>
+	<div class="sidebarBlock-content">
+		{{#each blog.posts}}
+			{{#if @index '<' 1 }}
+			    {{#if tags}}
+			        <ul class="tags">
+			            {{#each tags}}
+				            {{#if @index '<' 6 }}
+					            <li class="tag">
+					                <a href="{{url}}">#{{name}}</a>
+					            </li>
+				            {{/if}}
+			            {{/each}}
+			        </ul>
+			    {{/if}}
+		    {{/if}}
+		{{/each}}
+	</div>
+</div>

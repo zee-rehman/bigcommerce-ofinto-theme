@@ -1,0 +1,45 @@
+{{#partial "page"}}
+<main class="page contact-us">
+    <div class="themevale_map">
+        {{#if theme_settings.themevale_map}}
+            <div id="google-map">
+                {{> components/themevale/contact-us-map}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="container container-small">
+        {{#unless theme_settings.hide_contact_us_page_heading }}
+            <div class="themevale-heading">
+                <h1 class="page-heading">{{page.title}}</h1>
+            </div>
+        {{/unless}}
+        
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+        <div class="page-content themevale_contact-us{{#if theme_settings.hide_contact_us_page_heading '==' true}} no-heading{{/if}}">
+            <div id="contact-us-page">
+                <div class="themevale_form">
+                    {{#if forms.contact.success}}
+                        <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+                    {{else}}
+                        {{{page.content}}}
+                        {{> components/page/contact-us-form}}
+                    {{/if}}
+                </div>
+            </div>   
+        </div>
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} 
+    </div>
+    
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

@@ -1,0 +1,22 @@
+{{> components/themevale/homepage/home-product-carousel-1 block_id="block_1" }}
+{{{region name="home_below_products_carousel_1"}}}
+
+{{> components/themevale/homepage/home-product-carousel-2 block_id="block_2"}}
+{{{region name="home_below_products_carousel_2"}}}
+
+{{> components/themevale/homepage/home-product-carousel-3 block_id="block_3"}}
+{{{region name="home_below_products_carousel_3"}}}
+
+{{> components/themevale/homepage/home-product-carousel-4 block_id="block_4"}}
+{{{region name="home_below_products_carousel_4"}}}
+
+{{#if theme_settings.enable_homepage_blog_post}}
+    {{> components/themevale/homepage/recent-post-list}}
+{{/if}}
+{{{region name="home_below_blog_post"}}}
+
+{{> components/themevale/banners/banner banner="instagram"}}
+{{{region name="home_below_instagram"}}}
+
+{{> components/themevale/payment-custom-block}}
+{{{region name="home_below_payment_custom_block"}}}

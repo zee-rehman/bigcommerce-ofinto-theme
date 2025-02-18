@@ -1,0 +1,147 @@
+{{#partial "page"}}
+{{inject 'comparisons' comparisons}}
+{{inject 'compareRemoveMessage' (lang 'compare.no_remove')}}
+
+<div class="page">
+    <div class="container">
+        <main class="page-content">
+            <div class="themevale-heading">
+                <h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
+            </div>
+            <table class="compareTable">
+                <thead>
+                <tr class="compareTable-row">
+                    <th class="compareTable-heading">
+                        <span class="compareTable-headingText">Product</span>
+                    </th>
+                    <th class="compareTable-heading">
+                        <span class="compareTable-headingText">Description</span>
+                    </th>
+                    <!-- {{#if settings.show_product_rating}} Judge.me change -->
+                    <th class="compareTable-heading text-center">
+                        <span class="compareTable-headingText">Rating</span>
+                    </th>
+                    <!-- {{/if}} Judge.me change -->
+                    <th class="compareTable-heading text-center">
+                        <span class="compareTable-headingText">Availability</span>
+                    </th>
+                    <th class="compareTable-heading">
+                        <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                    </th>
+                </tr>
+            </thead>
+            {{#each comparisons}}
+                <tr class="compareTable-row">
+                    <td class="compareTable-product text-center">
+                        <article class="card">
+                            <figure class="card-figure">
+                                <div class="card-img-container">
+                                    {{> components/common/responsive-img
+                                        image=image
+                                        class="card-image"
+                                        fallback_size=../theme_settings.product_size
+                                        lazyload=../theme_settings.lazyload_mode
+                                        default_image=../theme_settings.default_image_product
+                                    }}
+                                </div>
+                                <a class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                    <svg class="icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                    </svg>
+                                </a>
+                            </figure>
+                            <div class="card-body">
+                                {{#if brand.name}}
+                                    <p class="card-brand"><a href="{{brand.url}}">{{ brand.name }}</a></p>
+                                {{/if}}
+                                <h4 class="card-title">
+                                    <a href="{{url}}">{{ name }}</a>
+                                </h4>
+                                <div class="card-price">
+                                    {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                        {{#if price_range}}
+                                            {{> components/products/price-range}}
+                                        {{else}}
+                                            {{> components/products/price price=price}}
+                                        {{/if}}
+                                    {{else}}
+                                        {{> components/common/login-for-pricing}}
+                                    {{/or}}
+                                </div>
+                                {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                {{#if show_cart_action}}
+                                    {{#if has_options}}
+                                        <a href="{{url}}" {{#if true}} data-event-type="product-click" {{/if}} class="button card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                    {{/if}}
+                                    {{#if pre_order}}
+                                        <a href="{{url}}" {{#if true}} data-event-type="product-click" {{/if}} class="button card-figcaption-button" data-product-id="{{id}}">
+                                            {{lang 'products.pre_order'}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if add_to_cart_url}}
+                                        <a href="{{add_to_cart_url}}" {{#if true}} data-event-type="product-click" {{/if}} class="button card-figcaption-button" data-product-id="{{id}}">
+                                            {{lang 'products.add_to_cart'}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if out_of_stock_message}}
+                                        <a href="{{url}}" class="button card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                    {{/if}}
+                                {{/if}}
+                            {{/or}}
+                            </div>
+                        </article>
+                    </td>
+                     <td class="compareTable-item description">{{ summary }}</td>
+                     {{#if ../settings.show_product_rating}}
+                     <td class="compareTable-item rating text-center">
+                        {{#if rating}}
+                            {{> components/products/ratings rating=rating}}
+                        {{else}}
+                            No Reviews
+                        {{/if}}
+                    </td>
+                    {{/if}}
+                    <td class="compareTable-item availability text-center">
+                        {{#if availability}}
+                            {{ availability }}
+                        {{else}}
+                            {{lang 'common.not_applicable'}}
+                        {{/if}}
+                    </td>
+                    <td class="compareTable-item custom_fields text-center">
+                        {{#if custom_fields}}
+                            <ul>
+                                {{#each custom_fields}}
+                                    {{#if name '!=' 'count-down'}}
+                                        {{#if name '!=' 'custom-label'}}
+                                            {{#and (if name '!=' 'has-size-chart') (if name '!=' 'preorder')}}
+<!-- Custom change by JR -->
+                                                    {{#and (if name '!=' 'short_description') (if name '!=' 'long_description' )}}
+                                                        {{#if name '!=' 'hide_option'}}
+<!-- End Custom change by JR -->
+                                                            <li>{{name}}: {{{value}}}</li>
+<!-- Custom change by JR -->
+                                                        {{/if}}
+                                                    {{/and}}
+<!-- End Custom change by JR -->
+                                                {{/if}}
+                                            {{/and}}
+                                        {{/if}}    
+                                {{/each}}
+                            </ul>
+                        {{else}}
+                            {{lang 'common.not_applicable'}}
+                        {{/if}}
+                    </td>
+                </tr>
+            {{/each}}
+            </table>
+
+        </main>
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</div>
+
+
+{{/partial}}
+{{> layout/base}}

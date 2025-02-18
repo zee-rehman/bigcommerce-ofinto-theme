@@ -1,0 +1,44 @@
+<div class="themevale-category-header{{#unless product_results.faceted_search_enabled}} no-sidebar{{/unless}}">
+        <!-- Filter section removed -->
+</div>
+
+<form action="{{urls.compare}}" method='POST' {{#if true}} data-list-name="Search Results" {{/if}} data-product-compare>
+    {{#if true}}
+        {{> components/products/grid products=product_results.products show_compare=product_results.show_compare event="list" theme_settings=theme_settings}}
+    {{else}}
+        {{> components/products/grid products=product_results.products show_compare=product_results.show_compare theme_settings=theme_settings}}
+    {{/if}}
+</form>
+
+{{#if forms.search.query}}
+<div class="pagination-wrapper">
+    {{#if theme_settings.themevale_pagination}}
+        <div class="pagination-inner">
+		<!-- <div class="pagination-info">Zeige <span class="start"></span> - <span class="end"></span> von <span class="total"></span> insgesamt</div> -->
+            {{> components/common/paginator pagination.product_results number_products=theme_settings.searchpage_products_per_page total=pagination.product_results.total theme_settings=theme_settings}}
+        </div>
+        {{#if page_type '===' 'search'}}
+            <p class="search__count" data-total="{{pagination.product_results.total}}"></p>
+        {{/if}}
+    {{else}}
+        <div class="u-hiddenVisually"> 
+            {{> components/common/paginator pagination.product_results}}
+        </div>
+        <div class="showmore-category">
+            <div class="showmore-category-inner">
+                <a id="button-showmore-category" class="button button--border button--showmore" href="javascript:void(0)">
+                    <svg class="icon"><use xlink:href="#icon-refresh"></use></svg>
+                    <span class="text">mehr</span>
+                    <span class="text text-hidden">Keine weiteren Produkte</span>
+                </a>
+            </div>
+        </div>
+    {{/if}}
+    
+    {{#if product_results.show_compare}}
+        <div class="compare-link">
+            <a class="button button--primary" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} (<span class="countPill countPill--positive">0</span>)</a>
+        </div>
+    {{/if}}
+</div>
+{{/if}}

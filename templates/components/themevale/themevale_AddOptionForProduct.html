@@ -1,0 +1,15 @@
+<div class="productOption" data-product-id="{{product.id}}">
+	<form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
+		<input type="hidden" name="action" value="add">
+		<input type="hidden" name="product_id" value="{{product.id}}"/>
+		<div class="productView">
+		    <div data-product-option-change3 style="display:none;">
+		        {{#each product.options}}
+		        	{{#if type '===' 'Configurable_PickList_Swatch'}}
+						{{> components/themevale/themevale-add-option-for-product-swatch url=../../product.url}}
+		            {{/if}}
+		        {{/each}}
+		    </div>
+		</div>
+	</form>
+</div>

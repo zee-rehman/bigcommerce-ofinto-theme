@@ -1,0 +1,14 @@
+{{#partial "page"}}
+    <main class="page acount-created account">
+    	<div class="container container-small">
+    		<div class="themevale-heading">
+	            <h1 class="page-heading">{{lang 'create_account.created.heading'}}</h1>
+	        </div>
+	        <div class="page-content page-content--textCenter">
+	            <p>{{{lang 'create_account.created.intro' store_name=settings.store_name email=customer.email}}}</p>
+	            <a class="button button--small button--primary" href="{{create_account.continue_url}}">{{lang 'create_account.created.continue'}}</a>
+	        </div>
+	    </div>
+    </main>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,55 @@
+{{#if theme_settings.enable_home_product_carousel_3}}
+    <div id="homeProductCarousel3" class="homeProductCarousel{{#if theme_settings.home_product_carousel_3_img '==' ''}} no-parallax{{/if}}">
+        <div class="hero-image hero-image-parallax{{#if theme_settings.home_product_carousel_3_img '!=' ''}} has-parallax{{/if}}" {{#if theme_settings.home_product_carousel_3_img '!=' ''}}data-image-parallax="{{theme_settings.home_product_carousel_3_img}}" data-store="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/" {{/if}}>
+            {{#if theme_settings.home_product_carousel_3_btn_link '!=' ''}}
+                <a href="{{theme_settings.home_product_carousel_3_btn_link}}"></a>
+            {{/if}}
+        </div>
+        <div class="container container-large{{#if theme_settings.home_product_carousel_3_count_down '!=' ''}} has-countdown{{/if}}{{#if theme_settings.enable_home_product_carousel_3_header '==' false}} no-header{{/if}}{{#if theme_settings.home_product_carousel_3_img '!=' ''}} has-parallax{{/if}}">
+            {{#if theme_settings.enable_home_product_carousel_3_header}}
+                <div class="section-header">
+                    {{#if theme_settings.home_product_carousel_3_sub_title '!=' ''}}
+                        <h5 class="sub-heading">{{theme_settings.home_product_carousel_3_sub_title}}</h5>
+                    {{/if}}
+                    {{#if theme_settings.home_product_carousel_3_title '!=' ''}}
+                        <h2 class="heading">{{theme_settings.home_product_carousel_3_title}}</h2>
+                    {{/if}}
+                    {{#if theme_settings.home_product_carousel_3_count_down '!=' ''}}
+                        <div class="countDowntimer" data-count-down="{{theme_settings.home_product_carousel_3_count_down}}"></div>
+                    {{/if}}
+                    {{#if theme_settings.home_product_carousel_3_desc '!=' ''}}
+                        <p class="desc">{{theme_settings.home_product_carousel_3_desc}}</p>
+                    {{/if}}
+                    {{#if theme_settings.home_product_carousel_3_btn_text '!=' ''}}
+                        <a class="button button--primary button--large" href="{{theme_settings.home_product_carousel_3_btn_link}}">{{theme_settings.home_product_carousel_3_btn_text}}</a>
+                    {{/if}}
+                </div>
+            {{/if}}
+            {{#if theme_settings.home_product_carousel_3 '==' 'new'}}
+                {{#if products.new}}
+                    {{> components/products/new productsnew=products.new block_id=block_id}}
+                {{else}}
+                    <div class="product_category alert alert-warning text-center"><p>{{lang 'common.no_products'}}</p></div> 
+                {{/if}}
+            {{else}}
+                {{#if theme_settings.home_product_carousel_3 '==' 'featured'}}
+                    {{#if products.featured}}
+                        {{> components/products/featured products=products.featured block_id=block_id}}
+                    {{else}}
+                        <div class="product_category alert alert-warning text-center"><p>{{lang 'common.no_products'}}</p></div> 
+                    {{/if}}
+                {{else}}
+                    {{#if theme_settings.home_product_carousel_3 '==' 'top'}}
+                        {{#if products.top_sellers}}
+                            {{> components/products/top products=products.top_sellers block_id=block_id}}
+                        {{else}}
+                            <div class="product_category alert alert-warning text-center"><p>{{lang 'common.no_products'}}</p></div> 
+                        {{/if}}
+                    {{else}}
+                        {{> components/themevale/homepage/ajax-products-by-category-id category_id=theme_settings.home_product_carousel_3_cate_id productsnew=products.new}}
+                    {{/if}}    
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+{{/if}}

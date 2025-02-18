@@ -1,0 +1,42 @@
+---
+customer:
+    orders:
+        limit: 10
+---
+
+{{#partial "page"}}
+<main class="page account-order-all account">
+    <div class="container container-small">
+        <div class="themevale-heading">
+            <h1 class="page-heading">{{lang 'account.orders.heading' }}</h1>
+        </div>
+
+        {{> components/account/navigation account_page='orders'}}
+        
+        <div class="page-content">
+            <div class="account">
+                {{#if customer.store_credit.value '>' 0}}
+                    <div class="account-head">
+                        <div class="alertBox alertBox--storeCredit">
+                            {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+                        </div>
+                     </div>
+                {{/if}}
+               
+                <div class="account-body">
+                    <section class="account-content">
+                        {{#if customer.orders.length}}
+                            {{> components/account/orders-list orders=customer.orders}}
+                            {{> components/common/small-paginator pagination.orders}}
+                        {{else}}
+                            {{> components/common/alert-info (lang 'account.orders.none')}}
+                        {{/if}}
+                    </section>
+                </div>
+            </div>
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+    </div>
+</main>
+{{/partial}}
+{{> layout/base}}

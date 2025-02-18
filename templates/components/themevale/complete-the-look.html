@@ -1,0 +1,20 @@
+{{#if theme_settings.enable_complete_the_look}}
+	<script type="text/javascript">
+	  var arrNew2 = [0{{#each productsnew}},{{id}}{{/each}}];
+	</script>
+	
+	<div id="completeTheLook" class="module-wrapper">
+		{{#if theme_settings.complete-the-look-title '!=' ''}}
+			<h2 class="page-heading">
+				<span class="text">{{#if (getVar 'ctl-title') '!==' "none" }} {{ title }} {{else}} {{theme_settings.complete-the-look-title}} {{/if}}</span>
+			</h2>
+      {{#if (getVar 'ctl-subtitle') '!==' "none" }}
+        <h3 class="ctl-sub-title">
+  				<span class="text">{{ subtitle }}</span>
+  			</h3>
+      {{/if}}
+		{{/if}}
+		<div class="productGrid" id="block-complete-the-look">
+	    </div>
+	</div>
+{{/if}}

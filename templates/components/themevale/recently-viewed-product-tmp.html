@@ -1,0 +1,42 @@
+<div class="item" data-target="img-1" data-id="product-{{product.id}}">
+  <a href="{{product.url}}" class="recent_item_url">
+      <img src="{{getImage product.main_image 'thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" />
+  </a>
+  <div class="second-info">
+    <div class="first product-item" data-product-id="product-{{product.id}}">
+      <h4 class="card-title">
+          <a href="{{product.url}}">{{product.title}}</a>
+      </h4>
+      <div class="card-price" data-test-info-type="price">
+          {{#or customer (if theme_settings.restrict_to_login '!==' true)}}                    
+              {{#if price_range}}
+                  {{> components/products/price-range}}
+              {{else}}
+                  {{> components/products/price price=product.price customer=customer}}
+              {{/if}}
+          {{else}}
+              {{> components/common/login-for-pricing}}
+          {{/or}}
+      </div>
+
+      {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+        {{#if product.out_of_stock_message }}
+            <a href="{{product.url}}" class="button card_out_of_stock" disabled data-product-id="{{product.id}}">{{product.out_of_stock_message}}</a>
+        {{else}}
+            {{#if product.options}}
+                <a href="{{product.url}}" data-event-type="product-click" class="button button--primary" data-product-id="{{product.id}}">{{lang 'products.choose_options'}}</a>
+            {{else}}
+                {{#if product.pre_order}}
+                    <a href="{{product.url}}" class="button button--primary card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                {{else}}
+                    {{#if product.can_purchase }}
+                        <a href="{{product.cart_url}}?action=add&product_id={{product.id}}" class="button button--primary themevale_btnATC" data-product-id="{{product.id}}">{{lang 'products.add_to_cart'}}</a>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    {{/or}}
+    </div>
+    <a class="text-no-underline second" href="{{product.url}}"></a>
+  </div>
+</div>

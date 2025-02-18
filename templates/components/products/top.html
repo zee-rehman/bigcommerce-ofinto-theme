@@ -1,0 +1,54 @@
+<div class="page-header">
+    <h2 class="page-heading">{{lang 'products.top' }}</h2>
+    {{#if theme_settings.view_all_link_top '!=' ''}}
+        <p class="view-all-wrap"><a class="view-all" href="{{theme_settings.view_all_link_top}}">{{lang 'products.view_all'}}</a></p>
+    {{/if}}
+</div>
+<div class="productCarousel" id="{{block_id}}" data-product-type="top_sellers" {{#if true}} data-list-name="Most Popular Products" {{/if}} data-slick='{
+            "arrows": false,
+            "dots": true,
+            "autoplay": false,
+            "infinite": false,
+            "slidesToShow": 2,
+            "slidesToScroll": 2,
+            "mobileFirst": true,
+            "responsive": [
+                {
+                    "breakpoint": 1440,
+                    "settings": {
+                        "arrows": true,
+                        "dots": false,
+                        "slidesToShow": {{columns}},
+                        "slidesToScroll": {{columns}}
+                    }
+                },
+                {
+                    "breakpoint": 1024,
+                    "settings": {
+                        "arrows": true,
+                        "dots": false,
+                        {{#if theme_settings.homepage_product_column_count '==' 3}}
+                            "slidesToShow": 3,
+                            "slidesToScroll": 3
+                        {{else}}
+                            "slidesToShow": 4,
+                            "slidesToScroll": 4
+                        {{/if}}
+                    }
+                },
+                {
+                    "breakpoint": 550,
+                    "settings": {
+                        "arrows": false,
+                        "dots": true,
+                        "slidesToShow": 3,
+                        "slidesToScroll": 3
+                    }
+                }
+        ]}'>
+	{{#each products}}
+		<div class="productCarousel-slide">
+		    {{>components/products/card settings=../settings theme_settings=../theme_settings show_wishlist=../settings.show_wishlist show_rating=../settings.show_product_rating productsnew=../productsnew customer=../customer event="list" position=(add @index 1)}}
+		</div>
+	{{/each}}
+</div>

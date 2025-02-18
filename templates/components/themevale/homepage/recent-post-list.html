@@ -1,0 +1,12 @@
+<div class="themevale_section" id="themevale_blogs">
+    <div class="container">
+    	{{#if theme_settings.homepage_blog_post_title '!=' ''}}
+	        <div class="themevale_page-heading-wrapper text-center">
+	            <h2 class="page-heading">{{theme_settings.homepage_blog_post_title}}</h2>
+	        </div>
+        {{/if}}
+        {{#if blog.recent_posts}}
+            {{> components/blog/recent_posts blog=blog.recent_posts columns=theme_settings.homepage_blog_posts_column_count}}
+        {{/if}}
+    </div>
+</div>

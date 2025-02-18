@@ -1,0 +1,73 @@
+{{#if theme_settings.home2_products_block_1 '==' 'top'}}
+	{{#if products.top_sellers}}
+	    <div id="topSellerProduct" class="product-block-1 module-wrapper padding-top-60 padding-bottom-50">
+	    	<div class="container">
+	        	{{> components/products/top products=products.top_sellers products_new=products.new columns=theme_settings.homepage_product_column_count block_id="block_1"}}
+	    	</div>
+	    </div>             
+	{{/if}}
+{{else}}
+	{{#if theme_settings.home2_products_block_1 '==' 'featured'}}
+        {{#if products.featured}}
+        	<div id="feauturedProduct" class="product-block-1 module-wrapper padding-top-60 column-{{theme_settings.homepage_product_column_count}}">
+            	<div class="container">
+            		{{> components/products/featured products=products.featured columns=theme_settings.homepage_product_column_count block_id="block_2"}}
+            	</div>
+	    	</div>
+        {{/if}}
+    {{else}}
+    	<div id="newProduct" class="product-block-1 module-wrapper padding-top-60 column-{{theme_settings.homepage_product_column_count}}">
+	 		<div class="container">
+	    		{{> components/products/new productsnew=products.new columns=theme_settings.homepage_product_column_count block_id="block_3"}}
+	    	</div>
+	    </div>
+	{{/if}}
+{{/if}}    
+{{{region name="home_below_products_block_1"}}}
+
+{{> components/themevale/banners/banner banner="banner_two_images_1"}}
+{{{region name="home_below_banner_two_images_1"}}}
+
+{{#if theme_settings.home2_products_block_2 '==' 'top'}}
+	{{#if products.top_sellers}}
+	    <div id="topSellerProduct" class="product-block-2 module-wrapper padding-top-60 padding-bottom-70">
+	    	<div class="container">
+	        	{{> components/products/top products=products.top_sellers products_new=products.new columns=theme_settings.homepage_product_column_count block_id="block_4"}}
+	    	</div>
+	    </div>             
+	{{/if}}
+{{else}}
+	{{#if theme_settings.home2_products_block_2 '==' 'featured'}}
+        {{#if products.featured}}
+        	<div id="feauturedProduct" class="product-block-2 module-wrapper padding-top-60 padding-bottom-10 column-{{theme_settings.homepage_product_column_count}}">
+            	<div class="container">
+            		{{> components/products/featured products=products.featured columns=theme_settings.homepage_product_column_count block_id="block_5"}}
+            	</div>
+	    	</div>
+        {{/if}}
+    {{else}}
+    	<div id="newProduct" class="product-block-2 module-wrapper padding-top-60 column-{{theme_settings.homepage_product_column_count}}">
+	 		<div class="container">
+	    		{{> components/products/new productsnew=products.new columns=theme_settings.homepage_product_column_count block_id="block_6"}}
+	    	</div>
+	    </div>
+	{{/if}}
+{{/if}}
+
+{{{region name="home_below_products_block_2"}}}
+
+{{> components/themevale/banners/banner banner="banner_three_images"}}
+{{{region name="home_below_banner_three_images"}}}
+
+{{> components/themevale/banners/banner banner="banner_two_images_2"}}
+{{{region name="home_below_banner_two_images_2"}}}
+
+{{> components/themevale/banners/banner banner="banner_lookbook"}}
+{{{region name="home_below_banner_lookbook"}}}
+
+{{> components/themevale/banners/banner banner="banner_custom_block"}}
+{{{region name="home_below_banner_custom_block"}}}
+
+{{> components/themevale/banners/banner banner="instagram"}}
+{{{region name="home_below_instagram"}}}
+
