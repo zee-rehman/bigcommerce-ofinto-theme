@@ -1,17 +1,4 @@
 <div class="themevale_header">
-    <div class="header-mobile-item text-left">
-        <div class="items item--hamburger">
-            <a class="mobileMenu-toggle" href="javascript:void(0)" data-mobile-menu-toggle="menu">
-                <span class="mobileMenu-toggleIcon">Toggle menu</span>
-            </a>
-        </div>
-        <div class="items item--searchMobile">
-            <a class="navUser-action searchMobile" href="javascript:void(0)" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
-                <svg class="icon"><use xlink:href="#icon-search"></use></svg>
-                <span class="icon close">&times;</span>
-            </a>
-        </div>
-    </div>
     <div class="header-mobile-item text-center">
         <div class="items">
             <div class="logo-wrapper">
@@ -28,6 +15,12 @@
         </div>
     </div>
     <div class="header-mobile-item text-right">
+        <div class="items item--searchMobile">
+            <a class="navUser-action searchMobile" href="javascript:void(0)" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+                <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                <span class="icon close">&times;</span>
+            </a>
+        </div>
         <div class="items item--account">
             <a class="navUser-action accountMobile" href="javascript:void(0)">
                 <div class="navUser-icon">
@@ -46,5 +39,36 @@
                 </div>
             </a>
         </div>
+        <div class="items item--hamburger">
+            <a class="mobileMenu-toggle" href="javascript:void(0)" data-mobile-menu-toggle="menu">
+                <span class="mobileMenu-toggleIcon">Toggle menu</span>
+            </a>
+        </div>
     </div>
 </div>
+
+{{!--
+<script>
+$(document).ready(function() {
+	$(document).on('click touchstart', '#menu-mobile .nav-item', function(event) {
+		event.preventDefault();
+		$('#menu-mobile .nav-item').removeClass('jsonNav-active');
+		$('body').removeClass('jsonNav-active');
+		$('#menu-mobile .nav-item .mega-menu-content').hide();
+		$(this).closest('#menu-mobile .nav-item').addClass('jsonNav-active');
+		$('body').addClass('jsonNav-active');
+		$(this).siblings('#menu-mobile .nav-item .mega-menu-content').show();
+	});
+});
+$(document).on('click touchstart', '#menu-mobile h4.column-hd.mob-hd', function() {
+	setTimeout (function(){
+		$('.nav-item').removeClass('jsonNav-active');
+		$('body').removeClass('jsonNav-active');
+	},100 );
+});
+$(document).on('click touchstart', '#menu-mobile .themevale_close .close', function() {
+	$('.nav-item').removeClass('jsonNav-active');
+	$('body').removeClass('jsonNav-active');
+});
+</script>
+--}}

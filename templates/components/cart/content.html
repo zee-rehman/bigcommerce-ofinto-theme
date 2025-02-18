@@ -1,12 +1,4 @@
 <table class="cart" data-cart-quantity="{{cart.quantity}}">
-    <thead class="cart-header">
-        <tr>
-            <th class="cart-header-item" colspan="2">{{lang 'cart.checkout.item'}}</th>
-            <th class="cart-header-item text-center">{{lang 'cart.checkout.price'}}</th>
-            <th class="cart-header-item cart-header-quantity text-center">{{lang 'cart.checkout.quantity'}}</th>
-            <th class="cart-header-item text-center">{{lang 'cart.checkout.total'}}</th>
-        </tr>
-    </thead>
     <tbody class="cart-list">
         {{#each cart.items}}
             <tr class="cart-item" data-item-row>
@@ -23,10 +15,8 @@
                         }}
                     {{/if}}
                 </td>
+
                 <td class="cart-item-block cart-item-title">
-                    {{#if brand.name}}
-                        <p class="cart-item-brand">{{brand.name}}</p>
-                    {{/if}}
                     <h4 class="cart-item-name"><a href="{{url}}">{{name}}</a></h4>
                     {{#if release_date}}
                         <p>({{release_date}})</p>
@@ -45,12 +35,6 @@
                                 </dd>
                             {{/each}}
                         </dl>
-
-                        <a href="#" data-item-edit="{{id}}"><svg class="icon"><use xlink:href="#icon-edit"></use></svg> <span>{{lang 'cart.checkout.change'}}</span></a>
-                    {{/if}}
-
-                    {{#if type '==' 'GiftCertificate'}}
-                        <a class="change-giftCertificate" href="{{edit_url}}"><svg class="icon"><use xlink:href="#icon-edit"></use></svg> <span>{{lang 'cart.checkout.change'}}</span></a>
                     {{/if}}
                     {{> components/cart/item-giftwrap this}}
                     {{#if event_date}}
@@ -64,23 +48,19 @@
                             </dd>
                         </dl>
                     {{/if}}
-
-                </td>
-                <td class="cart-item-block cart-item-info cart-item-price text-center">
-                    <span class="cart-item-label">{{lang 'cart.checkout.price'}}:</span>
-                    {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
-                        <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}}">{{price.formatted}}</span>
-                        {{#if price_discounted}}
-                            <span class="cart-item-value">{{price_discounted.formatted}}</span>
-                        {{/if}}
-                    {{else}}
-                        {{> components/common/login-for-pricing}}
-                    {{/or}}
                 </td>
 
-                <td class="cart-item-block cart-item-info cart-item-quantity text-center">
-
-                    <label class="form-label cart-item-label" for="qty-{{id}}">{{lang 'products.quantity'}}:</label>
+                {{#if type '==' 'GiftCertificate'}}
+                    <td class="cart-item-block cart-item-info cart-item-price text-center">
+                        <a class="data-item-edit" href="{{edit_url}}"><span>{{lang 'cart.checkout.change'}}</span></a>
+                    </td>
+                {{else}}
+                    <td class="cart-item-block cart-item-info cart-item-price text-center">
+                        <a class="data-item-edit" href="#" data-item-edit="{{id}}"><span>{{lang 'cart.checkout.change'}}</span></a>
+                    </td>
+                {{/if}}
+                
+                <td class="cart-item-block cart-item-info cart-item-quantity text-center" {{#if type '==' 'GiftCertificate'}}style="opacity: 0;visibility: hidden;"{{/if}}>
                     <div class="form-increment">
                         {{#if can_modify}}
                             <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="dec">
@@ -107,11 +87,9 @@
                             </button>
                         {{/if}}
                     </div>
-
                 </td>
 
                 <td class="cart-item-block cart-item-info cart-item-total text-center">
-                    <span class="cart-item-label">{{lang 'cart.checkout.total'}}:</span>
                     {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
                         <strong class="cart-item-value {{#if total_discounted}}price--discounted{{/if}}">{{total.formatted}}</strong>
                         {{#if total_discounted}}
@@ -122,17 +100,173 @@
                     {{/or}}
                     {{#if can_modify}}
                         <a class="cart-remove icon" data-cart-itemid="{{id}}" href="#" data-confirm-delete="{{lang 'cart.confirm_delete'}}">
-                            <svg><use xlink:href="#icon-close"></use></svg>
+                            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.64238 5.12671L1.38455 7.38455L0.272309 6.27231L2.53014 4.01448L0.257833 1.74217L1.39902 0.600979L3.67133 2.87329L5.92916 0.615455L7.0414 1.72769L4.78357 3.98552L7.05588 6.25783L5.91469 7.39902L3.64238 5.12671Z" fill="#0F0F0F"/>
+                            </svg>                                
                         </a>
                     {{else}}
                         {{#if type '==' 'GiftCertificate'}}
                             <a class="cart-remove icon" data-cart-itemid="{{id}}" href="#" data-confirm-delete="{{lang 'cart.confirm_delete'}}">
-                                <svg><use xlink:href="#icon-close"></use></svg>
+                                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.64238 5.12671L1.38455 7.38455L0.272309 6.27231L2.53014 4.01448L0.257833 1.74217L1.39902 0.600979L3.67133 2.87329L5.92916 0.615455L7.0414 1.72769L4.78357 3.98552L7.05588 6.25783L5.91469 7.39902L3.64238 5.12671Z" fill="#0F0F0F"/>
+                                </svg> 
                             </a>
                         {{/if}}
                     {{/if}}
                 </td>
+
             </tr>
         {{/each}}
     </tbody>
 </table>
+<div class="grand-total-left" data-cart-totals>
+    <div class="cart-total grand-total">
+        <div class="cart-total-label">
+            <strong>{{lang 'cart.checkout.grand_total'}} <span>{{lang 'cart.checkout.vat'}}</span> </strong>
+        </div>
+        <div class="cart-total-value cart-total-grandTotal">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                <span>{{cart.grand_total.formatted}}</span>
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+    </div>
+</div>
+<div class="cart-cross-sell-wrap">
+    <h3>Vervollstädnigen Sie Ihr Büro</h3>
+    <div class="cart-cross-sell crossSellItems" data-cross-sell="{{#each cart.items}}{{#each custom_fields}}{{#if name '==' 'ctl-product'}}{{value}}{{#unless @last}},{{/unless}}{{/if}}{{/each}}{{/each}}">
+    </div>
+</div>
+<div class="cart-faq">
+    <h3>{{lang 'cart.faq_heading'}}</h3>
+    {{#for 1 (lang 'cart.faq.count')}}
+       <div class="FAQBox">
+            <h4 class="CartFaqTitle">{{{lang (concat (concat 'cart.faq.'$index)'.faq_question' )}}}</h4>
+            <p class="CartFaqParagraph">{{{lang (concat (concat 'cart.faq.'$index)'.faq_answer' )}}}</p>
+        </div>
+    {{/for}}
+</div>
+<script>
+    $(document).ready(function(e) {
+       crossSellItems();
+    });
+
+    function crossSellItems() {
+    	var excludeIds = [{{#each cart.items}}{{product_id}}{{#unless @last}},{{/unless}}{{/each}}];
+    	const token = "{{settings.storefront_api.token}}";
+    	const crossSellContainer = $('.crossSellItems');
+    	const productIds = [...new Set(crossSellContainer.attr("data-cross-sell").split(",").map(Number))]
+    		.filter(id => id !== 0 && !excludeIds.includes(id));
+    	console.log(productIds);
+    	productIds.forEach((productId) => {
+    		let query =`query { site { product(entityId: ${productId}) { id entityId name path customFields{ edges{ node{ name value } } } defaultImage { ...ImageFields } prices { price { ...MoneyFields } basePrice { ...MoneyFields } priceRange { min { ...MoneyFields } max { ...MoneyFields } } salePrice { ...MoneyFields } retailPrice { ...MoneyFields } saved { ...MoneyFields } } brand { name } } } } fragment ImageFields on Image { url320wide: url(width: 320) } fragment MoneyFields on Money { value currencyCode }`
+    		$.ajax({
+    			url: "/graphql",
+    			data: JSON.stringify({ query }),
+    			method: "post",
+    			headers: {
+    				Authorization: "Bearer " + token,
+    				"Content-Type": "application/json"
+    			},
+    			success: function (res) {
+    				console.log(res);
+    				const product = res.data.site.product;
+    				if (product) {
+    					var shortDesc = '';
+    					const getItemid = product.entityId;
+    					const name = product.name;
+    					const itemUrl = product.path;
+    					const brandName = product.brand.name;
+    					const sku = product.sku;
+    					const image = product.defaultImage.url320wide;
+    					const basePrice = product.prices.basePrice.value.toFixed(2);
+    					const currencyCode = '{{currency_selector.active_currency_code}}';
+    					if (product.customFields.edges.length > 0) {
+    						product.customFields.edges.map(function (custom_field) {
+    							custom_field = custom_field.node;
+    							if (custom_field.name.toLowerCase() == 'short_description') {
+    								shortDesc = custom_field.value;
+    							}
+    						})
+    					}
+                        const productHtml = `
+    						<div class="cross-sell-item">
+    							<div class="item-figure">
+    								<img src="${image}" alt="${name}" title="${name}" height="116" width="113" />
+    							</div>
+    							<div class="item-body">
+    								<div class="cart-top">
+    								    <h4 class="item-title"><a href="${itemUrl}">${name}</a></h4>
+    								    <p class="item-intro">${shortDesc}</p>
+    								</div>
+    								<div class="item-add">
+    									<p class="item-price">${currencyCode} ${basePrice}</p>
+    									<a href="${itemUrl}" class="item-add-cart">Hinzufügen</a>
+    								</div>
+    							</div>
+    						</div>`;
+    
+                        $(".crossSellItems").append(productHtml);
+    				}
+    			}
+    		});
+    	});
+    }
+
+    $(document).ready(function () {
+        var a = $('.cart-cross-sell-wrap').hide(); // Hide initially
+        var cross_sell_visibility = setInterval(function() {
+            if ($('.crossSellItems .cross-sell-item').length > 1) {
+                a.show();
+				// clearInterval(cross_sell_visibility);
+            } else {
+                a.hide();
+				// clearInterval(cross_sell_visibility);
+            }
+        }, 500);
+
+        $(function () {
+            $('.CartFaqParagraph').hide();
+            $('.CartFaqTitle').click(function () {
+                if ($(this).next().is(':hidden')) {
+                    $('.CartFaqTitle').removeClass('current').next().slideUp('');
+                    $(this).toggleClass('current').next().slideDown('');
+                } else {
+                    $(this).next().slideToggle('');
+                    $('.CartFaqParagraph').not($(this).next()).slideUp('');
+                    $('.CartFaqTitle').removeClass('current');
+                }
+            });
+        });
+        // var a = $('.cart-cross-sell-wrap')//.hide();
+		var upsellItem =  setInterval(function(){
+			if($('.crossSellItems .cross-sell-item').length > 2){
+				clearInterval(upsellItem);
+                setTimeout(function() {
+                    $('.crossSellItems').slick({
+                        dots: false,
+                        arrows: true,
+                        infinite: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        centerMode: true,
+                        mobileFirst: false,
+                        responsive: [
+                            {
+                                breakpoint: 801,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1,
+                                    adaptiveHeight: true
+                                }
+                            }
+                        ]
+                    });
+                    // a.show();
+                    // a.css({"opacity": "1", "visibility": "visible"});
+                }, 1000);
+			}
+		},500);
+	});
+</script>

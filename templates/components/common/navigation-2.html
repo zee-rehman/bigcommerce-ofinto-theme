@@ -1,21 +1,12 @@
 <nav class="navUser">
+    
+    <div class="navUser-section navUser-section--help">
+        {{!-- Help header nav and dropdown appear dynamically from json customize file --}}
+    </div>
+    
     {{> components/common/currency-selector}}
 
     <div class="navUser-section navUser-section--alt">
-        <div class="navUser-item navUser-item--account">
-            <a class="navUser-action navUser-action--account" href="javascript:void(0)">
-                {{#if customer}}
-                    <span class="text">{{lang 'common.account'}}</span>
-                {{else}}
-                    <span class="text">{{lang 'common.login'}}</span>
-                {{/if}}
-         </a>
-
-            <div class="dropdown-menu account-dropdown" id="accountDropdown">
-                {{> components/themevale/login-form}}
-            </div>
-
-        </div>
         <div class="navUser-item navUser-item--quichSearch">
             <a class="navUser-action navUser-action--search" href="javascript:void(0)">
                 <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
@@ -24,6 +15,26 @@
                 {{> components/common/quick-search}}
             </div>
         </div>
+        
+        <div class="navUser-item navUser-item--account">
+            <a class="navUser-action navUser-action--account" href="javascript:void(0)">
+                {{#if customer}}
+                    <span class="text">
+                        <svg class="icon icon-user-header"><use xlink:href="#icon-user"></use></svg>
+                    </span>
+                {{else}}
+                    <span class="text">
+                        <svg class="icon icon-user-header"><use xlink:href="#icon-user"></use></svg>
+                    </span>
+                {{/if}}
+            </a>
+
+            <div class="dropdown-menu account-dropdown" id="accountDropdown">
+                {{> components/themevale/login-form}}
+            </div>
+
+        </div>
+        
         <div class="navUser-item navUser-item--cart">
             <a
                 class="navUser-action"

@@ -3,34 +3,37 @@ cart: true
 ---
 {{#partial "page"}}
 <div class="page">
-    <div class="container">
-        <div class="themevale-heading">
-            {{> components/cart/page-title}}
-        </div>
-        {{#if theme_settings.enbale_cart_notification}}
-            {{> components/themevale/cart-notification}}
-        {{/if}}
+    <div class="container container--cart">
         <main class="page-content" data-cart>
             <div data-cart-status {{#if theme_settings.themevale_CalculateFreeShipping '==' true}}class="CalculateFreeShipping"{{/if}}>
                 {{> components/cart/status-messages}}
             </div>
-
             {{#if cart.items.length}}
                 <div class="loadingOverlay"></div>
                 <div class="cart-content">
                     <div class="left-col">
+                        <div class="themevale-heading">
+                            {{> components/cart/page-title}}
+                        </div>
+                        {{#if theme_settings.enbale_cart_notification}}
+                            {{> components/themevale/cart-notification}}
+                        {{/if}}
                         <div data-cart-content>
                             {{> components/cart/content}}
                         </div>
                     </div>
                     <div class="right-col">
+                        <h3>Zusammenfassung</h3>
                         <div data-cart-totals>
                             {{> components/cart/totals}}
                         </div>
 
                         {{#if cart.show_primary_checkout_button}}
                             <div class="cart-actions">
-                                <a class="button button--checkout" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                                <a class="button button--checkout" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">
+                                    {{lang 'cart.checkout.button'}}
+                                    <svg class="icon icon-cart-checkout-btn"><use xlink:href="#icon-cart-checkout-btn"></use></svg>
+                                </a>
                                 {{#if cart.show_multiple_address_shipping}}
                                     <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
                                         {{lang 'cart.preview.checkout_multiple'}}
@@ -52,11 +55,17 @@ cart: true
                         {{/if}}
 
                         {{#if theme_settings.cart_secure_text '!=' ''}}
-                            {{> components/themevale/cart-secure}}
+                            {{!> components/themevale/cart-secure}}
                         {{/if}}
                         {{#if theme_settings.show_seal_logos_cart}}
                             {{> components/themevale/seal-logos-cart}}
                         {{/if}}
+                        <div class="risk-wrap">
+                            <div class="checkout-help">
+                                <h3>{{lang 'optimized_checkout.order_confirmation.haben_sie'}}</h3>
+                                {{{lang 'optimized_checkout.order_confirmation.haben_sie_fragen'}}}
+                            </div>
+                        </div>
                     </div>
                 </div>          
             {{else}}
@@ -70,5 +79,6 @@ cart: true
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
     </div>
 </div>
+
 {{/partial}}
 {{> layout/base}}

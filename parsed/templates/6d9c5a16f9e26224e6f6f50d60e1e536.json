@@ -1,3 +1,3 @@
 {
-  "components/themevale/cart-secure": "<div class=\"secure\">\r\n    <div class=\"text-group\">\r\n        <svg class=\"icon\"><use xlink:href=\"#icon-secure\"></use></svg>\r\n        <p class=\"text\">{{theme_settings.cart_secure_text}}</p>\r\n    </div>\r\n</div>\r\n"
+  "components/themevale/cart-secure": "<div class=\"secure\">\n    <div class=\"text-group\">\n        <svg class=\"icon\"><use xlink:href=\"#icon-secure\"></use></svg>\n        <p class=\"text\">{{theme_settings.cart_secure_text}}</p>\n    </div>\n</div>\n"
 }

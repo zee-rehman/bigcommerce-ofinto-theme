@@ -39,6 +39,22 @@
     "title": "Bezahlen"
   },
   "cart": {
+    "faq_heading": "Häufig gestellte Fragen",
+    "faq": {
+        "count": "3",
+        "1": {
+            "faq_question": "Was wenn ich bei der Lieferung nicht zu Hause bin?",
+            "faq_answer": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit."
+        },
+        "2": {
+            "faq_question": "Wie läuft eine Rückgabe bei ofinto ab?",
+            "faq_answer": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit."
+        },
+        "3": {
+            "faq_question": "Wie läuft eine Rückgabe bei ofinto ab?",
+            "faq_answer": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit."
+        }
+    },
     "continue_shopping": "Einkauf fortsetzen",
     "items": "{NUM, plural, =0{(kein Produkt)} one {(# Produkt)} other {(# Produkte)}}",
     "checkout": {
@@ -46,30 +62,32 @@
         "multiple": "mit mehreren Adressen bezahlen",
         "or": "oder"
       },
-      "button": "Weiter zur Kasse",
+      "button": "Sicher zur Kasse",
       "empty_cart": "Sie haben noch keine Produkte im Warenkorb",
       "title": "Bestellvorgang abschliessen",
       "item": "Produkt",
       "price": "Preis",
       "quantity": "Menge",
       "total": "Total",
-      "change": "Ändern",
-      "subtotal": "Zwischentotal",
+      "change": "Bearbeiten",
+      "subtotal": "Zwischensumme",
       "enter_code": "Gutscheincode",
       "gift_wrapping": "Als Geschenk verpacken",
-      "shipping": "Lieferung",
+      "shipping": "Versand & Rückversand inkl. Abholung ",
       "grand_total": "Total",
+      "vat": "inkl. Mwst",
       "select": "Auswählen",
       "update": "Lieferkosten aktualisieren"
     },
     "preview": {
-      "checkout_now": "Zur Kasse",
+      "checkout_now": "Sicher zur Kasse",
       "checkout_multiple": "oder mit mehreren Adressen bezahlen",
       "view_cart": "Warenkorb ansehen"
     },
     "title": "Ihr Warenkorb",
     "label": "{quantity, plural, one {# Produkt} other {# Produkte}}",
     "dropdown_label": "{quantity, plural, one {# Produkt} other {# Produkte}}",
+	"dropdown_label_qty": "{quantity, plural, one {# } other {# }}",
     "qty": "{quantity}",
     "is_empty": "Ihr Warenkorb ist leer",
     "coupon_code": "Rabattcode",
@@ -85,7 +103,7 @@
       "empty_error": "Bitte Rabattcode eingeben.",
       "cancel": "Abbrechen",
       "add_code": "Code hinzufügen",
-      "add_coupon": "Code hinzufügen",
+      "add_coupon": "Gutschein einlösen",
       "button": "Anwenden",
       "coupon_code": "Rabattcode hinzufügen",
       "code_label": "Rabatt ({code})",
@@ -100,7 +118,7 @@
       "remove": "Entfernen"
     },
     "shipping_estimator": {
-      "add_info": "Informationen hinzufügen",
+      "add_info": "Free Delivery",
       "select_a_country": "Land",
       "select_a_state": "Kanton",
       "estimate_shipping": "Lieferkosten berechnen",
@@ -178,7 +196,7 @@
     "back_to_top": "Nach oben",
     "no_products": "Hier gibt es noch keine Produkte.",
     "recently_viewed": "Zuletzt angesehen",
-    "cart_dropdown_title": "Warenkorb ansehen",
+    "cart_dropdown_title": "Ihr Warenkorb",
     "recommended": "Empfohlen",
     "history": "Verlauf",
     "back_to_store": "Zurück zum Shop",
@@ -704,6 +722,11 @@
     }
   },
   "products": {
+    "sicherer-checkout": "100% sicherer Checkout",
+    "auf-rechnung-zahlbar": "Auf Rechnung zahlbar",
+    "ab-schweizer-lager": "Ab Schweizer Lager",
+    "geld-zurück-garantie": "30 Tage Geld-zurück-Garantie",
+    "kostenloser-rückversand": "Kostenloser Rückversand inkl. Abholung",
     "goto_product": "Produkt ansehen",
     "current_stock": "Lagerbestand:",
     "quantity": "Menge",
@@ -768,7 +791,7 @@
       "show": "Videos einblenden"
     },
     "add_to_cart": "In den Warenkorb",
-    "product_variant_sold_out": "Diese Produktvariante ist leider ausverkauft",
+    "product_variant_sold_out": "Die ausgewählte Produktvariante wird derzeit nicht angeboten.",
 	  "product_variant_sold_out_not_purchasable": "Die ausgewählte Produktvariante wird derzeit nicht angeboten",
     "adding_to_cart": "Dem Warenkorb hinzufügen…",
     "options": "Optionen",
@@ -800,14 +823,14 @@
     "price_without_tax": "(exkl. {tax_label})",
     "including_tax": "Inklusive MWST",
     "excluding_tax": "Exklusive MWST",
-	"tax": "{tax_label} ",
-	"tax_inc": "- Kostenloser Express-Versand",
-	"tax_exc": "- Kostenloser Express-Versand",
-	"perk_1_text": "100% sicherer Checkout",
-	"perk_2_text": "Auf Rechnung zahlbar",
-	"perk_3_text": "Ab Schweizer Lager",
-	"guarantee_1_text": "100 Tage Geld-zurück-Garantie",
-	"guarantee_2_text": "Kostenloser Rückversand inkl. Abholung",
+    "tax": "{tax_label} ",
+    "tax_inc": "- Kostenloser Express-Versand",
+    "tax_exc": "- Kostenloser Express-Versand",
+    "perk_1_text": "100% sicherer Checkout",
+    "perk_2_text": "Auf Rechnung zahlbar",
+    "perk_3_text": "Ab Schweizer Lager",
+    "guarantee_1_text": "100 Tage Geld-zurück-Garantie",
+    "guarantee_2_text": "Kostenloser Rückversand inkl. Abholung",
     "weight": "Gewicht:",
     "width": "Breite:",
     "height": "Höhe:",
@@ -852,13 +875,13 @@
     "comments": "Kommentar",
     "pre_ordered": "Vorbestellt:",
     "details_left_company_address": "ofinto ag, Bischofszellerstrasse 53, 9200 Gossau SG",
-    "pdf_info": "Bitte beachten Sie, dass dieses Dokument als Beleg und <u>nicht</u> als Rechnung gilt. Die Rechnung wird bis spätestens nach Auslieferung der Bestellung in einer separaten Nachricht per E-Mail an die in der Bestellung angegebene Rechnungsadresse zugestellt. Bitte verwenden Sie die Zahlungsangaben auf jener Rechnung für die Begleichung allfälliger ausstehender Beträge."
+    "pdf_info": "Bitte beachten Sie, dass dieses Dokument als Beleg und <u>nicht</u> als Rechnung gilt. Die Rechnung wird bis spätestens nach Auslieferung der Bestellung in einer separaten Nachricht per E-Mail oder Post an die in der Bestellung angegebene Rechnungsadresse zugestellt. Bitte verwenden Sie die Zahlungsangaben auf jener Rechnung für die Begleichung allfälliger ausstehender Beträge."
   },
   "newsletter": {
     "subscribe": "Newsletter abonnieren",
     "subscribe_intro": "Erfahren Sie als Erstes von neuen Produkten, exklusiven Angeboten und weiteren Updates.",
-    "subscribe_submit": "Abonnieren",
-    "email_placeholder": "E-Mail-Adresse",
+    "subscribe_submit": "Newsletter Abonnieren",
+    "email_placeholder": "E-Mail Adresse",
     "subscribed_heading": "Danke für Ihre Anmeldung!",
     "subscribed_heading_error": "Oops...",
     "subscribed_message": "Danke, dass Sie sich für unseren Newsletter interessieren. Sie werden in Kürze von uns hören.",
@@ -874,8 +897,8 @@
   },
   "search": {
     "quick_search": {
-      "input_label": "Suche",
-      "input_placeholder": "Suche"
+      "input_label": "Suche eingeben",
+      "input_placeholder": "Suche eingeben"
     },
     "results": {
       "form_label": "Suchbegriff:",
@@ -1116,7 +1139,7 @@
       "print_action": "Drucken",
       "remaining_text": "Verbleibend",
       "remove_action": "löschen",
-      "see_all_action": "Alles anzeigen",
+      "see_all_action": "Gesamte Bestellung anzeigen",
       "see_less_action": "Weniger anzeigen",
       "shipping_text": "Versand",
       "gift_wrapping_text": "Geschenkverpackung",
@@ -1332,7 +1355,7 @@
     "remote": {
       "browser_unsupported": "Die ausgewählte Bezahlmethode benötigt einen anderen Webbrowser. Bitte wählen Sie eine andere Bezahlmethode.",
       "connection_error": "Die Verbindung zum externen Bezahlanbieter wurde abgelehnt. Bitte versuchen Sie es später noch einmal.",
-      "continue_with_text": "Oder fahren Sie fort mit",
+      "continue_with_text": ".",
       "payment_method_error": "Es gab einen Fehler beim Abfragen Ihrer Bezahlmethode. Bitte versuchen Sie es noch einmal.",
       "select_different_card_action": "Eine andere Karte auswählen",
       "session_error": "Ihre Session ist abgelaufen. Bitte melden Sie sich noch einmal an.",
@@ -1388,19 +1411,107 @@
       "terms_and_conditions_heading": "Geschäftsbedingungen"
     },
     "order_confirmation": {
-      "order_number_text": "Ihre Bestellnummer ist <strong>{orderNumber}</strong>",
-      "order_pending_review_text": "Wir haben Ihre Bestellung erhalten, warten aber noch auf den Zahlungseingang. Sobald wir die Zahlungsbestätigung erhalten haben, schliessen wir Ihre Bestellung ab. Falls sie bereits Bezahlangaben gemacht haben, werden wir Ihre Bestellung in Kürze abwickeln und Ihnen eine E-Mail senden, sobald die Abwicklung abgeschlossen ist.",
-      "order_pending_status_text": "Wir haben Ihre Bestellung erhalten und führen gerade Ihre Bezahlung aus. Sobald die Bezahlung verifiziert ist, schliessen wir Ihre Bestellung ab. Wir werden Ihnen eine E-Mail senden, sobald dies soweit ist. Bitte beachten Sie, dass dieser Prozess je nach Bearbeitungszeit der gewählten Bezahlmethode ein paar Minuten dauern kann. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
-      "order_incomplete_status_text": "Wir haben Ihre Bestellung und Bezahlung erhalten. Ihre Bestellung wird gerade von unserem System ausgeführt. Bitte beachten Sie, dass dies einige Minuten dauern kann. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
-      "order_with_downloadable_digital_items_text": "Sie können Ihren digitalen Einkauf herunterladen, indem Sie auf den Link auf dieser Page drücken oder jederzeit, indem Sie sich in Ihrem Konto anmelden. Zudem enthält die Bestätigungsemail, die Sie jeden Moment erhalten werden, einen Download Link.",
-      "order_with_support_number_text": "Sie werden in Kürze eine E-Mail mit der Bestellbestätigung erhalten. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a> oder rufen Sie uns an unter <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
-      "order_without_downloadable_digital_items_text": "Sobald wir Ihre Bezahlung erhalten haben, werden wir Ihnen eine Bestätigungsemail senden, die den Link zu Ihrer digitalen Bestellung enthält.",
-      "order_without_support_number_text": "Sie werden in Kürze eine E-Mail mit der Bestellbestätigung erhalten. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
-      "thank_you_customer_heading": "Herzlichen Dank, {name}!",
-      "thank_you_heading": "Herzlichen Dank!",
-      "continue_shopping": "Weiter einkaufen »",
-      "order_status_update_facebook_messenger_heading": "Erhalten Sie Statusupdates über Ihre Bestellung in Echtzeit via Messenger",
-      "mandate_link_text": "{provider} Mandat"
+        "order_number_text": "Ihre Bestellnummer: #{orderNumber}",
+        "order_pending_review_text": "Wir haben Ihre Bestellung erhalten, warten aber noch auf den Zahlungseingang. Sobald wir die Zahlungsbestätigung erhalten haben, schliessen wir Ihre Bestellung ab. Falls sie bereits Bezahlangaben gemacht haben, werden wir Ihre Bestellung in Kürze abwickeln und Ihnen eine E-Mail senden, sobald die Abwicklung abgeschlossen ist.",
+        "order_pending_status_text": "Wir haben Ihre Bestellung erhalten und führen gerade Ihre Bezahlung aus. Sobald die Bezahlung verifiziert ist, schliessen wir Ihre Bestellung ab. Wir werden Ihnen eine E-Mail senden, sobald dies soweit ist. Bitte beachten Sie, dass dieser Prozess je nach Bearbeitungszeit der gewählten Bezahlmethode ein paar Minuten dauern kann. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+        "order_incomplete_status_text": "Wir haben Ihre Bestellung und Bezahlung erhalten. Ihre Bestellung wird gerade von unserem System ausgeführt. Bitte beachten Sie, dass dies einige Minuten dauern kann. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+        "order_with_downloadable_digital_items_text": "Sie können Ihren digitalen Einkauf herunterladen, indem Sie auf den Link auf dieser Page drücken oder jederzeit, indem Sie sich in Ihrem Konto anmelden. Zudem enthält die Bestätigungsemail, die Sie jeden Moment erhalten werden, einen Download Link.",
+        "order_with_support_number_text": "Sie werden in Kürze eine E-Mail mit der Bestellbestätigung erhalten. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a> oder rufen Sie uns an unter <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
+        "order_without_downloadable_digital_items_text": "Sobald wir Ihre Bezahlung erhalten haben, werden wir Ihnen eine Bestätigungsemail senden, die den Link zu Ihrer digitalen Bestellung enthält.",
+        "order_without_support_number_text": "Sie werden in Kürze eine E-Mail mit der Bestellbestätigung erhalten. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+        "thank_you_customer_heading": "Herzlichen Dank, {name}!",
+        "thank_you_heading": "Herzlichen Dank!",
+        "continue_shopping": "Weiter einkaufen »", 
+        "order_status_update_facebook_messenger_heading": "Erhalten Sie Statusupdates über Ihre Bestellung in Echtzeit via Messenger",
+        "mandate_link_text": "{provider} Mandat",
+        "risikofrei": "100 Tage risikofrei testen",
+        "bis_zu": "Bis zu 10 Jahre Garantie",
+        "haben_sie": "Haben Sie Fragen?",
+        "haben_sie_fragen": "<p>Kontaktieren Sie uns via <a href='javascript:void(0)' title='chat'>chat</a> oder per telefon: <a href='tel:0526246969' title='052 624 69 69'>052 624 69 69</a></p>",
+        "order_confirmed": "Ihre Bestellung wurde erfolgreich aufgegeben",
+        "payment_default": {
+            "count": "3",
+            "1": {
+                "step_count": "1",
+                "headline": "Bestellbestätigung",
+                "text": "Sie erhalten eine Bestätigungsmail, dass Ihre Bestellung eingegangen ist und bearbeitet wird."
+            },
+            "2": {
+                "step_count": "2",
+                "headline": "Versand in 2-5 Tagen",
+                "text": "Ihre Bestellung wird in 2-5 Werktagen geliefert. Bei grossen Bestellungen kontaktiert Sie unser Speditionspartner zur Abstimmung der Lieferung."
+            },
+            "3": {
+                "step_count": "3",
+                "headline": "Geniessen Sie Ihr neues Büro",
+                "text": "Sollte etwas nicht passen, holen wir die Produkte innerhalb von 100 Tagen kostenlos bei Ihnen ab."
+            }
+        },
+        "payment_bankdeposit": {
+            "count": "3",
+            "1": {
+                "step_count": "1",
+                "headline": "Bestellbestätigung",
+                "text": "Sie erhalten eine Bestätigungsmail, dass Ihre Bestellung eingegangen ist und bearbeitet wird."
+            },
+            "2": {
+                "step_count": "2",
+                "headline": "Vorauskasse erforderlich",
+                "text": "Bitte überweisen Sie den Rechnungsbetrag gemäss den Zahlungsdetails in der E-Mail."
+            },
+            "3": {
+                "step_count": "3",
+                "headline": "Versand nach Zahlungseingang",
+                "text": "Nach Zahlungseingang erfolgt die Lieferung in 2-5 Werktagen. Bei grossen Bestellungen kontaktiert Sie unser Speditionspartner zur Abstimmung der Lieferung."
+            }
+        },
+        "payment_moneyorder": {
+            "count": "3",
+            "1": {
+                "step_count": "1",
+                "headline": "Bestellbestätigung",
+                "text": "Sie erhalten eine Bestätigungsmail, dass Ihre Bestellung eingegangen ist und bearbeitet wird."
+            },
+            "2": {
+                "step_count": "2",
+                "headline": "Versand in 2-5 Tagen",
+                "text": "Ihre Bestellung wird in 2-5 Werktagen geliefert. Bei grossen Bestellungen kontaktiert Sie unser Speditionspartner zur Abstimmung der Lieferung."
+            },
+            "3": {
+                "step_count": "3",
+                "headline": "Rechnung erhalten",
+                "text": "Die Rechnung wird Ihnen von uns oder unserem Partner CembraPay zugestellt. Bitte nutzen Sie den beigelegten Einzahlungsschein zur Zahlung."
+            }
+        },
+        "details_bank": {
+            "intro": "Bitte überweisen Sie den ausstehenden Betrag an:",
+            "total": "Betrag:",
+            "detail_list": "<li><span>Begünstigte: </span>ofinto ag</li> <li><span>IBAN: </span>CH70 56596 895596 68655 856898</li> <li><span>Bank: </span>St. Galler Kantonalbank</li>",
+            "detail_list2": "<li><span>Account-Nummer: </span>6247.8837.2000</li> <li><span>BIC-Nummer/SWIFT-Code: </span>KBSGGH22XXX</li> <li><span>Referenz: </span>Bestellung 1227215</li>",
+            "QR_Img_Src": "https://cdn11.bigcommerce.com/s-8ic434rnw3/images/stencil/original/image-manager/qrforbankdeposit.jpg?t=1739253827",
+            "money_order_title": "Besten Dank für die Annahme Ihres persönlichen Angebots!",
+            "money_order_list": "<li>Herzlichen Dank für Ihr Vertrauen in ofinto – wir freuen uns, Ihr Partner für Büroausstattung zu sein!</li> <li>Unser Team wird sich in Kürze bei Ihnen melden, um die nächsten Schritte zu besprechen.</li> <li>Bei Fragen oder Anliegen stehen wir Ihnen jederzeit gerne zur Verfügung.</li>"
+        }
+    },
+    "checkout_step": {
+      "secured": "100% sicherer Checkout",
+      "count": "4",
+      "1": {
+        "step_count": "1",
+        "headline": "Kontaktdaten"
+      },
+      "2": {
+        "step_count": "2",
+        "headline": "Lieferung"
+      },
+      "3": {
+        "step_count": "3",
+        "headline": "Bezahlung"
+      },
+      "4": {
+        "step_count": "4",
+        "headline": "Ihr neues Büro"
+      }
     }
   }
 }

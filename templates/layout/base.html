@@ -14,7 +14,9 @@
             {{!-- Change document class from no-js to js so we can detect this in css --}}
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
         </script>
-
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        
         <!-- use shop specific file -->
         {{> shop_specific/head-scripts }}
 
@@ -31,6 +33,8 @@
         {{{stylesheet '/assets/css/theme.css'}}}
 
         {{{head.scripts}}}
+        
+        {{> components/common/json-file-customization}}
 
         {{~inject 'themeSettings' theme_settings}}
         {{~inject 'genericError' (lang 'common.generic_error')}}
@@ -42,16 +46,14 @@
         {{~inject 'token' settings.storefront_api.token}}
 
         <!-- Canonical Link -->
-        <link rel="alternate" hreflang="de-CH" href="https://ofinto.ch">
-        <link rel="alternate" hreflang="de-DE" href="https://ofinto.de">
-        <link rel="alternate" hreflang="de-AT" href="https://ofinto.at">
-        <link rel="alternate" hreflang="fr-FR" href="https://ofinto.fr">
-        <link rel="alternate" hreflang="fr" href="https://fr.ofinto.fr">
-        <link rel="alternate" hreflang="de" href="https://ofinto.ch">
-        <link rel="alternate" hreflang="en-CH" href="https://en.ofinto.ch">
-        <link rel="alternate" hreflang="en" href="https://en.ofinto.ch">
-        <link rel="alternate" hreflang="fr-CH" href="https://fr.ofinto.ch">
-        <link rel="alternate" hreflang="x-default" href="https://ofinto.ch">
+        <link rel="alternate" hreflang="de-CH" href="https://ofinto.ch" />
+        <link rel="alternate" hreflang="fr-CH" href="https://fr.ofinto.ch" />
+        <link rel="alternate" hreflang="en-CH" href="https://en.ofinto.ch" />
+        <link rel="alternate" hreflang="de-DE" href="https://ofinto.de" />
+        <link rel="alternate" hreflang="de-AT" href="https://ofinto.at" />
+        <link rel="alternate" hreflang="fr-FR" href="https://ofinto.fr" />
+        <link rel="alternate" hreflang="en-GB" href="https://ofinto.co.uk" />
+        <link rel="alternate" hreflang="x-default" href="https://ofinto.ch" />
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -69,6 +71,11 @@
                 <a href="javascript:void(0)" class="close">&times;</a>
             </div>
             <div class="navPages-container" id="menuMobile" data-menu>
+            	<ul class="nav-json-items nav-items nav-categories--items"></ul>
+                <ul class="nav-json-items nav-items nav-help--items"></ul>
+            	<ul class="nav-json-items nav-items nav-currency--items">
+                	{{> shop_specific/currency-selector-mobile }}
+                </ul>
             </div>
         </div>
         
@@ -94,7 +101,7 @@
             <div class="dropdown-search" id="searchMobile">
             </div>
         </div>
-
+		
         {{> components/common/header }}
         {{> components/common/body }}
         {{> components/common/footer }}
@@ -124,6 +131,7 @@
         
         {{{footer.scripts}}}
         {{> components/themevale/recently-viewed-products }}
-        {{> components/themevale/before-you-leave }}        
+        {{> components/themevale/before-you-leave }}
+        
     </body>
 </html>

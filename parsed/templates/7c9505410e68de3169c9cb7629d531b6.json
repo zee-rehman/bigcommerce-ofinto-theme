@@ -1,3 +1,3 @@
 {
-  "components/themevale/seal-logos-cart": "<div class=\"cart-seal-logos scrollbar\">\r\n\t<img src=\"{{cdn 'img/norton.png'}}\" alt=\"Norton\">\r\n\t<img src=\"{{cdn 'img/etrust.png'}}\" alt=\"Etrust\">\r\n\t<img src=\"{{cdn 'img/authorized-net.png'}}\" alt=\"Authorized.net\">\r\n\t<img src=\"{{cdn 'img/accredited-business.png'}}\" alt=\"Accredited Business\">\r\n</div>\r\n"
+  "components/themevale/seal-logos-cart": "<div class=\"cart-seal-logos scrollbar\">\n\t<img src=\"{{cdn 'img/norton.png'}}\" alt=\"Norton\">\n\t<img src=\"{{cdn 'img/etrust.png'}}\" alt=\"Etrust\">\n\t<img src=\"{{cdn 'img/authorized-net.png'}}\" alt=\"Authorized.net\">\n\t<img src=\"{{cdn 'img/accredited-business.png'}}\" alt=\"Accredited Business\">\n</div>\n"
 }

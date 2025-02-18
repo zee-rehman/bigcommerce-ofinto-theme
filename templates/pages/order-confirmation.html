@@ -1,8 +1,8 @@
 {{#partial "head"}}
 {{{ checkout.checkout_head }}}
+{{ getFontsCollection }} 
 {{{ stylesheet '/assets/css/optimized-checkout.css' }}}
-{{ getFontsCollection }}
-
+ 
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -12,25 +12,178 @@
 {{/partial}}
 
 {{#partial "page"}}
-<header class="checkoutHeader optimizedCheckout-header">
+<header class="checkoutHeader optimizedCheckout-header order_confirmation">
     <div class="checkoutHeader-content">
         <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
-                {{#if checkout.header_image}}
-                    <img alt="{{settings.store_logo.title}}" class="checkoutHeader-logo" id="logoImage" src="{{ checkout.header_image }}"/>
-                {{ else }}
-                    <span class="header-logo-text">{{settings.store_logo.title}}</span>
-                {{/if}}
+                <svg id="Layer_1" class="newsvg_logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 301.08 113.74">
+                <path d="M36,45.17C20.24,45.17,8.81,56,8.81,70.8S20.24,96.43,36,96.43,63.16,85.65,63.16,70.8,51.73,45.17,36,45.17Zm0,39c-7.93,0-13.06-5.25-13.06-13.37S28.05,57.43,36,57.43,49,62.68,49,70.8,43.92,84.17,36,84.17Z" /><path d="M105.6,29.73l.65-11.63a37.87,37.87,0,0,0-8.37-.78C81.25,17.32,79,26.71,79,36.86v9.55H68.75v11H79V95.19H93.07V57.43h11.45v-11H93.07V37.79c0-7.36,3.1-8.83,8.11-8.83A13.61,13.61,0,0,1,105.6,29.73Z" /><path d="M119,21.65a8.3,8.3,0,1,0,8.29,8.3A8.31,8.31,0,0,0,119,21.65Z" /> <rect x="111.97" y="46.41" width="14.11" height="48.77" /> <path d="M220.43,96.43a31.68,31.68,0,0,0,10.15-1.35V83.89a15.45,15.45,0,0,1-5.61.9c-7.39,0-8-4.72-8-10V57.43h13.61v-11H217V31.56H202.85V46.41H193v11h9.9V81.94C202.85,94.54,213.87,96.43,220.43,96.43Z" /><path d="M265.1,45.17c-15.74,0-27.17,10.78-27.17,25.63s11.43,25.63,27.17,25.63,27.17-10.78,27.17-25.63S280.85,45.17,265.1,45.17Zm0,39c-7.93,0-13.06-5.25-13.06-13.37s5.13-13.37,13.06-13.37,13.06,5.25,13.06,13.37S273,84.17,265.1,84.17Z" /><path d="M167.61,45.14A16.88,16.88,0,0,0,154.3,51a19,19,0,0,0-1.54,1.64V46.35H137.9V95.19h15.48V70.87c0-6.33,1.24-12.47,9.28-12.47s8.05,7.24,8.05,12.87V95.19h15.48V68.25C186.19,55.19,183.3,45.14,167.61,45.14Z" />
+                </svg>
             </a>
         </h2>
+        <p class="secure-checkout">{{lang 'optimized_checkout.checkout_step.secured'}}</p>
     </div>
 </header>
-
-{{{ checkout.order_confirmation_content }}}
+<div class="order_confirmation_content">
+    <span class="confirmation_tick"></span>
+    <h4 class="order_confirmed">{{{lang 'optimized_checkout.order_confirmation.order_confirmed'}}}</h4>
+    <div class="payment-details payment-details--bankdeposit" style="display:none;">
+        <div class="details-inner">
+            <h5>{{{lang 'optimized_checkout.order_confirmation.details_bank.intro'}}}</h5>
+            <h6 class="amount-to-pay">{{{lang 'optimized_checkout.order_confirmation.details_bank.total'}}} <span class="amount_total"></span></h6>
+        </div>
+        <div class="details-inner">
+            <ul>
+                {{{lang 'optimized_checkout.order_confirmation.details_bank.detail_list'}}}
+            </ul>
+            <ul>
+                {{{lang 'optimized_checkout.order_confirmation.details_bank.detail_list2'}}}
+            </ul>
+        </div>
+        <div class="details-inner">
+            <h6 class="amount-to-pay">{{{lang 'optimized_checkout.order_confirmation.details_bank.total'}}} <span class="amount_total"></span></h6>
+            <img src="{{{lang 'optimized_checkout.order_confirmation.details_bank.QR_Img_Src'}}}" alt="qrforbankdeposit" height="" width=""/>
+        </div>
+    </div>
+    <div class="payment-details payment-details--moneyorder" style="display:none;">
+        <div class="details-inner">
+            <h5>{{{lang 'optimized_checkout.order_confirmation.details_bank.money_order_title'}}}</h5>
+            <ul>
+                {{{lang 'optimized_checkout.order_confirmation.details_bank.money_order_list'}}}
+            </ul>
+        </div>
+    </div>
+</div>
+<h5 class="oc_steps_title">Nächste Schritte</h5>
+<div class="oc_steps oc_steps--default" style="display:none;">
+    {{#for 1 (lang 'optimized_checkout.order_confirmation.payment_default.count')}}
+        <div class="oc_steps_inner">
+            <span class="oc_number">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_default.'$index)'.step_count' )}}}</span>
+            <h5 class="oc_title">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_default.'$index)'.headline' )}}}</h5>
+            <p class="oc_desc">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_default.'$index)'.text' )}}}</p>
+        </div>
+    {{/for}}
+</div>
+<div class="oc_steps oc_steps--moneyorder" style="display:none;">
+    {{#for 1 (lang 'optimized_checkout.order_confirmation.payment_moneyorder.count')}}
+        <div class="oc_steps_inner">
+            <span class="oc_number">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_moneyorder.'$index)'.step_count' )}}}</span>
+            <h5 class="oc_title">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_moneyorder.'$index)'.headline' )}}}</h5>
+            <p class="oc_desc">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_moneyorder.'$index)'.text' )}}}</p>
+        </div>
+    {{/for}}
+</div>
+<div class="oc_steps oc_steps--bankdeposit" style="display:none;">
+    {{#for 1 (lang 'optimized_checkout.order_confirmation.payment_bankdeposit.count')}}
+        <div class="oc_steps_inner">
+            <span class="oc_number">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_bankdeposit.'$index)'.step_count' )}}}</span>
+            <h5 class="oc_title">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_bankdeposit.'$index)'.headline' )}}}</h5>
+            <p class="oc_desc">{{{lang (concat (concat 'optimized_checkout.order_confirmation.payment_bankdeposit.'$index)'.text' )}}}</p>
+        </div>
+    {{/for}}
+</div>
+<div class="order_confirmation_content">
+    {{{ checkout.order_confirmation_content }}}
+    <div class="risk-wrap">
+        <div class="checkout-help">
+            <h3>{{lang 'optimized_checkout.order_confirmation.haben_sie'}}</h3>
+            {{{lang 'optimized_checkout.order_confirmation.haben_sie_fragen'}}}
+        </div>
+    </div>
+</div>
 
 {{{ footer.scripts }}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function(){
+            order_number();
+            tax_text();
+        },1000);
+        $(window).resize(function(){
+            tax_text();
+        });
+        function order_number() {
+            var insert_order_number = setInterval(function() {
+                if ($('p[data-test="order-confirmation-order-number-text"]').length > 0) {
+                    clearInterval(insert_order_number);
+                    $('p[data-test="order-confirmation-order-number-text"]').insertAfter('.order_confirmed');
+                    
+                    var priceText = $('div[data-test="cart-total"] [data-test="cart-price-value"]').text().trim();
+                    if (!priceText) {
+                        priceText = $('.cartDrawer-total').text().trim();
+                    }
+                    $('.amount_total').text(priceText);
+                }
+            }, 300);
+        }
+        function tax_text() {
+            var insert_tax_text = setInterval(function() {
+                if ($('.cart-priceItem-label').length > 0) {
+                    clearInterval(insert_tax_text);
+                    $('span[data-test="cart-price-label"]').html('Total <span class="inc_tax">inkl. MwSt.</span>');
+                }
+            }, 300);
+        }
 
+        fetch('/api/storefront/order/{{checkout.order.id}}?include=payments', {credentials: 'include'})
+        .then(function(response) {
+          return response.json();
+        })
+    	.then(function(order) {
+    		console.log(order);
+    		var paymentProviderId = order.payments[0].providerId;
+            console.log(paymentProviderId);
+            if(paymentProviderId === "bankdeposit"){ //Bank Deposit
+                $('.oc_steps--bankdeposit').show();
+                $('.payment-details--bankdeposit').show();
+            } else if (paymentProviderId === "moneyorder") { //Money Order
+                $('.oc_steps--moneyorder').show();
+                $('.payment-details--moneyorder').show();
+            } else{
+                $('.oc_steps--default').show();
+            }
+    		const items = order.lineItems.physicalItems.map(product => ({
+    			item_id: product.id,
+    			item_name: product.name,
+    			quantity: product.quantity,
+    			price: product.listPrice
+    		}));
+        })
+        .catch(function(error) {
+          console.error('Error fetching order details:', error);
+        });
+        
+        // For get order comment cookie and delete it.
+        setTimeout(function () {
+            const getCookieVal = getCookie("orderComments");
+            if (getCookieVal.length > 0) {
+                // console.log("Cookie value:", getCookieVal);
+                deleteCookie("orderComments");
+                // console.log("Cookie deleted.");
+            } else {
+                console.log("Cookie 'orderComments' not found.");
+            }
+        }, 3000);
+    });
+    function getCookie(cname) {
+        const name = cname + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const cookies = decodedCookie.split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return "";
+    }
+    function deleteCookie(cname, path = "/", domain = "") {
+        document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=" + path + 
+            (domain ? "; domain=" + domain : "");
+    }
+</script>
 {{/partial}}
 
 {{> layout/empty}}

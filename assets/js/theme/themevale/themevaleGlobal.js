@@ -82,7 +82,7 @@ export default function(context) {
             }
         }
     }
-    navPagesDropdown();
+    // navPagesDropdown(); // This function not longer available because we are appearing menu from Json file dynamically
     
     /* Custom Block Search  */
     var searchTrending = context.themeSettings.enable_search_trending;
@@ -116,7 +116,13 @@ export default function(context) {
                     ev.preventDefault();
                     searchProductsBlock();
                     var heightHeader = $('.header').height();
-                    $('.themevaleSearch').css('top',heightHeader);
+					var heightAnnouncementBar = $('.announcementBar-wrapper .announcementBar').height();
+						heightAnnouncementBar = heightHeader + heightAnnouncementBar - 2;
+					if($('.announcementBar-wrapper .announcementBar').length > 0) {
+						$('.themevaleSearch').css('top',heightAnnouncementBar);
+					} else {
+						$('.themevaleSearch').css('top',heightHeader);
+					}
                     $('.header-search-wrap').addClass('show-result');
                     $('body').toggleClass('themevale-open-search');
                     $('.navUser-item--account .account-dropdown').slideUp();
@@ -221,23 +227,31 @@ export default function(context) {
             }
         });
     }
+	
 
     if (searchTrending || searchProductBlock) {
         focusSearchInput();
     }
     
-    function activeMenu_Mobile() {
-        if ($(window).width() <= 1024) {
-            if ($('#menu .navPages').length) {
-                $('#menu .navPages').appendTo('#menuMobile');
-            }            
-        } else {
-            if (!$('#menu .navPages').length) {
-                $('#menuMobile .navPages').appendTo('#menu');
-            }
-        }
-    }
-    activeMenu_Mobile();
+	// This function not longer available because we are appearing menu from Json file dynamically for mobile as well
+	//function activeMenu_Mobile() {
+//        if ($(window).width() <= 1024) {
+//            if ($('#menu .navPages').length) {
+//                $('#menu .navPages').appendTo('#menuMobile');
+//            }            
+//        } else {
+//            if (!$('#menu .navPages').length) {
+//                $('#menuMobile .navPages').appendTo('#menu');
+//            }
+//        }
+//    }
+	
+	//function activeMenu_Mobile() {
+        //if ($('.mega-menu .nav-items').length) {
+			//$('.mega-menu .nav-items').clone().appendTo('#menuMobile');
+		//}
+    //}
+    // activeMenu_Mobile();
 
     function toggleAccount() {
         $('.navUser-item--account .navUser-action--account').on('click', function(ev) {
@@ -407,7 +421,7 @@ export default function(context) {
     }
 
     if ($(window).width() <= 1024) {
-        menuMobile();
+        // menuMobile();
     }
     
     /* ------------------------ */
@@ -1245,7 +1259,6 @@ export default function(context) {
 
     $(window).resize(function() {
         footer_mobile();
-        activeMenu_Mobile();
         lookbook();
         changePositionProductTab();
         showMoreDescription();
@@ -1254,5 +1267,3 @@ export default function(context) {
         }
     });
 }
-
-

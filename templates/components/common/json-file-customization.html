@@ -1,0 +1,331 @@
+<script>
+    const jsonPath = "https://ofinto.ch/content/mega-menu/custom-mm.json?c={{random 999999 9999999}}";
+    
+    $.getJSON(jsonPath, function(data) {
+      const navItems = data.navItems;
+      const navHelpItem = data.Hilfe;
+      const uspBannerTop = data.uspBanner;
+      const $uspBannerContainer = $('.announcementBar.usp-banner .announcement-bar-list');
+      const promoBannerTop = data.promoBanner;
+      const $promoBannerContainer = $('.announcementBar.promo-banner .announcement-bar-list');
+      let navHtml = '';
+      let navHelpHtml = '';
+     
+      
+      // Iterate through each navigation item for main navigation
+      navItems.forEach(item => {
+        if (item.type === "megaMenu") {  // Only process mega menus
+          let menuContent = `<li class="nav-item">
+                <a class="navUser-action" href="${item.label}">${item.label} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down"></use></svg></i></a>
+                <div class="mega-menu-content"><div class="container"><div class="inner">`;
+    
+          // Check for megaMenuType ("products" or "info")
+          if (item.megaMenu.megaMenuType === "products") {
+            // Process "products" type mega menu
+    
+            // Left section (Subcategories and Bottom Links)
+            if (item.megaMenu.leftSection) {
+              const leftSection = item.megaMenu.leftSection;
+              if (leftSection.title) {
+                menuContent += `<div class="left-section mob-vertical"><h4 class="column-hd mob-hd"><i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down"></use></svg></i> ${leftSection.title}</h4><ul>`;
+                
+                // Subcategories
+                leftSection.subCategories.forEach(sub => {
+                  menuContent += `
+                      <li>
+                    <a href="${sub.link}">
+                        <i class="icon" aria-hidden="true">
+                            <svg><use href="#icon-megamenu-list"></use></svg>
+                        </i>
+                        ${sub.label}
+                    </a>
+                    </li>
+                  `;
+                });
+                menuContent += '</ul>';
+                
+                // Bottom Links
+                if (leftSection.bottomLinks) {
+                  menuContent += '<div class="bottom-links desktop-only"><ul>';
+                  leftSection.bottomLinks.forEach(link => {
+                    menuContent += `<li><a href="${link.link}">${link.label}</a></li>`;
+                  });
+                  menuContent += '</ul></div>';
+                }
+    
+                menuContent += '</div>';  // Close left section
+              }
+            }
+    
+            // Product Selection with type condition
+            if (item.megaMenu.productSelection) {
+              const productSelection = item.megaMenu.productSelection;
+              if (productSelection.title && productSelection.title.trim() !== "") {
+                    menuContent += `<div class="product-selection"><h4 class="column-hd product-sec-hd">${productSelection.title}</h4><div class="product-inner">`;
+              } else {
+                  menuContent += `<div class="product-selection"><div class="product-inner">`;
+              }
+              // Check for "customProducts" type
+              if (productSelection.type === "customProducts" && productSelection.customProducts) {
+                // Loop through custom products and generate HTML for product cards
+                productSelection.customProducts.forEach(product => {
+                  if (product.name) {
+                    menuContent += `
+                    <article class="card" data-product-id="${product.productID}">
+                      <a href="${product.productURL}" title="${product.name}">
+                      <figure class="card-figure">
+                        <div class="card-img-container">
+                            <img src="${product.image}" alt="${product.name}" title="${product.name}" data-sizes="auto" class="card-image lazyload" />
+                        </div>
+                      </figure>
+                      <div class="card-body">
+                        <div class="card-top">
+                            <h4 class="card-title">
+                              <span>${product.name}</span>
+                            </h4>
+                            <div class="card-desc">${product.description}</div>
+                        </div>
+                        <div class="card-price">${product.price}</div>
+                      </div>
+                      </a>
+                    </article>`;
+                  }
+                });
+    
+              } else if (productSelection.type === "category" && productSelection.categoryID) {
+                // Handle "category" type (assuming this links to a category page)
+                menuContent += `<p>Explore products in <a href="/category/${productSelection.categoryID}">Category ID: ${productSelection.categoryID}</a></p>`;
+              }
+    
+              menuContent += '</div><div class="bottom-links only-mob-bottom-links" style="display:none;"></div></div>';  // Close product selection
+            }
+    
+          } else if (item.megaMenu.megaMenuType === "info") {
+            // Process "info" type mega menu
+            const columns = item.megaMenu.columns;
+            
+            menuContent += '<div class="info-column-section">';
+            columns.forEach(column => {
+              if (column.title) {
+                menuContent += `
+                    <div class="info-column">
+                      <h4 class="column-hd mob-hd"><i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down"></use></svg></i> ${column.title}</h4>
+                    <ul>
+                `;
+                
+                // Loop through items under each column
+                column.items.forEach(infoItem => {
+                  menuContent += `<li><a href="${infoItem.link}">${infoItem.label}</a></li>`;
+                });
+    
+                menuContent += '</ul></div>';  // Close each info-column
+              }
+            });
+            menuContent += '</div>';  // Close Info Column Section
+          }
+    
+          // Right section (Promo or CTA)
+          if (item.megaMenu.rightSection && item.megaMenu.rightSection.enabled) {
+            const rightSection = item.megaMenu.rightSection;
+            if (rightSection.type === "promo" && rightSection.promoContainer) {
+              const promo = rightSection.promoContainer;
+              const promoHD = rightSection;
+              menuContent += `
+                  <div class="right-section promo">
+                    <h4 class="column-hd promo-sec-hd">${promoHD.title}</h4>
+                    <a href="${promo.link}">
+                    <div class="promo-inner">
+                        <div class="box box-left">
+                            <h4 class="column-hd">${promo.title}</h4>
+                            <p>${promo.text}</p>
+                            <div class="coupon-code">
+                                <i class="icon" aria-hidden="true">
+                                    <svg><use href="#icon-coupon-code"></use></svg>
+                                </i>
+                                <span class="code-text">${promo.couponCode}</span>
+                            </div>
+                            <div class="price">
+                                <span class="msrp-price">${promo.price}</span>
+                                <span class="saleprice">${promo.salePrice}</span>
+                            </div>
+                            <span class="buy-now" style="display:none;">Buy Now</span>
+                        </div>
+                        <div class="box box-right">
+                            <figure class="card-figure">
+                                <div class="card-img-container">
+                                    <img src="${promo.image}" alt="${promo.title}" title="${promo.title}" data-sizes="auto" class="card-image lazyautosizes lazyload" sizes="1887px">
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                    </a>
+                  </div>
+            `;
+              setTimeout (function(){
+                  $('.right-section.promo').parent().closest('.mega-menu-content').addClass('hasPromo');
+              },100);
+            } else if (rightSection.type === "cta" && rightSection.ctaContainer) {
+              const cta = rightSection.ctaContainer;
+              menuContent += `
+                  <div class="right-section cta">
+                    <div class="cta-inner">
+                        <div class="box box-left">
+                            <h5><svg class="icon icon-customer-support"><use xlink:href="#icon-cta-hd"></use></svg>${cta.title}</h5>
+                            <p>${cta.text}</p>
+                        </div>
+                        <div class="box box-right">
+                            <a class="cta-link" href="${cta.buttonLink}">${cta.buttonText}</a>
+                        </div>
+                    </div>
+                  </div>
+             `;
+              setTimeout (function(){
+                  $('.right-section.cta').parent().closest('.mega-menu-content').addClass('hasCta');
+              },100);
+            }
+          }
+    
+          menuContent += '</div></li>';  // Close mega-menu-content and nav-item
+          navHtml += menuContent;
+        }
+      });
+      
+      // For Help menu and dropdown
+      if (navHelpItem.type === "helpMenu") {
+            let menuHelpContent = `
+                <a class="navUser-action" href="${navHelpItem.mainLink}">${navHelpItem.mainTitle} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down"></use></svg></i></a>
+                <div class="navUser-helpMenu mega-menu-content">
+                    <div class="container">
+                        <div class="help-menu-inner">
+            `;
+            if (navHelpItem.megaMenu.megaMenuType === "info") {
+                if (navHelpItem.megaMenu.columns) {
+                  const columns = navHelpItem.megaMenu.columns[0];
+                  if (columns.title) {
+                    menuHelpContent += `<div class="box box-left"><h5 class="help-info-heading mob-hd"><i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down"></use></svg></i>${columns.title}</h5><ul class="help-info-list">`;
+                    columns.items.forEach(items => {
+                      if (items.label) {
+                        menuHelpContent += `
+                        <li>
+                        <a href="${items.link}">
+                            ${items.label}
+                        </a>
+                        </li>
+                        `;
+                      }
+                    });
+                    menuHelpContent += '</ul></div>';  // Close left section
+                  }
+                }
+                
+                if (navHelpItem.megaMenu.rightSection) {
+                  const rightSection = navHelpItem.megaMenu.rightSection.infoContainer;
+                  if (rightSection) {
+                    menuHelpContent += `
+                      <div class="box box-right">
+                        <div class="help-question-box">
+                          <h5>
+                            <svg class="icon icon-customer-support">
+                              <use xlink:href="#icon-customer-support"></use>
+                            </svg> 
+                            ${rightSection.title}
+                          </h5>
+                          <p>${rightSection.text}</p>
+                        </div>
+                      </div>`;
+                  }
+                }
+                
+            }
+        
+            menuHelpContent += '</div></div></div>';  // Close left section
+            
+            navHelpHtml += menuHelpContent;
+        }
+      
+      // For USP Banner for header top
+      if (uspBannerTop.enabled === true) {
+          $('.announcementBar.usp-banner').show();
+          $.each(uspBannerTop.uspBannerItems, function(index, item) {
+            if (item.enabled) {
+              const $uspBannerList = $(`
+                <div class="announcement-bar-item-outer">
+                    <div class="announcement-bar-item">
+                      <img src="${item.icon}" alt="${item.text}">
+                      <a href="${item.link}" target="_blank">
+                        ${item.text}
+                      </a>
+                    </div>
+                </div>
+              `);
+              if (uspBannerTop.sticky === true) {
+                $('.announcementBar.usp-banner').addClass('sticky');
+                $('body').addClass('usp-sticky');
+              } else {
+                $('.announcementBar.usp-banner.sticky').removeClass('sticky');
+                $('body.usp-sticky').removeClass('usp-sticky');
+              }
+              // Append item to banner container
+              $uspBannerContainer.append($uspBannerList);
+            }
+          });
+      } else {
+        $('.announcementBar.usp-banner').hide();
+      }
+      
+      // For promo Banner for header top
+      if (promoBannerTop.enabled === true) {
+          $('.announcementBar.promo-banner').css('background-color','#eb6e38');
+          $('.announcementBar.promo-banner').show();
+          const $promoBannerList = $(`
+            <div class="announcement-bar-item">
+              <a href="${promoBannerTop.link}" target="_blank">
+                ${promoBannerTop.text}
+              </a>
+            </div>
+          `);
+          if (promoBannerTop.sticky === true) {
+              $('.announcementBar.promo-banner').addClass('sticky');
+            $('body').addClass('promo-sticky');
+          } else {
+            $('.announcementBar.promo-banner.sticky').removeClass('sticky');  
+            $('body.promo-sticky').removeClass('usp-sticky');
+          }
+          // Append item to banner container
+          $promoBannerContainer.append($promoBannerList);
+      } else {
+        $('.announcementBar.promo-banner').hide();
+      }
+    
+      // Append generated HTML to the navigation container
+      $('.mega-menu .nav-json-items').html(navHtml);
+      // Append generated HTML to the Help navigation container
+      $('.navUser-section--help').html(navHelpHtml);
+      
+      $('#menuMobile .nav-categories--items').html(navHtml);
+      $('#menuMobile .nav-help--items').append($('<li class="nav-item">'+navHelpHtml+'</li>'));
+      
+         // Following code using for cloning bottom sectio of first row at the end of middle product section if left section not have bottom section it will also remove cloning outer div from the product middle section.
+         $('#menuMobile .nav-items .nav-item').each(function(){
+            var cloneData = $(this).find(".left-section .bottom-links ul");
+            if (cloneData.length > 0) {
+                var clonedContent = cloneData.clone();
+                $(this).find(".only-mob-bottom-links").append(clonedContent);
+            } else {
+                $(this).find(".only-mob-bottom-links").remove();
+            }
+        });
+    
+        // Follwing code make wrap 2 div to managing for mobile structure cta box bottom and other at the top
+        setTimeout (function(){
+        $('#menu-mobile .mega-menu-content.hasCta').each(function () {
+            var leftSection = $(this).find('.left-section');
+            var productSection = $(this).find('.product-selection');
+            if (leftSection.length > 0 && productSection.length > 0) {
+                leftSection.add(productSection).wrapAll('<div class="cta-inner-wrapper"></div>');
+            }
+        });
+        },500 );
+        
+    });
+</script>

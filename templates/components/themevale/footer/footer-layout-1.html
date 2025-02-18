@@ -1,8 +1,8 @@
 {{#if banners.bottom}}
-    {{#if true}}
+    {{#if settings.data_tag_enabled}}
         <div class="banners" data-banner-location="bottom">
             {{#each (limit banners.bottom_metadata 1)}}
-                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}">
                     <div data-event-type="promotion-click">
                         {{{this.content}}}
                     </div>
@@ -17,6 +17,15 @@
         </div>
     {{/if}}
 {{/if}}
+
+
+<div class="newsletter-wrapper">
+	<div class="container">
+    	<div class="inner">
+        	{{> components/common/subscription-form}}
+        </div>
+    </div>
+</div>
 
 <footer class="footer footer-layout-1" role="contentinfo">
     {{#if theme_settings.enable_footer_top}}
@@ -33,40 +42,123 @@
     {{/if}}
     <div class="footer-middle">
         <div class="container">
-            <div class="footer-logo{{#if theme_settings.footer-logo '==' ''}} no-logo{{/if}}">
-                {{#if theme_settings.footer-logo '!=' ''}}
-                    <div class="footer-logo-item left">
-                        <a href="/">
-                            <img class="lazyload" data-src="/product_images/uploaded_images/{{theme_settings.footer-logo}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
-                        </a>
-                    </div>
-                {{/if}}
-                <div class="footer-logo-item right">
-                    <p>{{#if theme_settings.footer-middle-top-text '!=' ''}}{{theme_settings.footer-middle-top-text}}{{/if}} {{#if theme_settings.footer-middle-top-link-text '!=' ''}}<a href="{{theme_settings.footer-middle-top-link-url}}">{{theme_settings.footer-middle-top-link-text}}</a>{{/if}} &#10095;</p>
-                </div>
-            </div>
             <section class="footer-info">
                 {{#if settings.address}}
-                    <article class="footer-info-col footer-dropdownmobile" data-section-type="storeInfo">
-                        <h5 class="footer-info-heading">{{lang 'footer.company_name'}}</h5>
-                        <div class="footer-info-list">
-                            <address>{{nl2br settings.address}}</address>
-                            {{#if theme_settings.store_owner_email '!=' ''}}
-                                <span class="email info">{{lang 'footer.email_us'}} <a href="mailto:{{theme_settings.store_owner_email}}">{{theme_settings.store_owner_email}}</a></span>
-                            {{/if}}
-                            {{#if settings.phone_number}}
-                                <span class="phone-number info">{{lang 'footer.call_us'}} <a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a></span>
-                            {{/if}}
+                    <article class="footer-info-col first-column" data-section-type="storeInfo">
+                        {{#if theme_settings.footer-logo '!=' ''}}
+                            <div class="footer-logo-item left">
+                                <a href="/">
+                                    {{!--<img class="lazyload" data-src="https://ofinto.ch/product_images/uploaded_images/{{theme_settings.footer-logo}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                                    <svg width="56" height="16" viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.26804 9.84C3.26804 10.2533 3.30804 10.66 3.38804 11.06C3.46804 11.4467 3.60137 11.8 3.78804 12.12C3.98804 12.4267 4.24804 12.6733 4.56804 12.86C4.88804 13.0467 5.28804 13.14 5.76804 13.14C6.24804 13.14 6.64804 13.0467 6.96804 12.86C7.30137 12.6733 7.56137 12.4267 7.74804 12.12C7.94804 11.8 8.08804 11.4467 8.16804 11.06C8.24804 10.66 8.28804 10.2533 8.28804 9.84C8.28804 9.42667 8.24804 9.02 8.16804 8.62C8.08804 8.22 7.94804 7.86667 7.74804 7.56C7.56137 7.25333 7.30137 7.00667 6.96804 6.82C6.64804 6.62 6.24804 6.52 5.76804 6.52C5.28804 6.52 4.88804 6.62 4.56804 6.82C4.24804 7.00667 3.98804 7.25333 3.78804 7.56C3.60137 7.86667 3.46804 8.22 3.38804 8.62C3.30804 9.02 3.26804 9.42667 3.26804 9.84ZM0.428041 9.84C0.428041 9.01333 0.554708 8.26667 0.808041 7.6C1.06137 6.92 1.42137 6.34667 1.88804 5.88C2.35471 5.4 2.91471 5.03333 3.56804 4.78C4.22137 4.51333 4.95471 4.38 5.76804 4.38C6.58137 4.38 7.31471 4.51333 7.96804 4.78C8.63471 5.03333 9.20138 5.4 9.66804 5.88C10.1347 6.34667 10.4947 6.92 10.748 7.6C11.0014 8.26667 11.128 9.01333 11.128 9.84C11.128 10.6667 11.0014 11.4133 10.748 12.08C10.4947 12.7467 10.1347 13.32 9.66804 13.8C9.20138 14.2667 8.63471 14.6267 7.96804 14.88C7.31471 15.1333 6.58137 15.26 5.76804 15.26C4.95471 15.26 4.22137 15.1333 3.56804 14.88C2.91471 14.6267 2.35471 14.2667 1.88804 13.8C1.42137 13.32 1.06137 12.7467 0.808041 12.08C0.554708 11.4133 0.428041 10.6667 0.428041 9.84ZM13.7946 6.56H12.0946V4.66H13.7946V3.86C13.7946 2.94 14.0813 2.18667 14.6546 1.6C15.2279 1.01333 16.0946 0.719999 17.2546 0.719999C17.5079 0.719999 17.7613 0.733333 18.0146 0.76C18.2679 0.773333 18.5146 0.786666 18.7546 0.799999V2.92C18.4213 2.88 18.0746 2.86 17.7146 2.86C17.3279 2.86 17.0479 2.95333 16.8746 3.14C16.7146 3.31333 16.6346 3.61333 16.6346 4.04V4.66H18.5946V6.56H16.6346V15H13.7946V6.56ZM20.3146 4.66H23.1546V15H20.3146V4.66ZM23.1546 3.06H20.3146V0.719999H23.1546V3.06ZM25.6012 4.66H28.3012V6.1H28.3612C28.7212 5.5 29.1878 5.06667 29.7612 4.8C30.3345 4.52 30.9212 4.38 31.5212 4.38C32.2812 4.38 32.9012 4.48667 33.3812 4.7C33.8745 4.9 34.2612 5.18667 34.5412 5.56C34.8212 5.92 35.0145 6.36667 35.1212 6.9C35.2412 7.42 35.3012 8 35.3012 8.64V15H32.4612V9.16C32.4612 8.30667 32.3278 7.67333 32.0612 7.26C31.7945 6.83333 31.3212 6.62 30.6412 6.62C29.8678 6.62 29.3078 6.85333 28.9612 7.32C28.6145 7.77333 28.4412 8.52667 28.4412 9.58V15H25.6012V4.66ZM41.2566 4.66H43.3366V6.56H41.2566V11.68C41.2566 12.16 41.3366 12.48 41.4966 12.64C41.6566 12.8 41.9766 12.88 42.4566 12.88C42.6166 12.88 42.77 12.8733 42.9166 12.86C43.0633 12.8467 43.2033 12.8267 43.3366 12.8V15C43.0966 15.04 42.83 15.0667 42.5366 15.08C42.2433 15.0933 41.9566 15.1 41.6766 15.1C41.2366 15.1 40.8166 15.0667 40.4166 15C40.03 14.9467 39.6833 14.8333 39.3766 14.66C39.0833 14.4867 38.85 14.24 38.6766 13.92C38.5033 13.6 38.4166 13.18 38.4166 12.66V6.56H36.6966V4.66H38.4166V1.56H41.2566V4.66ZM47.4079 9.84C47.4079 10.2533 47.4479 10.66 47.5279 11.06C47.6079 11.4467 47.7412 11.8 47.9279 12.12C48.1279 12.4267 48.3879 12.6733 48.7079 12.86C49.0279 13.0467 49.4279 13.14 49.9079 13.14C50.3879 13.14 50.7879 13.0467 51.1079 12.86C51.4412 12.6733 51.7012 12.4267 51.8879 12.12C52.0879 11.8 52.2279 11.4467 52.3079 11.06C52.3879 10.66 52.4279 10.2533 52.4279 9.84C52.4279 9.42667 52.3879 9.02 52.3079 8.62C52.2279 8.22 52.0879 7.86667 51.8879 7.56C51.7012 7.25333 51.4412 7.00667 51.1079 6.82C50.7879 6.62 50.3879 6.52 49.9079 6.52C49.4279 6.52 49.0279 6.62 48.7079 6.82C48.3879 7.00667 48.1279 7.25333 47.9279 7.56C47.7412 7.86667 47.6079 8.22 47.5279 8.62C47.4479 9.02 47.4079 9.42667 47.4079 9.84ZM44.5679 9.84C44.5679 9.01333 44.6946 8.26667 44.9479 7.6C45.2012 6.92 45.5612 6.34667 46.0279 5.88C46.4946 5.4 47.0546 5.03333 47.7079 4.78C48.3612 4.51333 49.0946 4.38 49.9079 4.38C50.7212 4.38 51.4546 4.51333 52.1079 4.78C52.7746 5.03333 53.3412 5.4 53.8079 5.88C54.2746 6.34667 54.6346 6.92 54.8879 7.6C55.1412 8.26667 55.2679 9.01333 55.2679 9.84C55.2679 10.6667 55.1412 11.4133 54.8879 12.08C54.6346 12.7467 54.2746 13.32 53.8079 13.8C53.3412 14.2667 52.7746 14.6267 52.1079 14.88C51.4546 15.1333 50.7212 15.26 49.9079 15.26C49.0946 15.26 48.3612 15.1333 47.7079 14.88C47.0546 14.6267 46.4946 14.2667 46.0279 13.8C45.5612 13.32 45.2012 12.7467 44.9479 12.08C44.6946 11.4133 44.5679 10.6667 44.5679 9.84Z" fill="black"/>
+                                    </svg> --}}
+                                    <svg id="Layer_1" class="newsvg_logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 301.08 113.74">
+                                    <path d="M36,45.17C20.24,45.17,8.81,56,8.81,70.8S20.24,96.43,36,96.43,63.16,85.65,63.16,70.8,51.73,45.17,36,45.17Zm0,39c-7.93,0-13.06-5.25-13.06-13.37S28.05,57.43,36,57.43,49,62.68,49,70.8,43.92,84.17,36,84.17Z" /><path d="M105.6,29.73l.65-11.63a37.87,37.87,0,0,0-8.37-.78C81.25,17.32,79,26.71,79,36.86v9.55H68.75v11H79V95.19H93.07V57.43h11.45v-11H93.07V37.79c0-7.36,3.1-8.83,8.11-8.83A13.61,13.61,0,0,1,105.6,29.73Z" /><path d="M119,21.65a8.3,8.3,0,1,0,8.29,8.3A8.31,8.31,0,0,0,119,21.65Z" /> <rect x="111.97" y="46.41" width="14.11" height="48.77" /> <path d="M220.43,96.43a31.68,31.68,0,0,0,10.15-1.35V83.89a15.45,15.45,0,0,1-5.61.9c-7.39,0-8-4.72-8-10V57.43h13.61v-11H217V31.56H202.85V46.41H193v11h9.9V81.94C202.85,94.54,213.87,96.43,220.43,96.43Z" /><path d="M265.1,45.17c-15.74,0-27.17,10.78-27.17,25.63s11.43,25.63,27.17,25.63,27.17-10.78,27.17-25.63S280.85,45.17,265.1,45.17Zm0,39c-7.93,0-13.06-5.25-13.06-13.37s5.13-13.37,13.06-13.37,13.06,5.25,13.06,13.37S273,84.17,265.1,84.17Z" /><path d="M167.61,45.14A16.88,16.88,0,0,0,154.3,51a19,19,0,0,0-1.54,1.64V46.35H137.9V95.19h15.48V70.87c0-6.33,1.24-12.47,9.28-12.47s8.05,7.24,8.05,12.87V95.19h15.48V68.25C186.19,55.19,183.3,45.14,167.61,45.14Z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        {{/if}}
+                        {{!--
+                        <div class="footer-info-list contact-info">
+                        	<ul>
+                            	<li>
+                                	<a href="tel:+41 71 539 10 11" title="+41 71 539 10 11">
+                                    	<!-- <img class="lazyload" data-src="https://ofinto.ch/product_images/uploaded_images/telefon-footer-icon.png" alt="" title="Telefon"> -->
+                                    	<i class="icon icon-telefon-footer">
+                                    	    <svg><use xlink:href="#icon-telefon-footer"></use></svg>
+                                    	</i>
+                                    </a>
+                                    <div class="info-list">
+                                        <span class="title-info">Telefon</span>
+                                        <span class="sub-title-info"><a href="tel:+41 71 539 10 11" title="+41 71 539 10 11">+41 71 539 10 11</a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                	<a href="mailto:info@ofinto.ch" title="info@ofinto.ch">
+                                    	<!-- <img class="lazyload" data-src="https://ofinto.ch/product_images/uploaded_images/email-footer-icon.png" alt="" title="E-Mail"> -->
+                                    	<i class="icon icon-email-footer">
+                                    	    <svg><use xlink:href="#icon-email-footer"></use></svg>
+                                    	</i>
+                                    </a>
+                                    <div class="info-list">
+                                        <span class="title-info">E-Mail</span>
+                                        <span class="sub-title-info"><a href="mailto:info@ofinto.ch" title="info@ofinto.ch">info@ofinto.ch</a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                	<a href="https://maps.app.goo.gl/XMXf9mrZxeXxBDze6" title="Address" target="_blank">
+                                    	<!-- <img class="lazyload" data-src="https://ofinto.ch/product_images/uploaded_images/showroom-footer-icon.png" alt="" title="Showroom"> -->
+                                    	<i class="icon icon-showroom-footer">
+                                    	    <svg><use xlink:href="#icon-showroom-footer"></use></svg>
+                                    	</i>
+                                    </a>
+                                    <div class="info-list">
+                                        <span class="title-info">Showroom</span>
+                                        <span class="sub-title-info"><a href="https://maps.app.goo.gl/XMXf9mrZxeXxBDze6" title="Address" target="_blank">Hafnerstrasse 17, Zürich</a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                	<i class="icon icon-stock-location-footer">
+                                	    <svg><use xlink:href="#icon-stock-location-footer"></use></svg>
+                                	</i>
+                                    <div class="info-list">
+                                        <span class="title-info">Lagerstandort Schweiz</span>
+                                        <span class="sub-title-info">Kostenloser Versand &amp; Rückversand</span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class='jdgm-verified-badge-wrapper'></div>
-                        <span></span>
-                        <!-- Google Customer Reviews Badge -->
-                        <div id="google_customer_reviews"></div>
-                        <span></span>
+                        --}}
+                        <div class="footer-info-list contact-info">
+                        	<ul>
+                            	<li>
+                                	<a href="tel:+41 71 539 10 11" title="+41 71 539 10 11">
+                                    	<i class="icon icon-telefon-footer">
+                                    	    <svg><use xlink:href="#icon-telefon-footer"></use></svg>
+                                    	</i>
+                                    	<span class="info-list">
+                                            <span class="title-info">Telefon</span>
+                                            <span class="sub-title-info">+41 71 539 10 11</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                	<a href="mailto:info@ofinto.ch" title="info@ofinto.ch">
+                                    	<i class="icon icon-email-footer">
+                                    	    <svg><use xlink:href="#icon-email-footer"></use></svg>
+                                    	</i>
+                                    	<span class="info-list">
+                                            <span class="title-info">E-Mail</span>
+                                            <span class="sub-title-info">info@ofinto.ch</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                	<a href="https://maps.app.goo.gl/XMXf9mrZxeXxBDze6" title="Address" target="_blank">
+                                    	<i class="icon icon-showroom-footer">
+                                    	    <svg><use xlink:href="#icon-showroom-footer"></use></svg>
+                                    	</i>
+                                    	<span class="info-list">
+                                            <span class="title-info">Showroom</span>
+                                            <span class="sub-title-info">Hafnerstrasse 17, Zürich</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                	<i class="icon icon-stock-location-footer">
+                                	    <svg><use xlink:href="#icon-stock-location-footer"></use></svg>
+                                	</i>
+                                    <span class="info-list">
+                                        <span class="title-info">Lagerstandort Schweiz</span>
+                                        <span class="sub-title-info">Kostenloser Versand &amp; Rückversand</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
                     </article>
                 {{/if}}
 
-                <article class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-col-1">
+                <article class="footer-info-col footer-info-col--small hidden-for-mobile" data-section-type="footer-col-1">
                     {{#if theme_settings.footer-col-1-title '!=' ''}}
                     <h5 class="footer-info-heading">{{theme_settings.footer-col-1-title}}</h5>
                     {{/if}}
@@ -104,7 +196,17 @@
                     </ul>
                 </article>
 
-                <article class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-col-2">
+                <article class="footer-info-col footer-info-col--small hidden-for-desktop" data-section-type="footer-col-1.2">
+                    <h5 class="footer-info-heading">Bestseller</h5>
+                    <ul class="footer-info-list">
+                        <li><a href="#">Bürotisch Elevate</a></li>
+                        <li><a href="#">Bürostuhl Cloud</a></li>
+                        <li><a href="#">Bürostuhl Active</a></li>
+                        <li><a href="#">Bürostuhl Ergo</a></li>
+                    </ul>
+                </article>
+
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-col-2">
                     {{#if theme_settings.footer-col-2-title '!=' ''}}
                     <h5 class="footer-info-heading">{{theme_settings.footer-col-2-title}}</h5>
                     {{/if}}
@@ -142,7 +244,7 @@
                     </ul>
                 </article>
 
-                <article class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-col-3">
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-col-3">
                     {{#if theme_settings.footer-col-3-title '!=' ''}}
                     <h5 class="footer-info-heading">{{theme_settings.footer-col-3-title}}</h5>
                     {{/if}}
@@ -179,40 +281,64 @@
                         {{/if}}
                     </ul>
                 </article>
-
-                <article class="footer-info-col footer-info-col--large" data-section-type="newsletterSubscription">
-                    {{#if settings.show_newsletter_box}}
-                        {{> components/common/subscription-form}}
-                    {{/if}}
-                    {{> components/common/social-links}}
-                    {{#if theme_settings.geotrust_ssl_common_name}}
-                        <div class="footer-geotrust-ssl-seal">
-                            {{> components/common/geotrust-ssl-seal}}
+				
+                <article class="footer-info-col footer-info-col--large last-column">
+                	<div class="badge-logos">
+                    	<div class="badge-items">
+                        	<div class='jdgm-verified-badge-wrapper'></div>
+                        	<span></span>
                         </div>
-                    {{/if}}
-                    <br>
-                    {{> components/common/payment-icons}}
+                        <div class="badge-items">
+                        	<!-- Google Customer Reviews Badge -->
+                        	<div id="google_customer_reviews"></div>
+                        	<span></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Temporarily Script remove before site migrate -->
+                    <script src='https://cdn.judge.me/widget_preloader.js' defer></script>
+					<script>jdgm = window.jdgm || {};jdgm.SHOP_DOMAIN = 'store-ug96bsp8n2.mybigcommerce.com'; jdgm.PLATFORM = 'bigcommerce'; jdgm.PUBLIC_TOKEN = 'zKj7chPSoXnBveiO5F8O1fwwNOw';</script>
+                    <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+                    <!-- Temporarily Script remove before site migrate -->
+                    
+                    
                 </article>
-            </section>            
+                
+            </section>
+            <div class="footer-payments">
+            	{{> components/common/payment-icons}}
+            </div>           
         </div>
     </div>
     <div class="footer-bottom">
         <div class="container">
-            {{#or theme_settings.show_powered_by theme_settings.show_copyright_footer theme_settings.show_template_by}}
-                <div class="footer-copyright">
-                    {{#if theme_settings.show_copyright_footer}}
-                        <p class="powered-by">&copy; {{moment format="YYYY"}} {{lang 'footer.company_name'}}.</p>
-                    {{/if}}
-                    {{#if theme_settings.show_powered_by}}
-                        <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce.</a></p>
-                    {{/if}}
-                    {{#if theme_settings.show_template_by}}
-                        <p class="powered-by">BigCommerce Themes by <a href="https://www.themevale.com/" rel="nofollow">Themevale.com</a></p>
-                    {{/if}}
+            <div class="footer-bottom-inner">
+                <div class="box box-left">
+                {{#or theme_settings.show_powered_by theme_settings.show_copyright_footer theme_settings.show_template_by}}
+                    <div class="footer-copyright">
+                        {{#if theme_settings.show_copyright_footer}}
+                            <p class="powered-by">&copy; {{moment format="YYYY"}} {{lang 'footer.company_name'}}.</p>
+                        {{/if}}
+                        {{#if theme_settings.show_powered_by}}
+                            <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce.</a></p>
+                        {{/if}}
+                        {{#if theme_settings.show_template_by}}
+                            <p class="powered-by">BigCommerce Themes by <a href="https://www.themevale.com/" rel="nofollow">Themevale.com</a></p>
+                        {{/if}}
+                    </div>
+                {{/or}}
                 </div>
-            {{/or}}
-            
-
+                <div class="box box-middle">
+                    <ul class="copyright-web-links">
+                        <li><a href="/impressum/" title="Impressum">Impressum</a></li>
+                        <li><a href="/terms-and-conditions/" title="AGB">AGB</a></li>
+                        <li><a href="/privacy-policy/" title="Datenschutz">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="box box-right">
+                	{{> components/common/social-links}}
+                </div>
+            </div>
         </div>
     </div>
 </footer>

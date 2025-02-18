@@ -1,45 +1,315 @@
 {{#partial "head"}}
-
 {{{ checkout.checkout_head }}}
-{{ getFontsCollection }}
+{{ getFontsCollection }}  
 {{{ stylesheet '/assets/css/optimized-checkout.css' }}}
 
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
+
 <script>!function(C,oo,k,ie,b,o,t){
     let a=C.scripts[0],c="en",d=C.createElement(ie),
     e=[/^\/([a-z]{2})([_-][a-z]{2})?(\/.*)?/g.exec(k),/^([a-z]{2})\./.exec(oo),
     /\.([a-z]{2,})$/.exec(oo)],f={at:"de",au:c,ca:c,cz:"cs",dk:"da",ee:"et",no:"nb",se:
     "sv",uk:c},g=0;for(g of e){e=g?g[1]:t;if(g)break}e=e.length!=2?t:e;e=f[e]?f[e]:e;d.
     id=b;d.src="https://consent.cookiebot.com/uc.js";d.dataset.cbid=o;d.dataset.
-    culture=e;d.async=!0;a.parentNode.insertBefore(d,a)}(document,location.hostname,
+    culture=e;d.async=!0;a.parentNode.insertBefore(d,a)}(document,location.hostname, 
     location.pathname,"script","Cookiebot","9d244cad-5277-4af1-859a-e7a8a1911279","de")
 </script>
 
-{{{head.scripts}}}
-
+{{{head.scripts}}} 
+ 
 {{/partial}}
 
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
-    <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
-        <h2 class="checkoutHeader-heading">
-            <a class="checkoutHeader-link" href="{{urls.home}}">
-                {{#if checkout.header_image}}
-                    <img alt="{{settings.store_logo.title}}" class="checkoutHeader-logo" id="logoImage" src="{{ checkout.header_image }}"/>
-                {{ else }}
-                    <span class="header-logo-text">{{settings.store_logo.title}}</span>
-                {{/if}}
-            </a>
-        </h2>
+    <div class="checkout-header-inner">
+        <div class="checkoutHeader-content">
+            <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+            <h2 class="checkoutHeader-heading">
+                <a class="checkoutHeader-link" href="{{urls.home}}">
+                    <span class="checkout-logo">
+                        <svg id="Layer_1" class="newsvg_logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 301.08 113.74">
+                        <path d="M36,45.17C20.24,45.17,8.81,56,8.81,70.8S20.24,96.43,36,96.43,63.16,85.65,63.16,70.8,51.73,45.17,36,45.17Zm0,39c-7.93,0-13.06-5.25-13.06-13.37S28.05,57.43,36,57.43,49,62.68,49,70.8,43.92,84.17,36,84.17Z" /><path d="M105.6,29.73l.65-11.63a37.87,37.87,0,0,0-8.37-.78C81.25,17.32,79,26.71,79,36.86v9.55H68.75v11H79V95.19H93.07V57.43h11.45v-11H93.07V37.79c0-7.36,3.1-8.83,8.11-8.83A13.61,13.61,0,0,1,105.6,29.73Z" /><path d="M119,21.65a8.3,8.3,0,1,0,8.29,8.3A8.31,8.31,0,0,0,119,21.65Z" /> <rect x="111.97" y="46.41" width="14.11" height="48.77" /> <path d="M220.43,96.43a31.68,31.68,0,0,0,10.15-1.35V83.89a15.45,15.45,0,0,1-5.61.9c-7.39,0-8-4.72-8-10V57.43h13.61v-11H217V31.56H202.85V46.41H193v11h9.9V81.94C202.85,94.54,213.87,96.43,220.43,96.43Z" /><path d="M265.1,45.17c-15.74,0-27.17,10.78-27.17,25.63s11.43,25.63,27.17,25.63,27.17-10.78,27.17-25.63S280.85,45.17,265.1,45.17Zm0,39c-7.93,0-13.06-5.25-13.06-13.37s5.13-13.37,13.06-13.37,13.06,5.25,13.06,13.37S273,84.17,265.1,84.17Z" /><path d="M167.61,45.14A16.88,16.88,0,0,0,154.3,51a19,19,0,0,0-1.54,1.64V46.35H137.9V95.19h15.48V70.87c0-6.33,1.24-12.47,9.28-12.47s8.05,7.24,8.05,12.87V95.19h15.48V68.25C186.19,55.19,183.3,45.14,167.61,45.14Z" />
+                        </svg>
+                    </span>
+                </a>
+            </h2>
+            <p class="secure-checkout">{{lang 'optimized_checkout.checkout_step.secured'}}</p>
+            <div id="checkout-steps" class="steps-container">
+                {{#for 1 (lang 'optimized_checkout.checkout_step.count')}}
+                    <div class="step step{{{lang (concat (concat 'optimized_checkout.checkout_step.'$index)'.step_count')}}}" data-step="{{{lang (concat (concat 'optimized_checkout.checkout_step.'$index)'.step_count')}}}">
+                        <span>{{{lang (concat (concat 'optimized_checkout.checkout_step.'$index)'.step_count')}}}</span>
+                        <p>{{{lang (concat (concat 'optimized_checkout.checkout_step.'$index)'.headline' )}}}</p>
+                    </div>
+                {{/for}}
+            </div>
+        </div>
     </div>
 </header>
 
 {{{ checkout.checkout_content }}}
 
 {{{ footer.scripts }}}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    appendRiskWrap();
+    setTimeout(function(){
+        appendTaxes();
+    },2000);
+    let removeTag = setInterval(function () {
+        $("p:contains('Or continue with')").hide();
+    }, 100);
+    $(window).resize(function() {
+        appendRiskWrap();
+        appendTaxes()
+    });
+    $(document).on('click', '.cartDrawer.optimizedCheckout-orderSummary', function() {
+        appendRiskWrap();
+        setTimeout(function(){
+            appendTaxes()
+        },1000);
+    });
+    function click_action() {
+        var click_steps = setInterval(function() {
+            $(document).on('click', '.stepHeader-actions .button', function() {
+                $(this).closest('li').find('.checkout-step').removeClass('completed');
+            });
+        }, 300);
+    }
+});
+
+let clickable = setInterval(function () {
+    if ($("div", "li.checkout-step--customer").hasClass("checkout-view-content")) {
+        let privacyPolicy = $('.form-fieldset.checkout-privacy-policy');
+        if (privacyPolicy.length > 0) {
+            privacyPolicy.insertAfter('.customerEmail-body .form-field:nth-child(2)');
+        }
+    }
+}, 500);
+        
+let priceValue = setInterval(function () {
+    if ($('div[data-test="cart-coupon"]').length > 0) {
+        let discountPrice = $('div[data-test="cart-coupon"] .cart-priceItem-value');
+        discountPrice = discountPrice.addClass('appendThis')
+        discountPrice.insertAfter('div[data-test="cart-subtotal"] .cart-priceItem');
+    }
+}, 500);
+
+$(document).on('click', '[data-test="cart-price-callback"]', function() {
+    let appended = $('.cart-priceItem-value.appendThis');
+    setTimeout(() => {
+        appended.remove();
+    }, 1000);
+});
+
+var checkoutRemoteAppend = setInterval(function () {
+    if ($("div", "li.checkout-step--customer").hasClass("checkout-view-content")) {
+        if($('.checkoutRemote #paypalcommerceCheckoutButton').length > 0){
+            clearInterval(checkoutRemoteAppend);
+            
+            setTimeout(function(){
+                $('.layout-main').prepend($('.checkoutRemote'));
+            },2000);
+        }
+    }
+}, 500);
+
+let riskWrapHtml = `
+<div class="risk-wrap">
+<div class="risk-upper">
+	<p>{{lang 'optimized_checkout.order_confirmation.risikofrei'}}</p>
+	<p>{{lang 'optimized_checkout.order_confirmation.bis_zu'}}</p>
+</div>
+<div class="checkout-help">
+	<h3>{{lang 'optimized_checkout.order_confirmation.haben_sie'}}</h3>
+	{{{lang 'optimized_checkout.order_confirmation.haben_sie_fragen'}}}
+</div>
+</div>
+`;
+
+function appendRiskWrap() {
+    let risk_append = setInterval(function() {
+        if ($('.layout-cart .cart.optimizedCheckout-orderSummary').length > 0 && $('.risk-wrap').length === 0) {
+            let risk = $('.layout-cart .cart.optimizedCheckout-orderSummary');            
+            clearInterval(risk_append);
+            $(riskWrapHtml).insertAfter(risk).show();
+        } 
+        else if ($('.ReactModalPortal .cart-modal-header').length > 0 && $('.risk-wrap').length === 0) {
+            let risk = $('.cart-modal-body.optimizedCheckout-orderSummary');            
+            clearInterval(risk_append);
+            $(riskWrapHtml).insertAfter(risk).show();
+        }
+    }, 300);
+}
+
+function appendTaxes() {
+    var append_tax = setInterval(function () {
+        var check_existance = $('.cart-section + div[data-test="cart-taxes"]');
+        var tax = $('div[data-test="cart-taxes"]');
+        var desktop_tax = $('.cart .cart-section:last-of-type');
+        var mobile_tax = $('.modal-body > :last-child');
+        if (check_existance.length > 0){
+            clearInterval(append_tax);
+        }
+        else{
+            if (tax.length > 0 && desktop_tax.length > 0) {
+                tax.insertAfter(desktop_tax);
+            }
+            else if (tax.length > 0 && mobile_tax.length > 0) {
+                tax.insertAfter(mobile_tax);
+            }
+        }
+    }, 1000);
+}
+
+function updateSteps() {
+    var checkout_steps = setInterval(function() {
+        $('.checkout-step').each(function() {
+            if ($(this).find('.stepHeader.is-clickable').length > 0) {
+                $(this).addClass('completed');
+            } else {
+                $(this).removeClass('completed');
+            }
+        });
+    }, 300);
+}
+
+function steps_counter() {
+    var steps_counter_interval = setInterval(function() {
+        if ($("li.checkout-step--customer.completed").length > 0) {
+            $('.step1').addClass("Checked")
+        } else {
+            $('.step1').removeClass("Checked")
+        } 
+        if ($("li.checkout-step--shipping.completed").length > 0) {
+            $('.step2').addClass("Checked")
+        } else {
+            $('.step2').removeClass("Checked")
+        } 
+        if ($("li.checkout-step--billing.completed").length > 0) {
+            $('.step3').addClass("Checked")
+        } else {
+            $('.step3').removeClass("Checked")
+        } 
+    }, 300);
+}
+
+// COOKIE BASE ORDER COMMENTS
+$(document).ready(function(e) {
+    collapsed_comments_append();
+    function collapsed_comments_append() {
+    	var collapsed_comments = setInterval(function() {
+    		var getCookieVal = getCookie("orderComments");
+		    if ($(".checkout-step--shipping .stepHeader.is-clickable .staticConsignment .order_comments").length > 0) {
+    		} else{
+				$('.checkout-step--shipping .stepHeader.is-clickable .staticConsignment').append('<p class="order_comments">' + getCookieVal + '</p>');
+    			clearInterval(collapsed_comments)
+    		}
+    	}, 3000);
+    }
+	$( document ).on( "click", "#checkout-shipping-continue", function() {
+		CommentsVal = $('input[name="orderComment"]').val();
+		setCookie("orderComments", CommentsVal, 1);
+		if(CommentsVal != '') {
+            collapsed_comments_append();
+		}
+	});	
+});
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i <ca.length; i++) {
+		var c = ca[i];
+			while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+function delete_cookie( cname ) {
+	document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+</script>
+
+{{#if customer}}
+<script>
+    $(document).ready(function () {
+        setTimeout(function(){
+            first_step_customer();
+	        updateStepsForCustomers();
+        },2000);
+
+        function first_step_customer() {
+            var login_step = setInterval(function() {
+                if ($("li.checkout-step--customer div").hasClass("checkout-view-header")) {
+                    clearInterval(login_step);
+                    $("li.checkout-step--customer, li.checkout-step--shipping, li.checkout-step--billing").addClass('completed');
+                    $('.step1').addClass("Checked")
+                }
+            }, 300);
+        }
+
+        function updateStepsForCustomers() {
+            var checkout_steps_customers = setInterval(function() {
+                if ($("li.checkout-step--shipping div").hasClass("is-clickable")) {
+                    $("li.checkout-step--shipping").addClass('completed');
+                    $('.step2').addClass("Checked")
+                } else {
+                    $("li.checkout-step--shipping").removeClass('completed');
+                    $('.step2').removeClass("Checked")
+                }
+            
+                if ($("li.checkout-step--billing div").hasClass("is-clickable")) {
+                    $("li.checkout-step--billing").addClass('completed');
+                    $('.step3').addClass("Checked")
+                } else {
+                    $("li.checkout-step--billing").removeClass('completed');
+                    $('.step3').removeClass("Checked")
+                }
+            }, 300);
+            
+            $('.checkout-step--customer .customerView-actions .button--tertiary').click(function(){
+                const checkoutCustomerStep = setInterval(function () {
+                    if ($('li.checkout-step--customer.completed').length) {
+                        $('.checkout-step--customer').removeClass('completed');
+                        clearInterval(checkoutCustomerStep);
+                    }
+                    steps_counter
+                    updateSteps();
+                }, 1000);
+            });
+        }
+        $(document).on('click', '.stepHeader-actions .button', function() {
+	        updateStepsForCustomers();
+        });
+    });
+</script>
+{{else}}
+<script>
+    $(document).ready(function () {
+        setTimeout(function(){
+	        updateSteps();
+	        steps_counter();
+        },2000);
+    });
+</script>
+{{/if}}
 
 {{/partial}}
 
