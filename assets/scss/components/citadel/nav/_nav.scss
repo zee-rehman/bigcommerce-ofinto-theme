@@ -1,0 +1,215 @@
+// =============================================================================
+// NAV (CSS)
+// =============================================================================
+
+
+// Citadel inline messages
+// -----------------------------------------------------------------------------
+//
+// 1. Remove the margin-left we add to default lists.
+//
+// -----------------------------------------------------------------------------
+.nav {
+        &.no-heading {
+            padding-top: 54px;
+        }
+    }
+.navBar {
+    display: inline-block;
+    width: 100%;
+}
+.account {
+    .navBar {
+        margin-top: 0;
+    }
+}
+
+.navList,
+.navBar {
+    margin-left: 0; // 1
+}
+
+.navList-action,
+.navBar-action {
+    text-decoration: none;
+}
+
+.navList-action.is-active {
+    font-weight: $navList-action-fontWeight--active;
+}
+
+.navList-action {
+    font-size: 13px;
+    color: stencilColor('color-textBase');
+    padding: 0;
+
+    &:hover {
+        color: stencilColor('color-textHeading');
+    }
+}
+
+// NavList action checkbox
+// -----------------------------------------------------------------------------
+//
+// Purpose: Display a checkbox next to an actionable link, without actually using
+// a checkbox element.
+//
+// 1. Position checkbox so it is vertically centered
+//
+// -----------------------------------------------------------------------------
+
+.navList-action--checkbox {
+    @include checkRadioBase();
+    @include checkBox-base();
+
+    &:before,
+    &:after {
+        top: 50%; // 1
+    }
+
+    &:before {
+        margin-top: -$checkRadio-outerSize / 2;
+        border-radius: 4px;
+        width: remCalc(14px);
+        height: remCalc(14px);
+    }
+
+    &:after {
+        margin-top: -$checkRadio-outerSize / 2;
+        left: 0;
+    }
+
+    &:focus {
+        @include checkRadioBase--focus();
+    }
+
+    &.is-disabled {
+        @include checkRadioBase--disabled();
+    }
+
+    &.is-checked,
+    &.is-selected {
+        @include checkRadioBase--checked();
+    }
+}
+
+
+// NavList action close
+// -----------------------------------------------------------------------------
+//
+.navList-action-close {
+    background: $navList-action-close-background;
+    border-radius: $navList-action-close-borderRadius;
+    display: inline-block;
+    float: right;
+    line-height: 0;
+    opacity: 0;
+    padding: $navList-action-close-padding;
+    transition: $navList-action-close-transition;
+    visibility: hidden;
+
+    .icon {
+        @include square($navList-action-close-iconSize);
+        fill: stencilColor("color-textLink");
+    }
+
+    .navList-action.is-selected:hover & {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+// Page Subnavigation
+// -----------------------------------------------------------------------------
+
+.navBar--sub {
+    margin-bottom: remCalc(47px);
+
+    .navBar-section {
+        float: none;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        overflow-x: auto;
+        border: 1px solid stencilColor('input-border-color');
+        background-color: #f5f5f5;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.08);
+        -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.08);
+        -moz-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.08);
+        -ms-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .navBar-item {
+        float: none;
+        width: 100%;
+        display: inline-block;
+        border-right: 1px solid #eaeaea;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .02em;
+        color: stencilColor('color-textHeading');
+        white-space: nowrap;
+        font-family: stencilFontFamily("headings-font"), sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        &.is-active {
+            background: #ffffff;
+            > .navBar-action {
+                color: stencilColor("color-textHeading");
+            }
+        }
+        .navBar-action-color--active {
+            background: #ffffff;
+            display: inline-block;
+            width: 100%;
+        }
+        > a {
+            padding: 14px 10px 13px 10px;
+        }
+        &.navBar-item--separate {
+            @include breakpoint("medium") {
+                margin: 0;
+            }
+        }
+    }
+
+    .navBar-action {
+        color: stencilColor("color-textBase");
+        display: inline-block;
+        width: 100%;
+        font-family: stencilFontFamily("headings-font"), sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: .02em;
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: stencilColor("color-textHeading");
+            background: #ffffff;
+        }
+    }
+}
+
+.navBar--account, .account-navigation {
+    .navBar-item {
+        &.is-active {
+            padding: 14px 10px 13px 10px;
+            > a {
+                padding: 0;
+            }
+        }   
+    }
+}

@@ -1,0 +1,33 @@
+<form action="{{urls.compare}}" method='POST' {{#if true}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
+    {{#if true}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings productsnew=../products.new event="list" }}
+    {{else}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings productsnew=../products.new}}
+    {{/if}}
+</form>
+<div class="pagination-wrapper">
+	{{#if theme_settings.themevale_pagination}}
+	<div class="pagination-inner">
+		<!-- <div class="pagination-info">Zeige <span class="start"></span> - <span class="end"></span> von <span class="total"></span> insgesamt</div> -->
+		{{> components/common/paginator pagination.category number_products=theme_settings.categorypage_products_per_page total=category.total_products theme_settings=theme_settings}}
+	</div>
+	{{else}}
+		<div class="u-hiddenVisually"> 
+	        {{> components/common/paginator pagination.category}}
+	    </div>
+	    <div class="showmore-category">
+	    	<div class="showmore-category-inner">
+			    <a id="button-showmore-category" class="button button--border button--showmore" href="javascript:void(0)">
+			        <svg class="icon"><use xlink:href="#icon-refresh"></use></svg>
+			        <span class="text">mehr</span>
+			        <span class="text text-hidden">Keine weiteren Produkte</span>
+			    </a>
+			</div>
+		</div>
+	{{/if}}
+	{{#if category.show_compare}}
+	    <div class="compare-link">
+	        <a class="button button--primary" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} (<span class="countPill countPill--positive">0</span>)</a>
+	    </div>
+	{{/if}}
+</div>

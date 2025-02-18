@@ -1,0 +1,1406 @@
+{
+  "header": {
+    "welcome_back": "Willkommen zurück, {name}"
+  },
+  "footer": {
+    "brands": "Beliebte Produkte",
+    "navigate": "Navigation",
+    "info": "Info",
+    "categories": "Kategorien",
+    "email_us": "E-Mail:",
+    "call_us": "Telefon:",
+    "company_name": "ofinto ag"
+  },
+  "home": {
+    "heading": "Home"
+  },
+  "blog": {
+    "recent_posts": "Aktuelle Posts",
+    "label": "Blog",
+    "tags": "Beliebte Tags",
+    "tags_label": "Tags",
+    "posted_by": "Geposted von {name}",
+    "read_more": "Weiterlesen"
+  },
+  "unavailable": {
+    "hibernation_title": "Wir sind gleich wieder für Sie da",
+    "hibernation_message": "Danke für Ihren Besuch. Wir sind gleich wieder da. Bitte entschuldigen Sie die Störung.",
+    "maintenance_title": "Service-Unterbruch.",
+    "maintenance_message": "Wir führen gerade Serverarbeiten durch, um das Einkaufserlebnis weiter zu verbessern. Wir sind in Kürze wieder verfügbar."
+  },
+  "brands": {
+    "no_products": "Es sind noch keine Produkte von dieser Marke verfügbar.",
+    "our_products": "Unsere Produkte"
+  },
+  "categories": {
+    "no_products": "In dieser Kategorie gibt es noch keine Produkte."
+  },
+  "checkout": {
+    "title": "Bezahlen"
+  },
+  "cart": {
+    "continue_shopping": "Einkauf fortsetzen",
+    "items": "{NUM, plural, =0{(kein Produkt)} one {(# Produkt)} other {(# Produkte)}}",
+    "checkout": {
+      "address": {
+        "multiple": "mit mehreren Adressen bezahlen",
+        "or": "oder"
+      },
+      "button": "Weiter zur Kasse",
+      "empty_cart": "Sie haben noch keine Produkte im Warenkorb",
+      "title": "Bestellvorgang abschliessen",
+      "item": "Produkt",
+      "price": "Preis",
+      "quantity": "Menge",
+      "total": "Total",
+      "change": "Ändern",
+      "subtotal": "Zwischentotal",
+      "enter_code": "Gutscheincode",
+      "gift_wrapping": "Als Geschenk verpacken",
+      "shipping": "Lieferung",
+      "grand_total": "Total",
+      "select": "Auswählen",
+      "update": "Lieferkosten aktualisieren"
+    },
+    "preview": {
+      "checkout_now": "Zur Kasse",
+      "checkout_multiple": "oder mit mehreren Adressen bezahlen",
+      "view_cart": "Warenkorb ansehen"
+    },
+    "title": "Ihr Warenkorb",
+    "label": "{quantity, plural, one {# Produkt} other {# Produkte}}",
+    "dropdown_label": "{quantity, plural, one {# Produkt} other {# Produkte}}",
+    "qty": "{quantity}",
+    "is_empty": "Ihr Warenkorb ist leer",
+    "coupon_code": "Rabattcode",
+    "discount": "Rabatt",
+    "gift_certificate": "Geschenkgutschein",
+    "remove_file": "Entfernen",
+    "freeshipping": "Kostenlose Lieferung",
+    "reconfigure_product": "'{name}' ändern",
+    "shipping_peritem": "Lieferkosten pro Produkt",
+    "remove": "Entfernen",
+    "confirm_delete": "Möchten Sie dieses Produkt wirklich entfernen?",
+    "coupons": {
+      "empty_error": "Bitte Rabattcode eingeben.",
+      "cancel": "Abbrechen",
+      "add_code": "Code hinzufügen",
+      "add_coupon": "Code hinzufügen",
+      "button": "Anwenden",
+      "coupon_code": "Rabattcode hinzufügen",
+      "code_label": "Rabatt ({code})",
+      "remove": "Entfernen"
+    },
+    "gift_certificates": {
+      "add_cert_code": "Gutschein hinzufügen",
+      "gift_certificate": "Gutscheincode",
+      "code_label": "Gutscheincode ({code})",
+      "cert_code": "Gutscheincode hinzufügen",
+      "empty_error": "Dieser Code ist leider nicht gültig.",
+      "remove": "Entfernen"
+    },
+    "shipping_estimator": {
+      "add_info": "Informationen hinzufügen",
+      "select_a_country": "Land",
+      "select_a_state": "Kanton",
+      "estimate_shipping": "Lieferkosten berechnen",
+      "suburb_city": "Stadt/Ort",
+      "zip_postal_code": "Postleitzahl",
+      "free_shipping": "Kostenlose Lieferung",
+      "hide_ups_rates": "UPS Kosten ausblenden",
+      "show_ups_rates": "UPS Kosten zeigen",
+      "empty_country_error": "Bitte geben Sie ein Land ein.",
+      "empty_province_error": "Bitte geben Sie einen Kanton ein."
+    },
+    "gift_wrapping": {
+      "title": "Als Geschenk verpacken",
+      "add": "Hinzufügen",
+      "change": "Ändern",
+      "remove": "Entfernen",
+      "choose_how": "Bitte wählen Sie, wie Sie dieses Produkt verpackt haben möchten.",
+      "option_same": "Ich möchte jedes Produkt gleich verpacken lassen ",
+      "item_single": "Geschenkverpackung - {name}",
+      "item_multiple": "Produkt {index} - {name}",
+      "option_different": "Ich möchte für jedes Produkt einzeln die Verpackung wählen",
+      "choose_type": "Bitte wählen Sie eine Verpackungsart ",
+      "gift_message": "Geschenknachricht",
+      "remove_confirm": "Sind Sie sicher, dass Sie die Geschenkverpackung für dieses Produkt entfernen möchten?",
+      "preview": "Vorschau"
+    },
+    "added_to_cart": {
+      "what_next": "{num_products, plural, one {1 Produkt wurde} other {# Produkte wurden}} dem Warenkorb hinzugefügt.",
+      "your_cart_contains": "Ihr Warenkorb beinhaltet {num_products, plural, one {1 Produkt} other {# Produkte}}",
+      "proceed_to_checkout": "Zur Kasse",
+      "order_subtotal": "Warenwert",
+      "continue_shopping": "Weiter Einkaufen",
+      "view_or_edit_cart": "Warenkorb ansehen oder bearbeiten",
+      "you_might_also_like": "Produkte, die Sie auch interessieren könnten"
+    }
+  },
+  "common": {
+    "store_credit": "Sie haben <strong>{store_credit}</strong> ofinto-Punkte. Um diese zu verwenden, kaufen Sie ganz normal weiter ein und wählen Sie bei der Kasse ofinto-Punkte als Bezahlmethode aus.",
+    "store_credit_overview": "{credit} ofinto-Punkte",
+    "generic_error": "Oops! Da lief etwas schief.",
+    "currency": "{code}",
+    "newsletter_signup": "Für unseren Newsletter anmelden",
+    "form_submit": "Anmelden",
+    "no_preference": "Keine Angabe",
+    "other_details": "Weitere Angaben",
+    "required": "Pflichtfeld",
+    "required2": "*",
+    "email_address": "E-Mail-Adresse",
+    "edit": "Bearbeiten",
+    "not_applicable": "N/A",
+    "no": "Nein",
+    "yes": "Ja",
+    "from": "Von",
+    "to": "an",
+    "cancel": "Abbrechen",
+    "close": "Schliessen",
+    "or": "oder",
+    "compare": "Auswahl vergleichen",
+    "compare_color": "Farben vergleichen",
+    "compare_color_text": "Wählen Sie die Vorschaubilder an, um sie zu vergleichen. Drücken und ziehen Sie die Bilder, um die Reihenfolge zu ändern ",
+    "sign_up": "Registrieren",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "account": "Konto",
+    "cart": "Warenkorb",
+    "search": "Suchen",
+    "gift_cert": "Geschenkscode",
+    "save": "Speichern",
+    "share": "Teilen",
+    "delete": "Löschen",
+    "public": "Öffentlich",
+    "private": "Privat",
+    "view_all": "Alle ansehen",
+    "all": "Alle",
+    "back_to_top": "Nach oben",
+    "no_products": "Hier gibt es noch keine Produkte.",
+    "recently_viewed": "Zuletzt angesehen",
+    "cart_dropdown_title": "Warenkorb ansehen",
+    "recommended": "Empfohlen",
+    "history": "Verlauf",
+    "back_to_store": "Zurück zum Shop",
+    "show_sidebar": "Sidebar anzeigen",
+    "show_sidebar_mobile": "Sidebar",
+    "view_as": "Anzeigen als:",
+    "sidebar_shop_by": "Sidebar",
+    "paginator": {
+      "page_of": "Seite {current} von {total}"
+    },
+    "prices_are_in": "Preise sind in {CODE}",
+    "previous": "Zurück",
+    "next": "Nächste",
+    "sorter": {
+      "relevance": "Relevanz",
+      "sort_by": "Sortieren nach:",
+      "featured": "Empfohlen",
+      "top_sellers": "Unsere Bestseller",
+      "newest": "Neuste Produkte",
+      "alpha_asc": "Von A bis Z",
+      "alpha_desc": "Von Z bis A",
+      "reviews": "Kundenbewertungen",
+      "price_asc": "Günstigste zuerst",
+      "price_desc": "Teuerste zuerst"
+    },
+    "loading": "Laden",
+    "month": "Monat",
+    "day": "Tag",
+    "year": "Jahr",
+    "short_months": {
+      "1": "Jan",
+      "2": "Feb",
+      "3": "Mrz",
+      "4": "Apr",
+      "5": "Mai",
+      "6": "Jun",
+      "7": "Jul",
+      "8": "Aug",
+      "9": "Sep",
+      "10": "Okt",
+      "11": "Nov",
+      "12": "Dez"
+    }
+  },
+  "compare": {
+    "button": "Produkte vergleichen",
+    "header": "Vergleiche {products, plural, one {# Produkt} other {# Produkte}}",
+    "remove": "Entfernen",
+    "no_remove": "Es müssen mindestens zwei Produkte zum Vergleich ausgewählt sein.",
+    "add_to_cart": "Zum Warenkorb hinzufügen"
+  },
+  "category": {
+    "label": "Kategorien",
+    "shop_by_price": "Nach Preis einkaufen",
+    "reset": "Zurücksetzen",
+    "view_all": {
+      "name": "Alle {category}"
+    }
+  },
+  "brand": {
+    "label": "Marken",
+    "view_brands": "Alle Marken anzeigen"
+  },
+  "gift_certificate": {
+    "heading": "Gutscheine",
+    "purchase": {
+      "heading": "Gutschein kaufen"
+    },
+    "redeem": {
+      "heading": "Gutschein einlösen",
+      "intro": "So können Sie einen Gutscheincode einlösen:",
+      "item1": "Sie benötigen Ihren individuellen Gutscheincode in der Form von Z50-Y6K-COS-402.",
+      "item2": "Fahren Sie Ihren Einkauf fort und fügen Sie die Produkte ganz normal dem Warenkorb hinzu.",
+      "item3": "Drücken Sie auf '<a href=\"{cart_url}\">Warenkorb Anzeigen</a>' Link, um den Inhalt Ihres Warenkorbs zu sehen.",
+      "item4": "Fügen Sie bei 'Gutscheincode einlösen' Ihren Gutscheincode hinzu und drücken Sie auf 'Weiter'."
+    },
+    "balance": {
+      "heading": "Gutschein Kontostand",
+      "intro": "Um den Kontostand Ihres Gutscheins nachzuschauen, fügen Sie den Gutscheincode im Eingabefeld unten ein."
+    }
+  },
+  "create_account": {
+    "heading": "Konto anlegen",
+    "created": {
+      "heading": "Ihr Konto wurde angelegt",
+      "intro": "Danke! Wir haben die Kontodetails an <strong>{email}</strong> gesendet",
+      "continue": "Weiter einkaufen"
+    },
+    "button": "Konto anlegen"
+  },
+  "login": {
+    "heading": "Anmelden",
+    "field_email": "E-Mail-Adresse",
+    "field_password": "Passwort",
+    "submit_value": "Anmelden",
+    "forgot_password": "Passwort vergessen?",
+    "button": "Anmelden",
+    "new_customer": {
+      "heading": "Haben Sie noch kein Konto?",
+      "intro": "Vorteile von einem Konto:",
+      "fact1": "Fast Check-Out",
+      "fact2": "Bestellungen nachverfolgen",
+      "fact3": "Rechnungen immer griffbereit",
+      "fact4": "Rückgabe und Garantie online verwalten",
+      "fact5": "Einkaufs-Verlauf ansehen",
+      "create_account": "Konto anlegen"
+    }
+  },
+  "reset_password": {
+    "heading": "Passwort zurücksetzen",
+    "intro": "Um ein neues Passwort zu generieren, fügen Sie bitte unten Ihre E-Mail-Adresse ein. Wir senden Ihnen eine Bestätigungs-E-Mail zu, um Ihre Adresse zu verifizieren."
+  },
+  "account": {
+    "breadcrumb": "Ihr Konto",
+    "nav": {
+      "overview": "Übersicht",
+      "orders": "Bestellungen",
+      "returns": "Rückgabe und Garantie",
+      "messages": "Nachrichten ({num_new_messages})",
+      "wishlists": "Wunschliste ({num_wishlists})",
+      "recently_viewed": "Zuletzt angeschaut",
+      "settings": "Konto Einstellungen",
+      "addresses": "Adressen",
+      "payment_methods": "Zahlungsmethoden"
+    },
+    "mobile_nav": {
+      "messages": "Nachrichten",
+      "wishlists": "Wunschliste"
+    },
+    "addresses": {
+      "heading": "Adressen",
+      "add_heading": "Neue Adresse hinzufügen",
+      "primary": "Hauptadresse",
+      "phone": "Telefon:",
+      "new_address": "Neue Adresse",
+      "no_addresses": "Es ist keine Adresse hinterlegt."
+    },
+    "messages": {
+      "heading": "Nachrichten",
+      "customer_said": "Sie:",
+      "merchant_said": "ofinto:"
+    },
+    "orders": {
+      "heading": "Bestellungen",
+      "none": "Sie haben noch nichts bestellt. Wenn Sie etwas bestellen, dann wird hier der Bestellstatus angezeigt.",
+      "return": {
+        "already_returned": "Diese Bestellung beinhaltet keine Produkte, die retourniert oder für die ein Garantiefall erfasst werden können. Ist es möglich, dass Sie bereits Anfragen für alle Produkte in dieser Bestellung gestellt haben?",
+        "back_button": "Zurück",
+        "submit": "Absenden",
+        "order_item": "Produkt",
+        "item_price": "Preis",
+        "quantity": "Menge",
+        "why": "Was ist der Grund für Ihre Anfrage?",
+        "reason": "Grund",
+        "action": "Art der Anfrage",
+        "comments": "Kommentar"
+      },
+      "gift_wrapping": "Geschenksverpackung:",
+      "refunded": "(Erstattet)",
+      "refunded_quantity": "({qty} erstattet)",
+      "return_item": "Retoure",
+      "return_items": "Rückgabe / Garantie erfassen?",
+      "order_placed": "Bestellung erhalten",
+      "last_update": "Letztes Update",
+      "list": {
+        "order_number": "Bestellung #{number}",
+        "product_details": "{num_products, plural, one {1 Produkt} other {# Produkte}} zum Preis von {cost}"
+      },
+      "details": {
+        "heading": "Bestellung #{number}",
+        "order_contents": "Bestellte Produkte",
+        "ship_to": "Lieferadresse",
+        "ship_to_multi": "Die Produkte werden versendet an: {street}, {city}, {state}, {zip}, {country}",
+        "ship_to_multi_text": "Die Bestellung wird an mehrere Adressen geliefert",
+        "bill_to": "Rechnungsadresse",
+        "how_to_pay": "So bezahlen Sie Ihre Bestellung:",
+        "order_details": "Bestellungs-Details",
+        "order_total": "Preis:",
+        "order_status": "Status:",
+        "payment_date": "Datum:",
+        "payment_method": "Zahlungsmethode:",
+        "comments": "Kommentare",
+        "download_items": "Produkte herunterladen",
+        "card_ending": "endet auf {card}",
+        "shipments": {
+          "date": "Versanddatum",
+          "method": "Liefermethode",
+          "link": "Sendung nachverfolgen",
+          "header": "Lieferdetails"
+        },
+        "actions": "Aktion",
+        "reorder": "Wieder bestellen",
+        "return": "Rückgabe / Garantie",
+        "print_invoice": "Rechnung / Quittung drucken"
+      },
+      "downloads": {
+        "heading": "Downloads für Bestellung #{number}",
+        "download_files_below": "Hier finden Sie die Dokumente für",
+        "expired_content": "abgelaufen",
+        "days_remaining": "{number, plural, one {1 Tag} other {# Tage}}",
+        "downloads_remaining": "{number, plural, one {1 Download} other {# Downloads}} übrig",
+        "days_or_downloads": "oder {number} Downloads",
+        "remaining": "übrig"
+      }
+    },
+    "payment_methods": {
+      "heading": "Zahlungsmethode",
+      "payment_method": "Zahlungsmethode",
+      "billing_address": "Rechnungsadresse",
+      "card_ending_in": "endet auf {last_four}",
+      "card_expiry": "{Monat}/{Jahr}",
+      "new_payment_method": "Neue Zahlungsmethode hinzufügen",
+      "no_methods": "Sie haben noch keine Zahlungsmethode hinterlegt",
+      "name_on_card": "Name auf Karte",
+      "credit_card_number": "Kreditkarten-Nummer",
+      "expiration": "Ablaufdatum",
+      "cvv": "CVV",
+      "card_types": {
+        "american_express": "American Express",
+        "credit_card": "Kreditkarte",
+        "dankort": "Dankort",
+        "diners": "Diners Club",
+        "discover": "Discover",
+        "jcb": "JCB",
+        "maestro": "Maestro",
+        "mastercard": "Mastercard",
+        "visa": "Visa"
+      },
+      "paypal": "PayPal",
+      "billing_address_labels": {
+        "address_line_1": "Adresszeile 1",
+        "address_line_2": "Adresszeile 2",
+        "suburb_city": "Stadt/Ort",
+        "state_province": "Kanton",
+        "choose_state": "Kanton auswählen",
+        "country": "Land",
+        "choose_country": "Land wählen",
+        "zip_postcode": "Postleitzahl"
+      }
+    },
+    "returns": {
+      "heading": "Rückgabe und Garantie",
+      "instructions": "Danke für Ihre Anfrage. Wie geht es nun weiter?",
+      "error_no_qty": "Bitte wählen Sie ein oder mehrere Produkte aus.",
+      "none": "Sie haben bisher noch keine Rückgabe- oder Garantieanfragen getätigt. Wenn Sie eine Anfrage starten, wird diese hier angezeigt werden.",
+      "new_return": "Neue Rückgabe / Garantiefall",
+      "from_order": "Rückgabe / Garantiefall aus Bestellung #{id}",
+      "date_requested": "Datum",
+      "successful_heading": "Rückgabe / Garantiefall erfolgreich beantragt",
+      "successful": "Anfrage erfolgreich abgeschickt.",
+      "return": "Zurück zu den Bestellungen",
+      "last_update": "Letztes Update",
+      "reason": "Grund",
+      "action": "Art der Anfrage",
+      "comments": "Kommentar",
+      "list": {
+        "return_number": "Anfrage #{id}",
+        "product_details": "Betroffene Produkte: {num_products}"
+      },
+      "status": {
+        "pending": "Pendent",
+        "received": "Rücksendung erhalten",
+        "authorized": "Garantiefall bestätigt",
+        "repaired": "Repariert",
+        "refunded": "Rückerstattet",
+        "rejected": "Abgelehnt",
+        "cancelled": "Abgebrochen"
+      }
+    },
+    "settings": {
+      "heading": "Kontoeinstellungen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail-Adresse",
+      "company": "Unternehmen",
+      "phone": "Telefon",
+      "old_password": "Altes Passwort",
+      "new_password": "Neues Passwort",
+      "confirm_password": "Passwort bestätigen",
+      "update_details": "Details updaten"
+    },
+    "recent_items": {
+      "heading": "Zuletzt Angeschaut",
+      "no_items": "Hier werden die Produkte angezeigt werden, die Sie zuletzt angeschaut haben."
+    },
+    "wishlists": {
+      "heading": "Wunschliste",
+      "tag_line": "Mit diesem Formular können Sie eine Wunschliste erstellen. Wenn Sie fertig sind, drücken Sie auf \"Wunschliste erstellen\", um sie zu erstellen.",
+      "new": "Neue Wunschliste",
+      "you_have_none": "Sie haben noch keine Wunschliste, erstellen Sie jetzt eine.",
+      "empty_wishlist": "Ihre Wunschliste enthält keine Produkte. Wenn Sie Produkte zur Wunschliste hinzufügen, werden diese hier erscheinen.",
+      "num_items": "Produkte",
+      "add_item": "Zur Wunschliste hinzufügen",
+      "remove_item": "Produkt entfernen",
+      "name": "Wunschlisten Name",
+      "shared": "Geteilt",
+      "action": "Aktion",
+      "add": "Wunschliste hinzufügen",
+      "delete_all": "Alle Löschen",
+      "edit": "Wunschliste bearbeiten",
+      "view_heading": "Wunschliste: {name}",
+      "share_intro": "Teilen Sie diese Wunschliste mit Ihren Freunden:",
+      "num_products": "{num_products, plural, one {1 Produkt} other {# Produkte}}",
+      "create": "Wunschliste erstellen",
+      "save": "Wunschliste speichern",
+      "delete_alert": "Möchten Sie die Wunschliste löschen? Wunschlisten können nicht wiederhergestellt werden.",
+      "create_new": "Neue Wunschliste erstellen",
+      "add_to_default": "Zur Wunschliste hinzufügen",
+      "error_empty_name": "Bitte geben Sie einen Namen für Ihre Wunschliste ein."
+    }
+  },
+  "page": {
+    "label": "Quick Links",
+    "rss": {
+      "intro": "RSS Feeds informieren automatisch über Änderungen auf der Website. Fügen Sie jetzt unser RSS Feed einem RSS Reader hinzu, um als Erster von Neuigkeiten zu erfahren.",
+      "heading": "RSS Feed",
+      "blog": {
+        "heading": "Neuste Artikel",
+        "intro": "Der Neuste Artikel Feed informiert über die letzten {limit} Artikel aus dem Blog von {store}",
+        "rss": "Neuste {limit} Artikel (RSS)",
+        "rss_atom": "Neuste {limit} Artikel (Atom)"
+      },
+      "products": {
+        "new": {
+          "heading": "Neue Produkte",
+          "intro": "Der Neue Produkte Feed informiert über die neusten {limit} Produkte, die auf {store} hinzugefügt wurden.",
+          "rss": "Neuste {limit} Produkte (RSS)",
+          "rss_atom": "Neuste {limit} Produkte (Atom)"
+        },
+        "popular": {
+          "heading": "Beliebte Produkte",
+          "intro": "Der Beliebte Produkte Feed informiert über die top {limit} beliebtesten Produkte von {store} gemäss Kundenbewertungen.",
+          "rss": "Aktuell beliebteste {limit} Produkte (RSS)",
+          "rss_atom": "Aktuell beliebteste {limit} Produkte (Atom)"
+        },
+        "featured": {
+          "heading": "Empfohlene Produkte",
+          "intro": "Der Empfohlene Produkte Feed informiert über die letzten {limit} empfohlenen Produkte auf {store}.",
+          "rss": "Letzte {limit} emfpohlene Produkte (RSS)",
+          "rss_atom": "Letzte {limit} empfohlene Produkte (Atom)"
+        }
+      },
+      "search": {
+        "heading": "Produkt Suche",
+        "intro1": "Das Produktsuchefeed erlaubt Ihnen, Ihre persönliche Produktsuche als RSS Feed zu speichern, um immer upgedated zu werden, wenn es neue Resultate gibt.",
+        "intro2": "Um ein Produktsuchefeed zu erstellen, führen Sie eine Standardsuche auf {store} aus und clicken Sie auf eine der RSS Optionen am unteren Ende der Seite."
+      }
+    }
+  },
+  "forms": {
+    "range": "In diesem Feld sind nur Zahlen zwischen {limitFrom} und {limitTo} erlaubt",
+    "contact_us": {
+      "full_name": "Name",
+      "email": "E-Mail-Adresse",
+      "company": "Unternehmen",
+      "phone": "Telefon",
+      "order": "Bestellnummer",
+      "rma": "RMA Number",
+      "question": "Kommentare / Fragen",
+      "submit": "Absenden",
+      "successful": "Danke für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen. <a href=\"{shopPath}\">Weiter</a>."
+    },
+    "create_account": {
+      "submit_value": "Konto erstellen"
+    },
+    "new_password": {
+      "heading": "Passwort ändern",
+      "password": "Neues Passwort",
+      "password2": "Passwort bestätigen",
+      "submit_value": "Weiter"
+    },
+    "address": {
+      "add": {
+        "heading": "Neue Adresse hinzufügen",
+        "description": "Verwenden Sie dieses Formular, um Ihre Adressdaten zu ändern. Drücken Sie auf 'Adresse speichern', wenn Sie fertig sind."
+      },
+      "edit": {
+        "heading": "Adresse aktualisieren"
+      },
+      "confirm_delete": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?",
+      "submit_value": "Adresse speichern"
+    },
+    "payment_methods": {
+      "add": {
+        "heading": "Zahlungsmethode hinzufügen"
+      },
+      "edit": {
+        "heading": "Zahlungsmethode aktualisieren"
+      },
+      "confirm_delete": "Zahlungsmethode löschen?",
+      "submit_value": "Zahlungsmethode speichern",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company": "Unternehmen",
+      "phone": "Telefon",
+      "address1": "Adresszeile 1",
+      "address2": "Adresszeile 2",
+      "city": "Stadt/Ort",
+      "country": "Land",
+      "state": "Kanton",
+      "postal_code": "Postleitzahl",
+      "choose_country": "Land auswählen",
+      "default_instrument": "Standard Zahlungsmethode"
+    },
+    "gift_certificate": {
+      "purchase": {
+        "to_name": "Name des Empfänger",
+        "to_email": "E-Mail-Adresse des Empfängers",
+        "from_name": "Ihr Name",
+        "from_email": "Ihre E-Mail-Adresse",
+        "message": "Nachricht (optional)",
+        "amount": "Betrag",
+        "theme": "Gutschein Design",
+        "custom_range": "(Der Wert muss zwischen {min} und {max} sein)",
+        "agree2": "Ich akzeptiere, dass Gutscheine nicht rückerstattet werden können",
+        "agree": "Ich verstehe, dass Gutscheine nach {days, plural, one {1 Tag} other {# Tagen}} verfallen",
+        "preview": "Vorschau",
+        "preview_error": "Es gab ein Problem mit der Vorschau. Bitte versuchen Sie es es später nochmal.",
+        "submit_value": "Gutschein dem Warenkorb hinzufügen"
+      },
+      "balance": {
+        "code": "Gutscheincode",
+        "submit_value": "Gutschein Kontostand anschauen"
+      }
+    },
+    "inbox": {
+      "order": "Bestellung:",
+      "order_display": "Bestellung #{id} - bestellt am {date} für {total}",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "submit_value": "Nachricht senden",
+      "send_message": "Nachricht senden",
+      "clear_value": "Löschen",
+      "no_orders": "Sobald Sie eine Bestellung getätigt haben, erhalten Sie Zugang, um Nachrichten von dieser Seite aus zu schicken."
+    },
+    "search": {
+      "query": "Suchbegriff",
+      "show": "Suche anzeigen",
+      "hide": "Suche ausblenden",
+      "title": "Erweiterte Suche",
+      "price_range": "Preisspanne",
+      "by_price": "Nach Preis suchen",
+      "by_setting": "Nach Einstellungen suchen",
+      "search": "Suche",
+      "free_shipping": {
+        "title": "Kostenlose Lieferung",
+        "free": "Nur kostenlose Lieferung",
+        "paid": "Nur kostenpflichtige Lieferung"
+      },
+      "featured_products": {
+        "title": "Empfohlene Produkte",
+        "enabled": "Nur empfohlene Produkte",
+        "disabled": "Keine empfohlene Produkte"
+      },
+      "categories": "Kategorien",
+      "did_you_mean": "Meinten Sie:",
+      "your_search_for": "Ihre Suche nach",
+      "no_match": "war leider ergebnislos.",
+      "suggestions": {
+        "title": "Suchtipps:",
+        "line1": "Überprüfen Sie, ob alle Wörter richtig geschrieben sind.",
+        "line2": "Versuchen Sie andere Suchbegriffe.",
+        "line3": "Versuchen Sie allgemeinere Suchbegriffe."
+      },
+      "refine": "Suche verfeinern",
+      "brand": "Marken",
+      "searchsubs": "Auch Unterkategorien durchsuchen"
+    },
+    "wishlist": {
+      "name": "Wunschliste:",
+      "public": "Wunschliste teilen?"
+    },
+    "validate": {
+      "account": {
+        "edit": {
+          "password": "Bitte geben Sie Ihr aktuelles Passwort ein.",
+          "first_name": "Bitte geben Sie Ihren Vornamen an.",
+          "last_name": "Bitte geben Sie Ihren Nachnamen an.",
+          "phone": "Bitte geben Sie Ihre Telefonnummer an."
+        },
+        "reorder": {
+          "select_item": "Bitte wählen Sie ein oder mehrere Produkte aus, die Sie nocheinmal bestellen möchten."
+        },
+        "inbox": {
+          "order": "Bitte wählen Sie eine Bestellung aus.",
+          "subject": "Bitte geben Sie einen Betreff ein.",
+          "message": "Bitte schreiben Sie eine Nachricht."
+        }
+      },
+      "common": {
+        "name": "Bitte geben Sie Ihren Namen an.",
+        "password": "Bitte geben Sie Ihr Passwort an.",
+        "password_match": "Das Passwort stimmt nicht mit dem Benutzer überrein.",
+        "email_address": "Bitte geben Sie eine gültige E-Mail-Adresse an, im Format benutzer@beispiel.ch.",
+        "valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse an."
+      },
+      "contact": {
+        "email_address": "Bitte geben Sie eine gültige E-Mail-Adresse an, im Format benutzer@beispiel.ch.",
+        "question": "Bitte schreiben Sie eine Frage/einen Kommentar."
+      },
+      "gift": {
+        "to_name": "Bitte tragen Sie den Namen des Empfängers ein.",
+        "to_email": "Bitte tragen Sie die E-Mail-Adresse des Empfängers ein.",
+        "from_name": "Bitte tragen Sie Ihren Namen ein.",
+        "from_email": "Bitte tragen Sie eine gültige E-Mail-Adresse ein.",
+        "cert_theme": "Bitte wählen Sie ein Gutschein Design.",
+        "agree_terms": "Bitte akzeptieren Sie folgende Bedingungen.",
+        "amount": "Bitte geben Sie einen Gutscheinswert ein.",
+        "amount_message": "Der Gutscheinwert muss in folgendem Bereich liegen: ",
+        "missing_code_message": "Bitte geben Sie einen Gutschein-Code ein."
+      },
+      "payment_method": {
+        "credit_card_number": "Bitte tragen Sie eine gültige Kreditkartennummer ein.",
+        "expiration": "Bitte tragen Sie ein gültiges Ablaufdatum ein.",
+        "name_on_card": "Bitte tragen Sie Ihren Namen ein.",
+        "cvv": "Bitte tragen Sie einen gültigen CVV ein."
+      },
+      "reviews": {
+        "rating": "Bitte tragen Sie eine Bewertung im Bewertungsfeld ein.",
+        "title": "Bitte tragen Sie einen Betreff ein.",
+        "comment": "Bitte tragen Sie einen Kommentar ein."
+      }
+    }
+  },
+  "products": {
+    "goto_product": "Produkt ansehen",
+    "current_stock": "Lagerbestand:",
+    "quantity": "Menge",
+    "quantity_decrease": "Menge reduzieren:",
+    "quantity_increase": "Menge erhöhen:",
+    "purchase_units": "{quantity, plural, =0{0 Produkte} one {# Produkt} other {# Produkte}}",
+    "max_purchase_quantity": "Maximale Menge:",
+    "min_purchase_quantity": "Minimale Menge:",
+    "related_products": "Ähnliche Produkte",
+    "top": "Beliebte Produkte",
+    "similar_by_views": "Kunden, die diesen Artikel angesehen haben, haben auch angesehen",
+    "featured": "Empfohlene Produkte",
+    "file_option_set": "Momentan: <a href=\"{url}\" target=\"_blank\">{name}</a>",
+    "new": "Neue Produkte",
+    "view_all": "Alle",
+    "warranty": "Versand, Rückgaberecht und Garantie",
+    "shipping_tab": "Lieferungen und Retouren",
+    "custom_tab": "Benutzerdefinierter Tab",
+    "sustainability_tab": {
+      "title": "Unser Nachhaltigkeitsversprechen",
+      "subtitle_1": "Kein Fast-Furniture",
+      "description_1": ": Unsere Möbel eignen sich für einen jahrzehntelangen Einsatz. Ist eine Reparatur notwendig, wird das Produkt repariert und nicht entsorgt.",
+      "subtitle_2": "Nachhaltige und recyclebare Materialien",
+      "description_2": ": Bei der Produktion achten wir auf nachhaltige Werkstoffe, wie zum Beispiel FSC&nbsp;100%-Holz. Unsere Möbel lassen sich zudem einfach in Kern-Rohmaterialien zerlegen, welche zu über 80&nbsp;% recyclebar sind.",
+      "subtitle_3": "CO2-Kompensation",
+      "description_3": ": Von der Produktion bis zur Lieferung zu Ihnen nach Hause – wir kompensieren unseren gesamten CO2-Ausstoss über ausgewählte Klimaprojekte in der Schweiz und im Ausland.",
+      "read_more_text": "Weitere Details über Nachhaltigkeit bei ofinto finden Sie ",
+      "read_more_link_title": "Nachhaltigkeit bei ofinto",
+      "read_more_link_text": "hier"
+    },
+    "ressources_tab": "Produkt Ressourcen",
+    "reviews_tab": "Bewertungen",
+    "reviews": {
+      "hide": "Bewertungen ausblenden",
+      "new": "Bewerten",
+      "show": "Bewertungen einblenden",
+      "header": "{total, plural, =0{0 Bewertungen} one {# Bewertung} other {# Bewertungen}}",
+      "link_to_review": "({total, plural, =0{Noch keine Bewertungen} one {# Bewertung} other {# Bewertungen}})",
+      "post_on_by": "Geschrieben von { name } am { date }",
+      "rating_label": "Bewertung",
+      "select_rating": "Bewertung auswählen",
+      "anonymous_poster": "Unbekannt",
+      "rating": {
+        "1": "1 Stern (Schlecht)",
+        "2": "2 Sterne",
+        "3": "3 Sterne (Mittel)",
+        "4": "4 Sterne",
+        "5": "5 Sterne (Sehr gut)"
+      },
+      "write_a_review": "Produkt bewerten",
+      "form_write": {
+        "name": "Name",
+        "email": "E-Mail-Adresse",
+        "subject": "Betreff",
+        "comments": "Kommentar",
+        "submit_value": "Bewertung speichern"
+      }
+    },
+    "videos": {
+      "header": "Videos",
+      "hide": "Videos ausblenden",
+      "show": "Videos einblenden"
+    },
+    "add_to_cart": "In den Warenkorb",
+    "product_variant_sold_out": "Diese Produktvariante ist leider ausverkauft",
+	  "product_variant_sold_out_not_purchasable": "Die ausgewählte Produktvariante wird derzeit nicht angeboten",
+    "adding_to_cart": "Dem Warenkorb hinzufügen…",
+    "options": "Optionen",
+    "none": "keine",
+    "sku": "Artikelnummer:",
+    "upc": "GTIN:",
+    "condition": "Konditionen:",
+    "availability": "Verfügbarkeit:",
+    "shipping": "Lieferung:",
+    "shipping_fixed": "{amount} (Fixe Lieferkosten)",
+    "shipping_free": "Kostenlose Lieferung",
+    "shipping_calculated": "Wird an der Kasse berechnet",
+    "sold_out": "Dieses Produkt ist leider ausverkauft.",
+    "pre_order": "Jetzt vorbestellen",
+    "choose_options": "Optionen wählen",
+    "buy_now": "Jetzt kaufen",
+    "select_options": "Bitte wählen Sie eine Option aus",
+    "add": "Zufügen",
+    "quick_shop": "Schnellkauf",
+    "quick_view": "Vorschau",
+    "compare": "Zur Vergleichsliste hinzufügen",
+    "compare_selected": "Der Vergleichsliste hinzugefügt",
+    "max_filesize": "Die Maximale Dokumentengrösse ist",
+    "filetypes": "Dokumententypen sind",
+    "choose_an_option": "Bitte wählen Sie eine Option",
+    "select_one": "Bitte wählen Sie etwas aus",
+    "description": "Beschreibung",
+    "price_with_tax": "(inkl. {tax_label})",
+    "price_without_tax": "(exkl. {tax_label})",
+    "including_tax": "Inklusive MWST",
+    "excluding_tax": "Exklusive MWST",
+	"tax": "{tax_label} ",
+	"tax_inc": "- Kostenloser Express-Versand",
+	"tax_exc": "- Kostenloser Express-Versand",
+	"perk_1_text": "100% sicherer Checkout",
+	"perk_2_text": "Auf Rechnung zahlbar",
+	"perk_3_text": "Ab Schweizer Lager",
+	"guarantee_1_text": "100 Tage Geld-zurück-Garantie",
+	"guarantee_2_text": "Kostenloser Rückversand inkl. Abholung",
+    "weight": "Gewicht:",
+    "width": "Breite:",
+    "height": "Höhe:",
+    "depth": "Tiefe:",
+    "measurement": {
+      "metric": "cm",
+      "imperial": "in"
+    },
+    "you_save_opening_text": "(Sie sparen",
+    "you_save_closing_bracket": ")",
+    "gift_wrapping": "Geschenksverpackung:",
+    "gift_wrapping_available": "Optionen verfügbar",
+    "quantity_min": "die minimale Einkaufsmenge ist {quantity}",
+    "quantity_max": "die maximale Einkaufsmenge ist {quantity}",
+    "bulk_pricing": {
+      "title": "Preisstruktur:",
+      "view": "Dieses Produkt bietet eine Preisstaffelung",
+      "modal_title": "Preisstaffelung",
+      "instructions": "Unten finden Sie die Preisstruktur für dieses Produkt",
+      "range": "Kaufen Sie {min} {max, plural, =0{oder mehr} other {- #}}",
+      "percent": "und erhalten Sie {discount} Rabatt pro Produkt",
+      "price": "und erhalten Sie {discount} Rabatt",
+      "fixed": "und bezahlen Sie nur {discount} pro Produkt"
+    }
+  },
+  "invoice": {
+    "for_order": "Rechnung",
+    "for_order_rest": " für die Bestellnummer {id}",
+    "phone": "Telefon: {number}",
+    "email": "E-Mail: {email}",
+    "order": "Bestellnummer:",
+    "payment_method": "Zahlungsmethode:",
+    "order_date": "Bestelldatum:",
+    "shipping_method": "Liefermethode:",
+    "order_items": "Bestellte Produkte",
+    "qty": "Menge",
+    "code": "Artikelnummer",
+    "shipping_address": "Lieferadresse",
+    "product_name": "Beschreibung",
+    "price": "Preis",
+    "total": "Betrag",
+    "comments": "Kommentar",
+    "pre_ordered": "Vorbestellt:",
+    "details_left_company_address": "ofinto ag, Bischofszellerstrasse 53, 9200 Gossau SG",
+    "pdf_info": "Bitte beachten Sie, dass dieses Dokument als Beleg und <u>nicht</u> als Rechnung gilt. Die Rechnung wird bis spätestens nach Auslieferung der Bestellung in einer separaten Nachricht per E-Mail an die in der Bestellung angegebene Rechnungsadresse zugestellt. Bitte verwenden Sie die Zahlungsangaben auf jener Rechnung für die Begleichung allfälliger ausstehender Beträge."
+  },
+  "newsletter": {
+    "subscribe": "Newsletter abonnieren",
+    "subscribe_intro": "Erfahren Sie als Erstes von neuen Produkten, exklusiven Angeboten und weiteren Updates.",
+    "subscribe_submit": "Abonnieren",
+    "email_placeholder": "E-Mail-Adresse",
+    "subscribed_heading": "Danke für Ihre Anmeldung!",
+    "subscribed_heading_error": "Oops...",
+    "subscribed_message": "Danke, dass Sie sich für unseren Newsletter interessieren. Sie werden in Kürze von uns hören.",
+    "unsubscribed_heading": "Abgemeldet!",
+    "unsubscribed_message": "Schade, dass Sie uns verlassen! Sie werden keine weiteren ofinto-Newsletter mehr erhalten."
+  },
+  "social": {
+    "connect": "Verbinden Sie sich mit uns"
+  },
+  "errors": {
+    "shipping_quote_failure": "Wir haben ein Problem, die Lieferkosten zu berechnen",
+    "state_error": "Wir haben ein Problem, die Kantone zu laden"
+  },
+  "search": {
+    "quick_search": {
+      "input_label": "Suche",
+      "input_placeholder": "Suche"
+    },
+    "results": {
+      "form_label": "Suchbegriff:",
+      "form_button_text": "Suchen",
+      "count": "{ count, plural, one {# Resultat} other {# Resultate} } für '{ search_query }'",
+      "quick_count": "{ count, plural, one {# Resultat} other {# Resultate} } für '{ search_query }'",
+      "product_count": "Produkte ({count})",
+      "content_count": "News & Information ({count})",
+      "search_result": "Suchresultate ({count})"
+    },
+    "faceted": {
+      "selected": {
+        "title": "Suche verfeinern",
+        "rating-label": "Bewertung {rating, plural, ein {# Stern} other {# Sterne}} oder mehr",
+        "no-filters": "Keine Filter ausgewählt",
+        "clear-all": "Alle Filter löschen"
+      },
+      "range": {
+        "update": "Update",
+        "min-placeholder": "Min.",
+        "max-placeholder": "Max."
+      },
+      "rating": {
+        "and-up": "& mehr"
+      },
+      "clear": "Löschen",
+      "more": "Mehr",
+      "show-more": "mehr anzeigen",
+      "show-less": "weniger anzeigen",
+      "show-filters": "Filter einblenden",
+      "hide-filters": "Filter ausblenden",
+      "browse-by": "Durchsuchen nach"
+    },
+    "error": {
+      "empty_field": "Bitte tragen Sie etwas in das Suchfeld ein."
+    }
+  },
+  "page_not_found": {
+    "page_heading": "404 Fehler - Seite nicht gefunden",
+    "message": "Uh oh, Mist! Sieht aus, als gäbe es diese Seite nicht mehr."
+  },
+  "server_error": {
+    "page_heading": "Oops, etwas lief schief...",
+    "message": "Unser Shop ist leider gerade nicht erreichbar. Bitte versuchen Sie es später nocheinmal"
+  },
+  "forbidden": {
+    "page_heading": "Bitte melden Sie sich an, um fortzufahren",
+    "if_you_were_signed_in": "Wenn Sie bereits angemeldet waren,",
+    "sign_in": "melden Sie sich bitte erneut an",
+    "to_continue": ", um Ihren Einkauf fortzusetzen."
+  },
+  "sitemap": {
+    "page_title": "Sitemap",
+    "show_all_link": "Alles anzeigen"
+  },
+  "text_truncate": {
+    "view_more": "Mehr Details einblenden",
+    "view_less": "Details ausblenden"
+  },
+  "maintenance": {
+    "down": "Wir arbeiten gerade an der Website"
+  },
+  "admin": {
+    "maintenance_header": "An diesem Shop werden gerade Servicearbeiten durchgeführt.",
+    "maintenance_tooltip": "Nur Administratoren können den Shop im Moment sehen. Um den Maintenance-Mode auszuschalten, besuchen Sie bitte die Control Panel Settings page.",
+    "maintenance_showstore_link": "Hier klicken um zu sehen, was Ihre Besucher sehen werden.",
+    "prelaunch_header": "Ihr Shop ist privat. Teilen Sie den Shop mit diesem Preview Code:",
+    "page_builder_link": "Diese Seite im Page Builder umdesignen"
+  },
+  "carousel": {
+      "arrow_and_dot_aria_label": "Weiter zu Folie [SLIDE_NUMBER] von [SLIDES_QUANTITY]",
+      "active_dot_aria_label": "aktiviert",
+      "content_announce_message": "Sie sind momentan auf Folie [SLIDE_NUMBER] von [SLIDES_QUANTITY]",
+      "play_pause_button_play": "Play",
+      "play_pause_button_pause": "Pause",
+      "play_pause_button_aria_play": "Karussell abspielen",
+      "play_pause_button_aria_pause": "Karussell pausieren",
+      "slide_number": "Folie {slide_number}"
+  },
+  "validation_messages": {
+      "valid_email": "Bitte tragen Sie eine gültige E-Mail Adresse ein.",
+      "password": "Bitte tragen Sie ein Passwort ein.",
+      "password_match": "Die Passwörter sind nicht identisch.",
+      "invalid_password": "Passwörter müssen mindestens 7 Zeichen lang sein und sowohl Buchstaben als auch Zahlen beinhalten.",
+      "field_not_blank": " Feld darf nicht leer sein.",
+      "certificate_amount": "Bitte geben Sie einen Gutschein-Wert an.",
+      "certificate_amount_range": "Bitte geben Sie einen Wert zwischen [MIN] und [MAX] an",
+      "price_min_evaluation": "Der min. Preis muss kleiner sein als der max. Preis.",
+      "price_max_evaluation": "Der min. Preis muss kleiner sein als der max. Preis.",
+      "price_min_not_entered": "Bitte geben Sie einen min. Preis an.",
+      "price_max_not_entered": "Bitte geben Sie einen max. Preis an.",
+      "price_invalid_value": "Der Wert muss grösser als 0 sein.",
+      "invalid_gift_certificate": "Bitte tragen Sie einen gültigen Gutscheincode ein."
+  },
+  "validation_fallback_messages": {
+      "valid_email": "Bitte tragen Sie eine gültige E-Mail Adresse ein.",
+      "password": "Bitte tragen Sie ein Passwort ein.",
+      "password_match": "Die Passwörter sind nicht identisch.",
+      "invalid_password": "Passwörter müssen mindestens 7 Zeichen lang sein und sowohl Buchstaben als auch Zahlen beinhalten.",
+      "field_not_blank": " Feld darf nicht leer sein.",
+      "certificate_amount": "Bitte geben Sie einen Gutschein-Wert an.",
+      "certificate_amount_range": "Bitte geben Sie einen Wert zwischen [MIN] und [MAX] an",
+      "price_min_evaluation": "Der min. Preis muss kleiner sein als der max. Preis.",
+      "price_max_evaluation": "Der min. Preis muss kleiner sein als der max. Preis.",
+      "price_min_not_entered": "Bitte geben Sie einen min. Preis an.",
+      "price_max_not_entered": "Bitte geben Sie einen max. Preis an.",
+      "price_invalid_value": "Der Wert muss grösser als 0 sein.",
+      "invalid_gift_certificate": "Bitte tragen Sie einen gültigen Gutscheincode ein."
+  },
+  "validation_default_messages": {
+      "valid_email": "Bitte tragen Sie eine gültige E-Mail Adresse ein.",
+      "password": "Bitte tragen Sie ein Passwort ein.",
+      "password_match": "Die Passwörter sind nicht identisch.",
+      "invalid_password": "Passwörter müssen mindestens 7 Zeichen lang sein und sowohl Buchstaben als auch Zahlen beinhalten.",
+      "field_not_blank": " Feld darf nicht leer sein.",
+      "certificate_amount": "Bitte geben Sie einen Gutschein-Wert an.",
+      "certificate_amount_range": "Bitte geben Sie einen Wert zwischen [MIN] und [MAX] an",
+      "price_min_evaluation": "Der min. Preis muss kleiner sein als der max. Preis.",
+      "price_max_evaluation": "Der min. Preis muss kleiner sein als der max. Preis.",
+      "price_min_not_entered": "Bitte geben Sie einen min. Preis an.",
+      "price_max_not_entered": "Bitte geben Sie einen max. Preis an.",
+      "price_invalid_value": "Der Wert muss grösser als 0 sein.",
+      "invalid_gift_certificate": "Bitte tragen Sie einen gültigen Gutscheincode ein."
+  },
+  "page_builder": {
+      "pdp_sale_badge_label": "Sale!",
+      "pdp_sold_out_label": "Ausverkauf",
+      "pdp-sale-price-label": "Jetzt:",
+      "pdp-non-sale-price-label": "War:",
+      "pdp-retail-price-label": "UVP:",
+      "pdp-custom-fields-tab-label": "Weitere Informationen"
+  },
+  "consent_manager": {
+      "data_collection_warning": "Wir verwenden Cookies und ähnliche Technologien auf unserer Website. Einige sind für den technischen Betrieb der Website erforderlich, andere helfen uns, Ihr Einkaufserlebnis und die Website zu verbessern.",
+      "accept_all_cookies": "Alle akzeptieren",
+      "gdpr_settings": "Einstellungen",
+      "data_collection_preferences": "Datenschutzeinstellungen",
+      "manage_data_collection_preferences": "Datenschutzeinstellungen verwalten",
+      "use_data_by_cookies": " verwendet Informationen aus Cookies und ähnlichen Technologien, um Ihr Einkaufserlebnis (z.B. mit dem Live Chat) zu verbessern.",
+      "data_categories_table": "Hier finden Sie eine Übersicht über die verschiedenen Kategorien von Informationen, die wir erfassen. Um eine Kategorie zu deaktivieren, wählen Sie bitte 'Nein' aus und speichern Sie Ihre Einstellungen.",
+      "allow": "Erlauben",
+      "accept": "Akzeptieren",
+      "deny": "Ablehnen",
+      "dismiss": "Ablehnen",
+      "reject_all": "Alle ablehnen",
+      "category": "Kategorie",
+      "purpose": "Zweck",
+      "functional_category": "Funktional; Komfort",
+      "functional_purpose": "Wir möchten Ihnen auf unseren Seiten einen hohen Komfort und guten Service bieten. Diese Auswahl ermöglicht erweiterte Funktionen, wie Videos und den Live-Chat. Wenn Sie diese nicht zulassen, können einige oder alle dieser Funktionen nicht richtig funktionieren.",
+      "analytics_category": "Statistik und Analysen",
+      "analytics_purpose": "Bereitstellung von anonymisierten Informationen für Statistiken und Analysen, die uns erlauben, unsere Angebote und Webseiten fortlaufend für Sie zu verbessern.",
+      "targeting_category": "Personalisierung",
+      "advertising_category": "Anzeigen",
+      "advertising_purpose": "Diese Informationen helfen uns dabei, Ihnen individuell für Sie relevante Inhalte anzuzeigen oder Inhalte zu personalisieren, um Ihr Einkaufserlebnis zu verbessern.",
+      "essential_category": "Essenziell",
+      "esential_purpose": "Diese Cookies und Anwendungen sind für den reibungslosen Betrieb der Seite unerlässlich, da sie unter anderem sicherheitsrelevante Vorkehrungen ermöglichen. Sie erfüllen keine zusätzlichen oder sekundären Funktionen.",
+      "yes": "Ja",
+      "no": "Nein",
+      "not_available": "N/A",
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "back_to_preferences": "Zurück zu den Einstellungen",
+      "close_without_changes": "Sie haben nicht gespeicherte Änderungen bei Ihren Datenschutzeinstellungen. Sind Sie sicher, dass Sie die Seite ohne Speichern schliessen möchten?",
+      "unsaved_changes": "Sie haben ungespeicherte Änderungen",
+      "by_using": "Weitere Informationen dazu finden Sie in unserer ",
+      "agree_on_data_collection":"Weitere Informationen finden Sie in unserer ",
+      "change_preferences": "Sie können Ihre Einstellungen jederzeit anpassen",
+      "cancel_dialog_title": "Sind Sie sicher, dass Sie abbrechen möchten?",
+      "privacy_policy": "Daten­schutz­erklärung",
+      "allow_category_tracking": "Cookies und Anwendungen der Kategorie [CATEGORY_NAME] erlauben",
+      "disallow_category_tracking": "Cookies und Anwendungen der Kategorie [CATEGORY_NAME] erlauben"
+  },
+  "themevale": {
+    "sale": "Aktion",
+    "new": "Neu",
+    "sold_out": "Ausverkauft"
+  },
+  "optimized_checkout": {
+    "address": {
+      "address_line_1_label": "Strasse & Hausnummer",
+      "address_line_1_required_error": "Bitte geben Sie eine gültige Strasse an",
+      "address_line_2_label": "Appartment/Stockwerk/Gebäude",
+      "address_line_2_required_error": "Bitte geben Sie ein gültiges Appartment/Stockwerk/Gebäude an",
+      "address_not_recognized_heading": "Wir konnten Ihre Adresse nicht erkennen",
+      "city_label": "Stadt/Ort",
+      "city_required_error": "Bitte geben Sie eine Stadt/Ortschaft an",
+      "company_name_label": "Unternehmen",
+      "company_name_required_error": "Bitte geben Sie ein Unternehmen an",
+      "confirm_address_action": "Mit aktueller Adresse fortfahren",
+      "confirm_address_text": "Wir konnten Ihre Adresse nicht erkennen. Bitte bestätigen Sie Ihre Adresse.",
+      "country_label": "Land",
+      "country_required_error": "Bitte wählen Sie ein Land aus",
+      "custom_required_error": "{label} ist erforderlich",
+      "custom_min_error": "{label} muss grösser als {min} sein",
+      "custom_max_error": "{label} muss kleiner als {max} sein",
+      "invalid_characters_error": "{label} enthält nicht erlaubte Zeichen",
+      "custom_valid_error": "{label} ist ungültig",
+      "edit_address_action": "Adresse ändern",
+      "enter_address_action": "Neue Adresse hinzufügen",
+      "first_name_label": "Vorname",
+      "first_name_required_error": "Bitte geben Sie Ihren Vornamen an",
+      "last_name_label": "Nachname",
+      "last_name_required_error": "Bitte geben Sie Ihren Nachnamen an",
+      "phone_number_label": "Telefonnummer",
+      "phone_number_required_error": "Bitte geben Sie Ihre Telefonnummer an",
+      "postal_code_label": "Postleitzahl",
+      "postal_code_required_error": "Bitte geben Sie Ihre Postleitzahl an",
+      "save_in_addressbook": "Diese Adresse in meinem Adressbuch speichern.",
+      "select_country_action": "Bitte wählen Sie ein Land aus",
+      "select_state_action": "Bitte wählen Sie einen Kanton aus",
+      "state_label": "Kanton",
+      "state_required_error": "Bitte wählen Sie einen Kanton aus",
+      "select": "Auswahl",
+      "select_all": "Alle",
+      "select_none": "Keine"
+    },
+    "billing": {
+      "billing_address_heading": "Rechnungsadresse",
+      "billing_heading": "Rechnung",
+      "save_billing_address_error": "Es ist ein Fehler passiert beim hinzufügen der Rechnungsadresse. Bitte versuchen Sie es erneut.",
+      "billing_address_amazon": "Dieselbe Rechnungsadresse wie bei Ihrem Amazon Konto.",
+      "billing_address_amazonpay": "Verwaltet von Amazon Pay",
+      "use_shipping_address_label": "Meine Rechnungsadresse ist dieselbe wie meine Lieferadresse."
+    },
+    "cart": {
+      "billed_amount_text": "*Ihnen wird ein Total von {total} ({code}) für diese Bestellung verrechnet und verbucht.",
+      "based_on_currency_text": "Basierend auf {total} {code}",
+      "cart_heading": "Zusammenfassung",
+      "digital_item_text": "Digitales Produkt",
+      "discount_text": "Rabatt",
+      "downloads_action": "Zu den Downloads",
+      "edit_cart_action": "Warenkorb bearbeiten",
+      "estimated_total_text": "Geschätztes Total",
+      "free_text": "Kostenlos",
+      "gift_certificate_text": "Gutschein",
+      "handling_text": "Abwicklung",
+      "item_count_text": "{count, plural, one{1 Produkt} other{# Produkte} }",
+      "print_action": "Drucken",
+      "remaining_text": "Verbleibend",
+      "remove_action": "löschen",
+      "see_all_action": "Alles anzeigen",
+      "see_less_action": "Weniger anzeigen",
+      "shipping_text": "Versand",
+      "gift_wrapping_text": "Geschenkverpackung",
+      "show_details_action": "Details anzeigen",
+      "store_credit_text": "ofinto-Punkte",
+      "subtotal_text": "Zwischentotal",
+      "taxes_text": "MWST",
+      "total_text": "Total",
+      "empty_cart_message": "Ihr Warenkorb ist leer, Sie werden automatisch weitergeleitet. Bitte <a href=\"{url}\" target=\"_top\">klicke hier</a>, falls Sie nicht automatisch weitergeleitet wirst."
+    },
+    "common": {
+      "cancel_action": "Abbrechen",
+      "close_action": "Schliessen",
+      "continue_action": "Weiter",
+      "edit_action": "Bearbeiten",
+      "delete_action": "Löschen",
+      "error_heading": "Etwas hat nicht funktioniert",
+      "leave_warning": "Sind Sie sicher, dass Sie diese Ansicht verlassen möchten? Nicht gespeicherte Einträge könnten verloren gehen.",
+      "loading_text": "Laden",
+      "ok_action": "OK",
+      "error_code": "Fehlercode:",
+      "request_id": "Anfrage ID:",
+      "optional_text": "(Optional)",
+      "unavailable_error": "Der Checkout ist temporär nicht verfügbar. Bitte versuchen Sie es später noch einmal.",
+      "unavailable_heading": "Checkout temporär nicht verfügbar",
+      "unstable_network_error": "Es scheint, als würde unser Server zu lange brauchen, um zu antworten. Dies könnte aufgrund einer schlechten Internetverbindung oder eines Serverfehlers sein. Bitte versuchen Sie es später noch einmal.",
+      "order_loading_error": "Es ist ein Fehler passiert beim Laden von Ihrer Bestellung. Bitte versuchen Sie es noch einmal.",
+      "order_fatal_error_heading": "Bestellfehler",
+      "order_fatal_error_extra": "Bitte wählen Sie eine andere Bezahlmethode oder kontaktieren Sie uns für weitere Hilfe.",
+      "go_back": "Zurück",
+      "show_more": "Mehr anzeigen"
+    },
+    "customer": {
+      "checkout_as_guest_text": "Möchten Sie als <strong>Gast</strong> bezahlen? Sie werden auch später noch die Möglichkeit haben, Ihre Informationen zu speichern und ein Konto bei uns anzulegen.",
+      "continue_as_guest_action": "Weiter als Gast",
+      "create_account_action": "Konto erstellen",
+      "required_error": "{label} ist erforderlich",
+      "min_error": "{label} muss grösser als {min} sein",
+      "max_error": "{label} muss kleiner als {max} sein",
+      "invalid_characters_error": "{label} enthält nicht erlaubte Zeichen",
+      "create_account_error": "Es ist ein Fehler passiert beim Erstellen Ihres Kontos. Bitte versuchen Sie es noch einmal.",
+      "create_account_requirements_error_heading": "Das Password erfüllt nicht die Vorgaben",
+      "create_account_success": "Ihr Konto wurde erfolgreich erstellt!",
+      "create_account_text": "Erstellen Sie jetzt ein Konto, damit Sie in der Zukunft schneller bestellen kannst",
+      "create_account_to_continue_text": "Noch kein Konto? <a href=\"{url}\" target=\"_blank\">Erstellen Sie jetzt ein Konto</a> um weiterzufahren.",
+      "guest_could_login": "Es scheint als hätten Sie ein Konto. Melden Sie sich jetzt mit {email} an, um die Bestellung schneller abzuschliessen.",
+      "guest_must_login": "Es scheint als hätten Sie ein Konto. Bitte melden Sie sich an, um mit {email} weiterfahren zu können oder verwenden Sie eine andere E-Mail-Adresse.",
+      "guest_temporary_disabled": "Einkaufen als Gast ist temporär deaktiviert. Bitte melden Sie sich an oder <a href=\"{url}\" target=\"_blank\">erstellen Sie ein Konto</a>, um weiterzufahren.",
+      "customer_heading": "Kunde",
+      "email_invalid_error": "Bitte geben Sie eine gültige E-Mail-Adresse an",
+      "email_label": "E-Mail-Adresse",
+      "email_required_error": "E-Mail-Adresse erforderlich",
+      "forgot_password_action": "Passwort vergessen?",
+      "guest_customer_text": "Gast",
+      "guest_subscribe_to_newsletter_text": "Newsletter abonnieren.",
+      "guest_marketing_consent": "Über Neuigkeiten und Angebote informiert bleiben.",
+      "login_action": "Jetzt anmelden oder ein Konto erstellen",
+      "login_text": "Haben Sie bereits ein Konto oder möchten Sie eines erstellen?",
+      "guest_could_login_change_email": "Nicht {email}? <a>E-Mail Adresse ändern</a>.",
+      "password_confirmation_error": "Die Passwörter stimmen nicht überein",
+      "password_confirmation_label": "Passwort bestätigen",
+      "password_confirmation_required_error": "Dieses Feld ist erforderlich",
+      "password_label": "Passwort",
+      "password_letter_required_error": "Das Passwort muss einen Buchstaben beinhalten",
+      "password_minimum_character_label": "Mindestzeichen, Gross- und Kleinschreibung wird beachtet",
+      "password_number_required_error": "Das Passwort muss eine Zahl beinhalten",
+      "password_over_maximum_length_error": "Das Passwort ist zu lang",
+      "password_required_error": "Bitte geben Sie ein Passwort ein",
+      "password_under_minimum_length_error": "Das Passwort ist zu kurz",
+      "reset_password_before_login_error": "Bitte setzen Sie vor dem Login Ihr Passwort zurück. Sie erhalten innerhalb der nächsten 5 Minuten eine E-Mail mit einer Anleitung, wie Sie Ihr Passwort zurücksetzen können. Falls Sie keine E-Mail erhalten, so schauen Sie bitte im Spam Ordner nach oder kontaktieren Sie uns für weitere Unterstützung.",
+      "returning_customer_text": "Existierender Kunde",
+      "sign_in_action": "Anmelden",
+      "sign_in_error": "Die E-Mail-Adresse oder das Password, das Sie eingetragen haben, ist nicht gültig.",
+      "sign_in_throttled_error": "Aufgrund von zu vielen Anmeldeversuchen ist das Anmelden temporär gesperrt. Bitte warten Sie 10 Sekunden und versuchen Sie es dann noch einmal.",
+      "sign_out_action": "Abmelden",
+      "sign_out_error": "Es ist ein Fehler passiert beim Anmelden. Bitte versuchen Sie es noch einmal.",
+      "subscribe_to_newsletter_text": "Ja, ich möchte Updates und Ankündigungen erhalten."
+    },
+    "login_email": {
+      "error_server": "Wir konnten Ihnen keinen Anmeldelink schicken. Bitte versuchen Sie es noch einmal.",
+      "error_not_found": "Die angegebene E-Mail Adresse ist nicht mit einem Konto verknüpft. Bitte versuchen Sie es mit einer anderen E-Mail Adresse.",
+      "sent_header": "Überprüfen Sie Ihr Postfach",
+      "sent_text": "Wir haben Ihnen eine E-Mail an <strong>{email}</strong> geschickt, die einen Anmeldelink enthält. Der Link ist {minutes} Minuten lang gültig. Falls Sie keine E-Mail in Ihrem Postfach sehen, dann überprüfen Sie bitte Ihren Spam Ordner.",
+      "text": "Bitte geben Sie die E-Mail-Adresse an, die mit Ihrem Konto verknüpft ist. Wir werden Ihnen einen Anmeldelink senden.",
+      "header": "Bitte geben Sie Ihre E-Mail-Adresse an",
+      "header_with_email": "Bitte bestätigen Sie Ihre E-Mail-Adresse",
+      "link": "<a>Sende mir stattdessen einen Anmeldelink</a>.",
+      "use_another_email": "Eine andere E-Mail-Adresse verwenden",
+      "send": "Absenden",
+      "error_temporary_disabled": "Die Anmeldelink-Funktion ist temporär nicht verfügbar. Bitte melden Sie sich mit Ihrem Passwort an.",
+      "resend_link": "Haben Sie keine E-mail erhalten? <a>E-Mail erneut senden</a>",
+      "use_password_link": " oder <a>mit Passwort anmelden</a>."
+    },
+    "embedded_checkout": {
+      "unsupported_error": "Folgende Bezahlmethoden sind nicht verfügbar über die externe Bezahlfunktion: {methods}. Bitte kontaktieren Sie uns für weitere Unterstützung."
+    },
+    "payment": {
+      "adyen_credit_debit_card_text": "Kredit-/Debitkarte",
+      "affirm_name_text": "Affirm",
+      "affirm_display_name_text": "Mit Raten zahlen",
+      "affirm_body_text": "Sie werden zu Affirm weitergeleitet, um Ihre Bezahlung sicher abzuschliessen. Bitte geben Sie ein paar wenige Informationen an, um eine Echtzeit-Entscheidung zu erhalten. Die Überprüfung der Verfügbarkeit hat keinen Einfluss auf Ihren Kreditscore.",
+      "afterpay_name_text": "Afterpay",
+      "afterpay_description": "Mit Afterpay bezahlen",
+      "amazon_continue_action": "Mit Amazon weiterfahren",
+      "amazonpay_continue_action": "Mit Amazon Pay weiterfahren",
+      "amazon_name_text": "Amazon Pay",
+      "barclaycard_continue_action": "Weiterfahren",
+      "bluesnap_v2_continue_action": "Weiterfahren",
+      "bolt_continue_action": "Mit Bolt weiterfahren",
+      "braintreevisacheckout_continue_action": "Mit Visa Checkout weiterfahren",
+      "ccavenuemars_description_text": "Mit CCAvenue bezahlen",
+      "chasepay_continue_action": "Mit Chase Pay weiterfahren",
+      "chasepay_name_text": "Chase Pay",
+      "chasepay_edit_card": "Karte bearbeiten",
+      "chasepay_logout": "Von Chase Pay abmelden",
+      "chasepay_fail_load": "Chase Pay konnte nicht geladen werden",
+      "credit_card_text": "Kreditkarte",
+      "credit_card_customer_code_label": "Kundennummer",
+      "credit_card_cvv_help_text": "Bei VISA und Mastercard ist der CVV eine dreistellige Zahl, welche auf der Rückseite der Karte aufgedruckt ist. Bei American Express ist es eine vierstellige Zahl, die auf der Vorderseite aufgedruckt ist. Der CVV ist eine Sicherheitsmassnahme, um sicherzustellen, dass Sie Ihre Karte auch wirklich zur Hand haben.",
+      "credit_card_cvv_invalid_error": "CVV ungültig",
+      "credit_card_cvv_label": "CVV",
+      "credit_card_cvv_required_error": "Bitte geben Sie einen gültigen CVV an",
+      "credit_card_expiration_invalid_error": "Das Ablaufdatum muss ein gültiges in der Zukunft liegendes Datum sein im Format MM / YY",
+      "credit_card_expiration_label": "Ablaufdatum",
+      "credit_card_expiration_date_label": "Ablaufdatum",
+      "credit_card_expiration_required_error": "Bitte geben Sie ein Ablaufdatum an",
+      "credit_card_expiration_placeholder_text": "MM / YY",
+      "credit_card_name_label": "Name auf der Karte",
+      "credit_card_name_required_error": "Bitte geben Sie Ihren Namen an",
+      "credit_card_number_invalid_error": "Bitte geben Sie eine gültige Kreditkartennummer an",
+      "credit_card_number_label": "Kreditkartennummer",
+      "credit_card_number_last_four": "Bitte geben Sie die Kreditkartennummer an für Ihre {cardType}, die mit {lastFour} endet",
+      "credit_card_number_required_error": "Bitte geben Sie eine Kreditkartennummer an",
+      "credit_card_number_mismatch_error": "Die Kreditkartennummer, die Sie angegeben haben, stimmt nicht mit der in Ihrem Konto gespeicherten Nummer überein",
+      "google_pay_name_text": "Google Pay",
+      "klarna_name_text": "Klarna",
+      "masterpass_name_text": "Masterpass",
+      "orbital_continue_action": "Bestellung abschliessen",
+      "orbital_description_text": "Mit Ihrem ChasePay Account bezahlen",
+      "payment_cancelled": "Die Bezahlung wurde abgebrochen",
+      "payment_error": "Es ist ein Fehler passiert bei der Ausführung Ihrer Bezahlung. Bitte versuchen Sie es noch einmal.",
+      "payment_error_heading": "Bezahlung fehlgeschlagen",
+      "payment_heading": "Bezahlung",
+      "payment_invalid_error_heading": "Bezahlung nicht verfügbar",
+      "payment_method_disabled_error": "Die ausgewählte Bezahlmethode ist nicht mehr gültig. Bitte drücken Sie OK, um die aktuellsten Bezahlmethoden zu sehen.",
+      "payment_method_error": "Antwort vom Bezahlanbieter: {message}",
+      "payment_error_extra":"Bitte wählen Sie eine andere Zahlungsmethode oder kontaktieren Sie uns für weitere Unterstützung.",
+      "payment_method_invalid_error": "Es gab ein Problem bei der Ausführung Ihrer Zahlung. Bitte wählen Sie eine andere Bezahlmethode oder kontaktieren Sie uns für weitere Unterstützung.",
+      "payment_method_label": "Bezahlmethode",
+      "payment_method_unavailable_error": "Dieser Bezahlanbieter ist temporär nicht verfügbar. Bitte versuchen Sie es später noch einmal.",
+      "payment_not_required_text": "Für diese Bestellung ist keine Bezahlung notwendig.",
+      "paypal_continue_action": "Mit PayPal weiterfahren",
+      "paypal_credit_continue_action": "Mit PayPal Credit weiterfahren",
+      "paypal_credit_description_text": "Kaufen Sie jetzt, bezahlen Sie später",
+      "paypal_description_text": "Bezahlen Sie mit Ihrem PayPal Konto",
+      "paypal_name_text": "PayPal",
+      "paypal_credit_name_text": "PayPal Credit",
+      "place_order_action": "Bestellung abschliessen",
+      "place_order_error": "Es ist ein Fehler passiert beim Abschluss der Bestellung. Bitte kontaktieren Sie uns.",
+      "place_order_error_heading": "Bestellabschluss fehlgeschlagen",
+      "postal_code_label": "Postleitzahl",
+      "instrument_text": "Gespeichterte Kreditkarten",
+      "instrument_add_card_action": "Eine andere Karte verwenden",
+      "instrument_default_ending_in_text": "Karte endet mit {endingIn}",
+      "instrument_ending_in_text": "{cardTitle} endet mit {endingIn}",
+      "instrument_expired_text": "Abgelaufen am {expiryDate}",
+      "instrument_expires_text": "Läuft ab am {expiryDate}",
+      "instrument_manage_button": "Verwalten",
+      "instrument_manage_modal_confirmation_action": "Ja, löschen",
+      "instrument_manage_modal_confirmation_label": "Sind Sie sicher, dass Sie diese gespeicherte Bezahlmethode löschen möchten?",
+      "instrument_manage_modal_title_text": "Gespeicherte Bezahlmethoden verwalten",
+      "instrument_manage_modal_empty_text": "Sie haben keine gespeicherten Bezahlmethoden.",
+      "instrument_manage_table_header_ending_in_text": "Endet mit",
+      "instrument_manage_table_header_expiry_date_text": "Ablaufdatum",
+      "instrument_manage_table_header_payment_method_text": "Bezahlmethode",
+      "instrument_manage_delete_server_error": "Es gab einen Fehler beim Versuch, diese Bezahlmethode zu löschen. Bitte versuchen Sie es erneut.",
+      "instrument_manage_delete_auth_error": "Es gab einen Fehler, beim Autorisieren dieser Anfrage. Bitte versuchen Sie, sich erneut anzumelden",
+      "instrument_manage_delete_client_error": "Es gab einen Fehler beim Versuch, diese Bezahlmethode zu löschen: Die Bezahlmethode existiert nicht mehr oder kann nicht gelöscht werden.",
+      "instrument_save_payment_method_label": "Karte für zukünftige Einkäufe speichern",
+      "instrument_save_as_default_payment_method_label": "Verwenden Sie diese Karte als Standard Bezahlmethode für zukünftige Einkäufe",
+      "account_instrument_add_action": "Ein anderes Konto verwenden",
+      "account_instrument_save_payment_method_label": "Dieses Konto für zukünftige Einkäufe speichern",
+      "account_instrument_save_as_default_payment_method_label": "Dieses Konto als Standard Bezahlmethode für zukünftige Einkäufe verwenden",
+      "account_instrument_text": "Gespeicherte Konten",
+      "account_instrument_new_shipping_address": "<strong>Uns ist aufgefallen, dass Sie eine neue Lieferadresse verwenden.</strong><p>Bei der Verwendung einer neuen Lieferadresse oder wenn die Lieferadresse kürzlich angepasst wurde, muss als Sicherheitsmassnahem das PayPal Konto neu verknüpft werden.</p>",
+      "instrument_trusted_shipping_address_text": "Diese zusätzliche Sicherheitsüberprüfung wird angewendet, wenn eine neue Lieferadresse verwendet wird oder wenn die Lieferadresse kürzlich angepasst wurde.",
+      "instrument_trusted_shipping_address_title_text": "Bitte geben Sie Ihre Kreditkartennummer neu an, um die Bezahlung zu genehmigen.",
+      "sezzle_display_name_text": "Bezahlen Sie später. Mit 0% Zinsen.",
+      "stripe_sepa_mandate_disclaimer": "Mit der Angabe Ihrer IBAN und der Bestätigung der Bezahlung berechtigen Sie (A) {storeUrl} und Stripe, unseren Bezahlungsanbieter, Ihrer Bank Instruktionen zu senden, um Ihr Konto zu belasten und (B) Ihre Bank, um die Belastung gemäss dieser Instruktionen auszuführen. Sie sind berechtigt für eine Rückerstattung von Ihrer Bank gemäss der Geschäftsbedingungen, die Sie mit Ihrer Bank vereinbart haben. Eine Rückerstattung muss innerhalb von acht Wochen ab dem Datum der Belastung Ihres Kontos angefordert werden.",
+      "vco_name_text": "Visa Checkout",
+      "visa_checkout_continue_action": "Mit Visa Checkout weiterfahren",
+      "zip_continue_action": "Mit Zip weiterfahren",
+      "zip_name_text": "Zip",
+      "zip_display_name_text": "Jetzt besitzen, später bezahlen"
+    },
+    "redeemable": {
+      "applied_text": "Hinzugefügt",
+      "apply_action": "Hinzufügen",
+      "apply_store_credit_before_action": "Verwenden Sie ofinto-Punkte im Wert von",
+      "apply_store_credit_after_action": "für Ihre Bestellung",
+      "code_invalid_error": "Der Gutschein- oder Rabattcode ist ungültig",
+      "code_label": "Gutschein oder Rabattcode",
+      "code_required_error": "Bitte geben Sie einen Gutschein- oder Rabattcode an",
+      "coupon_location_error": "Ihre Lieferadresse ist nicht an einem Ort, an dem dieser Rabattcode gültig ist.",
+      "coupon_min_order_total": "Ihre Bestellung erfüllt nicht die Mindestbestellmenge für diesen Rabattcode.",
+      "coupon_text": "Rabattcode",
+      "gift_certificate_remaining_text": "Verbleibend",
+      "gift_certificate_text": "Gutschein",
+      "remove_action": "Entfernen",
+      "store_credit_available_text": "Ihr Konto hat momentan {storeCredit} ofinto-Punkte zur Verfügung",
+      "toggle_action": "Rabattcode/Gutschein hinzufügen"
+    },
+    "remote": {
+      "browser_unsupported": "Die ausgewählte Bezahlmethode benötigt einen anderen Webbrowser. Bitte wählen Sie eine andere Bezahlmethode.",
+      "connection_error": "Die Verbindung zum externen Bezahlanbieter wurde abgelehnt. Bitte versuchen Sie es später noch einmal.",
+      "continue_with_text": "Oder fahren Sie fort mit",
+      "payment_method_error": "Es gab einen Fehler beim Abfragen Ihrer Bezahlmethode. Bitte versuchen Sie es noch einmal.",
+      "select_different_card_action": "Eine andere Karte auswählen",
+      "session_error": "Ihre Session ist abgelaufen. Bitte melden Sie sich noch einmal an.",
+      "shipping_address_error": "Es gab einen Fehler beim Abfragen Ihrer Lieferadresse. Bitte versuchen Sie es erneut.",
+      "sign_in_action": "Bei {providerName} anmelden",
+      "sign_out_action": "Bei {providerName} abmelden",
+      "sign_out_after_action": "um andere Bezahlmethoden zu sehen",
+      "sign_in_required_error": "Anmelden beim Bezahlanbieter erforderlich, um die Bezahlung abzuschliessen",
+      "sign_out_before_action": ""
+    },
+    "shipping": {
+      "cart_change_error": "Wir haben eine Änderung in Ihrem Warenkorb festgestellt und die Lieferkosten aktualisiert. Bitte wählen Sie die gewünschte Liefermethode erneut aus, um fortzufahren.",
+      "enter_shipping_address_text": "Bitte geben Sie eine Lieferadresse an, um die Lieferkosten zu sehen",
+      "order_comment_label": "Kommentare zur Bestellung",
+      "assign_item_error": "Es ist ein Fehler passiert bei der Zuweisung der Adresse zu diesem Produkt. Bitte versuchen Sie es erneut",
+      "assign_item_invalid_address_error_heading": "Ungültige Adresse",
+      "assign_item_invalid_address_error": "Die ausgewählte Adresse ist nicht gültig. Bitte gehen Sie in Ihre Kontoeinstellungen und aktualisieren Sie sie.",
+      "unassign_item_error": "Es ist ein Fehler passiert beim Entfernen der Adresse von diesem Produkt.",
+      "save_shipping_address_error": "Es ist ein Fehler passiert beim Speichern der Lieferadresse. Bitte versuchen Sie es erneut.",
+      "save_shipping_option_error": "Es ist ein Fehler passiert beim Speicher der Lieferkosten. Bitte versuchen Sie es erneut.",
+      "select_shipping_address_text": "Bitte wählen Sie eine Lieferadresse aus, um die Lieferkosten zu sehen",
+      "shipping_address_heading": "Lieferadresse",
+      "multishipping_address_heading": "Bitte wählen Sie aus, wohin Sie jedes Produkt geliefert haben möchten",
+      "multishipping_address_heading_guest": "Bitte melden Sie sich zuerst an",
+      "multishipping_guest_intro": "Um Ihre Produkte an mehrere Adressen liefern lassen zu können, müssen Sie sich zuerst",
+      "multishipping_guest_sign_in": "in Ihrem Konto anmelden",
+      "multishipping_guest_create": "oder <a href=\"{url}\" target=\"_blank\">ein neues Konto erstellen</a>.",
+      "ship_to_multi": "An mehrere Adressen liefern",
+      "ship_to_single": "An eine einzige Adresse liefern",
+      "shipping_heading": "Lieferung",
+      "shipping_method_label": "Liefermethode",
+      "shipping_option_expired_error": "Die angezeigten Lieferkosten sind nicht mehr gültig. Bitte drücken Sie OK, um die aktualisierten Lieferkosten zu sehen.",
+      "shipping_option_expired_heading": "Ihre Lieferkosten wurden aktualisiert",
+      "view_shipping_options_action": "Alternative Optionen anzeigen"
+    },
+    "social": {
+      "share_action": "Teilen",
+      "share_heading": "Erzählen Sie Ihren Freunden von Ihrem Einkauf!",
+      "tweet_action": "Twitter"
+    },
+    "spam_protection": {
+      "verify_action": "Bitte drücken Sie hier, um sich als Mensch auszuweisen (Spam-Schutz)."
+    },
+    "privacy_policy": {
+      "required_error": "Bitte stimmen Sie unserer Datenschutzerklärung zu.",
+      "label": "Ja, ich bin mit der <a href=\"{url}\" target=\"_blank\">Datenschutzerklärung</a> einverstanden.",
+      "heading": "Datenschutzerklärung"
+    },
+    "terms_and_conditions": {
+      "agreement_required_error": "Bitte stimmen Sie unseren Geschäftsbedingungen zu",
+      "agreement_text": "Ja, ich bin mit den obigen Geschäftsbedingungen einverstanden.",
+      "agreement_with_link_text": "Ja, ich stimme den <a href=\"{url}\" target=\"_blank\">Geschäftsbedingungen</a> zu.",
+      "terms_and_conditions_heading": "Geschäftsbedingungen"
+    },
+    "order_confirmation": {
+      "order_number_text": "Ihre Bestellnummer ist <strong>{orderNumber}</strong>",
+      "order_pending_review_text": "Wir haben Ihre Bestellung erhalten, warten aber noch auf den Zahlungseingang. Sobald wir die Zahlungsbestätigung erhalten haben, schliessen wir Ihre Bestellung ab. Falls sie bereits Bezahlangaben gemacht haben, werden wir Ihre Bestellung in Kürze abwickeln und Ihnen eine E-Mail senden, sobald die Abwicklung abgeschlossen ist.",
+      "order_pending_status_text": "Wir haben Ihre Bestellung erhalten und führen gerade Ihre Bezahlung aus. Sobald die Bezahlung verifiziert ist, schliessen wir Ihre Bestellung ab. Wir werden Ihnen eine E-Mail senden, sobald dies soweit ist. Bitte beachten Sie, dass dieser Prozess je nach Bearbeitungszeit der gewählten Bezahlmethode ein paar Minuten dauern kann. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+      "order_incomplete_status_text": "Wir haben Ihre Bestellung und Bezahlung erhalten. Ihre Bestellung wird gerade von unserem System ausgeführt. Bitte beachten Sie, dass dies einige Minuten dauern kann. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+      "order_with_downloadable_digital_items_text": "Sie können Ihren digitalen Einkauf herunterladen, indem Sie auf den Link auf dieser Page drücken oder jederzeit, indem Sie sich in Ihrem Konto anmelden. Zudem enthält die Bestätigungsemail, die Sie jeden Moment erhalten werden, einen Download Link.",
+      "order_with_support_number_text": "Sie werden in Kürze eine E-Mail mit der Bestellbestätigung erhalten. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a> oder rufen Sie uns an unter <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
+      "order_without_downloadable_digital_items_text": "Sobald wir Ihre Bezahlung erhalten haben, werden wir Ihnen eine Bestätigungsemail senden, die den Link zu Ihrer digitalen Bestellung enthält.",
+      "order_without_support_number_text": "Sie werden in Kürze eine E-Mail mit der Bestellbestätigung erhalten. Falls Sie Fragen zu Ihrer Bestellung haben, dann senden Sie uns gerne eine E-Mail an <a href=\"mailto:{supportEmail}?Subject=Bestellung {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+      "thank_you_customer_heading": "Herzlichen Dank, {name}!",
+      "thank_you_heading": "Herzlichen Dank!",
+      "continue_shopping": "Weiter einkaufen »",
+      "order_status_update_facebook_messenger_heading": "Erhalten Sie Statusupdates über Ihre Bestellung in Echtzeit via Messenger",
+      "mandate_link_text": "{provider} Mandat"
+    }
+  }
+}

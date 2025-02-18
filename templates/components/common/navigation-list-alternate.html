@@ -1,0 +1,9 @@
+{{#if children}}
+    <p class="navPages-action navPages-action-depth-max has-subMenu is-root{{#if is_active}} activePage{{/if}}">
+        <a class="text" href="{{url}}">{{name}}</a> 
+        <span class="icon navPages-action-moreIcon" aria-hidden="true">&#10095;</span>
+    </p>
+    {{> components/common/navigation-dropdown}}
+{{else}}
+    <a class="navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="text">{{name}}</span></a>
+{{/if}}

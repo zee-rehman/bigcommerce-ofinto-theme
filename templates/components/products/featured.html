@@ -1,0 +1,13 @@
+<div class="page-header">
+	<h2 class="page-heading">{{lang 'products.featured' }}</h2>
+	{{#if theme_settings.view_all_link_featured '!=' ''}}
+		<p class="view-all-wrap"><a class="view-all" href="{{theme_settings.view_all_link_featured}}">{{lang 'products.view_all'}}</a></p>
+	{{/if}}
+</div>
+<div class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured" {{#if true}} data-list-name="Featured Products" {{/if}}>
+    {{#each products}}
+        <div class="product">
+                {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+        </div>
+    {{/each}}
+</div>

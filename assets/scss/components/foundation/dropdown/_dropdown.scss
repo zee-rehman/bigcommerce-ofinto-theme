@@ -1,0 +1,110 @@
+// =============================================================================
+// DROPDOWN (CSS)
+// =============================================================================
+
+
+.dropdown {
+    left: -9999px;
+    outline: none;
+    position: absolute;
+}
+
+.dropdown-menu {
+    &.is-loading .loadingOverlay {
+        background: none;
+        padding: (spacing("double") + spacing("single")) 0;
+        position: relative;
+    }
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.dropdown-menu-item {
+    text-align: left;
+
+    &:first-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-top: spacing("half");
+        }
+    }
+
+    &:last-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-bottom: spacing("base");
+        }
+    }
+
+    > a {
+        margin: 0;
+        padding: spacing("sixth") (spacing("half") + spacing("quarter"));
+        text-decoration: none;
+    }
+}
+
+.form-wishlist {
+    position: relative;
+}
+
+.dropdown-menu-button {
+    width: 100%;
+
+    &.is-open {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .icon {
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+#wishlist-dropdown.is-open {
+    background: transparent;
+    left: auto !important;
+    max-width: none !important;
+    width: 100% !important;
+    border: none;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    padding: 0;
+    margin-top: 5px;
+    &:focus {
+        outline: none;
+    }
+
+    [data-wishlist] {
+        border-top: none;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+
+    .button {
+        background-color: stencilColor("dropdown--wishList-backgroundColor");
+        color: stencilColor('color-textHeading');
+        border-color: stencilColor('input-border-color');
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        width: 100%;
+        padding: 14px 25px 10px 25px;
+        &:hover, &:focus, &:active {
+            background-color: stencilColor("dropdown--wishList-backgroundColor");
+            color: stencilColor('color-textHeading');
+            border-color: stencilColor('input-border-color');
+        }
+    }
+
+    .button--has-items {
+        font-weight: 600;
+    }
+
+    li:not(:last-child) .button {
+        border-radius: 4px;
+        margin-bottom: 0px;
+    }
+}

@@ -1,0 +1,81 @@
+<form class="form" action="{{urls.search}}">
+    <fieldset class="form-fieldset">
+        <div class="form-field">
+            <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+            <input type="text" class="form-input" data-search-quick name="search_query" id="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
+            <button type="submit"><svg class="icon"><use xlink:href="#icon-search"></use></svg></button>
+        </div>
+    </fieldset>
+</form>
+<div class="themevale-dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+	<div class="header-search-wrap">
+        {{#if theme_settings.enable_search_trending}}
+        <div class="header-search__trending">
+        	{{#if theme_settings.search-trending-title '!==' ""}}
+        		<h3 class="search-form__product-title">{{theme_settings.search-trending-title}}</h3>
+        	{{/if}}
+        	<ul class="list-item">
+        		{{#if theme_settings.search-trending-text-1 '!==' ""}}
+        			<li>
+        				<a href="search.php?search_query={{theme_settings.search-trending-text-1}}&section=content">
+    		    			<svg class="icon"><use xlink:href="#icon-search"></use></svg>
+    		    			<span>{{theme_settings.search-trending-text-1}}</span>
+        				</a>
+        			</li>
+        		{{/if}}
+        		{{#if theme_settings.search-trending-text-2 '!==' ""}}
+        			<li>
+        				<a href="search.php?search_query={{theme_settings.search-trending-text-2}}&section=content">
+    	    				<svg class="icon"><use xlink:href="#icon-search"></use></svg>
+    	    				<span>{{theme_settings.search-trending-text-2}}</span>
+        				</a>
+        			</li>
+        		{{/if}}
+        		{{#if theme_settings.search-trending-text-3 '!==' ""}}
+        			<li>
+        				<a href="search.php?search_query={{theme_settings.search-trending-text-3}}&section=content">
+        					<svg class="icon"><use xlink:href="#icon-search"></use></svg>
+        					<span>{{theme_settings.search-trending-text-3}}</span>
+        				</a>
+        			</li>
+        		{{/if}}
+        		{{#if theme_settings.search-trending-text-4 '!==' ""}}
+        			<li>
+        				<a href="search.php?search_query={{theme_settings.search-trending-text-4}}&section=content">
+        					<svg class="icon"><use xlink:href="#icon-search"></use></svg>
+        					<span>{{theme_settings.search-trending-text-4}}</span>
+        				</a>
+        			</li>
+        		{{/if}}
+        		{{#if theme_settings.search-trending-text-5 '!==' ""}}
+        			<li>
+        				<a href="search.php?search_query={{theme_settings.search-trending-text-5}}&section=content">
+        					<svg class="icon"><use xlink:href="#icon-search"></use></svg>
+        					<span>{{theme_settings.search-trending-text-5}}</span>
+        				</a>
+        			</li>
+        		{{/if}}
+        		{{#if theme_settings.search-trending-text-6 '!==' ""}}
+        			<li>
+        				<a href="search.php?search_query={{theme_settings.search-trending-text-6}}&section=content">
+        					<svg class="icon"><use xlink:href="#icon-search"></use></svg>
+        					<span>{{theme_settings.search-trending-text-6}}</span>
+        				</a>
+        			</li>
+        		{{/if}}
+        	</ul>
+        </div>
+        {{/if}}
+        
+        {{#if theme_settings.enable_search_product_block}}
+        <div id="search_product_block" class="search_product_block">
+        	{{#if theme_settings.search-product-block-title '!==' ""}}
+        		<h3 class="search-form__product-title">{{theme_settings.search-product-block-title}}</h3>
+        	{{/if}}
+            <ul class="productGrid{{#if theme_settings.show_brand_product_gallery}} show-brand{{/if}}">
+            </ul>
+        </div>
+        {{/if}}
+    </div>
+    <section class="quickSearchResults" data-bind="html: results"></section>
+</div>

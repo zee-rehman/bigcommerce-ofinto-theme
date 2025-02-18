@@ -1,0 +1,36 @@
+{{#if theme_settings.enable_social_icon}}
+    <ul class="socialLinks socialLinks--alt">
+        {{#if social_media}}
+            {{#each social_media}}
+                <li class="socialLinks-item {{display_name}}">
+                    <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank">
+                        <svg><use xlink:href="#icon-{{display_name}}" /></svg>
+                    </a>
+                </li>
+            {{/each}}
+        {{/if}}
+        {{#if theme_settings.social_icon_google_plus_link '!=' ''}}
+            <li class="socialLinks-item google-plus">
+                <a class="icon icon--google-plus" href="{{theme_settings.social_icon_google_plus_link}}" target="_blank">
+                    {{#if theme_settings.social_icon_google_plus_icon '!=' ''}}
+                        <img data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.social_icon_google_plus_icon}}" alt="" />
+                    {{else}}
+                        <svg><use xlink:href="#icon-google-plus" /></svg>
+                    {{/if}}
+                </a>
+            </li>
+        {{/if}}
+
+        {{#if theme_settings.social_icon_snapchat_link '!=' ''}}
+            <li class="socialLinks-item snapchat">
+                <a class="icon icon--snapchat" href="{{theme_settings.social_icon_snapchat_link}}" target="_blank">
+                    {{#if theme_settings.social_icon_snapchat_icon '!=' ''}}
+                        <img data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.social_icon_snapchat_icon}}" alt="" />
+                    {{else}}
+                        <svg><use xlink:href="#icon-snapchat-ghost" /></svg>
+                    {{/if}}
+                </a>
+            </li>
+        {{/if}}
+    </ul>
+{{/if}}

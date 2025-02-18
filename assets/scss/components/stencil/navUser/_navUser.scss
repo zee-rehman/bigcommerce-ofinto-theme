@@ -1,0 +1,528 @@
+// =============================================================================
+// USER NAVIGATION (CSS)
+// =============================================================================
+//
+// 1. Corrects the spacing added by .navUser-or
+// 2. Can't use top: 50% because its container `.header` changes its height to
+//    100% when mobile menu is expanded
+// 3. Make the triangle for store credit dropdown centered
+// 4. Needs to be 100% so its dropdown can take full width in mobile viewport
+// 5. Needs to be lower than logo zIndex, otherwise, logo is not clickable
+// 6. Make the triangle for currency dropdown right aligned
+// 7. Corrects mini cart positioned outside viewport. Since this resets right
+//    position, nudge dropdown away from the side of viewport in mobile viewport.
+// 8. This corrects mini cart dropdown arrow alignment in mobile viewport by
+//    setting the previous styles to medium breakpoint and adjusts for nudge in (7).
+//
+// -----------------------------------------------------------------------------
+
+.navUser {
+    @include nav($style: "navBar", $wrapper: "nav");
+    @include verticalPositionMiddle("absolute");
+    right: 0;
+    top: 26px; // 2
+    width: 100%; // 4
+    z-index: zIndex("lowest"); // 5.
+
+    @include breakpoint("medium") {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        z-index: zIndex("high");
+    }
+
+    .dropdown-menu {
+        background: stencilColor('body-bg');
+        border: 0px solid rgba(0,0,0,.15);
+        border-radius: 0px;
+        box-shadow: container("dropShadow");
+        position: absolute;
+        margin-top: 14px;
+        min-width: 180px;
+        top: 100%;
+        left: 50% !important;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+
+        // scss-lint:disable NestingDepth
+        
+    }
+}
+
+.navUser-action {
+    color: stencilColor("navUser-color");
+    padding: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "PP Neue Montreal", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    &:hover,
+    &:focus,
+    &.is-open {
+        color: stencilColor("navUser-color-hover");
+
+        // scss-lint:disable NestingDepth
+        svg {
+            fill: stencilColor("navUser-color-hover");
+            stroke: stencilColor("navUser-color-hover");
+        }
+        // scss-lint:enable NestingDepth
+    }
+
+    .icon {
+        @include square(24px);
+        margin: -1px 0 0 spacing("eighth");
+    }
+
+    svg {
+        fill: stencilColor("navUser-color");
+        stroke: stencilColor("navUser-color");
+        transition: all 0.15s ease;
+    }
+}
+
+.navUser-action--currencySelector + .dropdown-menu {
+    &:before {
+        // scss-lint:disable ImportantRule
+        left: auto !important; // 6
+        right: spacing("half"); // 6
+    }
+
+    &:after {
+        // scss-lint:disable ImportantRule
+        left: auto !important; // 6
+        right: spacing("half") + remCalc(2px); // 6
+    }
+}
+
+.navUser-action--storeCredit + .dropdown-menu {
+    max-width: remCalc(300px);
+    padding: spacing("single");
+
+    &:before {
+        // scss-lint:disable ImportantRule
+        left: remCalc(140px) !important; // 3
+    }
+
+    &:after {
+        // scss-lint:disable ImportantRule
+        left: remCalc(142px) !important; // 3
+    }
+}
+
+.navUser-action-divider {
+    border-right: container("border");
+    color: stencilColor("color-textSecondary");
+    display: inline-block;
+    padding: 0 remCalc(20) 0 0;
+    text-decoration: none;
+}
+
+.navUser-item {
+    position: relative;
+
+    @include breakpoint("medium") {
+        &.navUser-item--social {
+            margin-top: rem-calc(5px);
+            padding-right: rem-calc(5px);
+        }
+
+        &.navUser-item--divider {
+            font-size: rem-calc(25px);
+            margin-top: rem-calc(8px);
+            padding-left: rem-calc(2px);
+        }
+    }
+}
+
+.navUser-item--cart {
+    display: block;
+
+    .navUser-action {
+        position: relative;
+        color: stencilColor("navUser-color");
+
+        // scss-lint:disable NestingDepth
+        &:hover,
+        &.is-open {
+            color: stencilColor("navUser-color-hover");
+        }
+    }
+
+    .dropdown-menu {
+        max-width: remCalc(320px);
+
+        // scss-lint:disable NestingDepth
+        &.is-open {
+            top: auto !important; // 7
+            left: auto !important; // 7
+            right: remCalc(5px); // 7
+            @include breakpoint("medium") {
+                right: 0; // 7
+            }
+
+            &:before,
+            &:after {
+                left: auto;
+            }
+
+            &:before {
+                right: spacing("half") - remCalc(5px); // 8
+                @include breakpoint("medium") {
+                    right: spacing("half"); // 8
+                }
+            }
+
+            &:after {
+                right: spacing("half") - remCalc(3px); // 8
+                @include breakpoint("medium") {
+                    right: spacing("half") + remCalc(2px); // 8
+                }
+            }
+        }
+    }
+}
+
+.navUser-item-cartLabel {
+    display: none;
+}
+
+.navUser-item--compare {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
+
+.navUser-item--account {
+
+    .navUser-or {
+
+        // scss-lint:disable NestingDepth
+        + .navUser-action {
+            margin-right: -0.5rem; // 1
+        }
+    }
+
+    .navUser-action {
+        display: inline-block;
+    }
+    .navPages-list--user {
+        @include breakpoint("medium") {
+            display: inline-block;
+        }
+    }
+    .account-dropdown {
+        width: 270px;
+        max-width: 270px;
+        padding-bottom: 20px;
+        padding-top: 0;
+    }
+}
+
+.account-dropdown {
+    .navPage-subMenu-title {
+        padding: 10px 20px;
+        background: #f3f3f3;
+        color: #0F0F0F;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 15px;
+        font-family: $body-font-family;
+        .icon {
+            width: 21px;
+            height: 21px;
+            float: right;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        svg {
+            width: 9px;
+            height: 9px;
+            fill: #0F0F0F;
+            stroke: #0F0F0F;
+            -moz-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+        }
+    }
+    .login-dropdown {
+        .navPages-list {
+            > .navPages-item {
+                width: 100%;
+                > .navPages-action {
+                    padding: 8px 20px;
+                    > .text {
+                        color: stencilColor('color-textBase');
+                        font-family: $body-font-family;
+                        font-size: 13px;
+                        text-transform: capitalize;
+                        font-weight: 400;
+                        letter-spacing: 0;
+                    }
+                }
+                &:hover {
+                    > .navPages-action {
+                        > .text {
+                            color: stencilColor('color-textHeading');
+                            text-decoration: underline;
+                            text-underline-offset: 2px;
+                            text-decoration-color: rgba(stencilColor('color-textHeading'),.7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .login-form {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 15px;
+        padding: 0 20px;
+        .form-field {
+            margin-bottom: 15px;
+            .form-label {
+                font-family: $body-font-family;
+                font-weight: 400;
+                text-transform: capitalize;
+                font-size: 13px;
+                letter-spacing: 0;
+            }
+            .form-input {
+                &::-webkit-input-placeholder {
+                   text-transform: none;
+                }
+
+                &::-moz-placeholder {
+                    text-transform: none;
+                 }
+
+                &:-ms-input-placeholder {
+                    text-transform: none !important;
+                }
+            }
+        }
+        .form-actions {
+            margin-top: 15px;
+            text-align: center;
+            .button {
+                width: 100%;
+                margin-bottom: 4px;
+                + .forgot-password {
+                    margin-left: 0;
+                    margin-bottom: 2px;
+                    background-image: none;
+                    color: stencilColor('color-textLink');
+                }
+            }
+        }
+    }
+
+    .new-customer {
+        width: 100%;
+        padding: 0 20px;
+        .button {
+            width: 100%;
+        }
+    }
+}
+
+.navUser-or {
+    color: stencilColor("navUser-color");
+    cursor: default;
+    display: inline-block;
+    margin: 0 remCalc(-12px);
+    padding: 0 2px;
+    position: relative;
+    z-index: 1;
+}
+
+// Quick search
+// -----------------------------------------------------------------------------
+//
+// 1. Overriding the inline styles from Foundation as this is a unique dropdown.
+//
+// -----------------------------------------------------------------------------
+.dropdown--quickSearch {
+    width: 580px;
+    display: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    &.show-result {
+        display: block;
+    }
+    
+    .search-form__product-title {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ebebeb;
+        padding-bottom: 8px;
+    }
+
+    .header-search-wrap {
+        padding: 15px 10px;
+        display: none;
+        &.show-result {
+            display: block;
+        }
+        .list-item {
+            font-size: 0;
+            margin-bottom: 20px;
+            margin-left: 0;
+            li {
+                display: inline-block;
+                margin: 0 10px 10px 0;
+                a {
+                    padding: 7px 12px;
+                    background: #f7f7f7;
+                    color: #0F0F0F;
+                    font-size: 13px;
+                    display: inline-block;
+                    svg {
+                        width: 12px;
+                        height: 12px;
+                        fill: #0F0F0F;
+                        margin-top: -1px;
+                        margin-right: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    .productGrid {
+        margin: 0;
+        
+        @include breakpoint("medium") {
+            margin: 0 -13px;
+        }
+        .product {
+            width: 120px;
+            margin-right: 20px;
+            padding: 0;
+            &:last-child {
+                margin-right: 0;
+            }
+            @include breakpoint("medium") {
+                width: 33.33%;
+                padding-left: 13px;
+                padding-right: 13px;
+                margin-right: 0;
+            }
+            
+            .product-badge, 
+            .card-figcaption-top, 
+            .card-figcaption {
+                display: none;
+            }
+            .card-figure {
+                @include breakpoint("medium") {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+                @media (max-width: 1024px) {
+                    padding-bottom: 0;
+                }
+                .countDowntimer {
+                    display: none;
+                }
+            }
+            .card-body {
+                text-align: center;
+                padding-top: 15px;
+                .card-brand {
+                    display: none;
+                }
+                .card-title {
+                    padding-right: 0;
+                    > a {
+                        display: -webkit-box;
+                       -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        position: relative;
+                        white-space: normal;
+                        word-wrap: break-word;
+                    }
+                    .color-name {
+                        display: none;
+                    }
+                }
+                .card-price {
+                    -ms-flex-pack: center;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                }
+                .price-section--saving {
+                    display: none !important;
+                }
+            }
+            .card_optionImage {
+                [data-product-attribute] {
+                    -ms-flex-pack: center;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                }
+                .form-label {
+                    display: none;
+                }
+            }
+        }
+        &.show-brand {
+            .product {
+                .card-body {
+                   .card-brand {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Counter Pill
+// -----------------------------------------------------------------------------
+//
+// 1. Hardcoded intentionally for precise pixels.
+//
+// -----------------------------------------------------------------------------
+
+.countPill {
+    background-color: stencilColor("navUser-indicator-backgroundColor");
+    border-radius: 50%;
+    color: stencilColor('navUser-color');
+    font-size: fontSize("tiny");
+    font-weight: fontWeight("normal");
+    height: 23px; // 1
+    line-height: 23px; // 1
+    text-align: center;
+    width: 23px; // 1
+    position: absolute;
+    top: -9px;
+    right: -14px;
+    font-family: $body-font-family;
+}
+
+.countPill--positive {
+    display: inline-block;
+}
+
+.countPill--alt {
+    background-color: color("greys", "lighter");
+    color: color("greys", "darker");
+}

@@ -1,0 +1,219 @@
+// =============================================================================
+// ACCORDION (CSS)
+// =============================================================================
+
+
+.accordion {
+    border-radius: $accordion-borderRadius;
+    box-shadow: none;
+    border: none;
+
+    .navList {
+        margin-bottom: 0;
+    }
+}
+
+.accordion-title {
+    cursor: pointer;
+    color: stencilColor('color-textHeading');
+    border-bottom: 1px solid stencilColor('input-border-color');
+    display: inline-block;
+    width: 100%;
+    padding: 24px 35px 22px 0px;
+    position: relative;
+    font-size: 14px;
+    font-family: stencilFontFamily("headings-font"), sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    // text-transform: uppercase;
+    &:focus,
+    &:hover {
+        color: stencilColor('color-textHeading');
+    }
+}
+
+.accordion-content {
+    border: 0;
+
+    .form:only-child {
+        margin-bottom: 0;
+    }
+}
+
+.accordion--List {
+    margin-bottom: 62px;
+    .accordion-block {
+        list-style: none;
+        &.is-open {
+            .accordion-title {
+                border-bottom: none;
+            }
+        }
+        .accordion-content {
+            padding: 20px 0 32px 0;
+            border-bottom: 1px solid stencilColor('input-border-color');
+            a {
+                color: stencilColor('color-textLinkSecondary');
+                text-decoration: underline;
+                text-underline-offset: 2px;
+                text-decoration-color: rgba(stencilColor('color-textLinkSecondary'),.7);
+                &:hover {
+                  color: stencilColor('color-textLinkSecondary--hover');
+                  text-decoration-color: rgba(stencilColor('color-textLinkSecondary--hover'),.7);
+                }
+            }
+            p {
+                margin-bottom: remCalc(30px);
+                &:last-child {
+                    margin-bottom: remCalc(18px);
+                }
+            }
+        }
+    }
+
+}
+
+.accordion-navigation {
+    margin-top: -1px;
+    position: relative;
+    text-decoration: none;
+}
+
+
+// Accordion nav list
+// -----------------------------------------------------------------------------
+//
+// Purpose: Used as navigation menu, for example: faceted search menu.
+//
+// -----------------------------------------------------------------------------
+.accordion--navList {
+    @include breakpoint("medium") {
+        border: 0;
+    }
+
+    .sidebarBlock + & {
+        @include breakpoint("medium") {
+            margin-top: $accordion-navList-spacing;
+        }
+    }
+
+    .accordion-block {
+        margin-top: remCalc(22px);
+        display: inline-block;
+        width: 100%;
+        + .accordion-block {
+            border-top: 1px solid #e8e8e8;
+            padding-top: remCalc(30px);
+        }
+    }
+
+    .accordion-content {
+        padding: 0;
+        margin-top: remCalc(14px);
+        .navList {
+            max-height: 245px;
+            overflow-y: auto;
+            scrollbar-color: #323232 #f5f5f5;
+            scrollbar-width: thin !important;
+            &::-webkit-scrollbar {
+                width: 10px;
+                background-color: #f5f5f5;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #323232;
+            }
+        }
+        .toggleLink {
+            margin-top: 7px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .mCSB_scrollTools {
+            width: 5px;
+        }
+    }
+
+    .accordion-navigation {
+        border: 0;
+        @include breakpoint("medium") {
+            background-position: right 0 top 50%;
+            
+        }
+    }
+
+    .accordion-title {
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        margin-bottom: remCalc(6px);
+        margin-top: 0;
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .accordion-indicator {
+        fill: stencilColor('color-textHeading');
+        width: 24px;
+        height: 24px;
+        margin-right: -4px;
+    }
+
+    .accordion-navigation-actions {
+        right: 0;
+        top: 0;
+    }
+    #facetedSearch-content--price {
+        margin-top: 4px;
+    }
+}
+
+
+// Accordion block
+// -----------------------------------------------------------------------------
+//
+// Purpose: Child blocks of an accordion
+//
+// -----------------------------------------------------------------------------
+.accordion-block:first-child {
+    margin-top: 0;
+
+    .accordion-navigation {
+        border-radius: $accordion-borderRadius $accordion-borderRadius 0 0;
+    }
+}
+
+.accordion-block:last-child {
+
+    .accordion-navigation {
+        border-bottom-width: 0;
+
+        // scss-lint:disable NestingDepth
+        &.is-open {
+            border-bottom-width: 1px;
+            border-radius: 4px;
+        }
+    }
+}
+
+// Accordion navigation actions
+// -----------------------------------------------------------------------------
+//
+// Purpose: Action links, usually aligned to the right of .accordion-navigation
+//
+// -----------------------------------------------------------------------------
+.accordion-navigation-actions {
+    position: absolute;
+    right: $accordion-navigation-paddingHorizontal;
+    top: $accordion-navigation-paddingVertical;
+
+    > a {
+        color: stencilColor("color-textSecondary");
+        vertical-align: middle;
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: stencilColor("color-textSecondary--hover");
+        }
+        // scss-lint:enable NestingDepth
+    }
+}

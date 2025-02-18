@@ -1,0 +1,126 @@
+// =============================================================================
+// LOGIN (CSS)
+// =============================================================================
+.page-type-login {
+  .header {
+      .navUser-item--account {
+          pointer-events: none;
+      }
+  }
+  .header-mobile-item {
+      .item--account {
+          .navUser-action {
+              pointer-events: none;
+          }
+      }
+  }
+}
+
+.login-row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.login-form {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include breakpoint("small") {
+        width: 50%;
+        float: left;
+    }
+    @include breakpoint("medium") {
+        padding-left: 65px;
+        padding-right: 100px;
+    }
+    .form-label {
+        display: inline-block;
+        width: 100%;
+        small {
+            float: none;
+            color: #bc2222;
+            margin-top: 0;
+            margin-left: 3px;
+        }
+    }
+    .form-actions {
+        text-align: left;
+        margin-top: 25px;
+    }
+    .button {
+        min-width: 123px;
+        + .forgot-password {
+            margin-top: 12px;
+            color: stencilColor('color-textLinkSecondary');
+            background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textLinkSecondary'),.7) 4%);
+            background-repeat: repeat-x;
+            background-position-y: -2px;
+            display: inline-block;
+            width: auto;
+            @include breakpoint("small") {
+                margin-left: 25px;
+            }
+        }
+    }
+
+}
+
+.new-customer {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include breakpoint("small") {
+        width: 50%;
+        float: left;
+    }
+    @media (max-width: 767px) {
+        margin-top: 10px;
+    }
+    .panel-header, .panel-body {
+        background: #f5f5f5;
+    }
+    .panel-header {
+        padding: 20px 20px 14px 20px;
+        @include breakpoint("small") {
+            padding: 45px 50px 12px 50px;
+        }
+        .panel-title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+            color: stencilColor('color-textHeading');
+        }
+    }
+    .panel-body {
+        padding: 0px 20px 20px 20px;
+        @include breakpoint("small") {
+            padding: 0px 50px 50px 50px;
+        }
+        .create_account {
+            .button {
+                width: 100%;
+                margin-bottom: 0;
+                @media (min-width: 375px) {
+                    min-width: 213px;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+.new-customer-intro {
+    margin-bottom: 18px;
+}
+
+.new-customer-fact-list {
+   margin-bottom: 36px;
+}
+
+.new-customer-fact {
+    padding: 6px 0 7px 4px;
+    &::marker {
+        color: rgba(stencilColor('color-textBase'),.7);
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,416 @@
+// HERO CAROUSEL
+// -----------------------------------------------------------------------------
+//
+// Purpose: Styles the hero carousel component, which basically adds extras to the
+// vendor slick carousel, to specifically display hero images.
+//
+// 1. Use object-fit on the image tag to keep aspect ratio and cover the space
+//    created by the outer div. The JS will detect browsers that do not support
+//    object-fit and instead copy the image src to a the background-image of the
+//    wrapper div and add the compat-object-fit class.
+//
+// 2. Visually overrides the top margin for '.body' defined in _body.scss.
+//    The '.body' top margin creates space between the header and page content.
+//    However, on the homepage, we want the carousel to be flush with the header.
+//
+// 3. Allows image to scale on large screens while preventing the top and bottom
+//    from becoming cut off.
+// -----------------------------------------------------------------------------
+
+.heroCarousel {
+    width: 1px;
+    min-width: 100%;
+
+    &.slick-initialized { // 2
+        max-height: remCalc(900px);
+        opacity: 1;
+        margin-bottom: 0;
+    }
+
+    &:not(.slick-initialized) :not(.heroCarousel-slide--first).heroCarousel-slide {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .slick-next,
+    .slick-prev {
+        top: 40%;
+        background: transparent;
+        border: 2px solid $slick-arrow-heroCarousel-color;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        display: none !important;
+
+         &:hover, &:focus {
+            background: transparent;
+            border: 2px solid $slick-arrow-heroCarousel-color;
+         }
+         &:before {
+            height: remCalc(29px);
+            width: remCalc(29px);
+         }
+    }
+
+    .slick-next {
+        right: 15px;
+        @include breakpoint("medium") {
+            right: 30px;
+        }
+        @include breakpoint("large") {
+            right: 73px;
+        }
+        &::before {
+            background-image: $slick-arrow-heroCarousel-next;
+        }
+    }
+
+    .slick-prev {
+        left: 15px;
+        @include breakpoint("medium") {
+            left: 30px;
+        }
+        @include breakpoint("large") {
+            left: 73px;
+        }
+        &::before {
+            background-image: $slick-arrow-heroCarousel-prev;
+        }
+    }
+
+    .slick-dots {
+  
+        @include breakpoint("small") {
+            position: absolute;
+            bottom: remCalc(15px);
+        }
+        @include breakpoint("medium") {
+            bottom: remCalc(45px);
+        }
+
+        li {
+            button {
+                &:before {
+                    background: stencilColor('carousel-arrow-color');
+                    border: 1px solid stencilColor('carousel-arrow-color');
+                    opacity: 1;
+                    @include breakpoint("small") {
+                        background: rgba(stencilColor('hero-carousel-dots-color'),0.5);
+                        border: 1px solid rgba(stencilColor('hero-carousel-dots-color'),0.5);
+                    }
+                }
+            }
+            &.slick-active {
+                // scss-lint:disable NestingDepth
+                button::before {
+                    background: transparent;
+                    border: 1px solid stencilColor('carousel-arrow-color');
+                    @include breakpoint("small") {
+                        border: 1px solid rgba(stencilColor('hero-carousel-dots-color'),0.5);
+                    }
+                }
+            }
+        }
+        // scss-lint:disable SelectorDepth, NestingDepth
+        
+    }
+    &:hover {
+        .slick-next,
+        .slick-prev {
+            @include breakpoint("small") {
+                display: -ms-flexbox !important;
+                display: -webkit-flex !important;
+                display: flex !important;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+               -ms-flex-wrap: wrap;
+              -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+                z-index: 3;
+                border: 2px solid $slick-arrow-heroCarousel-color;
+                
+                &:hover, &:focus {
+                    background: transparent;
+                    border: 2px solid $slick-arrow-heroCarousel-color;
+                }
+            }
+        }
+        .slick-next {
+            &::before {
+                @include breakpoint("small") {
+                    background-image: $slick-arrow-heroCarousel-next;
+                }
+            }
+        }
+
+        .slick-prev {
+            &::before {
+                @include breakpoint("small") {
+                    background-image: $slick-arrow-heroCarousel-prev;
+                }
+            }
+        }
+    }
+    
+    &.homepage-layout-2 {
+        .slick-next,
+        .slick-prev {
+            top: 50%;
+        }
+
+        .heroCarousel-slide:not(.hasCountDown) {
+            .heroCarousel-content {
+                @include breakpoint('medium') {
+                    left: 0px;
+                    top: auto;
+                    bottom: 9%;
+                    transform: none;
+                    -ms-transform: none;
+                    -webkit-transform: none;
+                    -moz-transform: none;
+                    -o-transform: none;
+                    margin: 0;
+                    text-align: left;
+                    bottom: 10%;
+                }
+                @media (min-width: 1281px) {
+                    bottom: 12%;
+                    left: 45px;
+                }
+                @media (min-width: 1920px) {
+                    bottom: 17%;
+                }
+            }
+
+        }
+    }
+}
+
+.heroCarousel-slide {
+    position: relative;
+    a {
+        text-decoration: none;
+    }
+
+    .heroCarousel-image {
+        object-fit: cover;
+        height: 280px;
+        width: 100%;
+        @include breakpoint('small') {
+          height: 360px;
+        }
+        @media (min-width: 992px) {
+          height: 480px;
+        }
+        @include breakpoint('medium') {
+          height: 720px;
+        }
+        @media (min-width: 1920px) {
+          height: 900px;
+        }
+    }
+
+    .heroCarousel-image-wrapper {
+        position: relative;
+        @include breakpoint("medium") {
+            max-height: remCalc(900px);
+        }
+        .heroCarousel-title-mobile {
+            color: $carousel-color;
+            font-weight: 600;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-family: stencilFontFamily("headings-font"), sans-serif;
+            font-size: 20px;
+            width: 100%;
+            @include breakpoint("small") {
+                display: none;
+            }
+        }
+    }
+
+    &.compat-object-fit { // 1
+        background-size: cover;
+        background-position: 50%;
+        background-repeat: no-repeat;
+
+        &.stretch {
+            @include breakpoint("large") { // 4
+                background-size: 100% 100%;
+            }
+        }
+
+        .heroCarousel-image {
+            opacity: 0;
+        }
+    }
+}
+.heroCarousel-title-mobile {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 20px 15px;
+}
+
+.heroCarousel-content {
+    background-color: transparent;
+    padding: remCalc(30px) remCalc(15px) 0 remCalc(15px);
+    text-align: center;  
+    @include breakpoint("small") {
+        padding: remCalc(30px);
+        width: remCalc(700px);
+        left: 0;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &.heroCarousel-content--empty {
+        background-color: transparent;
+    }
+    .countDowntimer {
+        margin-bottom: 10px;
+        display: inline-block;
+        width: 100%;
+        @include breakpoint("medium") {
+            margin-bottom: 30px;
+            margin-top: 11px;
+        }
+         .clock-item {
+            padding: 7px 10px 6px 10px;
+            min-width: 73px;
+            border: 1px solid rgba(stencilColor('color-textHeading'),0.5);
+            color: stencilColor('color-textHeading');
+            background: transparent;
+            display: inline-block;
+            text-align: center;
+            margin-left: -1px;
+            margin-bottom: 0;
+
+            span {
+                display: block;
+            }
+            .num {
+                font-size: 20px;
+                line-height: 20px;
+                font-weight: 600;
+                letter-spacing: 0;
+                color: stencilColor('color-textHeading');
+                font-family: stencilFontFamily("headings-font"), sans-serif;
+            }
+            .text {
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: .02em;
+                color: stencilColor('color-textHeading');
+                font-family: stencilFontFamily("headings-font"), sans-serif;
+            }
+            @media (min-width: 361px) {
+                min-width: 85px;
+                padding: 7px 10px 6px 10px;
+                margin-bottom: 3px;
+            }
+            @include breakpoint("small") {
+                border: 1px solid rgba($carousel-color,0.5);
+                color: $carousel-color;
+                min-width: 85px;
+                padding: 9px 10px 5px 10px;
+                .num, .text {
+                    color: $carousel-color;
+                }
+            }
+            
+            @include breakpoint("medium") {
+                padding: 9px 10px 8px 10px;
+                min-width: 100px;
+                .num {
+                    font-size: 30px;
+                    line-height: 30px;
+                    margin-bottom: 0;
+                }
+            }
+         }
+    }
+}
+
+.heroCarousel-subTitle {
+    color: stencilColor('color-textHeading');
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    @include breakpoint("small") {
+        font-size: 20px;
+        color: $carousel-color;
+    }
+    span {
+        padding: 0 10px;
+        background-image: linear-gradient(transparent 96%, stencilColor('color-textHeading') 4%);
+        background-repeat: repeat-x;
+        background-position-y: 0px;
+        @include breakpoint("small") {
+            background-image: linear-gradient(transparent 96%, $carousel-color 4%);
+        }
+    }
+}
+.heroCarousel-title {
+    font-size: 22px;
+    margin-top: 0;
+    display: none;
+    margin-bottom: 5px;
+    font-size: 22px;
+    @include breakpoint("small") {
+        font-size: 30px;
+        color: $carousel-color;
+        display: block;
+    }
+    @include breakpoint("medium") {
+        font-size: fontSize("hero");
+    }
+}
+
+.heroCarousel-description {
+    color: stencilColor('color-textBase');
+    font-size: fontSize("tiny");
+    margin-bottom: 20px;
+    @include breakpoint("small") {
+        font-size: fontSize("smallest");
+        color: $carousel-color;
+    }
+
+    @include breakpoint("medium") {
+        font-size: fontSize("smaller");
+    }
+}
+
+.heroCarousel-action {
+    margin: 0;
+    min-width: 162px;
+    margin-top: 12px;
+    @include breakpoint("small") {
+        background: stencilColor('hero-carousel-button-bgColor');
+        color: stencilColor('hero-carousel-button-color');
+        border: 1px solid stencilColor('hero-carousel-button-border-color');
+        &:hover, &:active, &:focus {
+            background: stencilColor('hero-carousel-button-bgColor-hover');
+            color: stencilColor('hero-carousel-button-color-hover');
+            border: 1px solid stencilColor('hero-carousel-button-border-color-hover');
+        }
+    }
+}

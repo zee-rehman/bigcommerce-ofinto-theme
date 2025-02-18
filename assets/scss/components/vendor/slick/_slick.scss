@@ -1,0 +1,214 @@
+// SLICK
+// -----------------------------------------------------------------------------
+//
+// Purpose: These are the styles for the base Slick carousel
+//
+// -----------------------------------------------------------------------------
+
+
+//
+// Next and Previous buttons for all carousels
+//
+// Purpose: Override the plugin to give some Stencil styling to the js generated mark-up
+//
+// 1. Set the background again because the plugin sets the full background property on hover
+// 2. Prevent screen flicker when CSS transition is applied
+//
+// -----------------------------------------------------------------------------
+.slick-arrow {
+    z-index: 1;
+    width: remCalc(28px);
+    height: remCalc(28px);
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+   -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    @media (min-width: 1281px) {
+        width: remCalc(33px);
+        height: remCalc(33px);
+    }
+    &:before {
+        background-repeat: no-repeat;
+        background-size: 100%;
+        display: block;
+        height: remCalc(28px);
+        width: remCalc(28px);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        @media (min-width: 1281px) {
+            width: remCalc(33px);
+            height: remCalc(33px);
+        }
+    }
+    &:hover,
+    &:focus {
+        @include carouselOpaqueBackgrounds($slick-arrow-bgColor); // 1
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+.slick-next {
+    right: -14px;
+    @include breakpoint("medium") {
+        right: -30px;
+    }
+    @media (min-width: 1600px) {
+        right: -55px;
+    }
+    @media (min-width: 1920px) {
+        right: -79px;
+    }
+    
+    &::before {
+        background-image: $slick-arrow-next;
+        background-position: -4px 50%;
+    }
+}
+
+.slick-prev {
+    left: -14px;
+    @include breakpoint("medium") {
+        left: -31px;
+    }
+    @media (min-width: 1600px) {
+        left: -56px;
+    }
+    @media (min-width: 1920px) {
+        left: -80px;
+    }
+    &::before {
+        background-image: $slick-arrow-prev;
+        background-position: 4px 50%;
+    }
+}
+
+.slick-slide img
+{
+    display: block;
+    width: 100%;
+}
+
+
+//
+// Carousel dots
+//
+// Purpose: Stencil overrides for the js generated carousel dots
+//
+// 2. Nesting depth due to plugin css
+// -----------------------------------------------------------------------------
+
+.slick-dots {  // 2
+    margin: 0;
+    position: relative;
+    bottom: auto;
+    &.no-dots {
+        display: none !important;
+    }
+    li {
+        width: 20px;
+        height: 10px;
+        margin: 20px 5px 0 0;
+        padding: 0 remCalc(3px);
+        display: inline-block;
+        @include breakpoint("small") {
+            margin: 20px 12px 0 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        // scss-lint:disable SelectorDepth, NestingDepth
+        button,
+        button::before {
+            @include square(10px);
+            border-radius: 50%;
+        }
+
+        button {
+            // scss-lint:disable NestingDepth
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+
+            &:hover {
+                &::before {
+                    background: $slick-dot-bgColor-active;
+                    border: 1px solid $slick-dot-border-active;
+                }
+            }
+        }
+
+        button::before {
+            display: block;
+            left: -1px;
+            top: -1px;
+            transition: background 100ms ease-out;
+            border: 1px solid $slick-dot-border-color;
+            background: $slick-dot-bgColor;
+        }
+
+        &.slick-active {
+            // scss-lint:disable NestingDepth
+            button::before {
+                background: $slick-dot-bgColor-active;
+                border: 1px solid $slick-dot-border-active;
+            }
+        }
+    }
+    > li:only-child {
+        display: none;
+    }
+}
+
+
+//
+// Stencil override for product detail page thumbnail dots.
+// -----------------------------------------------------------------------------
+.productView .slick-dots  {
+    position: relative;
+}
+
+
+//
+// disabled carousel elements
+// -----------------------------------------------------------------------------
+.slick-disabled {
+    cursor: $cursor-default-value;
+    opacity: 0.5;
+}
+
+
+//
+// Slick track
+// -----------------------------------------------------------------------------
+.slick-track {
+    backface-visibility: hidden; // 2
+    perspective: 1000px; // 2
+}
+
+//
+// iOS Safari fix https://github.com/kenwheeler/slick/issues/2834#issuecomment-389590661
+// -----------------------------------------------------------------------------
+div.slick-slider {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+}
+

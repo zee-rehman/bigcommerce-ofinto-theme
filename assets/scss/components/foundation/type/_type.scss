@@ -1,0 +1,95 @@
+// =============================================================================
+// TYPE (CSS)
+// =============================================================================
+
+// Stencil type component additions
+// -----------------------------------------------------------------------------
+
+
+body {
+    font-size: $body-fontSize;
+    font-weight: $body-font-weight;
+    font-family: $body-font-family;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $header-font-weight;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+
+h5,
+h6 {
+    text-transform: $heading-textTransform;
+}
+
+a {
+    transition: $anchor-transition;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+cite {
+    line-height: $blockquote-cite-lineHeight;
+    margin: $blockquote-cite-margin;
+}
+
+.page-heading {
+    margin: 0 0 27px;
+    text-align: center;
+    font-size: 60px;
+    line-height: 28px;
+    @include breakpoint("small") {
+        font-size: 60px;
+        line-height: 34px;
+        margin: 0 0 57px;
+    }
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h6 {
+    font-size: $h6-font-size;
+}
+
+.definitionList {
+    @include clearfix;
+}
+
+.definitionList-key {
+    color: stencilColor("color-textLink");
+    float: left;
+    font-weight: 500;
+    margin: 0 remCalc(10px) 0 0;
+}
+
+.definitionList-value {
+    margin: 0;
+    color: stencilColor("color-textHeading");
+    font-style: italic;
+}

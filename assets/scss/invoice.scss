@@ -1,0 +1,248 @@
+body {
+  background: #fff;
+  color: #000;
+  margin: 10px;
+}
+
+body, td, th {
+  font-family: Arial, Sans-Serif;
+  font-size: 13px;
+}
+
+h1, h1 a {
+  color: #000;
+  text-decoration: none;
+}
+
+h2, h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.header-logo-image {
+  object-position: left top;
+  object-fit: scale-down;
+  width: 60%;
+}
+
+.Invoice,
+.PackingSlip {
+  /* border: 2px solid #cacaca; */
+  padding: 1.1cm 1.32cm 1.9cm 1.6cm ;
+}
+
+.InvoiceTitle,
+.PackingSlipTitle {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+.StoreAddress {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.InvoiceHeading,
+.PackingSlipHeading {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.CustomerDetails,
+.AddressRow,
+.InvoiceItems,
+.InvoiceDetails,
+.PackingSlipItems,
+.PackingSlipDetails {
+  margin-bottom: 10px;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.HeadingRow {
+  margin-bottom: 25px;
+  li {
+    list-style-type: none;
+  }
+}
+
+.InvoiceTable,
+.PackingSlipTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.InvoiceTable th,
+.PackingSlipTable th {
+  font-weight: bold;
+  padding: 5px;
+  text-align: left;
+  border-bottom: 1px solid #000;
+/*   background: #F5F8F6; */
+}
+
+.InvoiceTable td,
+.PackingSlipTable td {
+  padding: 4px;
+  vertical-align: top;
+  text-align: left;
+  line-height: 18px;
+}
+
+td.ProductQuantity,
+th.ProductQuantity,
+td.ProductCost,
+th.ProductCost,
+td.ProductTotal,
+th.ProductTotal,
+.InvoiceTotals td,
+.InvoiceTotalRow td {
+  text-align: right;
+}
+
+.InvoiceTotals {
+  margin-top: 5px;
+}
+.InvoiceTotalRow:nth-last-child(2) {
+    font-weight: bold;
+}
+
+.HeadingRow, .AddressRow, 
+.InvoiceDetails, .PackingSlipDetails {
+  overflow: hidden;
+  width: 100%;
+  div:first-child{
+    width: 60%;
+  }
+}
+
+.HeadingLogo, .CompanyAddress,
+.ShippingAddress, .BillingAddress,
+.InvoiceDetailsLeft, .InvoiceDetailsRight,
+.PackingSlipDetailsLeft, .PackingSlipDetailsRight {
+  float: left;
+  width: 40%;
+  ul {
+    padding-left: 0;
+  }
+}
+
+.HeadingLogo, .CompanyAddress,
+.ShippingAddress, .BillingAddress {
+  ul {
+    li {
+      /*line-height: 20px;*/
+      strong {
+        margin-bottom: 2px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.AdditionalInfo,
+.AdditionalInfo table tbody tr td {
+    font-size: 11.5px;
+    line-height: 100%;
+    width: auto !important;
+} 
+
+.pr-1 {
+  padding-right: .25rem;
+  padding-left: 0;
+}
+
+.InvoiceItems,
+.PackingSlipItems {
+/*   border-top: 1px solid #000;
+ */  padding-top: 10px;
+}
+
+.InvoiceItemList {
+  border-bottom: 1px solid #000;
+}
+
+.InvoiceItemDivider td {
+  padding-top: 10px;
+/*   border-top: 1px solid #000;
+ */}
+
+.DetailRow {
+  clear: left;
+  margin-top: 6px;
+  padding-left: 120px;
+}
+
+.DetailRow .Label {
+  margin: 0 0 6px -120px;
+  float: left;
+  width: 110px !important;
+  padding-top: 1px;
+  display: inline;
+  position: relative;
+}
+
+.ConfigurableProductRow {
+  clear: left;
+  margin-top: 2px;
+  line-height: 100%;
+  padding-left: 150px;
+}
+
+.ConfigurableProductRow .Label {
+  margin: 0 0 6px -140px;
+  float: left;
+  width: 150px !important;
+  padding-top: 1px;
+  display: inline;
+  position: relative;
+}
+
+.DetailRow .Value,
+.ConfigurableProductRow .Value {
+  display: inline;
+}
+
+/* .InvoiceDetails .DetailRow .Label,
+.PackingSlipDetails .DetailRow .Label {
+  font-weight: bold;
+}
+ */
+.ConfigurableProductRow {
+  font-size: 11px;
+  margin-left: 10px;
+  width: 60%;
+}
+
+.InvoiceTotals .InvoiceTotal td {
+  font-weight: bold;
+}
+
+/*.ProductQuantity {
+  width: 6%;
+} */
+
+.ProductCost, .ProductTotal {
+  width: 16%;
+}
+
+.PageBreak {
+  page-break-after: always;
+}
+
+.ProductPreOrder {
+  font-size: 11px;
+}

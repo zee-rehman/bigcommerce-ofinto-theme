@@ -1,0 +1,49 @@
+{{#if children}}
+<p class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}}">
+    <a class="text" href="{{url}}">{{name}}</a> 
+    <span class="icon navPages-action-moreIcon" aria-hidden="true">&#10095;</span>
+</p>
+<div class="navPage-subMenu navPage-subMenu navPage-subMenu-level1" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+    <div class="container">
+        <ul class="navPage-subMenu-list navPage-subMenu-list-level1">
+            <li class="navPage-subMenu-item-child navPage-subMenu-title">
+                <p class="navPage-subMenu-action navPages-action">
+                    <span class="navPages-action-moreIcon" aria-hidden="true">&#10095;</span>
+                    <a class="text" href="{{url}}">{{name}}</a>
+                </p>
+            </li>
+            {{#each children}}
+                {{#if children}}
+                    <li class="navPage-subMenu-item-child has-subMenu">
+                        <p class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}">
+                            <a class="text" href="{{url}}">{{name}}</a> 
+                            <span class="icon navPages-action-moreIcon" aria-hidden="true">&#10095;</span>
+                        </p>
+                        <div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+                            <ul class="navPage-subMenu-list" id="navPages-{{id}}">
+                                <li class="navPage-subMenu-item-child navPage-subMenu-title">
+                                    <p class="navPage-subMenu-action navPages-action">
+                                        <span class="navPages-action-moreIcon" aria-hidden="true">&#10095;</span>
+                                        <a class="text" href="{{url}}">{{name}}</a>
+                                    </p>
+                                </li>
+                                {{#each children}}
+                                <li class="navPage-subMenu-item-child">
+                                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="text">{{name}}</span></a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="navPage-subMenu-item-child">
+                        <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="text">{{name}}</span></a>
+                    </li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
+{{else}}
+<a class="navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="text">{{name}}</span></a>
+{{/if}}

@@ -1,0 +1,64 @@
+<div class="tabs-contents tab-vertical">
+    {{#if theme_settings.show_shipping_tab}}
+      <div class="tab-content" id="tab-shipping">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-shipping-content" data-collapsible>
+              <span class="title">{{#if theme_settings.shipping_tab_title '!=' ''}}{{theme_settings.shipping_tab_title}} {{else}}{{lang 'products.shipping_tab'}}{{/if}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner toggle-content" id="tab-shipping-content"></div>
+      </div>
+    {{/if}}
+
+   {{#if product.warranty}}
+      <div class="tab-content" id="tab-warranty">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-warranty-content" data-collapsible>
+              <span class="title">{{lang 'products.warranty'}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner toggle-content" id="tab-warranty-content">
+          {{{product.warranty}}}
+        </div>
+      </div>
+   {{/if}}
+
+   {{#if theme_settings.show_custom_tab}}
+      <div class="tab-content" id="tab-sustainability">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-sustainability-content" data-collapsible>
+              <span class="title">{{#if theme_settings.sustainability_tab_title '!=' ''}}{{theme_settings.sustainability_tab_title}}{{else}}{{lang 'products.sustainability_tab.title'}}{{/if}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner toggle-content" id="tab-sustainability-content">
+          <div class="sustainability-tab">
+            <ul>
+              <li><strong>{{{lang 'products.sustainability_tab.subtitle_1'}}}</strong>{{{lang 'products.sustainability_tab.description_1'}}}</li>
+              <li><strong>{{{lang 'products.sustainability_tab.subtitle_2'}}}</strong>{{{lang 'products.sustainability_tab.description_2'}}}</li>
+              <li><strong>{{{lang 'products.sustainability_tab.subtitle_3'}}}</strong>{{{lang 'products.sustainability_tab.description_3'}}}</li>
+            </ul>
+            
+            {{lang 'products.sustainability_tab.read_more_text'}}<u><a title="{{lang 'products.sustainability_tab.read_more_link_title'}}" href="/sustainability" target="_blank" rel="noopener">{{lang 'products.sustainability_tab.read_more_link_text'}}</a></u>.
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews_tab}}
+      <div class="tab-content" id="tab-reviews">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-reviews-content" data-collapsible>
+              <span class="title">{{lang 'products.reviews_tab'}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner toggle-content" id="tab-reviews-content">
+          {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        </div>
+      </div>
+    {{/all}}
+
+</div>

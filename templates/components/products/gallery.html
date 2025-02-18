@@ -1,0 +1,56 @@
+
+
+<div class="slider js-slider">
+  <div class="slider__main js-slider-main">
+    <div class="slider__clip">
+      <div class="slider__slides js-slider-main-slides">
+        {{#each product.videos.list}}
+          <!-- <div class="slider__slide visible">
+            
+            <a data-gall="gall1" data-vbtype="video"  data-autoplay="true" class="js-product-gall slider__link slider__link--video" href="https://www.youtube.com/watch?v={{id}}" data-video-id="{{id}}">
+              <img class="lazyload" data-sizes="100%" src="{{cdn 'img/loading.svg'}}"
+              data-src="//i.ytimg.com/vi/{{id}}/sddefault.jpg" />
+              
+              <i></i>
+            </a>
+          </div> -->
+        {{/each}}
+          
+        {{#each product.images}}
+          <div class="slider__slide slider__slide--filterable {{this.alt}}">
+              <div class="badge-topleft"></div><!-- /.badge-top-left -->
+              <div class="badge-topright"></div><!-- /.badge-top-right -->
+              <div class="badge-bottomright"></div><!-- /.badge-bottom-right -->
+              <div class="badge-bottomleft"></div><!-- /.badge-bottom-left -->
+
+			  <div class="badge-discount js-product-discount" data-text="">
+				<span></span>
+			  </div><!-- /.badge-discount -->
+
+              <figure>
+                <a data-gall="gall1" class="js-product-gall slider__link slider__link--image" data-fancybox="product-gallery" href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}" {{#if
+                  schema}} itemprop="image" {{/if}}>
+                  {{> components/common/responsive-img
+                  image=this
+                  fallback_size=../theme_settings.zoom_size
+                  lazyload=../theme_settings.lazyload_mode
+                  default_image=../theme_settings.default_image_product
+                  lqip_size="auto"
+                  }}
+                </a>
+              </figure>
+          </div><!-- /.slider__slide-->
+        {{/each}}
+      </div><!-- /.slider__slides -->
+    </div><!-- /.slider__clip -->
+  </div><!-- /.slider__main -->
+
+  <div class="slider__thumbs js-slider-thumbs">
+    <div class="slider__clip">
+      <div class="slider__slides js-slider-thumbs-slides">
+       
+      </div><!-- /.slider__slides -->
+    </div><!-- /.slider__clip -->
+  </div><!-- /.slider__thumbs -->
+</div><!-- /.slider js-slider -->
+

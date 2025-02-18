@@ -1,0 +1,11 @@
+@import "clear-sans";
+@import "pp-neue-montreal";
+
+$fonts: $fontFamily-sans $fontFamily-serif $fontFamily-mono $fontFamily-headings $fontFamily-hero;
+
+@if contains($fonts, "'Clear Sans', sans-serif") {
+    @include clear-sans;
+}
+@if contains($fonts, "'PP Neue Montreal'") {
+  @include pp-neue-montreal;
+}

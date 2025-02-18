@@ -1,0 +1,76 @@
+// =============================================================================
+// PRODUCT VIEW (CSS)
+// =============================================================================
+
+
+// Product view layout
+// -----------------------------------------------------------------------------
+
+.productView {
+  @include grid-row($behavior: "nest");
+  margin: 0;
+  .modal & {
+      padding-bottom: 0;
+      padding-top: 0;
+  }
+  .payment-custom-block {
+      border-top: none;
+      border-bottom: none;
+      margin-top: 0;
+      padding-top: 10px;
+  }
+}
+
+.productView--quickView {
+  .socialLinks-item--print {
+      display: none;
+  }
+}
+
+.productView-images {
+  @include grid-column(12);
+  padding-right: 0;
+  padding-left: 0;
+  @media (min-width: 992px) {
+      width: grid-calc(6, $total-columns);
+      padding-right: remCalc(15px);
+  }
+}
+.productView-details-wrap {
+  @include grid-column(12);
+  padding-left: 0;
+  padding-right: 0;
+
+  @media (min-width: 992px) {
+      clear: right;
+      float: right;
+      width: grid-calc(6, $total-columns);
+      padding-left: remCalc(15px);
+  }
+}
+.productView-details {
+  width: 100%;
+  @media (min-width: 992px) {
+      max-width: 670px;
+      margin: 0 auto;
+  }
+}
+
+.productView-description {
+  width: 100%;
+  display: inline-block;
+  .productView-title {
+      border-bottom: container("border");
+      margin-bottom: spacing("base");
+      padding-left: spacing("base");
+      padding-right: spacing("base");
+  }
+
+  .productView-description {
+      @include breakpoint("medium") {
+          clear: both;
+          float: none;
+          width: 100%;
+      }
+  }
+}

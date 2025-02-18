@@ -1,0 +1,30 @@
+<a class="close-sidebar" href="javascript:void(0)" title="close">{{lang 'common.sidebar_shop_by'}} <span class="icon-close">&times;</span></a>
+<nav>
+    {{> components/themevale/sidebar/side-all-categories}}
+    {{#if brand.faceted_search_enabled}}
+        {{> components/faceted-search/index brand}}
+    {{else}}
+        {{#if shop_by_brand}}
+        <div id="sideShopByBrands" class="sidebarBlock sidebarBorder">
+            <h5 class="sidebarBlock-heading">{{lang 'brand.label'}}</h5>
+            <ul class="navList">
+                {{#each shop_by_brand}}
+                    <li class="navList-item">
+                        <a class="navList-action" href="{{url}}">{{name}}</a>
+                    </li>
+                {{/each}}
+                <li class="navList-item">
+                    <a class="navList-action" href="{{urls.brands}}">{{lang 'common.view_all'}}</a>
+                </li>
+            </ul>
+        </div>
+        {{/if}}
+    {{/if}}
+    {{#if theme_settings.show_sidebar_image}}
+        {{> components/themevale/sidebar/side-custom-image}}
+    {{/if}}
+
+    {{#if theme_settings.show_sidebar_custom_block}}
+        {{> components/themevale/sidebar/side-custom-content}}
+    {{/if}}
+</nav>

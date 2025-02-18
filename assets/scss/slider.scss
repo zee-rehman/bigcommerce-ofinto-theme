@@ -1,0 +1,254 @@
+// ------------------------------------------------------------
+//	Slider
+// ------------------------------------------------------------
+
+.slider {
+  padding-inline: 10%;
+  display: none;
+
+  .slick-next {
+    right: -55px;
+
+    @media (max-width: 551px) {
+      right: -45px;  
+    }
+  }
+
+  .slick-prev {
+    left: -55px;
+
+    @media (max-width: 551px) {
+      left: -45px;
+    }
+  }
+
+  figure {
+    margin: 0;
+
+    img {
+      aspect-ratio: 1/1;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.slider__link {
+  position: relative;
+  display: block;
+
+  i {
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid;
+    border-width: 18px 0 18px 32px;
+    border-color: transparent #fff;
+  }
+
+}
+
+.slider__link--image {
+  img {
+    object-fit: cover;
+  }
+}
+
+.slider__link--video {
+  img {
+    background: #000;
+    object-fit: contain;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: rgba(0, 0, 0, .2);
+  }
+}
+
+.slider__slide {
+  .badge-topleft,
+  .badge-topright,
+  .badge-bottomright,
+  .badge-bottomleft {
+    position: absolute;
+    max-width: 22%;
+    z-index: 5;
+    pointer-events: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .badge-topleft {
+    top: 20px;
+    left: 20px;
+  }
+
+  .badge-topright {
+    top: 20px;
+    right: 20px;
+  }
+
+  .badge-bottomright {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .badge-bottomleft {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .badge-discount {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	z-index: 5;
+	padding: 6px;
+	border-radius: 4px;
+	background: rgba(235, 110, 56, 1);
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	display: none;
+
+	&.is-active {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+  }
+}
+
+.slider__main {
+  &:not(:last-child){
+    margin-bottom: 20px;
+  }
+  
+  .slider__slide {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  a[data-vbtype="video"] {
+	&:before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, .2);
+		pointer-events: none;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 52%;
+		transform: translate(-50%, -50%);
+		mask-image: url("data:image/svg+xml,%3Csvg width='14' height='16' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.1172 7.88264L0.0583642 15.4222L0.0583648 0.343124L13.1172 7.88264Z' fill='white'/%3E%3C/svg%3E%0A");
+		mask-repeat: no-repeat;
+		mask-size: 100% 100%;
+		width: 58px;
+		height: 60px;
+		background-color: #fff;
+		pointer-events: none;
+	}
+  }
+}
+
+.slider__thumbs {
+  padding-inline: 20px;
+
+  a {
+    pointer-events: none;
+  }
+
+  i {
+    display: none;
+  }
+
+  .slider__slide {
+    position: relative;
+    border: 2px solid #EEEEEE;
+    border-radius: 4px;
+    user-select: none;
+    margin-inline: 6px;
+    overflow: hidden;
+
+	&.slick-current {
+		border: 2px solid map-get($colors, orange-800-main);
+	}
+
+    [class^=badge] {
+      display: none;
+    }
+  }
+
+  a[data-vbtype="video"] {
+	&:before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, .2);
+		pointer-events: none;
+	}
+	
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 52%;
+		transform: translate(-50%, -50%);
+		mask-image: url("data:image/svg+xml,%3Csvg width='14' height='16' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.1172 7.88264L0.0583642 15.4222L0.0583648 0.343124L13.1172 7.88264Z' fill='white'/%3E%3C/svg%3E%0A");
+		mask-repeat: no-repeat;
+		mask-size: 100% 100%;
+		width: 14px;
+		height: 16px;
+		background-color: #fff;
+		pointer-events: none;
+	}
+  }
+}
+
+// Popup Fancybox
+
+.popup-product-gallery {
+	.fancybox-infobar, 
+	.fancybox-toolbar, 
+	.fancybox-stage, 
+	.fancybox-caption, 
+	.fancybox-progress {
+		max-width: 1600px;
+	}
+
+	.fancybox-toolbar {
+		top: 0;
+		right: 20px;
+
+		@media screen and (max-width: 991px) {
+			right: 10px;
+		}
+	}
+
+	.fancybox-navigation .fancybox-button {
+		@media screen and (max-width: 991px) {
+			width: 40px;
+			height: 40px;
+		}
+	}
+}

@@ -1,0 +1,43 @@
+// =============================================================================
+// TAGS (CSS)
+// =============================================================================
+//
+// 1. Set to 0 so that the tags can be centred with an unknown width.
+//
+// -----------------------------------------------------------------------------
+
+.tags {
+    @include u-listBullets("none");
+    font-size: 0; // 1
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+    font-size: $tag-fontSize;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    a {
+        color: $tag-color;
+        display: inline-block;
+        padding: $tag-padding;
+        text-decoration: $tag-textDecoration;
+        border: 1px solid stencilColor('input-border-color');
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -ms-border-radius: 20px;
+        border-radius: 20px;
+        padding: 4px 18px;
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: $tag-color-hover;
+            border-color: $tag-color-hover;
+        }
+    }
+    &.active {
+        a {
+            color: $tag-color-hover;
+            border-color: $tag-color-hover;
+        }
+    }
+}

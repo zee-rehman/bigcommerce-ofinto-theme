@@ -1,0 +1,3 @@
+{
+  "components/themevale/sidebar/side-shop-by-brand": "{{#if theme_settings.shop_by_brand_visibility}}\r\n    <div class=\"sidebarBlock sidebarBorder\" id=\"sideShopByBrands\">\r\n        <h5 class=\"sidebarBlock-heading\"><span>{{lang 'brand.label'}}</span></h5>\r\n        <ul class=\"navList\">\r\n            {{#each shop_by_brand}}\r\n                <li class=\"navList-item\">\r\n                    <a class=\"navList-action\" href=\"{{url}}\">{{name}}</a>\r\n                </li>\r\n            {{/each}}\r\n            <li class=\"navList-item view_all\">\r\n                <a class=\"navList-action\" href=\"{{urls.brands}}\"><span>{{lang 'common.view_all'}}</span></a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n{{/if}}\n"
+}

@@ -1,0 +1,7 @@
+<section class="productCarousel productGrid--maxCol{{ columns }}" data-list-name="{{list}}">
+    {{#each products}}
+    <div class="productCarousel-slide">
+        {{> components/products/card show_rating=../settings.show_product_rating productsnew=../products show_wishlist=../settings.show_wishlist settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</section>

@@ -1,0 +1,537 @@
+// =============================================================================
+// SIDEBAR BLOCKS (CSS)
+// =============================================================================
+
+
+// Block
+// -----------------------------------------------------------------------------
+
+.sidebarBorder {
+	border-top: 1px solid #e8e8e8;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.sidebarBlock-heading {
+    margin-top: 0;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+    width: 100%;
+}
+
+#sideAllCategories {
+	.sidebarBlock-heading {
+		margin-bottom: 10px;
+	}
+	+ .navFacetedSearch {
+		padding-top: 30px;
+		margin-top: 25px;
+		border-top: 1px solid #e8e8e8;
+	}
+	+ #sideBannerImage {
+		margin-top: 30px;
+	}
+}
+
+.all-categories-list {
+	margin: 0;
+	list-style: none;
+
+	& li {
+		margin-bottom: 0px;
+		padding: 4px 0;
+		&:last-child {
+			padding-bottom: 0px;
+		}
+	}
+	.navPages-item {
+		float: none;
+		display: block;
+		position: relative;	
+		margin-bottom: 0;
+		a {
+			padding: 0 15px 0 0;
+			font-size: 13px;
+			vertical-align: top;
+			display: inline-block;
+			color: stencilColor('color-textHeading');
+			letter-spacing: .02em;
+			line-height: 28px;
+			font-family: stencilFontFamily("headings-font"), sans-serif;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 14px;
+			letter-spacing: .02em;
+			position: relative;
+			z-index: 2;
+			&:hover {
+				color: stencilColor('color-textLinkSecondary');
+				> span {
+					background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textLinkSecondary'),.7) 4%);
+					background-repeat: repeat-x;
+					background-position-y: -1px;
+				}
+			}
+		}
+		.icon-dropdown {
+			float: right;
+			width: 100%;
+			height: 30px;
+			display: -ms-flexbox;
+		    display: -webkit-flex;
+		    display: flex;
+		    -ms-flex-align: center;
+		    -webkit-align-items: center;
+		    align-items: center;
+		    -ms-flex-pack: flex-end;
+		    -webkit-justify-content: flex-end;
+		    justify-content: flex-end;
+		    cursor: pointer;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 1;
+			svg {
+				width: 12px;
+				height: 12px;
+				fill: stencilColor('color-primaryLight');
+				margin-right: -2px;
+			}
+		}
+		> .icon-dropdown {
+			margin-right: -10px;
+			&.is-clicked {
+				svg {
+					-moz-transform: rotate(90deg);
+					-ms-transform: rotate(90deg);
+					-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+					margin-right: 0px;
+				}
+			}
+		}
+		&.current-cat {
+			& > a {
+				font-weight: 600;
+				color: stencilColor('color-textLinkSecondary');
+				> span {
+					background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textLinkSecondary'),.7) 4%);
+					background-repeat: repeat-x;
+					background-position-y: -1px;
+				}
+			}
+			> .icon-dropdown {
+				&.is-clicked {
+					svg {
+						-moz-transform: rotate(90deg);
+						-ms-transform: rotate(90deg);
+						-webkit-transform: rotate(90deg);
+						transform: rotate(90deg);
+						margin-right: 0px;
+					}
+				}
+			}
+			&.open {
+				> .icon-dropdown {
+					svg {
+						-moz-transform: rotate(90deg);
+						-ms-transform: rotate(90deg);
+						-webkit-transform: rotate(90deg);
+						transform: rotate(90deg);
+						margin-right: 0px;
+					}
+				}
+			}
+		}
+		&.open {
+			padding-bottom: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		&.is-clicked, .current-cat {
+			& > a {
+				font-weight: 600;
+			}
+		}
+	}
+	.dropdown-category-list {
+		margin: 4px 0 0 0;
+		display: none;
+		list-style: none;
+		overflow: hidden;
+		width: 100%;
+		&.cat-expanded {
+			display: block;
+			.icon-dropdown {
+				&.is-clicked {
+					svg {
+						-moz-transform: rotate(90deg);
+						-ms-transform: rotate(90deg);
+						-webkit-transform: rotate(90deg);
+						transform: rotate(90deg);
+						margin-right: 0px;
+					}
+				}
+			}
+		}
+		.icon-dropdown {
+			margin-right: -10px;
+		}
+		.navPage-subMenu-item {
+			width: 100%;
+			display: block;
+			position: relative;
+			padding: 4px 0;
+			&:last-child {
+				padding-bottom: 0px;
+			}
+			&.current-cat {
+				> a {
+					color: stencilColor('color-textLinkSecondary');
+					> span {
+						background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textLinkSecondary'),.7) 4%);
+						background-repeat: repeat-x;
+						background-position-y: -1px;
+					}
+				}
+				> .icon-dropdown {
+					&.is-clicked {
+						svg {
+							-moz-transform: rotate(90deg);
+							-ms-transform: rotate(90deg);
+							-webkit-transform: rotate(90deg);
+							transform: rotate(90deg);
+							margin-right: 0px;
+						}
+					}
+				}
+			}
+			&.open {
+				>.icon-dropdown {
+					&.is-clicked {
+						svg {
+							-moz-transform: rotate(90deg);
+							-ms-transform: rotate(90deg);
+							-webkit-transform: rotate(90deg);
+							transform: rotate(90deg);
+							margin-right: 0px;
+						}
+					}
+				}
+			}
+			a {
+				padding-left: 15px;
+				padding-right: 15px;
+				-webkit-transition: padding-left 0.3s linear;
+				-moz-transition: padding-left 0.3s linear;
+				-ms-transition: padding-left 0.3s linear;
+				-o-transition: padding-left 0.3s linear;
+			}
+			.dropdown-category-list {
+				margin-top: 4px;
+				& .navPage-childList-item {
+					& a {
+						padding-left: 25px;
+						position: relative;
+						font-family: $body-font-family;
+						font-size: 13px;
+						font-weight: 400;
+						text-transform: none;
+						letter-spacing: 0;
+						color: stencilColor('color-textBase');
+						&:hover {
+							> span {
+								background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textBase'),.7) 4%);
+								background-repeat: repeat-x;
+								background-position-y: 0px;
+								padding-bottom: 1px;
+							}
+						}
+					}
+					&.current-cat {
+						a {
+							color: stencilColor('color-textLinkSecondary');
+							> span {
+								background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textLinkSecondary'),.7) 4%);
+								background-repeat: repeat-x;
+								background-position-y: 0px;
+								padding-bottom: 1px;
+							}
+						}
+					}
+					&.open {
+						>.icon-dropdown {
+							&.is-clicked {
+								svg {
+									-moz-transform: rotate(90deg);
+									-ms-transform: rotate(90deg);
+									-webkit-transform: rotate(90deg);
+									transform: rotate(90deg);
+									margin-right: 0px;
+								}
+							}
+						}
+					}
+				}
+			}
+			.navPages-level-4 {
+				.navPage-childList-item {
+					a {
+						padding-left: 35px;
+						&:hover {
+							padding-left: 50px;
+							&:before {
+								left: 35px;
+							}
+						}
+					}
+				}
+			}
+			.navPages-level-5 {
+				.navPage-childList-item {
+					a {
+						padding-left: 45px;
+						&:hover {
+							padding-left: 60px;
+							&:before {
+								left: 45px;
+							}
+						}
+					}
+				}
+			}
+			.navPage-subMenu-action {
+				margin: 0;
+				width: auto;
+				border: none;
+			}
+		}
+	}
+}
+
+.navList {
+	margin-bottom: 0px;
+	li {
+		padding: 6px 0;
+		&:first-child {
+			padding-top: 0;
+		}
+	}
+}
+
+#sideShopByPrice {
+	.navList {
+		margin-top: 5px;
+	}
+	.navList-action  {
+		letter-spacing: 0;
+	}
+}
+#sideShopByBrands {
+	.navList-item {
+		&.view_all {
+			padding-top: 11px;
+			padding-bottom: 9px;
+			a {
+				color: stencilColor('color-textLinkSecondary');
+				> span {
+					background-image: linear-gradient(transparent 96%, rgba(stencilColor('color-textLinkSecondary'),.7) 4%);
+					background-repeat: repeat-x;
+					background-position-y: 0px;
+					padding-bottom: 1px;
+				}
+			}
+		}
+	}
+	+ #sideBannerImage {
+		margin-top: 30px;
+	}
+}
+
+#sideFeatured, #sideNew {
+	margin-bottom: 40px;
+
+	.productCarousel {
+        margin: 12px 0 5px 0;
+        	.productCarousel-slide {
+        		width: 100%;
+        	}
+            .slick-slide {
+                display: block;
+                > div {
+                	&:last-child {
+                		.productCarousel-slide {
+                			.card {
+                				margin-bottom: 27px;
+                			}
+                		}
+                	}
+                }
+            }
+            .card {
+                font-size: 0;
+                margin-bottom: 44px;
+                -ms-flex-direction: row;
+				flex-direction: row;
+            }
+            .card-figcaption-top, .card-figcaption, .product-badge {
+            	display: none;
+            }
+            .card-figure {
+                width: 70px !important;
+                display: inline-block;
+            }
+            .card-body {
+                padding-top: 0;
+                display: inline-block;
+                width: calc(100% - 70px);
+                vertical-align: top;
+                padding-left: 20px;
+                margin-top: -4px;
+                .card-title {
+                	> a {
+                		width: 100%;
+                		padding-right: 0px;
+                	}
+                	.color-name {
+                		position: relative;
+                		top: auto;
+                		right: auto;
+                		margin-top: 4px;
+                		margin-bottom: 0px;
+                		display: inline-block;
+                		max-width: 100%;
+                	}
+                }
+                .card-price {
+                    margin-bottom: 9px;
+                    .price-section--saving {
+                        display: none !important;
+                    }
+                }
+                .card-figcaption-button {
+                    max-width: 122px;
+                    margin-top: 15px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+
+        .slick-arrow {
+            bottom: -25px;
+            top: auto;
+
+            &.slick-next {
+                right: -5px;
+                &:before {
+                    background-image: $slick-arrow-tab-next;
+                }
+            }
+            &.slick-prev {
+                left: -5px;
+                &:before {
+                    background-image: $slick-arrow-tab-prev;
+                }
+            }
+        }
+        .slick-dots {
+            li {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+#blog-tags {
+	.tags {
+		margin: 0;
+		text-align: left;
+	}
+}
+
+#sideBannerImage {
+	margin-top: 15px;
+	display: inline-block;
+	width: 100%;
+	.side-cms-content {
+		text-align: center;
+		.cms-image {
+			display: block;
+			+ .cms-image {
+				margin-top: 30px;
+			}
+		}
+		
+	}
+}
+
+#sideCustomCMS {
+	margin-top: 32px;
+	margin-bottom: 40px;
+	.side-cms-content {
+		p {
+			margin-bottom: 30px;
+			font-size: $body-fontSize;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+#advertisement-content {
+	margin-top: -4px;
+	.recentPosts_List {
+		.item {
+			padding: 13px 0;
+			&:first-child {
+				padding-top: 7px;
+			}
+			&:last-child {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+			.title {
+				font-size: 14px;
+				text-transform: uppercase;
+				font-weight: 600;
+				margin-bottom: 6px;
+				> a {
+					color: stencilColor('color-textSecondary');
+				}
+			}
+			.date {
+				color: stencilColor('color-primaryLight');
+				font-size: 13px;
+			}
+		}
+	}
+}
+
+.recentPost-sidebar {
+	.title {
+		margin-top: 0;
+		font-size: $body-fontSize;
+		text-transform: capitalize;
+		&:hover {
+			a {
+				background-image: linear-gradient(transparent 97%, stencilColor('color-textHeading') 3%);
+				background-repeat: repeat-x;
+				background-position-y: -1px;
+			}
+		}
+	}
+}
+
+.page-type-blog {
+	#sideBannerImage, #sideCustomCMS {
+		border-top: 1px solid #e8e8e8;
+	    margin-top: 35px;
+	    padding-top: 40px;
+	}
+}

@@ -1,0 +1,229 @@
+<article class="card {{#if alternate}}card--alternate{{/if}}" data-product-id="{{id}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"{{/if}}>
+	<figure class="card-figure">
+        <div class="card-figcaption-top" data-product-id="{{id}}">
+            {{#if show_wishlist}}
+                <a href="/wishlist.php?action=add&product_id={{id}}" class="wishlist icon">
+                    <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+                    <span class="text">{{lang 'account.wishlists.add_item'}}</span>
+                </a>
+            {{/if}}
+
+            {{#unless hide_product_quick_view}}
+                {{#if theme_settings.show_product_quick_view}}
+                    {{#if true}}
+                        <a class="quickview icon" data-event-type="product-click" data-product-id="{{id}}">
+                            <svg class="icon"><use xlink:href="#icon-quickview"></use></svg>
+                            <span class="text">{{lang 'products.quick_view'}}</span>
+                        </a>
+                    {{else}}
+                        <a class="quickview icon" data-product-id="{{id}}">
+                            <svg class="icon"><use xlink:href="#icon-quickview"></use></svg>
+                            <span class="text">{{lang 'products.quick_view'}}</span>
+                        </a>
+                    {{/if}}
+                {{/if}}
+            {{/unless}}
+            {{#if show_compare}}
+                <label class="compare icon" for="compare-{{id}}">
+                    <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
+                    <svg class="icon"><use xlink:href="#icon-compare"></use></svg>
+                    <span class="text">{{lang 'products.compare'}}</span>
+                    <span class="text selected">{{lang 'products.compare_selected'}}</span>
+                </label>
+            {{/if}}
+        </div>
+        {{#each custom_fields}}
+            {{#if name '===' 'count-down'}}
+                <div class="countDowntimer product-count-down" data-count-down="{{{value}}}"></div>
+            {{/if}}
+        {{/each}}
+        
+        {{#if theme_settings.show_new_badges}}
+            {{#each productsnew}}
+                {{#if id '==' ../id}}
+                    <div class="product-badge new-badge">
+                        <span class="text">{{lang 'themevale.new'}}</span>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+        {{#if theme_settings.show_sale_badges}}
+            {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+                <div class="product-badge sale-badge">
+                    {{#if price.non_sale_price_with_tax}}
+                        <span class="text">-{{round (subtract 100 (multiply (divide price.with_tax.value price.non_sale_price_with_tax.value) 100)) 0}}%</span>
+                    {{/if}}
+                    {{#if price.non_sale_price_without_tax}}
+                        <span class="text">-{{round (subtract 100 (multiply (divide price.without_tax.value price.non_sale_price_without_tax.value) 100)) 0}}%</span>
+                    {{/if}}
+                </div>
+            {{/or}}
+        {{/if}}
+        {{#if theme_settings.show_soldout_badges}}
+            {{#if out_of_stock_message}}
+                <div class="product-badge soldout-badge">
+                    <span class="text">{{lang 'themevale.sold_out'}}</span>
+                </div>
+            {{/if}}
+        {{/if}}
+
+        {{#if theme_settings.show_custom_badges}}
+            {{#each custom_fields}}
+                {{#if name '===' 'custom-label'}}
+                    <div class="custom-badge product-badge">
+                        <span class="text">{{{value}}}</span>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+
+        <a href="{{url}}" {{#if true}} data-event-type="product-click" {{/if}}>
+            <div class="card-img-container{{#if images.length '>=' 2}} card-img-hover{{/if}}">
+                {{> components/common/responsive-img
+                    image=image
+                    class="card-image"
+                    fallback_size=theme_settings.productgallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+                {{#if images.length '>=' 2}}
+                    {{#each images}}
+                        {{#if @index '==' 1}}
+                            <span class="product-additional">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    class="card-image img-responsive"
+                                    fallback_size=theme_settings.productgallery_size
+                                    lazyload=theme_settings.lazyload_mode
+                                    default_image=theme_settings.default_image_product
+                                }}
+                            </span>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </a>
+
+        <figcaption class="card-figcaption">
+            <div class="card-figcaption-body">
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            {{#if theme_settings.themevale_quick_shop}}
+                              {{#if theme_settings.themevale_quick_shop_category_page}}
+                                <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button btn-quickShop" data-product-id="{{id}}"><span>{{lang 'products.quick_shop'}}</span></a>
+                              {{/if}}
+                            {{else}}
+<!--                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a> -->
+                            {{/if}}
+                        {{/if}}
+                        {{#if pre_order}}
+<!--                            <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a> -->
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                            <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button themevale_btnATC" data-product-id="{{id}}">{{lang 'products.add_to_cart'}}</a>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+                {{/or}}
+            </div>
+        </figcaption>
+        {{#if theme_settings.themevale_quick_shop}}    
+            <div class="quickShopPopup">
+                <div class="themevale_close">
+                    <a href="javascript:void(0)" class="icon-close">&times;</a>
+                </div>
+            </div>
+        {{/if}}
+    </figure>
+    <div class="card-body">
+        {{#if theme_settings.show_brand_product_gallery}}
+            {{#if brand.name}}
+                <p class="card-brand" data-test-info-type="brandName">{{brand.name}}</p>
+            {{/if}}
+        {{/if}}
+        <h4 class="card-title{{#if theme_settings.themevale_color_variant}} has-color-variant{{/if}}">
+            <a {{#if theme_settings.card_title_type '==' 'clamp'}}class="clamp"{{/if}}{{#if theme_settings.card_title_type '==' 'clamp'}} style="-webkit-box-orient: vertical; -webkit-line-clamp: {{theme_settings.card_title_line}};"{{/if}} href="{{url}}" {{#if true}} data-event-type="product-click" {{/if}}>{{name}}</a>
+        </h4>
+        <div class="card-desc">
+<!-- Custom change by JR -->
+            {{#each custom_fields}}
+                {{#if name '===' 'short_description'}}
+                <span style="-webkit-box-orient: vertical;">{{{value}}}</span>
+                {{/if}}
+            {{/each}}
+<!--        {{#if summary}}
+                <p style="-webkit-box-orient: vertical;">{{{ ellipsis summary 180}}}</p>
+            {{/if}} -->
+<!-- End Custom change by JR -->
+        </div>
+        <div class="card-price" data-test-info-type="price">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{> components/products/price price=price}}
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+        {{> components/products/bulk-discount-rates}}
+
+        <!-- Judge.me Reviews -->
+        <div class='jdgm-widget jdgm-preview-badge' data-id='{{id}}'></div>
+        <!-- Judge.me Reviews -->
+        {{#if show_rating}}
+            <p class="card-rating" data-test-info-type="productRating">
+                <span class="rating--small">
+                    {{> components/products/ratings rating=rating}}
+                </span>
+            </p>
+        {{/if}}
+
+        {{#if theme_settings.themevale_color_variant}}
+             <div class="card-option card-option-{{id}} card_optionImage product-option-{{id}}{{#if theme_settings.themevale_quick_shop '==' false}} no-quickShop{{/if}}">
+                <div class="form-field" data-product-attribute="swatch"></div>
+            </div>
+        {{/if}}
+        {{#if theme_settings.themevale_quick_shop}} 
+            <div class="productOptionList product-option-{{id}}">
+            </div>
+        {{/if}}
+    </div>
+    <figcaption class="card-figcaption-list">
+        {{#if theme_settings.themevale_quick_shop}}
+            <div class="form-field form-field--increments">
+            </div>
+        {{/if}}
+        <div class="card-figcaption-body">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{#if show_cart_action}}
+                    {{#if has_options}}
+                    <!-- Custom change by JR -->
+<!--                         [[#if theme_settings.themevale_quick_shop]]
+                            <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button btn-quickShopList data-product-option-{{id}}" data-product-id="{{id}}"><span>{{lang 'products.add_to_cart'}}</span></a>
+                        [[else]] -->
+                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">Produktdetails</a> <!-- {{lang 'products.choose_options'}} -->
+<!--                         [[/if]] -->
+                    <!-- End Custom change by JR -->
+                    {{/if}}
+                    {{#if pre_order}}
+                        <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                    {{/if}}
+                    {{#if add_to_cart_url }}
+                        <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button themevale_btnATC" data-product-id="{{id}}">{{lang 'products.add_to_cart'}}</a>
+                    {{/if}}
+                    {{#if out_of_stock_message }}
+                        <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" disabled data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                    {{/if}}
+                {{/if}}
+            {{/or}}
+        </div>
+        {{#if show_wishlist}}
+            <a href="/wishlist.php?action=add&product_id={{id}}" class="button wishlist">
+                <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+                <span class="text">{{lang 'account.wishlists.add_item'}}</span>
+            </a>
+        {{/if}}
+    </figcaption>
+
+</article>

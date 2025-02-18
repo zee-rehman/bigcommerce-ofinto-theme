@@ -1,0 +1,69 @@
+<article class="card {{#if alternate}}card--alternate{{/if}}" data-product-id="{{id}}" {{#if true}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"{{/if}}>
+    <figure class="card-figure">
+        <a href="{{url}}" {{#if true}} data-event-type="product-click" {{/if}}>
+            <div class="card-img-container{{#if images.length '>=' 2}} card-img-hover{{/if}}">
+                {{> components/common/responsive-img
+                    image=image
+                    class="card-image"
+                    fallback_size=theme_settings.productgallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+                {{#if images.length '>=' 2}}
+                    {{#each images}}
+                        {{#if @index '==' 1}}
+                            <span class="product-additional">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    class="card-image replace-2x img-responsive"
+                                    fallback_size=theme_settings.productgallery_size
+                                    lazyload=theme_settings.lazyload_mode
+                                    default_image=theme_settings.default_image_product
+                                }}
+                            </span>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </a>       
+    </figure>
+    <div class="card-body">
+        {{#if theme_settings.show_brand_product_gallery}}
+            {{#if brand.name}}
+                <p class="card-brand" data-test-info-type="brandName">{{brand.name}}</p>
+            {{/if}}
+        {{/if}}
+        <h4 class="card-title">
+            <a {{#if theme_settings.card_title_type '==' 'clamp'}}class="clamp"{{/if}}{{#if theme_settings.card_title_type '==' 'clamp'}}style="-webkit-box-orient: vertical; -webkit-line-clamp: {{theme_settings.card_title_line}};"{{/if}} href="{{url}}" {{#if true}} data-event-type="product-click" {{/if}}>{{name}}</a>
+        </h4>
+        <div class="card-price" data-test-info-type="price">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{> components/products/price price=price}}
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+        {{#if theme_settings.themevale_color_variant}}
+            <div class="card_optionImage product-option-{{id}}"></div>
+        {{/if}}   
+        <div class="card-figcaption-bottom">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{#if show_cart_action}}
+                    {{#if has_options}}
+                        <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}"><span>{{lang 'products.add'}}</span></a>
+                    {{/if}}
+                    {{#if pre_order}}
+                        <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                    {{/if}}
+                    {{#if add_to_cart_url }}
+                        <a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button"><span>{{lang 'products.add'}}</span></a>
+                    {{/if}}
+                    {{#if out_of_stock_message }}
+                        <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                    {{/if}}
+                {{/if}}
+            {{/or}}
+        </div>
+        {{> components/products/bulk-discount-rates}}
+    </div>
+</article>

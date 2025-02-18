@@ -1,0 +1,42 @@
+// =============================================================================
+// ALERTS
+// =============================================================================
+
+.alertBox {
+    color: stencilColor("alert-color");
+    margin-bottom: remCalc(20px);
+}
+
+.alertBox-icon {
+    .icon {
+        @include square(25px);
+    }
+}
+
+.alertBox--info {
+    color: stencilColor("color-info");
+    background: stencilColor('color-infoLight');
+    svg {
+        fill: stencilColor("color-info");
+    }
+    .alertBox-close {
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        svg {
+            fill: stencilColor("color-info");
+        }
+    }
+}
+
+.alertBox--success {
+    color: stencilColor('color-success');
+}
+
+.alertBox--error {
+    color: stencilColor('color-error');
+}
+
+.alertBox--warning {
+    color: stencilColor('color-warning');
+    background: stencilColor('color-warningLight');
+}

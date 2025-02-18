@@ -1,0 +1,32 @@
+<nav class="navUser">
+    {{> components/common/currency-selector}}
+
+    <div class="navUser-section navUser-section--alt">
+        <div class="navUser-item navUser-item--account">
+            <a class="navUser-action navUser-action--account" href="javascript:void(0)">
+                <svg class="icon"><use xlink:href="#icon-user"/></svg>
+            </a>
+            {{#if page_type '!==' 'login'}}
+                <div class="dropdown-menu account-dropdown" id="accountDropdown">
+                    {{> components/themevale/login-form}}
+                </div>
+            {{/if}}
+
+        </div>
+        <div class="navUser-item navUser-item--cart">
+            <a
+                class="navUser-action"
+                data-cart-preview
+                data-themevale-dropdown
+                data-options="align:right"
+                href="{{urls.cart}}">
+                <svg class="icon"><use xlink:href="#icon-cart"></use></svg>
+                <span class="countPill cart-quantity"></span>
+            </a>
+        </div>
+        <div class="navUser-item navUser-item--quichSearch">
+            {{> components/common/quick-search}}
+        </div>
+        
+    </div>
+</nav>

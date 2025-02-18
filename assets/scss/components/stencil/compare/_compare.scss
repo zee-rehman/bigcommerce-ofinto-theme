@@ -1,0 +1,147 @@
+// =============================================================================
+// COMPARE (CSS)
+// =============================================================================
+
+
+// Compare table layout
+// -----------------------------------------------------------------------------
+//
+// 1. Foundation Magellan plugin.
+//
+// -----------------------------------------------------------------------------
+
+.compareTable {
+    table-layout: fixed;
+    width: 100%;
+    border: container("border");
+    margin-top: 5px;
+    thead {
+        text-align: center;
+    }
+    th {
+        border: container("border");
+    }
+}
+
+.compareTable-row {
+    vertical-align: top;
+    .compareTable-heading,
+    .compareTable-item {
+        border: container("border");
+    }
+    + .compareTable-row {
+        border-top: container("border");
+        // scss-lint:disable NestingDepth
+        
+
+        .compareTable-heading:empty {
+            border-top: 0;
+        }
+    }
+    ul {
+        margin-left: 8px;
+        text-align: left;
+    }
+}
+
+
+// Compare table headings
+// -----------------------------------------------------------------------------
+
+.compareTable-heading {
+    font-family: fontFamily("headingSans");
+    font-size: 14px;
+    font-weight: 600;
+    padding: (spacing("base") + spacing("sixth")) spacing("base");
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    width: 0;
+    color: stencilColor('color-textHeading');
+    @include breakpoint("medium") {
+        width: grid-calc(3, $total-columns);
+    }
+}
+
+.compareTable-headingText {
+    white-space: nowrap;
+}
+
+
+// Compare table item
+// -----------------------------------------------------------------------------
+
+.compareTable-item {
+    padding: (spacing("double") + spacing("sixth")) spacing("base") (spacing("base") + spacing("sixth"));
+
+    @include breakpoint("medium") {
+        padding-top: spacing("base") + spacing("sixth");
+    }
+}
+
+
+// Remove product
+// -----------------------------------------------------------------------------
+
+.compareTable-removeProduct {
+    background-color: stencilColor('color-textSecondary');
+    border-radius: 50%;
+    height: 25px;
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    transition: background-color 0.15s ease;
+    width: 25px;
+
+    .icon {
+        fill: stencilColor('close-button-color');
+        stroke: stencilColor('close-button-color');
+        height: 13px;
+        margin-top: 1px;
+        width: 13px;
+    }
+}
+
+
+// Compare product card
+// -----------------------------------------------------------------------------
+
+.compareTable-product {
+    font-weight: fontWeight("normal");
+    padding: (spacing("single") + spacing("third")) (spacing("base") + spacing("sixth")) (spacing("base") + spacing("sixth"));
+
+    .card {
+        margin-bottom: 0;
+    }
+    .card-figure {
+        overflow: visible;
+    }
+    .card-body {
+        min-height: spacing("single") * 4;
+        padding-top: spacing("base");
+        .price-section {
+            margin-bottom: 12px;
+        }
+        .card-figcaption-button {
+            width: 100%;
+        }
+        .card-title {
+            padding-right: 0;
+        }
+    }
+}
+
+
+// Compare action
+// -----------------------------------------------------------------------------
+
+.compareTable-action {
+    padding: 0 spacing("base") spacing("base");
+
+    .button {
+        display: block;
+        padding-left: spacing("half");
+        padding-right: spacing("half");
+        width: 100%;
+    }
+}

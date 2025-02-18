@@ -1,0 +1,92 @@
+// =============================================================================
+// BUTTONS (CSS)
+// =============================================================================
+
+.button {
+    line-height: 1rem;
+    transition: all 0.15s ease;
+    border-radius: 100px;
+    padding: 13px 15px 11px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: stencilFontFamily("headings-font"), sans-serif;
+    // text-transform: uppercase;
+    letter-spacing: .02em;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0;
+    background: stencilColor('button--default-backgroundColor');
+    color: stencilColor('button--default-color');
+    border-color: stencilColor('button--default-borderColor');
+    text-decoration: none;
+    @include breakpoint("medium") {
+        padding: 13px 25px 11px 25px;
+    }
+    &:hover, &:focus, &:active {
+        background: stencilColor('button--default-backgroundColorHover');
+        color: stencilColor('button--default-colorHover');
+        border-color: stencilColor('button--default-borderColorHover');
+        text-decoration: none;
+    }
+    + .button {
+        margin-left: 0;
+
+        @include breakpoint("medium") {
+            margin-left: spacing("half");
+        }
+    }
+    &.button--large {
+        font-size: 14px;
+        padding: 12px 25px 10px 25px;
+    }
+}
+
+.button--primary {
+    background: stencilColor('button--primary-backgroundColor');
+    color: stencilColor('button--primary-color');
+    border-color: stencilColor('button--primary-border-color');
+    &:hover, &:focus, &:active {
+        background: stencilColor('button--primary-backgroundColorHover');
+        color: stencilColor('button--primary-colorHover');
+        border-color: stencilColor('button--primary-border-colorHover');
+    }
+}
+
+.button--checkout {
+    background: stencilColor('button-checkout-bgColor');
+    color: stencilColor('button-checkout-color');
+    border-color: stencilColor('button-checkout-border-color');
+    &:hover, &:focus, &:active {
+        background: stencilColor('button-checkout-bgColor-hover');
+        color: stencilColor('button-checkout-color-hover');
+        border-color: stencilColor('button-checkout-border-color-hover');
+    }
+}
+
+.button--banner {
+    background: stencilColor('button-banner-bgColor');
+    color: stencilColor('button-banner-color');
+    border-color: stencilColor('button-banner-border-color');
+    &:hover, &:focus, &:active {
+        background: stencilColor('button-banner-bgColor-hover');
+        color: stencilColor('button-banner-color-hover');
+        border-color: stencilColor('button-banner-border-color-hover');
+    }
+}
+
+.button[disabled] {
+    &:hover, &:focus, &:active {
+        background: stencilColor('button--disabled-backgroundColor');
+        color: stencilColor('button--disabled-color');
+        border-color: stencilColor('button--disabled-borderColor');
+    }
+}
+
+
+.button--icon {
+    svg {
+        fill: stencilColor("button--icon-svg-color");
+    }
+}

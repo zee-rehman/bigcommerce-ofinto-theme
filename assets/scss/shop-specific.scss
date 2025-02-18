@@ -1,0 +1,23 @@
+/* product-gallery slick slider fix for too many dots */
+/* hide all with display none, so they don't need space*/
+.slick-dots li {
+  display: none;
+}
+/* only hide the dots 3 positions before and after - with visibility, so we can get an effect when making visible*/
+.slick-dots li.slick-active + li + li + li,
+.slick-dots li:has(+ * + * + .slick-active) {
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+}
+/* show the active dot and 2 before and after */
+.slick-dots li.slick-active,
+.slick-dots li.slick-active + li,
+.slick-dots li:has(+ .slick-active),
+.slick-dots li.slick-active + li + li,
+.slick-dots li:has(+ * + .slick-active) {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+}

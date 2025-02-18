@@ -1,0 +1,158 @@
+// =============================================================================
+// MODAL (CSS)
+// =============================================================================
+
+
+.modal {
+    margin: 0;
+    max-height: 80%;
+    max-width: 95%;
+    min-height: 240px;
+    outline: none;
+    overflow: hidden;
+    padding: 40px 0;
+    left: 50%;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+    background: none;
+    height: auto;
+    z-index: 9999;
+    @include breakpoint("small") {
+        width: 911px;
+    }
+    
+    .loadingOverlay {
+        top: 40px;
+    }
+    &.facetShowMore {
+        z-index: 10002;
+    }
+}
+.modal-background {
+    z-index: 9999;
+    .themevale-open-cart & {
+        z-index: 10003;
+    }
+    .facetShowMore &{
+        z-index: 10002;
+    }
+}
+
+.modal--large {
+    @include breakpoint("large") {
+        width: $modal-width--large;
+    }
+}
+
+.modal-header {
+    padding: 16px 20px 15px 20px;
+    background: #fafafa;
+    border-bottom: none;
+    position: unset;
+    text-align: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    @include breakpoint("medium") {
+        padding: 19px 50px 17px 50px;
+    }
+}
+
+.modal-header-title {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.modal-close {
+    @include square(27px);
+    font-size: 30px;
+    line-height: remCalc($reveal-close-height);
+    padding: 0;
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    text-align: center;
+    text-decoration: none;
+    z-index: zIndex("high");
+    background: stencilColor('close-button-background');
+    color: stencilColor('close-button-color');
+    font-family: $header-font-family;
+    font-weight: 300;
+    text-decoration: none !important;
+    &:hover, &:focus, &:active {
+        color: stencilColor("close-button-color-hover");
+        background: stencilColor('close-button-background-hover');
+        text-decoration: none;
+    }
+    span {
+        @include square(27px);
+        display: inline-block;
+    }
+}
+
+.modal-content {
+    background: stencilColor('body-bg');
+    border-radius: 4px;
+    border: none;
+    position: unset;
+    display: inline-block;
+    width: 100%;
+}
+.modal-body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 25px 15px;
+    @include breakpoint('medium') {
+        scrollbar-color: #323232 #f5f5f5;
+        scrollbar-width: thin !important;
+        &::-webkit-scrollbar {
+          width: 10px;
+          height: 10px;
+          background-color: #f5f5f5;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #323232;
+        }
+    }
+    @include breakpoint("medium") {
+        padding: 50px;
+    }
+}
+
+.modal--alert {
+    background-color: $alert-modal-bgColor;
+    border-radius: $alert-modal-borderRadius;
+    font-family: $alert-font-body;
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+
+    .modal-content {
+        color: $alert-font-bodyColor;
+        font-size: $alert-font-bodySize;
+    }
+
+    .button-container {
+        margin: $alert-button-wrapperMargin;
+
+        .confirm {
+            background-color: $alert-button-bgColor;
+            border-color: $alert-button-borderColor;
+            color: $alert-button-color;
+        }
+
+        .confirm:focus, .confirm:hover {
+            background-color: $alert-button-bgColorHover;
+            border-color: $alert-button-borderColorHover;
+            color: $alert-button-colorHover;
+        }
+
+        .confirm:active {
+            background-color: $alert-button-bgColorActive;
+            border-color: $alert-button-borderColorActive;
+            color: $alert-button-colorActive;
+        }
+    }
+}

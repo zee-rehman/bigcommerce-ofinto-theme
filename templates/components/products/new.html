@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h2 class="page-heading new-products">{{lang 'products.new' }}</h2>
+	{{#if theme_settings.view_all_link_new '!=' ''}}
+		<p class="view-all-wrap"><a class="view-all" href="{{theme_settings.view_all_link_new}}">{{lang 'products.view_all'}}</a></p>
+	{{/if}}
+</div>
+{{#if true}}
+    {{> components/products/carousel products=productsnew list="New Products"}}
+{{else}}
+    {{> components/products/carousel products=productsnew}}
+{{/if}}

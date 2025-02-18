@@ -1,0 +1,347 @@
+// =============================================================================
+// ACCOUNT
+// =============================================================================
+
+
+// Account layouts
+// -----------------------------------------------------------------------------
+
+.account--fixed {
+    @include breakpoint("medium") {
+        margin: 0 auto;
+        width: grid-calc(8, $total-columns);
+    }
+}
+
+.account--fixedSmall {
+    @include breakpoint("medium") {
+        margin: 0 auto;
+        width: grid-calc(6, $total-columns);
+    }
+}
+
+.account--fixedLarge {
+    @include breakpoint("medium") {
+        margin: 0 auto;
+        width: grid-calc(9, $total-columns);
+    }
+}
+
+.account-head {
+    margin-bottom: spacing("double");
+    text-align: center;
+
+    .alertBox {
+        padding-left: spacing("double");
+        padding-right: spacing("double");
+        text-align: left;
+    }
+}
+
+.account-content--fixed {
+
+    @include breakpoint("medium") {
+        width: grid-calc(8, $total-columns);
+    }
+}
+
+.account-content--fixedSmall {
+
+    @media (min-width: 992px) {
+        width: grid-calc(7, $total-columns);
+        display: inline-block;
+        padding-right: 15px;
+    }
+}
+
+.account-sidebar {
+    @include grid-column(12);
+    padding: 0;
+    @media (min-width: 992px) {
+        width: grid-calc(4, $total-columns);
+
+        .account-content--fixedSmall + & {
+            float: right;
+            padding-right: 0;
+            padding-left: 15px;
+        }
+    }
+}
+.page-type-login, .account {
+    h1.page-heading {
+        margin-bottom: 46px;
+      }
+}
+.page {
+    &.forgot-password {
+        .account {
+            .alertBox {
+                .alertBox-column {
+                    display: inline;
+                }
+            }
+        }
+        .forgot-password-form {
+            .form-label {
+                display: inline-block;
+            }
+            .form-input {
+                max-width: 100%;
+                -ms-flex: unset;
+                flex: unset;
+                display: inline-block;
+                width: 100%;
+                @include breakpoint("small") {
+                    width: calc(100% - 225px);
+                    max-width: 400px;
+                    margin-right: 10px;
+                    float: left;
+                }
+            }
+            .form-prefixPostfix {
+                display: inline-block;
+                width: 100%;
+                .form-inlineMessage {
+                    text-align: left;
+                    clear: both;
+                    display: inline-block;
+                }
+                .button {
+                    height: 40px;
+                    display: inline-block;
+                    @include breakpoint("small") {
+                         width: 215px;
+                         float: left;
+                         margin-top: 0;
+                         margin-left: 0;
+                    }
+                }
+            }
+        }   
+    }
+    &.account {
+        .button {
+            @media (min-width: 381px) {
+                min-width: 205px;
+            }
+        }
+        .form-input {
+            max-width: 100%;
+        }
+        .breadcrumbs {
+            @include breakpoint("small") {
+                margin-top: remCalc(100px);
+            }
+        }
+    }
+    &.account-order-all {
+        .account-product-figure {
+            float: left;
+        }
+        .account-orderStatus {
+            text-align: right;
+            position: absolute;
+            right: 0;
+            top: -5px;
+        }
+        .account-product-body {
+            width: calc(100% - 100px);
+            overflow: unset;
+            float: left;
+        }
+    }
+    &.account-return {
+        .account-product-figure {
+            float: left;
+        }
+        .account-orderStatus {
+            text-align: right;
+            position: absolute;
+            right: 0;
+            top: -5px;
+        }
+        .account-product-body {
+            width: calc(100% - 100px);
+            overflow: unset;
+            float: left;
+        }
+    }
+    &.create-account {
+        .form-input {
+            max-width: 100%;
+        }
+        .form-actions {
+            .button {
+                min-width: 255px;
+            }
+        }
+    }
+    &.acount-created {
+        .button {
+            margin-top: 10px;
+        }
+    }
+    &.account-message {
+        .send-message {
+            margin-bottom: 15px;
+        }
+    }
+    &.account-add-wishlist {
+        .navBar--account {
+            margin-bottom: 54px;
+        }
+        .table-actions {
+            .button {
+                min-width: 85px;
+                margin-bottom: 10px;
+                @include breakpoint("small") {
+                    min-width: 100px;
+                }
+            }
+        }
+        
+    }
+    &.account-wishlist-details {
+        .navBar--account {
+            margin-bottom: 54px;
+        }
+        .form {
+            text-align: center;
+            .button {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+        .card {
+            margin-bottom: 15px;
+            .button {
+                min-width: 0;
+            }
+        }
+        .productGrid {
+            li {
+                margin-bottom: 25px;
+                @include breakpoint("medium") {
+                    margin-bottom: 45px;
+                }
+            }
+        }
+    }
+    &.account-recent-items {
+        .pagination-wrapper {
+            display: block !important;
+            text-align: right;
+        }
+    }
+    &.gift-certificate {
+        .navBar--sub {
+            margin-bottom: remCalc(50px);
+        }
+    }
+    &.gift-certificate-purchase {
+        .form-label {
+            &.agree {
+                color: stencilColor('color-textBase');
+                font-weight: 400;
+                +.form-inlineMessage {
+                    margin-top: 5px;
+                }
+            }
+        }
+        .form-inlineMessage {
+            margin-top: 15px;
+        }
+        .form-radio {
+            + .form-label {
+                &::after {
+                    top: 3px;
+                }
+            }
+        }
+        .form-field--error {
+            margin-bottom: 18px;
+        }
+        .form-field-group {
+            background: #fafafa;
+            border: none;
+            padding: 18px;
+            border-radius: 4px;
+            margin-bottom: 0;
+            .form-label {
+                color: stencilColor('color-textBase');
+                margin-bottom: remCalc(9px);
+            }
+        }
+        .form-actions {
+            margin-top: remCalc(12px);
+            @include breakpoint("small") {
+                width: 50%;
+                float: right;
+                padding-left: 15px;
+            }
+            #gift-certificate-preview {
+                width: 100%;
+                @include breakpoint("medium") {
+                    min-width: 0;
+                    width: 185px;
+                    float: left;
+                }
+            }
+            #gift-certificate-submit {
+                width: 100%;
+                margin-left: 0;
+                @include breakpoint("small") {
+                    margin-top: 15px;
+                }
+                @include breakpoint("medium") {
+                    width: calc(100% - 205px);
+                    margin-left: 20px;
+                    margin-top: 0;
+                    float: left;
+                }
+            }
+        }
+    }
+    &.gift-certificate {
+        h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .intro {
+            color: stencilColor('color-textHeading');
+            font-weight: 500;
+        }
+        ol {
+            li {
+                padding: 3px 0;
+            }
+        }
+    }
+    .form-prefixPostfix {
+        .button, .form-input {
+            height: remCalc(40px);
+        }
+        .form-input {
+            @include breakpoint("small") {
+                width: calc(100% - 225px);
+            }
+        }
+        .button {
+            margin-top: 15px;
+            @include breakpoint("small") {
+                margin-top: 0;
+                width: 205px;
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.g-recaptcha {
+    +br {
+        + .form-actions {
+            margin-top: 5px;
+        }
+    }
+}

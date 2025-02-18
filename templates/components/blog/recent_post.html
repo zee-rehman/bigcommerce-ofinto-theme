@@ -1,0 +1,33 @@
+<article class="blog recent-post">
+    <div class="blog-post-figure">
+        {{#if post.thumbnail}}
+            <figure class="blog-thumbnail">
+                <a class="animate-hvr" href="{{post.url}}">
+                    
+                    {{> components/common/responsive-img
+                        image=post.thumbnail
+                        fallback_size=theme_settings.recent_post_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                    }}
+                </a>
+            </figure>
+        {{/if}}
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-header">
+            <h2 class="blog-title">
+                <a href="{{post.url}}">{{post.title}}</a>
+            </h2>
+            <p class="blog-date">{{#if post.author}}{{lang 'blog.posted_by' name=post.author}} on {{/if}}{{post.date_published}}</p>
+        </div>
+        <div class="blog-post">
+            {{{post.summary}}}
+            {{#if post.show_read_more}}
+                &hellip;
+                <br>
+                <a href="{{url}}" class="button button--primary button--large">Read More</a>
+            {{/if}}
+        </div>
+    </div>
+</article>

@@ -1,0 +1,99 @@
+// =============================================================================
+// SWATCH SIZES (CSS)
+// =============================================================================
+
+
+// Swatch Size Changes
+// -----------------------------------------------------------------------------
+
+// do some math
+$value_of_swatch_size : stencilString("swatch_option_size");
+$position_of_x : str-index($value_of_swatch_size, "x");
+$first_value : str-slice($value_of_swatch_size, 0, $position_of_x - 1);
+$second_value : str-slice($value_of_swatch_size, $position_of_x + 1);
+
+[data-product-attribute] .form-option.form-option-swatch {
+    overflow: visible;
+    &.two-colors {
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+
+        .form-option-variant {
+            + .form-option-variant {
+                position: absolute;
+                top: 17px;
+                left: 0;
+                height: 16px;
+                width: 32px;
+                border-bottom-left-radius: 100px;
+                border-bottom-right-radius: 100px;
+                margin-top: 0;
+                display: inline-block;
+            }
+        }
+    }
+    &.three-colors {
+        .form-option-variant {
+            &:nth-child(2) {
+                height: 11px;
+                border-radius: 3px;
+                top: 11px;
+                z-index: 2;
+            }
+            &:last-child {
+                height: 16px;
+                top: 16px;
+            }
+        }
+    }
+}
+
+.form-option-variant--color,
+.form-option-variant--pattern {
+    height: $second_value +"px";
+    width: $first_value +"px";
+}
+
+.form-option-variant--color {
+    border: 1px solid transparent;
+    &.White, &.white {
+        border: 1px solid stencilColor("input-border-color");
+    }
+}
+
+.form-option-expanded {
+    background-color: stencilColor("body-bg");
+    border: 1px solid stencilColor("input-border-color-active");
+    left: calc(100% - 18px);
+    opacity: 0;
+    padding: 3px;
+    position: absolute;
+    top: calc(100% + 5px);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    visibility: hidden;
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.form-option:hover {
+    .form-option-expanded {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        visibility: visible;
+        z-index: 5000;
+    }
+}
+
+.form-option-image {
+    background: {
+    position: 50%;
+    repeat: no-repeat;
+    size: cover;
+    }
+    display: block;
+    height: 100px;
+    width: 100px;
+}

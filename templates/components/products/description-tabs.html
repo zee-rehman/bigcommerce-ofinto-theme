@@ -1,0 +1,102 @@
+<ul class="tabs tab-horizontal" data-tab>
+    <li class="tab is-active">
+        <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+    </li>
+    {{#if theme_settings.show_shipping_tab}}
+        <li class="tab">
+          <a class="tab-title" href="#tab-shipping">{{#if theme_settings.shipping_tab_title '!=' ''}}{{theme_settings.shipping_tab_title}} {{else}}{{lang 'products.shipping_tab'}}{{/if}}</a>
+        </li>
+    {{/if}}
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews_tab}}
+        <li class="tab">
+          <a class="tab-title productView-reviewTabLink" href="#tab-reviews">{{lang 'products.reviews_tab'}}</a>
+        </li>
+    {{/all}} Judge.me change
+    {{#if product.warranty}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
+        </li>
+    {{/if}}
+    {{#if theme_settings.show_custom_tab}}
+        <li class="tab custom_tab">
+          <a class="tab-title" href="#tab-custom">{{#if theme_settings.custom_tab_title '!=' ''}}{{theme_settings.custom_tab_title}}{{else}}{{lang 'products.custom_tab'}}{{/if}}</a>
+        </li>
+    {{/if}}
+</ul>
+<div class="tabs-contents tab-horizontal">
+    <div class="tab-content is-active" id="tab-description">
+      <div class="toggle-title">
+          <a class="toggleLink" href="#tab-description-content" data-collapsible>
+              <span class="title">{{lang 'products.description'}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+      </div>
+      <div class="tab-content-inner is-open" id="tab-description-content">
+        {{{product.description}}}
+        {{#if theme_settings.enable_ask_an_expert}}
+            <div class="themevale_ask">
+              <svg class="icon"><use xlink:href="#icon-ask"></use></svg>
+              {{#if theme_settings.enable_ask_an_expert}}
+                <span class="text">{{theme_settings.ask_an_expert_text}}</span>
+              {{/if}}  
+                <a href="#" data-reveal-id="ask-an-expert">{{theme_settings.ask_an_expert_subject}}</a>
+            </div>
+        {{/if}}
+        
+      </div>
+    </div>
+
+    {{#if theme_settings.show_shipping_tab}}
+      <div class="tab-content" id="tab-shipping">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-shipping-content" data-collapsible>
+              <span class="title">{{#if theme_settings.shipping_tab_title '!=' ''}}{{theme_settings.shipping_tab_title}} {{else}}{{lang 'products.shipping_tab'}}{{/if}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner" id="tab-shipping-content"></div>
+      </div>
+    {{/if}}
+
+    <!-- {{#all settings.show_product_reviews theme_settings.show_product_reviews_tab}} Judge.me change -->
+    {{#if theme_settings.show_product_reviews_tab}} <!-- Judge.me change -->
+      <div class="tab-content" id="tab-reviews">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-reviews-content" data-collapsible>
+              <span class="title">{{lang 'products.reviews_tab'}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner" id="tab-reviews-content">
+          {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        </div>
+      </div>
+    {{/if}} <!-- Judge.me change -->
+    <!-- {{/all}} Judge.me change -->
+
+   {{#if product.warranty}}
+      <div class="tab-content" id="tab-warranty">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-warranty-content" data-collapsible>
+              <span class="title">{{lang 'products.warranty'}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner" id="tab-warranty-content">
+          {{{product.warranty}}}
+        </div>
+      </div>
+   {{/if}}
+
+   {{#if theme_settings.show_custom_tab}}
+      <div class="tab-content" id="tab-custom">
+        <div class="toggle-title">
+          <a class="toggleLink" href="#tab-custom-content" data-collapsible>
+              <span class="title">{{#if theme_settings.custom_tab_title '!=' ''}}{{theme_settings.custom_tab_title}}{{else}}{{lang 'products.custom_tab'}}{{/if}}</span>
+              <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+          </a>
+        </div>
+        <div class="tab-content-inner" id="tab-custom-content"></div>
+      </div>
+    {{/if}}
+</div>

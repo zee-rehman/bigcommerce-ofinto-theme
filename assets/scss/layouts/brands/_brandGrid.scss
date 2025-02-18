@@ -1,0 +1,267 @@
+// =============================================================================
+// BRAND GRID (CSS)
+// =============================================================================
+
+
+// Brand grid view
+// -----------------------------------------------------------------------------
+//
+// 1. Re-set the font-size, as we're reducing it to 0 in the .brandGrid class.
+//
+// -----------------------------------------------------------------------------
+.page-type-brands {
+    .breadcrumbs {
+        @include breakpoint("small") {
+            margin-top: remCalc(105px);
+        }
+    }
+    
+    .pagination {
+        .pagination-info {
+            display: none;
+        }
+        .pagination-list {
+            width: 100%;
+            margin-top: 22px;
+        }
+    }
+}
+
+.brandGrid {
+
+    @include u-listBullets("none");
+    @include grid-row($behavior: "nest");
+    font-size: 0; // 1
+    margin-bottom: spacing("single");
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+   -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 5px -8px 0px -8px;
+    @media (min-width: 1025px) {
+        margin: 5px -15px 0px -15px;
+    }
+    .brand {
+        @include grid-column(6, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+        padding: 0 8px;
+        @include breakpoint("small") {
+            width: grid-calc(3, $total-columns);
+        }
+
+        @include breakpoint("medium") {
+            width: grid-calc(3, $total-columns);
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        @media (min-width: 1200px) {
+            width: 20%;
+        }
+        @media (min-width: 1441px) {
+            width: grid-calc(2, $total-columns);
+        }
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        .card {
+            border-radius: 0;
+            text-align: center;
+            border: 1px solid #eaeaea;
+            margin-bottom: 16px;
+            @include breakpoint("medium") {
+                margin-bottom: 30px;
+            }
+            
+            .card-figure {
+                padding-bottom: 0;
+            }
+            .card-img-container {
+                margin-left: auto;
+                margin-right: auto;
+                position: relative;
+            }
+            .card-title {
+                margin: 0;
+                font-size: 13px;
+                font-weight: 600;
+                line-height: 20px;
+                text-transform: uppercase;
+                font-family: $fontFamily-headings;
+                color: stencilColor('color-textHeading');
+                padding-right: 0;
+                  a {
+                    color: inherit;
+                    display: block;
+                    text-align: center;
+                }
+            }
+            .card-body {
+                padding: 11px 5px 9px 5px;
+                text-align: center;
+                background-color: #fafafa;
+            }
+            @media (min-width: 415px) {
+                .card-title {
+                    font-size: 13px;
+                    line-height: 24px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+/* Brand List A to Z view */
+#azBrandsTable {
+    font-size: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 5px -15px 30px -15px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        border: 1px solid #e6e6e6;
+        border-left: none;
+        a {
+            color: stencilColor('color-textHeading');
+            display: block;
+            height: 40px;
+            font-size: 18px;
+            min-width: 40px;
+            font-weight: 600;
+            line-height: 40px; 
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: stencilFontFamily("headings-font"), sans-serif;
+            &.disable {
+                color: #B3B3B3;
+                pointer-events: none;
+            }
+        }
+        &:first-child {
+            min-width: 70px;
+            border-left: 1px solid #e6e6e6;
+            margin-left: 15px;
+        }
+        &:last-child {
+            margin-right: 15px;
+        }
+        &.is-active {
+            color: stencilColor('color-textLink--hover');
+            background-color: #fafafa;
+            a {
+                color: inherit;
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        margin: 5px 0 40px 0;
+        overflow: visible;
+        li {
+            width: 10%;
+            &:first-child {
+                margin-left: 0px;
+            }
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+#azBrands {
+    &.active-all {
+        column-count: 2;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        .azBrands-group {
+            -moz-page-break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+            -o-column-break-inside: avoid;
+            -ms-column-break-inside: avoid;
+            column-break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        @include breakpoint('small') {
+            column-count: 3;
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+        }
+        @include breakpoint('medium') {
+            column-count: 4;
+            -moz-column-count: 4;
+            -webkit-column-count: 4;
+        }
+    }
+    &:not(.active-all) {
+        .azBrands-group {
+            column-count: 2;
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            @include breakpoint('small') {
+                column-count: 3;
+                -moz-column-count: 3;
+                -webkit-column-count: 3;
+            }
+            @include breakpoint('medium') {
+                column-count: 4;
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+            }
+        }
+    }
+    + .brandList.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.azBrands-group-title {
+    margin: 0 0 10px 0;
+    color: stencilColor('color-textHeading');
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.brandList {
+    margin: 0;
+    list-style: none;
+    .brand {
+        margin-bottom: 5px;
+    }
+}
+
+.brand-name {
+    .title {
+        margin: 0;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        text-transform: capitalize;
+        font-family: $fontFamily-sans;
+        color: stencilColor('color-textBase');
+        a {
+            color: inherit;
+        }
+    }
+}
+
+.azBrands-group {
+    display: none;
+    margin-bottom: 32px;
+    &.is-active {
+        display: block;
+    }
+}

@@ -1,0 +1,120 @@
+// =============================================================================
+// WRITE A REVIEW (CSS)
+// =============================================================================
+#modal-review-form {
+    @include breakpoint("small") {
+        width: 870px;
+    }
+    .modal-body {
+        max-height: 67vh !important;
+        @include breakpoint("small") {
+            max-height: 74vh !important;
+        }
+        
+        @include breakpoint("medium") {
+            max-height: 72vh !important;
+        } 
+    }
+}
+.writeReview-productDetails {
+    float: left;
+    width: 100%;
+    @include breakpoint("small") {
+        width: 50%;
+        padding-right: 15px;
+    }
+    .product-brand {
+        color: stencilColor('card-brand-color');
+        margin-top: 20px;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+        font-family: $body-font-family;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0;
+        +.product-title {
+            margin-top: 0;
+        }
+    }
+
+    .product-title {
+        margin-top: 20px;
+        font-weight: 600;
+        position: relative;
+        padding-right: 90px;
+        .color-name {
+            max-width: 80px;
+            position: absolute;
+            right: 0;
+            top: 1px;
+            font-size: 13px;
+            font-family: $body-font-family;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: capitalize;
+            color: stencilColor('color-textLink');
+        }
+    }
+    .productView-price {
+        margin-bottom: remCalc(20px);
+        .price-section {
+            font-size: 13px;
+            margin-left: 0;
+            &.price-section--saving {
+                display: none !important;
+            }
+        }
+    }
+}
+
+
+.writeReview-form {
+    float: left;
+    width: 100%;
+    @include breakpoint("small") {
+        width: 50%;
+        padding-left: 15px;
+        margin-top: -5px;
+    }
+    #revtext_input {
+        min-height: 80px;
+        @include breakpoint("small") {
+            min-height: 150px;
+        }
+    }
+    .form-field--submit {
+        margin-top: 5px;
+        margin-bottom: 40px;
+        @include breakpoint("medium") {
+            margin-bottom: 70px;
+        }
+        .button {
+            min-width: 190px;
+        }
+    }
+    .g-recaptcha {
+        > div {
+            @media (max-width: 360px) {
+                width: 100% !important;
+                iframe {
+                    width: 100%;
+                }
+            }
+            
+        }
+    }
+}
+
+.writeReview-productImage-container {
+    position: relative;
+
+    img {
+        @include lazy-loaded-img;
+        height: 100%;
+        object-fit: contain;
+        /* Object-fit polyfill */
+        font-family: 'object-fit: contain;';
+    }
+
+    @include lazy-loaded-padding('product_size');
+}

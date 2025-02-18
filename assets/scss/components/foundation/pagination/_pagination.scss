@@ -1,0 +1,139 @@
+// =============================================================================
+// PAGINATION (CSS)
+// =============================================================================
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Centred list via inline-block. Font-size: 0; to remove white-space.
+// 2. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-list {
+    @include clearfix;
+    font-size: 0; // 1
+    margin-bottom: 0;
+    text-align: center;
+
+    .pagination-item { // 2
+        display: inline-block;
+    }
+}
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-item {
+    line-height: 1;
+
+    .pagination-link {
+        text-decoration: none;
+        transition: $pagination-link-transition;
+        color: $pagination-link-color;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: stencilFontFamily("headings-font"), sans-serif;
+        // scss-lint:disable NestingDepth
+
+        &:hover {
+            color: $pagination-link-color-hover; 
+            text-decoration: underline;
+            text-decoration-color: rgba($pagination-link-color-hover,.5);
+            text-underline-offset: 3px;
+        }
+    }
+
+    &.pagination-item--current { // 1
+        margin: $pagination-link-current-margin;
+        a {
+            text-decoration: underline;
+            text-decoration-color: rgba($pagination-link-color-hover,.5);
+            text-underline-offset: 3px;
+            color: $pagination-link-color-hover; 
+        }
+    }
+
+    &.pagination-item--previous, // 1
+    &.pagination-item--next { // 1
+
+        // scss-lint:disable NestingDepth, SelectorDepth
+        > a {
+            text-transform: uppercase;
+            &:hover {
+                .icon > svg {
+                    fill: $pagination-link-color-hover;
+                }
+            }
+        }
+    }
+    &.pagination-item--next  {
+        > a {
+            @media (max-width: 1024px) {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.pagination-item--previous,
+.pagination-item--next {
+    .icon {
+        height: remCalc(11px);
+        width: remCalc(11px);
+        > svg {
+            fill: $pagination-link-color;
+            margin-top: -1px;
+        }
+    }
+}
+
+.pagination-item--previous {
+    .icon {
+        margin-right: remCalc(3px);
+    }
+}
+
+.pagination-item--next {
+    .icon {
+        margin-left: remCalc(3px);
+    }
+}
+
+
+// Simple/small pagination (Next/Previous arrows are the only way to navigate)
+// -----------------------------------------------------------------------------
+
+.pagination-list--small {
+    position: relative;
+
+    .pagination-item {
+        color: $pagination-list--small-color;
+        cursor: inherit;
+        line-height: $pagination-list--small-lineHeight;
+    }
+
+    .pagination-link {
+        padding: $pagination-list--small-link-padding;
+    }
+
+    .pagination-item--previous,
+    .pagination-item--next {
+        position: absolute;
+        top: 0;
+    }
+
+    .pagination-item--previous {
+        left: 0;
+    }
+
+    .pagination-item--next {
+        right: 0;
+    }
+}

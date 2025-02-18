@@ -1,0 +1,3 @@
+{
+  "components/themevale/faqs-need-help": "<div class=\"left-column\">\r\n    <div class=\"need-help-wrapper\">\r\n        <h3 class=\"heading\">Need Help?</h3>\r\n        <div class=\"need-help\">\r\n            <a class=\"chat-link\" href=\"#\" title=\"Message Us\">\r\n                <svg class=\"icon\"><use xlink:href=\"#icon-messenger\"></use></svg>\r\n                <span class=\"link_text\"><span>Message Us</span></span>\r\n            </a>\r\n            <a class=\"contact-link\" href=\"#\" title=\"Contact Us\">\r\n                <svg class=\"icon\"><use xlink:href=\"#icon-email\"></use></svg>\r\n                <span class=\"link_text\"><span>Contact Us</span></span>\r\n            </a>\r\n        </div>\r\n    </div>\r\n</div>\n"
+}

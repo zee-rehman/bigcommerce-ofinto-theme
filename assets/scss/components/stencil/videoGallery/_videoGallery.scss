@@ -1,0 +1,93 @@
+// =============================================================================
+// VIDEO GALLERY
+// =============================================================================
+
+#video-gallery-popup {
+    width: 600px;
+    @include breakpoint('medium') {
+        width: 740px;
+    }
+    .modal-close {
+        @include square(29px);
+        line-height: 27px;
+        right: -6px;
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: stencilColor('close-button-color');
+        }
+    }
+    .modal-body {
+        @include breakpoint('small') {
+            padding: 50px;
+        }
+        @include breakpoint('medium') {
+            max-height: 68vh !important;
+        }
+    }
+}
+.videoGallery-main {
+    @include flex-video-container();
+    margin-bottom: 28px;
+}
+
+.videoGallery-list {
+    @include u-listBullets("none");
+    @include grid-row($behavior: "nest");
+    font-size: 0;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0 0 10px;
+    @include breakpoint('medium') {
+        margin: 0 0 50px 0;
+    }
+}
+
+.videoGallery-item {
+    @include grid-column(12);
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    white-space: normal;
+    width: auto;
+    max-width: 120px;
+    padding: 0 15px 0 0;
+    @include breakpoint("medium") {
+        width: grid-calc(6, $total-columns);
+    }
+    .video-body {
+        display: none;
+    }
+}
+
+.video {
+    @include media;
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.4;
+    text-decoration: none;
+    transition: opacity 100ms ease-out;
+    &:hover,
+    &.is-active {
+        color: color("greys", "darker");
+        opacity: 1;
+    }
+}
+
+.video-figure {
+    margin-right: 0;
+}
+
+.video-title {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-transform: none;
+}
+
+.video-description {
+    font-size: fontSize("base");
+    margin-bottom: 0;
+}

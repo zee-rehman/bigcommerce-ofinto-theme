@@ -1,0 +1,67 @@
+// Slick Carousel
+// -----------------------------------------------------------------------------
+//
+// Purpose: Settings for the vendor carousel, Slick
+//
+// -----------------------------------------------------------------------------
+
+$slick-font-path:               "./fonts/";
+$slick-font-family:             inherit;
+$slick-loader-path:             null;
+$slick-arrow-color:             stencilColor("carousel-arrow-color");
+$slick-arrow-bgColor:           stencilColor("carousel-arrow-bgColor");
+$slick-arrow-borderColor:       stencilColor("carousel-arrow-borderColor");
+$slick-arrow-prev:              url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$slick-arrow-color}, "#", "%23")}' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$slick-arrow-next:              url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$slick-arrow-color}, "#", "%23")}' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+
+$slick-dot-bgColor:             stencilColor("carousel-dot-bgColor");
+$slick-dot-border-color:        stencilColor("carousel-dot-border-color");
+$slick-dot-bgColor-active:      stencilColor("carousel-dot-bgColor-active");
+$slick-dot-border-active:       stencilColor("carousel-dot-border-color-active");
+
+$slick-prev-character:          "";
+$slick-next-character:          "";
+$slick-dot-character:           "";
+$slick-dot-size:                12px;
+$slick-opacity-default:         1;
+$slick-opacity-on-hover:        0.8;
+$slick-opacity-not-active:      0.8;
+
+/* Mega Menu */
+$slick-arrow-megamenu-color:        stencilColor("color-primaryLight");
+$slick-arrow-megamenu-prev:       	url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$slick-arrow-megamenu-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$slick-arrow-megamenu-next:         url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$slick-arrow-megamenu-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+
+
+/* Vertical Carousel */
+$slick-arrow-ver-prev:       	url("data:image/svg+xml;charset=UTF-8,%3csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-up' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' class='svg-inline--fa fa-chevron-up fa-w-14 fa-2x'%3e%3cpath fill='currentColor' d='M4.465 366.475l7.07 7.071c4.686 4.686 12.284 4.686 16.971 0L224 178.053l195.494 195.493c4.686 4.686 12.284 4.686 16.971 0l7.07-7.071c4.686-4.686 4.686-12.284 0-16.97l-211.05-211.051c-4.686-4.686-12.284-4.686-16.971 0L4.465 349.505c-4.687 4.686-4.687 12.284 0 16.97z' class=''%3e%3c/path%3e%3c/svg%3e");
+$slick-arrow-ver-next:         url("data:image/svg+xml;charset=UTF-8,%3csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' class='svg-inline--fa fa-chevron-down fa-w-14 fa-2x'%3e%3cpath fill='currentColor' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z' class=''%3e%3c/path%3e%3c/svg%3e");
+
+/* Shipping Block */
+$slick-arrow-shipping-color:        stencilColor("announcement_bar_color");
+$slick-arrow-shipping-prev:       	url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$slick-arrow-shipping-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$slick-arrow-shipping-next:         url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$slick-arrow-shipping-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+
+/* Home 1*/
+$slick-arrow-heroCarousel-color:		rgba(stencilColor("hero-carousel-arrow-color"),.6);
+$slick-arrow-heroCarousel-bgColor: 		rgba(stencilColor("hero-carousel-arrow-color"),.6);
+$slick-arrow-heroCarousel-prev:       	url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$slick-arrow-heroCarousel-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$slick-arrow-heroCarousel-next:         url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$slick-arrow-heroCarousel-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+
+/* Before You Leave - Carousel */
+$slick-arrow-tab-prev:       	url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='42' viewBox='0 -120 512.008 1024.016' style='enable-background:new 0 20 512.008 1024.016;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath fill='#{str-replace(#{$slick-arrow-color}, "#", "%23")}' d='M480.004,352.004H54.628l68.688-68.688l-22.624-22.624l-96,96c-6.256,6.256-6.256,16.368,0,22.624l96,96l22.624-22.624 l-68.688-68.688h425.376V352.004z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ");
+$slick-arrow-tab-next:          url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='42' viewBox='0 -345 512.008 1024.016' style='enable-background:new 0 0 512.008 1024.016;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath fill='#{str-replace(#{$slick-arrow-color}, "#", "%23")}' d='M507.316,132.692l-96-96l-22.624,22.624l68.688,68.688H32.004v32H457.38l-68.688,68.688l22.624,22.624l96-96 C513.572,149.06,513.572,138.948,507.316,132.692z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+
+/* Product Main Images */
+$slick-arrow-product-color: 				#7b7b7b;
+$slick-arrow-product-prev:              url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$slick-arrow-product-color}, "#", "%23")}' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$slick-arrow-product-next:              url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$slick-arrow-product-color}, "#", "%23")}' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+
+
+// Stencil Additional Settings
+// -----------------------------------------------------------------------------
+//
+// Purpose: Additional settings for the slick plugin
+//
+// -----------------------------------------------------------------------------
+

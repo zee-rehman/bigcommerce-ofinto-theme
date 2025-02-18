@@ -1,0 +1,78 @@
+// =============================================================================
+// FORMS (CSS)
+// =============================================================================
+
+.form-row {
+    margin-left: -15px;
+    margin-right: -15px;
+    .form-field {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+// Select boxes
+// -----------------------------------------------------------------------------
+
+.form-select {
+    appearance: none;
+    background-image: $select-backgroundImage;
+    background-position: $select-backgroundPosition;
+    border-radius: 4px;
+    padding: $select-padding;
+    height: remCalc(40px);
+    background-size: remCalc(18px);
+    &:hover {
+        border-color: $select-hover-borderColor;
+    }
+}
+
+// Form Input
+.form-input {
+    border-radius: 4px;
+    height: remCalc(40px);
+    padding: 7px 15px 5px 15px;
+}
+
+
+// Form labels
+// -----------------------------------------------------------------------------
+
+.form-label {
+    font-weight: 500;
+    font-family: stencilFontFamily("headings-font"), sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    color: stencilColor('color-textHeading');
+    margin-bottom: remCalc(8px);
+    small {
+        float: $opposite-direction;
+        margin-top: $form-label-small-marginTop;
+        font-family: stencilFontFamily("body-font"), sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+        text-transform: none;
+        color: #969696;
+    }
+    .require_2 {
+        color: #e13f3f;
+        float: none;
+        margin-top: 0;
+        font-weight: 600;
+    }
+}
+
+
+// Form labels (inline small text)
+// -----------------------------------------------------------------------------
+
+.form-label--inlineSmall {
+    small {
+        color: #e56464;
+        float: none;
+        font-size: inherit;
+        font-weight: fontWeight("normal");
+        margin-left: remCalc(2px);
+        text-transform: none;
+    }
+}

@@ -1,0 +1,501 @@
+// =============================================================================
+// PRODUCT LIST (CSS)
+// =============================================================================
+
+
+// Product list
+// -----------------------------------------------------------------------------
+
+.productList {
+    @include u-listBullets("none");
+    margin: 10px auto 15px auto;
+    max-width: 1570px;
+    .product {
+        // scss-lint:disable NestingDepth
+        + .product {
+            margin-top: remCalc(10px);
+        }
+        .card {
+            display: inline-block;
+            width: 100%;
+            @media (min-width: 768px) {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-align-items: flex-start;
+                -moz-align-items: flex-start;
+                -ms-align-items: flex-start;
+                align-items: flex-start;
+                -ms-flex-wrap: nowrap;
+                -webkit-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+                -ms-flex-direction: row;
+                flex-direction: row;
+            }
+        }
+        .card-figure {
+            width: 100%;
+            display: inline-block;
+            @media (min-width: 768px) {
+                width: 30%;
+            }
+            @include breakpoint("medium") {
+                width: 370px;
+            }
+            @media (max-width: 767px) {
+                max-width: get-width(stencilString('productgallery_size'));
+                margin-left: auto;
+                margin-right: auto;
+            }    
+            .card-figcaption {
+                display: none;
+            }
+            &.has-popup {
+                 .quickShopPopup {
+                    display: none;
+                 }   
+            }
+        }
+        .card-figcaption-top {
+            > .icon.wishlist {
+                display: none;
+            }
+        }
+        .card-body {
+            width: 100%;
+            display: inline-block;
+            text-align: left;
+            padding-top: 20px;
+            position: relative;
+            @media (min-width: 768px) {
+                 width: 50%;
+                padding-left: 25px;
+                padding-right: 25px;
+                padding-top: 0px;
+            }
+            @media (min-width: 992px) {
+                padding-top: 35px;
+            }
+            @include breakpoint("medium") {
+                padding-left: 70px;
+                padding-right: 35px;
+                padding-top: 65px;
+                width: calc(100% - 685px);
+            }
+            @include breakpoint("large") {
+                padding-right: 70px;
+                width: calc(100% - 710px);
+            }
+            
+            .card-title {
+                margin-bottom: 7px;
+                text-align: left;
+                padding-right: 0;
+                > a {
+                    display: block;
+                }
+                .color-name {
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                    margin-top: 7px;
+                    display: none;
+                    max-width: 100%;
+                }
+            }
+            .card-brand {
+                margin-bottom: 8px;
+            }
+            .productOptionList {
+                display: block;
+                .productView {
+                    padding-top: 2px;
+                }
+                [data-product-option-change2] {
+                    .form-label {
+                        margin-bottom: 8px;
+                        @include breakpoint("medium") {
+                            margin-bottom: 15px;
+                        }
+                    }
+                    .form-field {
+                        margin-bottom: 17px;
+                        @include breakpoint("medium") {
+                            margin-bottom: 25px;
+                        }
+                    }
+                }
+            }
+            .card-price {
+                margin-bottom: 24px;
+                @media (max-width: 1024px) {
+                    text-align: center;
+                    margin-bottom: 18px;
+                }
+                .homepage-layout-2 & {
+                    -ms-flex-pack: flex-start;
+                    -webkit-justify-content: flex-start;
+                    justify-content: flex-start;
+
+                }
+            }
+            .card-rating {
+                margin-bottom: 17px;
+                display: inline-block;
+            }
+            .card-figcaption2 {
+                display: block;
+            }
+            .card-figcaption {
+                opacity: 1;
+            }
+        }
+
+        .card-desc {
+            display: block;
+            margin-bottom: 15px;
+            @include breakpoint("medium") {
+                margin-bottom: 18px;
+            }
+            p {
+                margin-bottom: 0;
+                @media (max-width: 1024px) {
+                    display: -webkit-box;
+                   -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    position: relative;
+                    white-space: normal;
+                    word-wrap: break-word;
+                    -webkit-line-clamp: 2;
+                }
+            }
+        }
+
+        .card-figcaption-list {
+            width: 100%;
+            display: inline-block;
+            margin-top: 0;
+            padding-top: 0;
+            font-size: 0;
+            @media (min-width: 768px) {
+                width: 25%;
+            }
+            @media (min-width: 992px) {
+                padding-top: 35px;
+                padding-left: 25px;
+            }
+            @include breakpoint("medium") {
+                padding-top: 65px;
+                width: 315px;
+                padding-left: 35px;
+            }
+            @include breakpoint("large") {
+                padding-left: 70px;
+                width: 340px;
+            }
+            .form-field--increments {
+                margin-top: 0;
+                @media (max-width: 767px) {
+                    text-align: left;
+                }
+            }
+            .card-figcaption-body {
+                transform: none;
+                width: 100%;
+                margin-top: 20px;
+                .button {
+                    @include breakpoint("small") {
+                        max-width: 270px;
+                    }
+                }
+            }
+            .wishlist {
+                display: block;
+                width: 100%;
+                padding: 12px 25px 10px 25px;
+                margin-top: 20px;
+                float: left;
+                @include breakpoint("small") {
+                    max-width: 270px;
+                }
+                .icon {
+                    width: remCalc(18px);
+                    height: remCalc(18px);
+                    margin-top: -2px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .card_optionSize {
+            display: none;
+            [data-product-attribute] {
+                -ms-flex-pack: flex-start;
+                -webkit-justify-content: flex-start;
+                justify-content: flex-start;
+                padding: 0;
+                margin-left: -8px;
+                @include breakpoint('small') {
+                    margin-left: -12px;
+                }
+            }
+        }
+        .card_optionImage {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: none;
+            [data-product-attribute] {
+                @include breakpoint('small') {
+                    -ms-flex-pack: flex-start;
+                    -webkit-justify-content: flex-start;
+                    justify-content: flex-start;
+                }
+            }
+            &.no-quickShop {
+                display: block;
+            }
+        }
+
+        .quickShopBtn {
+            display: block;
+            position: relative;
+            left: auto;
+            bottom: auto;
+        }
+        
+    }
+}
+
+
+// Product list item
+// -----------------------------------------------------------------------------
+
+.listItem {
+
+    @include breakpoint("small") {
+        @include grid-row($behavior: "nest");
+        display: table;
+    }
+}
+
+.listItem-figure,
+.listItem-body {
+
+    @include breakpoint("small") {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    @include breakpoint("large") {
+        vertical-align: middle;
+    }
+}
+
+// QuickView button
+// -----------------------------------------------------------------------------
+
+.listItem-button {
+    background-color: $card-figcaption-button-background;
+    border-color: $card-figcaption-button-borderColor;
+    color: $card-figcaption-button-color;
+
+    &:hover {
+        background-color: $card-figcaption-button-backgroundHover;
+        border-color: $card-figcaption-button-borderColor;
+        color: $card-figcaption-button-color;
+    }
+}
+
+
+// List figure
+// -----------------------------------------------------------------------------
+
+.listItem-figure {
+    margin: 0 0 spacing("single");
+
+    @include breakpoint("small") {
+        margin-bottom: 0;
+        padding-left: spacing("half");
+        padding-right: spacing("half");
+        width: grid-calc(3, $total-columns);
+    }
+
+    @include breakpoint("large") {
+        position: relative;
+    }
+
+    .listItem-button {
+        margin: spacing("single") 0;
+
+        @include breakpoint("large") {
+            @include verticalPositionMiddle();
+            display: inline-block;
+            margin: 0 0 spacing("single");
+            pointer-events: all;
+            transform-style: preserve-3d;
+        }
+    }
+}
+
+.listItem-figureBody {
+    opacity: 1;
+    text-align: center;
+
+    @include breakpoint("large") {
+        bottom: 0;
+        height: 100%;
+        left: spacing("half");
+        opacity: 0;
+        position: absolute;
+        right: spacing("half");
+        top: 0;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.listItem-image {
+    width: 100%;
+}
+
+.listItem-body {
+
+    @include breakpoint("small") {
+        padding-left: spacing("base") + spacing("sixth");
+        padding-right: spacing("half");
+        width: grid-calc(9, $total-columns);
+    }
+}
+
+
+// List content
+// -----------------------------------------------------------------------------
+
+.listItem-content {
+
+    @include breakpoint("large") {
+        display: table;
+    }
+}
+
+.listItem-details,
+.listItem-actions {
+
+    @include breakpoint("large") {
+        display: table-cell;
+        vertical-align: top;
+    }
+}
+
+
+// List details
+// -----------------------------------------------------------------------------
+
+.listItem-details {
+
+    @include breakpoint("large") {
+        padding-right: spacing("double") * 2;
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.listItem-rating {
+    margin-bottom: spacing("quarter");
+}
+
+.listItem-brand {
+    color: color("greys", "light");
+    font-size: fontSize("base");
+    margin: 0 0 spacing("eighth");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("smaller");
+        margin-bottom: 0;
+    }
+}
+
+.listItem-title {
+    font-size: fontSize("smaller");
+    margin: 0 0 spacing("eighth");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("small");
+    }
+
+    > a {
+        text-decoration: none;
+    }
+}
+
+.listItem-price {
+    margin-bottom: spacing("base");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("small");
+    }
+}
+
+
+// List actions
+// -----------------------------------------------------------------------------
+//
+// 1. Magic number width to align closer to the intended design.
+//
+// -----------------------------------------------------------------------------
+
+.listItem-actions {
+
+    @include breakpoint("large") {
+        vertical-align: middle;
+        width: 22%; // 1
+
+        .button--compare {
+            @include buttonSize("small");
+        }
+    }
+
+    .button {
+        margin-bottom: 0;
+
+        @include breakpoint("large") {
+            width: 100%;
+
+            // scss-lint:disable NestingDepth
+            + .button {
+                margin: spacing("half") 0 0;
+            }
+        }
+    }
+}
+
+
+// Product list when sidebar is present
+// -----------------------------------------------------------------------------
+
+.page-sidebar + .page-content {
+
+    .productList {
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        .listItem-details {
+
+            @include breakpoint("large") {
+                padding-right: spacing("double");
+            }
+        }
+
+        .listItem-actions {
+
+            @include breakpoint("large") {
+                width: 30%;
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+<ul class="themevale_column themevale_column--col{{ columns }}">
+	{{#each blog}}
+		<li class="item">
+			{{> components/blog/recent_post post=this settings=../settings}}
+		</li>
+	{{/each}}
+</ul>

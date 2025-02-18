@@ -1,0 +1,55 @@
+// =============================================================================
+// ACTION BAR (CSS)
+// =============================================================================
+
+
+.actionBar-section {
+    .form-field {
+        background-color: $input-bg-color;
+        overflow: hidden;
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            border-color: stencilColor("input-border-color-active");
+        }
+        // scss-lint:enable NestingDepth
+    }
+
+    .form-label {
+        color: $actionBar-form-label-color;
+        font-size: $actionBar-form-label-fontSize;
+        line-height: $actionBar-form-label-lineHeight;
+        margin-bottom: 0;
+        font-weight: 500;
+        margin-right: 15px;
+
+    }
+
+    .form-input,
+    .form-select {
+        border: 0;
+        padding-left: $actionBar-form-input-padding;
+        width: auto;
+    }
+
+    .form-label,
+    .form-input,
+    .form-select {
+        display: inline-block;
+    }
+
+    .form-select {
+        color: stencilColor("color-textBase");
+        height: $input-small-height - remCalc($input-border-width * 2);
+        padding-left: 0;
+        padding-right: 5px;
+        border-bottom: 1px solid rgba(stencilColor('color-textHeading'), .5);
+        background-position: right center;
+        @media (min-width: 768px) {
+            min-width: 150px;
+        }
+        option {
+            padding: 0;
+        }
+    }
+}

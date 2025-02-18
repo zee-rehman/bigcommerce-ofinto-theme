@@ -1,0 +1,42 @@
+// Global Variables
+$colors: (
+  green-100-bg: #EBF2F0,
+  green-200-bg-copy: #CEE0D7,
+  green-300: #92B2A2,
+  green-800-main: #1D4739,
+  green-900-highlight: #217556,
+  orange-100-bg: #F7F5F0,
+  orange-200-bg-copy: #F5DCD0,
+  orange-300: #F5B99F,
+  orange-800-main: #F08151,
+  orange-900-highlights: #EB6E38,
+  white-100-main: #FFFFFF,
+  grey-100-bg: #EDEDED,
+  grey-200: #DBDBDB,
+  grey-300: #CCCCCC,
+  black-800-main: #0F0F0F
+);
+
+$spacings: (
+  micro-xs: 4px,
+  micro-s: 8px,
+  micro-m: 12px,
+  micro-ml: 16px,
+  micro-l: 20px,
+  micro-xl: 24px,
+  micro-xxl: 32px,
+  micro-big: 40px,
+  macro-xs: 48px,
+  macro-s: 60px,
+  macro-m: 80px,
+  macro-ml: 100px,
+  macro-l: 120px,
+  macro-xl: 140px
+);
+
+$border-radius: (
+  r-l: 20px,
+  r-m: 12px,
+  r-mobile-l: 8px,
+  r-xs: 4px
+);
