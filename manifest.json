@@ -121,6 +121,14 @@
         "name": "page_builder_content"
       }
     ],
+    "pages/search": [
+      {
+        "name": "home_below_menu"
+      },
+      {
+        "name": "search_below_content"
+      }
+    ],
     "pages/product": [
       {
         "name": "home_below_menu"
@@ -130,14 +138,6 @@
       },
       {
         "name": "product_below_content"
-      }
-    ],
-    "pages/search": [
-      {
-        "name": "home_below_menu"
-      },
-      {
-        "name": "search_below_content"
       }
     ],
     "pages/sitemap": [
@@ -329,14 +329,14 @@
   "templates": [
     "layout/amp-iframe",
     "layout/amp",
-    "layout/empty",
     "layout/base",
-    "shop_specific/currency-selector",
+    "layout/empty",
     "shop_specific/currency-selector-mobile",
+    "shop_specific/currency-selector",
     "shop_specific/details-shipping",
     "shop_specific/head-scripts",
-    "shop_specific/navigation-menu",
     "shop_specific/invoice-company-address",
+    "shop_specific/navigation-menu",
     "pages/blog-post",
     "pages/blog",
     "pages/brand",
@@ -349,8 +349,8 @@
     "pages/home",
     "pages/order-confirmation",
     "pages/page",
-    "pages/product",
     "pages/search",
+    "pages/product",
     "pages/sitemap",
     "pages/subscribed",
     "pages/unsubscribe",
@@ -392,18 +392,18 @@
     "pages/custom/page/about",
     "pages/custom/page/faqs",
     "pages/custom/page/lookbook",
-    "components/carousel",
     "components/carousel-content",
-    "components/account/address-list",
+    "components/carousel",
     "components/account/add-wishlist",
+    "components/account/address-list",
     "components/account/edit-account",
     "components/account/messages-form",
     "components/account/messages-list",
-    "components/account/order-contents",
     "components/account/navigation",
+    "components/account/order-contents",
     "components/account/orders-list",
-    "components/account/returns-list",
     "components/account/payment-methods-list",
+    "components/account/returns-list",
     "components/account/wishlist-item-list",
     "components/account/wishlist-list",
     "components/blog/post",
@@ -448,14 +448,6 @@
     "components/cart/totals",
     "components/cart/modals/configure-product",
     "components/cart/modals/gift-wrapping-form",
-    "components/faceted-search/index",
-    "components/faceted-search/selected-facets",
-    "components/faceted-search/show-more-facets",
-    "components/faceted-search/facets/hierarchy-children",
-    "components/faceted-search/facets/multi",
-    "components/faceted-search/facets/hierarchy",
-    "components/faceted-search/facets/range",
-    "components/faceted-search/facets/rating",
     "components/common/alert-error",
     "components/common/alert-generic",
     "components/common/alert-info",
@@ -500,6 +492,14 @@
     "components/common/forms/select",
     "components/common/forms/selectortext",
     "components/common/forms/text",
+    "components/faceted-search/index",
+    "components/faceted-search/selected-facets",
+    "components/faceted-search/show-more-facets",
+    "components/faceted-search/facets/hierarchy-children",
+    "components/faceted-search/facets/hierarchy",
+    "components/faceted-search/facets/multi",
+    "components/faceted-search/facets/range",
+    "components/faceted-search/facets/rating",
     "components/products/add-to-cart",
     "components/products/bulk-discount-rates",
     "components/products/card-category",
@@ -648,8 +648,8 @@
     "components/amp/products/styles",
     "components/amp/products/videos",
     "components/amp/products/options/date",
-    "components/amp/products/options/input-checkbox",
     "components/amp/products/options/input-file",
+    "components/amp/products/options/input-checkbox",
     "components/amp/products/options/input-numbers",
     "components/amp/products/options/input-text",
     "components/amp/products/options/product-list",

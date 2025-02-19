@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="{{ locale_name }}">
 <head>
     <title>{{ head.title }}</title>
     {{{ head.meta_tags }}}
@@ -8,7 +8,7 @@
     <link href="{{ head.favicon }}" rel="shortcut icon">
     {{#block "head"}}{{/block}}
 </head>
-<body>
+<body class="{{dashcase page_type}}{{#if customer}} logedIn_customer{{/if}}">
     {{#block "page"}}{{/block}}
 </body>
 </html>
